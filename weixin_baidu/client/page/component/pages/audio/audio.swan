@@ -1,13 +1,13 @@
 <import src="../../../common/head.swan"></import>
 <import src="../../../common/foot.swan"></import>
 
-<view  Class="container">
+<onekit-view  Class="container">
   <template  is="head" data="{{{title: 'audio'}}}"></template>
 
-  <view  Class="page-body">
-    <view  Class="page-section page-section-gap" Style="text-align: center;">
+  <onekit-view  Class="page-body">
+    <onekit-view  Class="page-section page-section-gap" Style="text-align: center;">
       <onekit-audio  id="myAudio" Style="text-align: left" bindplay="bind_play" src="{{current.src}}" poster="{{current.poster}}" name="{{current.name}}" author="{{current.author}}" action="{{audioAction}}" controls></onekit-audio>
-    </view>
-  </view>
+    </onekit-view>
+  </onekit-view>
   <template  is="foot"></template>
-</view>
+</onekit-view>

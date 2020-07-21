@@ -118,10 +118,10 @@ export default class wx {
     
     static createContext() { return new CanvasContext(); }
     static createCanvasContext(object) { return swan.createCanvasContext(object); }
-    static createVideoContext(videoId,ui) { return new VideoContext(my.createVideoContext(videoId)); }
-    static createInnerAudioContext(audioId,ui) { return new InnerAudioContext(my.createInnerAudioContext(audioId)); }
-    static createLivePlayerContext(livePlayerId,ui) { return new LivePlayerContext(my.createLivePlayerContext(livePlayerId)); }
-    static createCameraContext() { return new CameraContext(my.createCameraContext()); }
+    static createVideoContext(videoId,ui) { return new VideoContext(swan.createVideoContext(videoId)); }
+    static createInnerAudioContext(audioId,ui) { return new InnerAudioContext(swan.createInnerAudioContext(audioId)); }
+    static createLivePlayerContext(livePlayerId,ui) { return new LivePlayerContext(swan.createLivePlayerContext(livePlayerId)); }
+    static createCameraContext() { return new CameraContext(swan.createCameraContext()); }
     static canvasToTempFilePath(object) { return swan.canvasToTempFilePath(object); }
     static canvasPutImageData(object) { return swan.canvasPutImageData(object) };
     static canvasGetImageData(object) { return swan.canvasGetImageData(object) };

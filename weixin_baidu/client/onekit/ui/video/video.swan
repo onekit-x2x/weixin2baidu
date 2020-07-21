@@ -37,6 +37,3 @@ binderror="video_error"
 bindloadedmetadata="video_loadedmetadata"
 
 />
-<cover-view id="cover">
-  <canvas id="canvas"/>
-</cover-view>
