@@ -52,5 +52,5 @@
   <template  is="foot"></template>
 </view> -->
 
-      <wx-editor  id="editor" class="ql-container" placeholder="{{placeholder}}" showImgSize showImgToolbar showImgResize bindstatuschange="onStatusChange" read-only="{{readOnly}}" bindready="onEditorReady">
-      </wx-editor>
+      <onekit-editor  id="editor" class="ql-container" placeholder="{{placeholder}}" showImgSize showImgToolbar showImgResize bindstatuschange="onStatusChange" read-only="{{readOnly}}" bindready="onEditorReady">
+      </onekit-editor>

@@ -10,7 +10,7 @@
         <text  class="page-body-text">下滑页面即可刷新</text>
       </view>
       <view  class="btn-area">
-        <wx-button  bindtap="stopPullDownRefresh">停止刷新</wx-button>
+        <onekit-button  bindtap="stopPullDownRefresh">停止刷新</onekit-button>
       </view>
     </view>
   </view>

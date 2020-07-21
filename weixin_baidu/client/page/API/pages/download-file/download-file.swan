@@ -13,7 +13,7 @@
         </text>
       </view>
       <view  class="btn-area">
-        <wx-button  bindtap="downloadImage" type="primary">下载</wx-button>
+        <onekit-button  bindtap="downloadImage" type="primary">下载</onekit-button>
       </view>
     </block>
   </view>

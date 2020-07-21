@@ -65,7 +65,7 @@
         </view>
       </view>
       <view  class="btn-area">
-        <wx-button  type="primary" bindtap="getSystemInfo">获取手机系统信息</wx-button>
+        <onekit-button  type="primary" bindtap="getSystemInfo">获取手机系统信息</onekit-button>
       </view>
     </view>
   </view>

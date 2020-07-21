@@ -2,7 +2,7 @@ Component({
     mixins: [],
     data: {
 
-    },
+    }, 
     observers: {
         'enableSatellite': function () {
             console.warn("[onekit-map]暂不支持enable-satellite");

@@ -31,8 +31,8 @@
         </view>
       </view>
       <view  class="btn-area">
-        <wx-button  type="primary" formType="submit">创建联系人</wx-button>
-        <wx-button  type="default" formType="reset">重置</wx-button>
+        <onekit-button  type="primary" formType="submit">创建联系人</onekit-button>
+        <onekit-button  type="default" formType="reset">重置</onekit-button>
       </view>
     </form>
   </view>

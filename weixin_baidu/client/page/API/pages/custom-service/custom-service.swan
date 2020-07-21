@@ -6,7 +6,7 @@
 
   <view  class="page-body">
     <view  class="btn-area">
-      <wx-button  type="primary">联系客服</wx-button>
+      <onekit-button  type="primary">联系客服</onekit-button>
     </view>
   </view>
 

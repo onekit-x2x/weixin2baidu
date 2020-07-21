@@ -44,8 +44,8 @@
       </view>
 
       <view  class="btn-area">
-        <wx-button  type="primary" formType="submit">Submit</wx-button>
-        <wx-button  formType="reset">Reset</wx-button>
+        <onekit-button  type="primary" formType="submit">Submit</onekit-button>
+        <onekit-button  formType="reset">Reset</onekit-button>
       </view>
     </form>
   </view>

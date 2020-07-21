@@ -1,0 +1,4 @@
+<rich-text class="{{Class}}" style="{{Style}}" nodes="{{nodes}}">
+  <slot>
+  </slot>
+</rich-text>

@@ -1,1 +1,14 @@
-{"appid":"17767960","compilation-args":{"options":[],"selected":-1},"developType":"normal","editor":{"curPath":"D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\project.swan.json.r75","expands":["D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client"],"markdownUploadTimeMap":{},"paths":["D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\app.json","D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\project.swan.json.r75"],"recentlyFiles":["D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\project.swan.json.r75","D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\project.swan.json.r73","D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\project.swan.json.mine","D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\app.json"]},"host":"baiduboxapp","setting":{"urlCheck":true},"swan":{"baiduboxapp":{"extensionJsVersion":"1.5.3","swanJsVersion":"3.105.19"}}}
+{
+    "host": "baiduboxapp",
+    "setting": {
+        "urlCheck": true
+    },
+    "swan": {
+        "baiduboxapp": {
+            "swanJsVersion": "3.190.255-rc",
+            "extensionJsVersion": "100.14.255"
+        }
+    },
+    "appid": "17211727",
+    "projectname": "OnekitWX_baidu"
+}

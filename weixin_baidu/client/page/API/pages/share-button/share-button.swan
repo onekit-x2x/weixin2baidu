@@ -10,8 +10,8 @@
         轻触下方图标即可转发
       </text>
       <view  class="page-body-line">
-        <wx-button  bindtap="handleTapShareButton" open-type="share" class="button-share" id="share-button">
-        </wx-button>
+        <onekit-button  bindtap="handleTapShareButton" open-type="share" class="button-share" id="share-button">
+        </onekit-button>
         <label  for="share-button"><image  style="width: 27px; height: 27px" src="/image/share.png"></image></label>
       </view>
     </view>

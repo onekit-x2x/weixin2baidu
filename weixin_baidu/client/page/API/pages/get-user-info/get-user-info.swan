@@ -18,8 +18,8 @@
         </block>
       </view>
       <view  class="btn-area">
-        <wx-button  type="primary" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">获取用户信息</wx-button>
-        <wx-button  bindtap="clear">清空</wx-button>
+        <onekit-button  type="primary" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">获取用户信息</onekit-button>
+        <onekit-button  bindtap="clear">清空</onekit-button>
       </view>
     </view>
   </view>

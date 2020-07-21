@@ -1,22 +1,22 @@
 <import src="../../../common/head.swan"></import>
 <import src="../../../common/foot.swan"></import>
 
-<view  class="container">
-  <template  is="head" data="{{title: 'navigator'}}"></template>
+<onekit-view  Class="container">
+  <template  is="head" data="{{{title: 'navigator'}}}"></template>
 
-  <view  class="page-body">
-    <view  class="btn-area">
-      <navigator  url="navigate?title=navigate" hover-class="navigator-hover">
-        <wx-button  type="default">跳转到新页面</wx-button>
-      </navigator>
-      <navigator  url="redirect?title=redirect" redirect hover-class="other-navigator-hover">
-        <wx-button  type="default">在当前页打开</wx-button>
-      </navigator>
-      <navigator  target="miniProgram" open-type="navigate" app-id="wx4f1b24bdc99fa23b" version="release">
-         <wx-button  type="default">打开小程序</wx-button>
-        </navigator>
-    </view>
-  </view>
+  <onekit-view  Class="page-body">
+    <onekit-view  Class="btn-area">
+      <onekit-navigator  url="navigate?title=navigate" hover-Class="navigator-hover">
+        <onekit-button  type="default">跳转到新页面</onekit-button>
+      </onekit-navigator>
+      <onekit-navigator  url="redirect?title=redirect" redirect hover-Class="other-navigator-hover">
+        <onekit-button  type="default">在当前页打开</onekit-button>
+      </onekit-navigator>
+      <onekit-navigator  target="miniProgram" open-type="navigate" app-id="wx4f1b24bdc99fa23b" version="release">
+         <onekit-button  type="default">打开小程序</onekit-button>
+        </onekit-navigator>
+    </onekit-view>
+  </onekit-view>
 
   <template  is="foot"></template>
-</view>
+</onekit-view>

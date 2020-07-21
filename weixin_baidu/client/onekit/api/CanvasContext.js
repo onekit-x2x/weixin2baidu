@@ -103,7 +103,7 @@ export default class CanvasContext {
     }
     this._path.push({ method: "bezierCurveTo", data: data });
   }
-  //
+  // 
   rect(x, y, width, height) {
     this._path.push({ method: "rect", data: [x, y, width, height] });
   }

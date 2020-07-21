@@ -18,7 +18,7 @@ Page({
   },
 
   onReady() {
-    this.videoContext = wx.createVideoContext('myVideo')
+    this.videoContext = swan.createVideoContext('myVideo')
   },
 
   inputValue: '',
@@ -42,7 +42,7 @@ Page({
 
   bindButtonTap() {
     const that = this
-    wx.chooseVideo({
+    swan.chooseVideo({
       sourceType: ['album', 'camera'],
       maxDuration: 60,
       camera: ['front', 'back'],

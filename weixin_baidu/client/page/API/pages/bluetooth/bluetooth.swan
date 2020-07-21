@@ -19,8 +19,8 @@
       </view>
 
       <view  class="btn-area">
-        <wx-button  type="primary" bindtap="openBluetoothAdapter">开始扫描</wx-button>
-        <wx-button  bindtap="stopBluetoothDevicesDiscovery">停止扫描</wx-button>
+        <onekit-button  type="primary" bindtap="openBluetoothAdapter">开始扫描</onekit-button>
+        <onekit-button  bindtap="stopBluetoothDevicesDiscovery">停止扫描</onekit-button>
       </view>
     </view>
   </view>
@@ -29,8 +29,8 @@
     <view >
       <text >已连接到 {{name}}</text>
       <view  class="operation">
-      <wx-button  s-if="{{canWrite}}" size="mini" bindtap="writeBLECharacteristicValue">写数据</wx-button>
-      <wx-button  size="mini" bindtap="closeBLEConnection">断开连接</wx-button>
+      <onekit-button  s-if="{{canWrite}}" size="mini" bindtap="writeBLECharacteristicValue">写数据</onekit-button>
+      <onekit-button  size="mini" bindtap="closeBLEConnection">断开连接</onekit-button>
       </view>
     </view>
     <view  s-for="{{chs}}" s-key="index" style="font-size: 12px; margin-top: 10px;">

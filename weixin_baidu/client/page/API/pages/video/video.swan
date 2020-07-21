@@ -48,7 +48,7 @@
           <view  class="image-plus-text">添加视频</view>
         </block>
         <block  s-if="{{src != ''}}">
-          <wx-video  src="{{src}}" class="video"></wx-video>
+          <onekit-video  src="{{src}}" class="video"></onekit-video>
         </block>
       </view>
     </view>

@@ -25,8 +25,8 @@
     </view>
      <view  class="page-section-title">提示：使用单线程进行计算时，动画会出现明显的卡顿现象。使用 Worker 线程进行计算，则可以保证动画的流畅。</view>
     <view  class="btn-area">
-      <wx-button  bindtap="compute">单线程计算</wx-button>
-      <wx-button  type="primary" bindtap="multiThreadCompute">利用 Worker 线程计算</wx-button>
+      <onekit-button  bindtap="compute">单线程计算</onekit-button>
+      <onekit-button  type="primary" bindtap="multiThreadCompute">利用 Worker 线程计算</onekit-button>
     </view>
   </view>
 

@@ -9,9 +9,9 @@
       <canvas  class="canvas-element" canvas-id="canvas"></canvas>
       <scroll-view  class="canvas-buttons" scroll-y="true">
         <block  s-for="{{methods}}" s-for-item="method">
-          <wx-button  class="canvas-button" bindtap="{{method}}">{{method}}</wx-button>
+          <onekit-button  class="canvas-button" bindtap="{{method}}">{{method}}</onekit-button>
         </block>
-        <wx-button  class="canvas-button" bindtap="toTempFilePath" type="primary">toTempFilePath</wx-button>
+        <onekit-button  class="canvas-button" bindtap="toTempFilePath" type="primary">toTempFilePath</onekit-button>
       </scroll-view>
     </view>
   </view>

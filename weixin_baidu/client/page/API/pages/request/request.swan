@@ -11,7 +11,7 @@
       </text>
     </view>
     <view  class="btn-area">
-      <wx-button  bindtap="makeRequest" type="primary" disabled="{{buttonDisabled}}" loading="{{loading}}">request</wx-button>
+      <onekit-button  bindtap="makeRequest" type="primary" disabled="{{buttonDisabled}}" loading="{{loading}}">request</onekit-button>
     </view>
   </view>
 

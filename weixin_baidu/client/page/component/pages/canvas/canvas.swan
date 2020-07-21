@@ -1,16 +1,16 @@
 <import src="../../../common/head.swan"></import>
 <import src="../../../common/foot.swan"></import>
 
-<view  class="container">
-  <template  is="head" data="{{title: 'canvas'}}"></template>
+<onekit-view  Class="container">
+  <template  is="head" data="{{{title: 'canvas'}}}"></template>
 
-  <view  class="page-body">
-    <view  class="page-body-wrapper">
-      <canvas  canvas-id="canvas" class="canvas"></canvas>
-    </view>
-  </view>
+  <onekit-view  Class="page-body">
+    <onekit-view  Class="page-body-wrapper">
+      <onekit-canvas  canvas-id="canvas" Class="canvas"></onekit-canvas>
+    </onekit-view>
+  </onekit-view>
 
   <template  is="foot"></template>
-</view>
+</onekit-view>
 
 

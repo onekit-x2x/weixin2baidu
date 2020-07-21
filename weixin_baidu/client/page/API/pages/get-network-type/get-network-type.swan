@@ -17,8 +17,8 @@
         </block>
       </view>
       <view  class="btn-area">
-        <wx-button  type="primary" bindtap="getNetworkType">获取手机网络状态</wx-button>
-        <wx-button  bindtap="clear">清空</wx-button>
+        <onekit-button  type="primary" bindtap="getNetworkType">获取手机网络状态</onekit-button>
+        <onekit-button  bindtap="clear">清空</onekit-button>
       </view>
     </view>
   </view>

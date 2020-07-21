@@ -14,8 +14,8 @@
       </view>
     </view>
     <view  class="btn-area">
-      <wx-button  type="primary" bindtap="startSearch">搜索iBeacon</wx-button>
-      <wx-button  bindtap="stopSearch">停止搜索</wx-button>
+      <onekit-button  type="primary" bindtap="startSearch">搜索iBeacon</onekit-button>
+      <onekit-button  bindtap="stopSearch">停止搜索</onekit-button>
     </view>
     <view  class="page-body-info">
       <view  class="devices_summary">已发现 {{beacons.length}} 个外围设备：</view>

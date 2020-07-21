@@ -70,7 +70,7 @@
   
   <view  class="page-body">
     <view  class="btn-area">
-    <wx-button  type="primary" bindtap="chooseAddress">获取收货地址</wx-button>
+    <onekit-button  type="primary" bindtap="chooseAddress">获取收货地址</onekit-button>
     </view>
   </view>
 

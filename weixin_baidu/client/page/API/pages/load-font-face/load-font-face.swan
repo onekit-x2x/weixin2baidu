@@ -11,8 +11,8 @@
         <text  s-else>{{ fontFamily }} is loaded</text>
       </view>
       <view  class="btn-area">
-        <wx-button  type="primary" bindtap="loadFontFace">加载字体</wx-button>
-        <wx-button  type="default" bindtap="clear">清除</wx-button>
+        <onekit-button  type="primary" bindtap="loadFontFace">加载字体</onekit-button>
+        <onekit-button  type="default" bindtap="clear">清除</onekit-button>
       </view>
     </view>
   </view>

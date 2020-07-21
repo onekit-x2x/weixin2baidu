@@ -42,7 +42,7 @@
           </view>
         </view>
         <view  class="btn-area">
-          <wx-button  type="primary" formType="submit">查看位置</wx-button>
+          <onekit-button  type="primary" formType="submit">查看位置</onekit-button>
         </view>
       </form>
     </view>

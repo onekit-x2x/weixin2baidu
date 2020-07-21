@@ -6,7 +6,7 @@
 
   <view  class="page-body">
     <view  class="btn-area">
-      <wx-button  type="primary" bindtap="startAuth">开始认证</wx-button>
+      <onekit-button  type="primary" bindtap="startAuth">开始认证</onekit-button>
     </view>
   </view>
 

@@ -1,16 +1,50 @@
 {
     "editor": {
-        "curPath": "",
+        "curPath": "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api\\CameraContext.js",
         "expands": [
-            "G:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\lib",
-            "G:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit"
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\audio",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\video"
         ],
         "markdownUploadTimeMap": {},
-        "paths": [],
+        "paths": [
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api\\InnerAudioContext.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\wx.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\ui\\audio\\audio.swan",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\audio\\audio.swan",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\audio\\audio.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\audio\\audio.json",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\audio\\audio.css",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\ui\\audio\\audio.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api\\VideoContext.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api\\LivePlayerContext.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api\\CameraContext.js"
+        ],
         "recentlyFiles": [
-            "G:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\app.js",
-            "G:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\wx.js",
-            "G:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\onekit.css"
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api\\CameraContext.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api\\CanvasContext.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api\\CloudContext.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api\\EditorContext.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api\\InnerAudioContext.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api\\VideoContext.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api\\LivePlayerContext.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\wx.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\api\\WORKER.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\audio\\audio.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\audio\\audio.json",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\audio\\audio.swan",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\canvas\\canvas.swan",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\video\\video.js",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\video\\video.swan",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\ui\\video\\video.swan",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\audio\\audio.css",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\onekit\\ui\\canvas\\canvas.swan",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\canvas\\canvas.json",
+            "D:\\SVN\\112.74.84.131\\wxapp_baidu\\trunk\\OnekitWX_baidu\\client\\page\\component\\pages\\canvas\\canvas.js"
         ]
     }
 }

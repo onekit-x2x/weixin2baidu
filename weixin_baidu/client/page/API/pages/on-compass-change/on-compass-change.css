@@ -41,7 +41,7 @@
 .controls{
   margin-top: 70rpx;
 }
-.controls wx-button{
+.controls onekit-button{
   margin-left: 20rpx;
   float: left;
 }

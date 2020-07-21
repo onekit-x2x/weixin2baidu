@@ -1,0 +1,20 @@
+<live-player
+class="onekit-live-player {{Class}}"
+style="{{Style}}"
+src="{{src}}"
+autoplay="{{autoplay}}"
+muted="{{muted}}"
+orientation ="{{orientation}}"
+object-fit="{{objectFit}}"
+background-mute="{{backgroundMute}}"
+min-cache="{{minCache}}"
+max-cache="{{maxCache}}"
+
+bindstatechange="live_player_statechange"
+bindnetstatus="live_player_netstatus"
+bindfullscreenchange="live_player_fullscreenchange"
+
+
+>
+    <slot></slot>
+</live-player>

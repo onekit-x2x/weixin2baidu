@@ -21,6 +21,7 @@ Page({
     this.ctx.takePhoto({
       quality: 'high',
       success: (res) => {
+        console.log("takePhoto success",res)
         this.setData({
           src: res.tempImagePath
         })
@@ -37,6 +38,7 @@ Page({
   stopRecord() {
     this.ctx.stopRecord({
       success: (res) => {
+     console.log("stopRecord success",res)
         this.setData({
           src: res.tempThumbPath,
           videoSrc: res.tempVideoPath

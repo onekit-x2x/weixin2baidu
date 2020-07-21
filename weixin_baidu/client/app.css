@@ -9,14 +9,14 @@ page {
 checkbox, radio{
   margin-right: 10rpx;
 }
-wx-button{
+onekit-button{
   margin-top: 20rpx;
   margin-bottom: 20rpx;
 }
-form{
+onekit-form{
   width: 100%;
 }
-input {
+onekit-input {
   width: 100%;
 }
 

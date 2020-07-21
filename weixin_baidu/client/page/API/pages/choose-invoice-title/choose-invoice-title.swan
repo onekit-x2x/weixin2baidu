@@ -76,7 +76,7 @@
     </form>
 
     <view  class="btn-area">
-      <wx-button  type="primary" bindtap="chooseInvoiceTitle">获取发票抬头</wx-button>
+      <onekit-button  type="primary" bindtap="chooseInvoiceTitle">获取发票抬头</onekit-button>
     </view>
   </view>
 

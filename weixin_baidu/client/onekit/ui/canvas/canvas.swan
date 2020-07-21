@@ -1,0 +1,17 @@
+<canvas 
+class="onekit-canvas {{Class}}"
+style="{{Style}}"
+type="{{type}}"
+canvas-id="{{canvasId}}"
+disable-scroll="{{disableScroll}}"
+style="width:100%;height:100%;"
+
+bindtouchstart="canvas_start"
+bindtouchmove="canvas_move"   
+bindtouchend="canvas_end"
+bindtouchcancel="canvas_cancel"
+bindlongtap="canvas_tap"
+binderror="canvas_error"
+
+>
+</canvas>

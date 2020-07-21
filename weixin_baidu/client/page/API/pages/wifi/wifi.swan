@@ -22,8 +22,8 @@
       </scroll-view>
     </view>
     <view  class="btn-area">
-      <wx-button  type="primary" bindtap="startSearch">搜索Wi-Fi</wx-button>
-      <wx-button  bindtap="stopSearch">停止搜索</wx-button>
+      <onekit-button  type="primary" bindtap="startSearch">搜索Wi-Fi</onekit-button>
+      <onekit-button  bindtap="stopSearch">停止搜索</onekit-button>
     </view>
   </view>
 

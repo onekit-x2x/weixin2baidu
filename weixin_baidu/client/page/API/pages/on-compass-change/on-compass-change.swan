@@ -16,8 +16,8 @@
         </view>
       </view>
       <view  class="controls">
-        <wx-button  bindtap="startCompass" disabled="{{enabled}}">开始监听</wx-button>
-        <wx-button  bindtap="stopCompass" disabled="{{!enabled}}">停止监听</wx-button>
+        <onekit-button  bindtap="startCompass" disabled="{{enabled}}">开始监听</onekit-button>
+        <onekit-button  bindtap="stopCompass" disabled="{{!enabled}}">停止监听</onekit-button>
       </view>
     </view>
   </view>

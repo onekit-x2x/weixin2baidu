@@ -16,7 +16,7 @@ Page({
     }
 
     this.drawBall()
-    this.interval = setInterval(this.drawBall, 17)
+    this.interval = setInterval(this.drawBall.bind(this), 17)
   },
 
   drawBall() {
@@ -39,7 +39,7 @@ Page({
     const context = wx.createCanvasContext('canvas')
 
     function ball(x, y) {
-      context.beginPath(0)
+      context.beginPath(0) 
       context.arc(x, y, 5, 0, Math.PI * 2)
       context.setFillStyle('#1aad19')
       context.setStrokeStyle('rgba(1,1,1,0)')

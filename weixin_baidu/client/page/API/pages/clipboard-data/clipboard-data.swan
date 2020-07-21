@@ -25,8 +25,8 @@
     </view>
 
     <view  class="btn-area">
-      <wx-button  type="primary" bindtap="copy">复制</wx-button>
-      <wx-button  bindtap="paste">粘贴</wx-button>
+      <onekit-button  type="primary" bindtap="copy">复制</onekit-button>
+      <onekit-button  bindtap="paste">粘贴</onekit-button>
     </view>
   </view>
 

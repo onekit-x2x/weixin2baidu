@@ -16,7 +16,7 @@
       </view>
     </view>
     <view  class="btn-area">
-      <wx-button  type="primary" formType="submit">设置</wx-button>
+      <onekit-button  type="primary" formType="submit">设置</onekit-button>
     </view>
   </form>
 

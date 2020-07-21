@@ -1,7 +1,13 @@
 import CanvasContext from "./api/CanvasContext"
+import VideoContext from "./api/VideoContext"
+import CameraContext from "./api/CameraContext"
+import InnerAudioContext from "./api/InnerAudioContext"
+import LivePlayerContext from "./api/LivePlayerContext"
+
+
 import WORKER from "./api/WORKER"
 import wx_cloud from "./wx.cloud"
-import onekit from "./onekit"
+import onekit from "./onekit"  
 export default class wx {
     /////////////////// animation //////////////////////////
     static createAnimation(object) { return swan.createAnimation(object); }
@@ -29,7 +35,7 @@ export default class wx {
         var actions = object.actions;
         var canvasContext = swan.createCanvasContext(canvasId);
         for (var action of actions) {
-            var data = action.data;
+            var data = action.data; 
             switch (action.method) {
                 case "save":
                     canvasContext.save();
@@ -109,8 +115,13 @@ export default class wx {
 
 
     }
+    
     static createContext() { return new CanvasContext(); }
     static createCanvasContext(object) { return swan.createCanvasContext(object); }
+    static createVideoContext(videoId,ui) { return new VideoContext(my.createVideoContext(videoId)); }
+    static createInnerAudioContext(audioId,ui) { return new InnerAudioContext(my.createInnerAudioContext(audioId)); }
+    static createLivePlayerContext(livePlayerId,ui) { return new LivePlayerContext(my.createLivePlayerContext(livePlayerId)); }
+    static createCameraContext() { return new CameraContext(my.createCameraContext()); }
     static canvasToTempFilePath(object) { return swan.canvasToTempFilePath(object); }
     static canvasPutImageData(object) { return swan.canvasPutImageData(object) };
     static canvasGetImageData(object) { return swan.canvasGetImageData(object) };

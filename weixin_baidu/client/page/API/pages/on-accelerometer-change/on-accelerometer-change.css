@@ -27,7 +27,7 @@
 .page-body-controls {
   margin-top: 30rpx;
 }
-.page-body-controls wx-button{
+.page-body-controls onekit-button{
   margin-left: 20rpx;
   float: left;
 }

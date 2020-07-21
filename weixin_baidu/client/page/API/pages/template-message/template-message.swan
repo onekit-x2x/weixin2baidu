@@ -40,7 +40,7 @@
       </view>
     </view>
     <view  class="btn-area">
-      <wx-button  type="primary" size="40" formType="submit" loading="{{loading}}">点我提交</wx-button>
+      <onekit-button  type="primary" size="40" formType="submit" loading="{{loading}}">点我提交</onekit-button>
     </view>
   </form>
 

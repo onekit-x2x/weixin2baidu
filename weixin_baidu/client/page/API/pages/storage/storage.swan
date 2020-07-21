@@ -25,14 +25,14 @@
         </view>
       </view>
       <view  class="btn-area">
-        <wx-button  type="primary" bindtap="setStorage">存储数据</wx-button>
-        <wx-button  bindtap="getStorage">读取数据</wx-button>
-        <wx-button  bindtap="clearStorage">清理数据</wx-button>
+        <onekit-button  type="primary" bindtap="setStorage">存储数据</onekit-button>
+        <onekit-button  bindtap="getStorage">读取数据</onekit-button>
+        <onekit-button  bindtap="clearStorage">清理数据</onekit-button>
       </view>
     </view>
   </view>
 
-  <wx-modal  title="{{dialog.title}}" hidden="{{dialog.hidden}}" no-cancel bindconfirm="confirm">{{dialog.content}}</wx-modal>
+  <onekit-modal  title="{{dialog.title}}" hidden="{{dialog.hidden}}" no-cancel bindconfirm="confirm">{{dialog.content}}</onekit-modal>
 
   <template  is="foot"></template>
 </view>

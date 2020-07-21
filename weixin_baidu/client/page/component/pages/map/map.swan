@@ -7,12 +7,12 @@
   <view  class="page-body">
     <view  class="page-section-title">当前组件使用了墨渊底图样式，查看<navigator  class="navigator" url="/page/component/pages/map-styles/map-styles">更多样式</navigator>。</view>
     <view  class="page-section page-section-gap">
-      <wx-map id="eMap" bindmarkertap="markertap" bindregionchange="regionchange" bindcontroltap="controltap"
+      <onekit-map id="eMap" bindmarkertap="markertap" bindregionchange="regionchange" bindcontroltap="controltap"
         bindupdated = "updated" bindcallouttap="callouttap" bindpoitap="poitap" bindlabeltap="labeltap"
 
        controls="{{controls}}" subkey="{{subKey}}" style="width: 100%; height: 300px;" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{scale}}" skew="{{skew}}" show-location="{{showLocation}}" markers="{{markers}}" covers="{{covers}}" enable-3D="{{enable3d}}" show-compass="{{showCompass}}" enable-zoom="{{enableZoom}}" enable-rotate="{{enableRotate}}" enable-satellite="{{enableSatellite}}" enable-traffic="{{enableTraffic}}" enable-overlooking="{{enableOverlooking}}" enable-scroll="{{enableScroll}}"  polygons="{{drawPolygon ? polygons : []}}" 
         polyline = "{{drawPolyline ? polyline :[] }}">
-      </wx-map>
+      </onekit-map>
     </view>
   </view>
 

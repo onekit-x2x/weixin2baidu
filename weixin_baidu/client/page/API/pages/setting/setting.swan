@@ -86,8 +86,8 @@
     </form>
 
     <view  class="btn-area">
-      <wx-button  type="primary" bindtap="getSetting">获取小程序设置</wx-button>
-      <wx-button  open-type="openSetting" type="default">打开小程序设置</wx-button>
+      <onekit-button  type="primary" bindtap="getSetting">获取小程序设置</onekit-button>
+      <onekit-button  open-type="openSetting" type="default">打开小程序设置</onekit-button>
     </view>
   </view>
 

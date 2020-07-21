@@ -9,7 +9,7 @@
       <view  class="desc">请在下方输入电话号码</view>
       <input  class="input" type="number" name="input" bindinput="bindInput"/>
       <view  class="btn-area">
-        <wx-button  type="primary" bindtap="makePhoneCall" disabled="{{disabled}}">拨打</wx-button>
+        <onekit-button  type="primary" bindtap="makePhoneCall" disabled="{{disabled}}">拨打</onekit-button>
       </view>
     </view>
   </view>

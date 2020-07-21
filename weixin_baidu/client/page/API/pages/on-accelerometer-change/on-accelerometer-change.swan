@@ -17,8 +17,8 @@
         <text  class="page-body-title">Z: {{z}}</text>
       </view>
       <view  class="page-body-controls">
-        <wx-button  bindtap="startAccelerometer" disabled="{{enabled}}">开始监听</wx-button>
-        <wx-button  bindtap="stopAccelerometer" disabled="{{!enabled}}">停止监听</wx-button>
+        <onekit-button  bindtap="startAccelerometer" disabled="{{enabled}}">开始监听</onekit-button>
+        <onekit-button  bindtap="stopAccelerometer" disabled="{{!enabled}}">停止监听</onekit-button>
       </view>
     </view>
   </view>

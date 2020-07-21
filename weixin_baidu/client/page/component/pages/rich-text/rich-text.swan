@@ -1,32 +1,32 @@
 <import src="../../../common/head.swan"></import>
 <import src="../../../common/foot.swan"></import>
 
-<view  class="container">
+<onekit-view  class="container">
   <template  is="head" data="{{title: 'rich-text'}}"></template>
 
-  <view  class="page-body">
-    <view  class="page-section">
-      <view  class="page-section-title">通过HTML String渲染</view>
-      <view  class="page-content">
-        <scroll-view  scroll-y>{{htmlSnip}}</scroll-view>
-        <wx-button  type="primary" bindtap="renderHtml">渲染HTML</wx-button>
+  <onekit-view  class="page-body">
+    <onekit-view  class="page-section">
+      <onekit-view  class="page-section-title">通过HTML String渲染</onekit-view>
+      <onekit-view  class="page-content">
+        <onekit-scroll-view  scroll-y>{{htmlSnip}}</onekit-scroll-view>
+        <onekit-button  type="primary" bindtap="renderHtml">渲染HTML</onekit-button>
         <block  s-if="{{renderedByHtml}}">
-          <rich-text  nodes="{{htmlSnip}}"></rich-text>
+          <onekit-rich-text  nodes="{{htmlSnip}}"></onekit-rich-text>
         </block>
-      </view>
-    </view>
+      </onekit-view>
+    </onekit-view>
 
-    <view  class="page-section">
-      <view  class="page-section-title">通过节点渲染</view>
-      <view  class="page-content">
-        <scroll-view  scroll-y>{{nodeSnip}}</scroll-view>
-        <wx-button  type="primary" bindtap="renderNode">渲染Node</wx-button>
+    <onekit-view  class="page-section">
+      <onekit-view  class="page-section-title">通过节点渲染</onekit-view>
+      <onekit-view  class="page-content">
+        <onekit-scroll-view  scroll-y>{{nodeSnip}}</onekit-scroll-view>
+        <onekit-button  type="primary" bindtap="renderNode">渲染Node</onekit-button>
         <block  s-if="{{renderedByNode}}">
-          <rich-text  nodes="{{nodes}}"></rich-text>
+          <onekit-rich-text  nodes="{{nodes}}"></onekit-rich-text>
         </block>
-      </view>
-    </view>
-  </view>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
 
   <template  is="foot"></template>
-</view>
+</onekit-view>

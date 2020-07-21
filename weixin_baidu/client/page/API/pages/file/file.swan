@@ -22,13 +22,13 @@
         </block>
       </view>
       <view  class="btn-area">
-        <wx-button  type="primary" bindtap="saveFile">保存文件</wx-button>
-        <wx-button  bindtap="clear">删除文件</wx-button>
+        <onekit-button  type="primary" bindtap="saveFile">保存文件</onekit-button>
+        <onekit-button  bindtap="clear">删除文件</onekit-button>
       </view>
     </view>
   </view>
 
-  <wx-modal  title="{{dialog.title}}" hidden="{{dialog.hidden}}" no-cancel bindconfirm="confirm">{{dialog.content}}</wx-modal>
+  <onekit-modal  title="{{dialog.title}}" hidden="{{dialog.hidden}}" no-cancel bindconfirm="confirm">{{dialog.content}}</onekit-modal>
 
   <template  is="foot"></template>
 </view>

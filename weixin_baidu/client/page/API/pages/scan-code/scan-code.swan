@@ -12,7 +12,7 @@
       </view>
     </view>
     <view  class="btn-area">
-      <wx-button  type="primary" bindtap="scanCode">扫一扫</wx-button>
+      <onekit-button  type="primary" bindtap="scanCode">扫一扫</onekit-button>
     </view>
   </view>
 

@@ -22,7 +22,7 @@
       </view>
     </view>
     <view  class="btn-area">
-      <wx-button  type="primary" size="40" bindtap="sendMessage" disabled="{{socketStatus != 'connected'}}" loading="{{loading}}">点我发送</wx-button>
+      <onekit-button  type="primary" size="40" bindtap="sendMessage" disabled="{{socketStatus != 'connected'}}" loading="{{loading}}">点我发送</onekit-button>
     </view>
   </view>
 

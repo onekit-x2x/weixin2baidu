@@ -12,7 +12,7 @@
       </block>
       <block  s-if="{{hasLogin === false}}">
         <text  class="page-body-text">每个微信号中仅需登录一次</text>
-        <wx-button  class="page-body-button" type="primary" bindtap="login">微信登录</wx-button>
+        <onekit-button  class="page-body-button" type="primary" bindtap="login">微信登录</onekit-button>
       </block>
     </view>
   </view>

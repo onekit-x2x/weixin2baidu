@@ -6,7 +6,7 @@
 
   <view  class="page-body">
     <view  class="btn-area">
-      <wx-button  type="default" bindtap="actionSheetTap">弹出action sheet</wx-button>
+      <onekit-button  type="default" bindtap="actionSheetTap">弹出action sheet</onekit-button>
     </view>
   </view>
 

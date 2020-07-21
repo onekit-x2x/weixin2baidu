@@ -1,16 +1,19 @@
-<view  style="display:flex;align-items:center;">
-   <progress
-   style="flex-grow:2;--borderRadius:{{borderRadius}}"
-   percent="{{percent}}" 
-   stroke-width="{{strokeWidth}}"
-   color="{{color}}"
-   activeColor="{{activeColor}}"
-   backgroundColor="{{backgroundColor}}"
-   active="{{active}}"
-   active-mode="{{activeMode}}"
-   bindactiveend="{{bindactiveend}}"
-   font-size="{{fontSize}}"
-   />
-
-<text wx:if="{{showInfo}}" style="font-size:{{fontSize}}rpx">{{percent}}%</text>
-</view>
+<progress 
+class="onekit-progress {{Class}}" 
+style="{{Style}}"
+percent="{{percent}}"
+show-info="{{showInfo}}"
+stroke-width="{{strokeWidth}}"
+activeColor="{{activeColor}}"
+background-color="{{backgroundColor}}"
+active="{{active}}"
+border-radius="{{borderRadius}}"
+font-size="{{fontSize}}"	
+stroke-width="{{strokeWidth}}"	
+color="{{color}}"
+active-mode="{{activeMode}}"	
+duration="{{duration}}"
+>
+<slot>
+</slot>
+</progress>
