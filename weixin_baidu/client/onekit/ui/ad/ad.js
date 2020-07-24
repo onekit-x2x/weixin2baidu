@@ -3,6 +3,8 @@ options: {
         addGlobalClass: true,
     },
     properties: {
+    Class:{type:String,value:""},
+    Style:{type:String,value:""},
     "ad-type":{
     type: String,
     value: 'banner', 

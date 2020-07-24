@@ -1,15 +1,15 @@
 {
     "editor": {
-        "curPath": "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.swan",
+        "curPath": "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.js",
         "expands": [
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\ad",
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit",
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui",
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\audio"
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\audio",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\ad"
         ],
         "markdownUploadTimeMap": {},
         "paths": [
@@ -19,9 +19,9 @@
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.json"
         ],
         "recentlyFiles": [
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.js",
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.swan",
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.json",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.js",
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.css",
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\audio\\audio.js",
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\audio\\audio.css",
