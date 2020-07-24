@@ -1,47 +1,32 @@
 {
     "editor": {
-        "curPath": "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\app.json",
+        "curPath": "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.swan",
         "expands": [
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\audio",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\image",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\video",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\video"
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\ad",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\audio"
         ],
         "markdownUploadTimeMap": {},
         "paths": [
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\app.json",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\audio\\audio.swan",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\icon\\icon.css",
-            "search",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\wx.js",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\video\\video.swan"
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\ad\\ad.js",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.swan",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.js",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.json"
         ],
         "recentlyFiles": [
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\app.json",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\video\\video.swan",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\video\\video.js",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\video\\video.json",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\video\\video.swan",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\image\\image.css",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\image\\image.js",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\image\\image.json",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\image\\image.swan",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\image\\image.json",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\image\\image.js",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\image\\image.swan",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\wx.js",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\icon\\icon.css",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\camera\\camera.swan",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\audio\\audio.swan",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\audio\\audio.css",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\audio\\audio.js",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\audio\\audio.json",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\audio\\audio.swan"
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.swan",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.json",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.js",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\ad\\ad.css",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\audio\\audio.js",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\onekit\\ui\\audio\\audio.css",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\ad\\ad.swan",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client\\page\\component\\pages\\ad\\ad.js"
         ]
     }
 }
