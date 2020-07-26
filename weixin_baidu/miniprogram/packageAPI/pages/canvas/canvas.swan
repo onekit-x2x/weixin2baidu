@@ -1,0 +1,22 @@
+<import src="../../../common/head.swan"/>
+<import src="../../../common/foot.swan"/>
+
+<view class="container">
+  <template is="head" data="{{{title: 'createContext'}}}">
+</template>
+
+  <view class="page-body">
+    <view class="page-section">
+      <canvas class="canvas-element" canvas-id="canvas"></canvas>
+      <scroll-view class="canvas-buttons" scroll-y="true">
+        <block s-for="methods" s-for-item="method">
+          <onekit-button class="canvas-button" bindtap="{{method}}">{{method}}</onekit-button>
+        </block>
+        <onekit-button class="canvas-button" bindtap="toTempFilePath" type="primary">toTempFilePath</onekit-button>
+      </scroll-view>
+    </view>
+  </view>
+
+  <template is="foot">
+</template>
+</view>

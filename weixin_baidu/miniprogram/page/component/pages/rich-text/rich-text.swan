@@ -1,0 +1,34 @@
+<import src="../../../common/head.swan"/>
+<import src="../../../common/foot.swan"/>
+
+<view class="container">
+  <template is="head" data="{{{title: 'rich-text'}}}">
+</template>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-section-title">通过HTML String渲染</view>
+      <view class="page-content">
+        <scroll-view scroll-y>{{htmlSnip}}</scroll-view>
+        <onekit-button type="primary" bindtap="renderHtml">渲染HTML</onekit-button>
+        <block s-if="renderedByHtml">
+          <onekit-rich-text nodes="{{htmlSnip}}"></onekit-rich-text>
+        </block>
+      </view>
+    </view>
+
+    <view class="page-section">
+      <view class="page-section-title">通过节点渲染</view>
+      <view class="page-content">
+        <scroll-view scroll-y>{{nodeSnip}}</scroll-view>
+        <onekit-button type="primary" bindtap="renderNode">渲染Node</onekit-button>
+        <block s-if="renderedByNode">
+          <onekit-rich-text nodes="{{nodes}}"></onekit-rich-text>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot">
+</template>
+</view>

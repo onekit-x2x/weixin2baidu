@@ -1,6 +1,0 @@
-<import src="../../../common/head.swan"></import>
-<import src="../../../common/foot.swan"></import>
-
-<onekit-view  Class="container">
-  <template  is="head" data="{{{title: '当前页'}}}"></template>
-</onekit-view>

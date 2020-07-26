@@ -1,14 +1,26 @@
 {
+    "appid": "17211727",
+    "cloudfunctionRoot": "cloudfunctions/",
+    "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+    "compilation-args": {
+        "common": {
+            "babelSetting": {
+                "ignore": []
+            },
+            "enhance": false
+        }
+    },
+    "condition": {},
     "host": "baiduboxapp",
+    "projectname": "cloud-demo",
     "setting": {
         "urlCheck": true
     },
+    "smartProgramRoot": "miniprogram/",
     "swan": {
         "baiduboxapp": {
-            "swanJsVersion": "3.190.255-rc",
-            "extensionJsVersion": "100.14.255"
+            "extensionJsVersion": "100.14.255",
+            "swanJsVersion": "3.190.255-rc"
         }
-    },
-    "appid": "17211727",
-    "projectname": "OnekitWX_baidu"
+    }
 }

@@ -1,0 +1,34 @@
+<import src="../../../common/head.swan"/>
+<import src="../../../common/foot.swan"/>
+
+<view class="container">
+  <template is="head" data="{{{title: 'tabBar'}}}">
+</template>
+
+  <view class="page-body">
+    <view class="btn-area">
+      <onekit-button bindtap="setTabBarBadge">
+        {{ !hasSetTabBarBadge ? '设置tab徽标' : '移除tab徽标' }}
+      </onekit-button>
+      <onekit-button bindtap="showTabBarRedDot">
+        {{ !hasShownTabBarRedDot ?  '显示红点' : '移除红点'}}
+      </onekit-button>
+      <onekit-button bindtap="customStyle">
+        {{ !hasCustomedStyle ? '自定义Tab样式' : '移除自定义样式'}}
+      </onekit-button>
+      <onekit-button bindtap="customItem">
+        {{ !hasCustomedItem ? '自定义Tab信息' : '移除自定义信息' }}
+      </onekit-button>
+      <onekit-button bindtap="hideTabBar">
+        {{ !hasHiddenTabBar ? '隐藏TabBar' : '显示TabBar' }}
+      </onekit-button>
+    </view>
+
+    <view class="btn-area">
+      <onekit-button type="primary" bindtap="navigateBack">返回上一级</onekit-button>
+    </view>
+  </view>
+
+  <template is="foot">
+</template>
+</view>

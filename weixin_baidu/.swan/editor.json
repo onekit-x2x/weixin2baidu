@@ -1,9 +1,16 @@
 {
     "editor": {
         "curPath": "",
-        "expands": [],
+        "expands": [
+            "/Users/zhangjin/Downloads/weixin_baidu/miniprogram/page/component",
+            "/Users/zhangjin/Downloads/weixin_baidu/miniprogram/page/component/pages/view",
+            "/Users/zhangjin/Downloads/weixin_baidu/miniprogram/page",
+            "/Users/zhangjin/Downloads/weixin_baidu/miniprogram/page/component/pages"
+        ],
         "markdownUploadTimeMap": {},
         "paths": [],
-        "recentlyFiles": []
+        "recentlyFiles": [
+            "/Users/zhangjin/Downloads/weixin_baidu/miniprogram/app.js"
+        ]
     }
 }
