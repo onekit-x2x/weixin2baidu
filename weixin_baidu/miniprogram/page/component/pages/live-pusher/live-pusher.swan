@@ -18,11 +18,11 @@
 	</view>
 
 	<view class="page-section">
-		<onekit-button bindtap="handleStart" class="page-body-button" type="primary">开始</onekit-button>
-		<onekit-button bindtap="handlePause" class="page-body-button" type="primary">暂停</onekit-button>
-		<onekit-button bindtap="handleStop" class="page-body-button" type="primary">停止</onekit-button>
-		<onekit-button bindtap="handleResume" class="page-body-button" type="primary">恢复</onekit-button>
-		<onekit-button bindtap="handleSwitchCamera" class="page-body-button" type="primary">切换摄像头</onekit-button>
+		<onekit-button bindtap="handleStart" Class="page-body-button" type="primary">开始</onekit-button>
+		<onekit-button bindtap="handlePause" Class="page-body-button" type="primary">暂停</onekit-button>
+		<onekit-button bindtap="handleStop" Class="page-body-button" type="primary">停止</onekit-button>
+		<onekit-button bindtap="handleResume" Class="page-body-button" type="primary">恢复</onekit-button>
+		<onekit-button bindtap="handleSwitchCamera" Class="page-body-button" type="primary">切换摄像头</onekit-button>
 	</view>
   </view>
 

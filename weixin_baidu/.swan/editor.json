@@ -1,16 +1,20 @@
 {
     "editor": {
-        "curPath": "",
+        "curPath": "/Users/zhangjin/swan-projects/program/miniprogram/app.json",
         "expands": [
-            "/Users/zhangjin/Downloads/weixin_baidu/miniprogram/page/component",
-            "/Users/zhangjin/Downloads/weixin_baidu/miniprogram/page/component/pages/view",
-            "/Users/zhangjin/Downloads/weixin_baidu/miniprogram/page",
-            "/Users/zhangjin/Downloads/weixin_baidu/miniprogram/page/component/pages"
+            "/Users/zhangjin/GIT/github.com/weixin2baidu/weixin_baidu/miniprogram"
         ],
         "markdownUploadTimeMap": {},
-        "paths": [],
+        "paths": [
+            "/Users/zhangjin/swan-projects/program/miniprogram/app.js",
+            "/Users/zhangjin/swan-projects/program/miniprogram/app.json"
+        ],
         "recentlyFiles": [
-            "/Users/zhangjin/Downloads/weixin_baidu/miniprogram/app.js"
+            "/Users/zhangjin/swan-projects/program/miniprogram/app.json",
+            "/Users/zhangjin/swan-projects/program/miniprogram/app.js",
+            "/Users/zhangjin/swan-projects/program/project.swan.json",
+            "/Users/zhangjin/swan-projects/program/pkginfo.json",
+            "/Users/zhangjin/swan-projects/program/jsconfig.json"
         ]
     }
 }

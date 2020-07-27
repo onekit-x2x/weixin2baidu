@@ -1,4 +1,4 @@
-import {OnekitApp,OnekitPage} from "../../../../onekit/onekit.js";
+import {OnekitApp,OnekitPage,OnekitComponent} from "../../../../onekit/onekit.js";
 import wx from "../../../../onekit/wx.js";
 const defaultTabBarStyle = {
     color:'#7A7E83',
@@ -6,7 +6,7 @@ const defaultTabBarStyle = {
     backgroundColor:'#ffffff'
 };
 const defaultItemName = '接口';
-Component({
+OnekitComponent({
     data:{
         hasSetTabBarBadge:false,
         hasShownTabBarRedDot:false,
