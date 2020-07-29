@@ -115,6 +115,59 @@ export default class wx {
 
 
     }
+      // ///////////////////////////////////////////
+  static setBackgroundFetchToken(swan_object) {
+    var wx_token = swan_object.token;
+    var wx_success = swan_object.success;
+    var wx_fail = swan_object.fail;
+    var wx_complete = swan_object.complete;
+    /////////////////
+    swan.setStorage({
+      key: "wx_token",
+      data: {
+        wx_token:wx_token,
+      },
+    })
+    swan_object.success = function (wx_res) {
+      var wx_res = {
+        errMsg: "setBackgroundFetchToken:ok"
+      };
+      if (wx_success) {
+        wx_success(wx_res);
+      }
+      if (wx_success) {
+        wx_complete(wx_res);
+      }
+    };
+  };
+  static getBackgroundFetchToken(swan_object) {
+    var quick_success = swan_object.success;
+    var quick_fail = swan_object.fail;
+    var quick_complete = swan_object.complete;
+    console.log(quick_success)
+    swan.getStorage({
+      key: 'wx_token',
+      success(res) {
+        console.log(res.data)
+      }
+    })
+    swan_object.success = function (wx_res) {
+      var wx_res = {
+        errMsg: "getBackgroundFetchToken:ok"
+      };
+      console.log("", wx_res)
+
+      if (wx_success) {
+        quick_success(wx_res);
+      }
+      if (wx_success) {
+        quick_complete(wx_res);
+      }
+    };
+  };
+  static onBackgroundFetchData(callback) {
+
+  }
     
     static createContext() { return new CanvasContext(); }
     static createCanvasContext(object) { return swan.createCanvasContext(object); }
