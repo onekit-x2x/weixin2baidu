@@ -4,9 +4,10 @@ export default class wx_cloud {
     var that = this;
     var env = options.env;
     var traceUser = options.traceUser;
-    basement.user.getInfo().then(user => {
+   /* basement.user.getInfo().then(user => {
       wx_cloud._openid = user.userId
     }).catch(console.error);
+    */
   }
   database(options) {
     if (options) {

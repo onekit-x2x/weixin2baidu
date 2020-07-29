@@ -7,7 +7,7 @@ import LivePlayerContext from "./api/LivePlayerContext"
 
 import WORKER from "./api/WORKER"
 import wx_cloud from "./wx.cloud"
-import onekit from "./onekit"  
+import onekit from "./onekit"
 export default class wx {
     /////////////////// animation //////////////////////////
     static createAnimation(object) { return swan.createAnimation(object); }
@@ -35,7 +35,7 @@ export default class wx {
         var actions = object.actions;
         var canvasContext = swan.createCanvasContext(canvasId);
         for (var action of actions) {
-            var data = action.data; 
+            var data = action.data;
             switch (action.method) {
                 case "save":
                     canvasContext.save();
@@ -115,65 +115,69 @@ export default class wx {
 
 
     }
-      // ///////////////////////////////////////////
-  static setBackgroundFetchToken(swan_object) {
-    var wx_token = swan_object.token;
-    var wx_success = swan_object.success;
-    var wx_fail = swan_object.fail;
-    var wx_complete = swan_object.complete;
-    /////////////////
-    swan.setStorage({
-      key: "wx_token",
-      data: {
-        wx_token:wx_token,
-      },
-    })
-    swan_object.success = function (wx_res) {
-      var wx_res = {
-        errMsg: "setBackgroundFetchToken:ok"
-      };
-      if (wx_success) {
-        wx_success(wx_res);
-      }
-      if (wx_success) {
-        wx_complete(wx_res);
-      }
+    // ///////////////////////////////////////////
+    static setBackgroundFetchToken(swan_object) {
+        var wx_token = swan_object.token;
+        var wx_success = swan_object.success;
+        var wx_fail = swan_object.fail;
+        var wx_complete = swan_object.complete;
+        /////////////////
+        swan.setStorage({
+            key: "wx_token",
+            data: {
+                wx_token: wx_token,
+            },
+        })
+        swan_object.success = function (wx_res) {
+            var wx_res = {
+                errMsg: "setBackgroundFetchToken:ok"
+            };
+            if (wx_success) {
+                wx_success(wx_res);
+            }
+            if (wx_success) {
+                wx_complete(wx_res);
+            }
+        };
     };
-  };
-  static getBackgroundFetchToken(swan_object) {
-    var quick_success = swan_object.success;
-    var quick_fail = swan_object.fail;
-    var quick_complete = swan_object.complete;
-    console.log(quick_success)
-    swan.getStorage({
-      key: 'wx_token',
-      success(res) {
-        console.log(res.data)
-      }
-    })
-    swan_object.success = function (wx_res) {
-      var wx_res = {
-        errMsg: "getBackgroundFetchToken:ok"
-      };
-      console.log("", wx_res)
+    static getBackgroundFetchToken(swan_object) {
+        var quick_success = swan_object.success;
+        var quick_fail = swan_object.fail;
+        var quick_complete = swan_object.complete;
+        console.log(quick_success)
+        swan.getStorage({
+            key: 'wx_token',
+            success(res) {
+                console.log(res.data)
+            }
+        })
+        swan_object.success = function (wx_res) {
+            var wx_res = {
+                errMsg: "getBackgroundFetchToken:ok"
+            };
+            console.log("", wx_res)
 
-      if (wx_success) {
-        quick_success(wx_res);
-      }
-      if (wx_success) {
-        quick_complete(wx_res);
-      }
+            if (wx_success) {
+                quick_success(wx_res);
+            }
+            if (wx_success) {
+                quick_complete(wx_res);
+            }
+        };
     };
-  };
-  static onBackgroundFetchData(callback) {
+    static onBackgroundFetchData(callback) {
 
-  }
-    
+    }
+    static getBackgroundFetchData(swan_object) {
+        var quick_success = swan_object.success;
+        var quick_fail = swan_object.fail;
+        var quick_complete = swan_object.complete;
+    }
     static createContext() { return new CanvasContext(); }
     static createCanvasContext(object) { return swan.createCanvasContext(object); }
-    static createVideoContext(videoId,ui) { return new VideoContext(swan.createVideoContext(videoId)); }
-    static createInnerAudioContext(audioId,ui) { return new InnerAudioContext(swan.createInnerAudioContext(audioId)); }
-    static createLivePlayerContext(livePlayerId,ui) { return new LivePlayerContext(swan.createLivePlayerContext(livePlayerId)); }
+    static createVideoContext(videoId, ui) { return new VideoContext(swan.createVideoContext(videoId)); }
+    static createInnerAudioContext(audioId, ui) { return new InnerAudioContext(swan.createInnerAudioContext(audioId)); }
+    static createLivePlayerContext(livePlayerId, ui) { return new LivePlayerContext(swan.createLivePlayerContext(livePlayerId)); }
     static createCameraContext() { return new CameraContext(swan.createCameraContext()); }
     static canvasToTempFilePath(object) { return swan.canvasToTempFilePath(object); }
     static canvasPutImageData(object) { return swan.canvasPutImageData(object) };
@@ -286,19 +290,21 @@ export default class wx {
 
     static saveVideoToPhotosAlbum(object) { return swan.saveVideoToPhotosAlbum(object) }
     static chooseVideo(object) { return swan.chooseVideo(object) }
-    static chooseMedia(object) {return console.log("暂不支持！")}
+    static chooseMedia(object) { return console.log("暂不支持！") }
     static createVideoContext(object) { return swan.createVideoContext(object) }
-    static stopVoice(object) { 
-    object.success = function(){
-    console.log("VVV    ")
+    static stopVoice(object) {
+        object.success = function () {
+            console.log("VVV    ")
+        }
+
+        return swan.stopVoice(object)
     }
-    
-    return swan.stopVoice(object) }
     static pauseVoice(object) { return swan.pauseVoice(object) }
     static playVoice(object) { return swan.playVoice(object) }
-    static setInnerAudioOption(object) { 
+    static setInnerAudioOption(object) {
         var obeyMuteSwitch = true;
-        return swan.setInnerAudioOption(object) }
+        return swan.setInnerAudioOption(object)
+    }
     static getAvailableAudioSources(object) { return swan.getAvailableAudioSources(object) }
     static createInnerAudioContext(object) { return swan.createInnerAudioContext(object) }
     static createAudioContext(object) { return swan.createAudioContext(object) }
