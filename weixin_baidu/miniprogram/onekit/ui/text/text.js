@@ -2,7 +2,7 @@ Component({
    options: {
         addGlobalClass: true,
     },
-     properties: {
+     properties: {     Id:{type:String,value:""},
         selectable: { 
             type: Boolean, 
             value: false, 

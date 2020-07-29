@@ -24,7 +24,7 @@ Component({
         },
 
     },
-    properties: {
+    properties: {     Id:{type:String,value:""},
         enableSatellite: { type: Boolean },
         enableTraffic: { type: Boolean },
         subkey: { type: String },

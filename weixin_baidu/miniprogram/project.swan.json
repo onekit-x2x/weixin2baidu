@@ -1,0 +1,13 @@
+{
+    "host": "baiduboxapp",
+    "projectname": "miniprogram",
+    "setting": {
+        "urlCheck": true
+    },
+    "swan": {
+        "baiduboxapp": {
+            "extensionJsVersion": "100.14.255",
+            "swanJsVersion": "3.190.255-rc"
+        }
+    }
+}

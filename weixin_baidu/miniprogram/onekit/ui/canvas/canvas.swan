@@ -1,4 +1,5 @@
 <canvas 
+id="{{Id}}"
 class="onekit-canvas {{Class}}"
 style="{{Style}}"
 type="{{type}}"

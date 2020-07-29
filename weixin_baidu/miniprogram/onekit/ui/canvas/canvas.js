@@ -6,7 +6,7 @@ options: {
   data: {
 
   },
-  properties: {
+  properties: {     Id:{type:String,value:""},
    
     canvasId: {
       type:String,

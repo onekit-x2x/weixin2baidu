@@ -3,7 +3,7 @@ Component({
  options: {
         addGlobalClass: true,
     },
-    properties: {
+    properties: {     Id:{type:String,value:""},
         indicatorDots: { 
             type: Boolean, 
             value: false, 

@@ -1,5 +1,6 @@
 <!-- onekit/ui/navigation-bar/navigation-bar.ttml -->
 <navigation-bar
+id="{{Id}}"
     title="{{title}}"
     loading="{{loading}}"
     front-color="{{front-color}}"

@@ -2,11 +2,8 @@ Component({
 options: {
         addGlobalClass: true,
     },
-    properties: {
-        id: {
-            type: String, 
-            value: "",
-        },
+    properties: {     Id:{type:String,value:""},
+        
         src: {
             type: String, 
             value: "",

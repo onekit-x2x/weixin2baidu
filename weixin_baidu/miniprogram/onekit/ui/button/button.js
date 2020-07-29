@@ -5,7 +5,7 @@ Component({
     hideContact: true
   },
   attached() {},
-  properties: {},
+  properties: {     Id:{type:String,value:""},},
   methods: {
       
 bindgetuserinfo(info) {

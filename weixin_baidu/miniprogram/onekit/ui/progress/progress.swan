@@ -1,4 +1,5 @@
 <progress 
+id="{{Id}}"
 class="onekit-progress {{Class}}" 
 style="{{Style}}"
 percent="{{percent}}"

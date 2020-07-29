@@ -1,4 +1,5 @@
 <scroll-view 
+id="{{Id}}"
 class="onekit-scroll-view {{Class}}"
 style="{{Style}}"
 scroll-y="{{scrollY}}"

@@ -1,4 +1,5 @@
 <ad 
+id="{{Id}}"
 class="onekit-ad {{Class}}"
 style="{{Style}}"
 unit-id="{{unit-id}}"

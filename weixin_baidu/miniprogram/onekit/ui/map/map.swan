@@ -1,4 +1,5 @@
     <map id="eMap" style="{{style}}"
+    id="{{Id}}"
   longitude="{{longitude}}"
   latitude="{{latitude}}"
   scale="{{scale}}"

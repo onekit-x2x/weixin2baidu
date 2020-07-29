@@ -1,5 +1,5 @@
 Component({
-    properties: {
+    properties: {     Id:{type:String,value:""},
        nodes:{
        type:String,
        value:'', 
