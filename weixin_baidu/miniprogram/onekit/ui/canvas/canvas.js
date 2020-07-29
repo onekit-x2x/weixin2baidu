@@ -7,6 +7,8 @@ options: {
 
   },
   properties: {     Id:{type:String,value:""},
+  Class:{type:String,value:""},
+  Style:{type:String,value:""},
    
     canvasId: {
       type:String,

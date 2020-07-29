@@ -1,4 +1,5 @@
-<view id="{{Id}}" bindtap="view_tap" navigateToMiniProgram>
+<view id="{{Id}}"
+ bindtap="view_tap" navigateToMiniProgram>
 	<navigator>
 		<slot/>
 	</navigator>

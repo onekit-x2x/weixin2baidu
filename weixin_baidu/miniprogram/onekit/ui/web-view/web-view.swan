@@ -1,3 +1,6 @@
-<view class="container">
+<view class="onekit-web-view {{Class}}"
+style="{{Style}}"
+id="{{Id}}"
+>
     <!--to do-->
 </view>
