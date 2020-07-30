@@ -6,7 +6,9 @@ Component({
         addGlobalClass: true,
     },
     properties: {
-        Id: { type: String, value: "" },
+     Id:{type:String,value:""},
+    Class:{type:String,value:""},
+    Style:{type:String,value:""},
         scrollY: {
             type: Boolean,
             value: false,

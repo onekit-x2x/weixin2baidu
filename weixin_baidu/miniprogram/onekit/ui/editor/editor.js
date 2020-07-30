@@ -1,7 +1,10 @@
 Component({
   mixins: [],
   data: {},
-  properties: {     Id:{type:String,value:""},
+  properties: {    
+   Id:{type:String,value:""},
+    Class:{type:String,value:""},
+    Style:{type:String,value:""},
     readOnly: false,
     placeholder: "",
     showImgSize: false,
