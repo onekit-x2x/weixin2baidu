@@ -1,52 +1,21 @@
 {
     "editor": {
-        "curPath": "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\web-view\\web-view.js",
+        "curPath": "/Users/zhangjin/swan-projects/program/miniprogram/app.json",
         "expands": [
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\client",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\api",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\navigator",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\web-view"
+            "/Users/zhangjin/swan-projects/program/miniprogram",
+            "/Users/zhangjin/swan-projects/program/miniprogram/pages"
         ],
         "markdownUploadTimeMap": {},
         "paths": [
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\canvas\\canvas.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\canvas\\canvas.swan",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\api\\CanvasContext.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\wx.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\navigator\\navigator.swan",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\navigator\\navigator.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\navigator\\navigator.json",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\canvas\\canvas.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\web-view\\web-view.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\web-view\\web-view.css"
+            "/Users/zhangjin/swan-projects/program/miniprogram/app.js",
+            "/Users/zhangjin/swan-projects/program/miniprogram/app.json"
         ],
         "recentlyFiles": [
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\web-view\\web-view.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\web-view\\web-view.css",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\web-view\\web-view.swan",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\web-view\\web-view.json",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\live-player\\live-player.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\canvas\\canvas.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\canvas\\canvas.json",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\canvas\\canvas.swan",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\canvas\\canvas.swan",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\canvas\\canvas.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\canvas\\canvas.css",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\api\\CanvasContext.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\canvas-2d\\car.png",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\canvas-2d\\canvas-2d.css",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\canvas\\car.png",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\navigator\\navigator.swan",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\navigator\\redirect.json",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\navigator\\navigator.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\navigator\\navigator.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\navigator\\navigator.swan"
+            "/Users/zhangjin/swan-projects/program/miniprogram/app.json",
+            "/Users/zhangjin/swan-projects/program/miniprogram/app.js",
+            "/Users/zhangjin/swan-projects/program/project.swan.json",
+            "/Users/zhangjin/swan-projects/program/pkginfo.json",
+            "/Users/zhangjin/swan-projects/program/jsconfig.json"
         ]
     }
 }
