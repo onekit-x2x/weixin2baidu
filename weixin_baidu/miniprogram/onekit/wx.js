@@ -173,8 +173,8 @@ export default class wx {
         var quick_fail = swan_object.fail;
         var quick_complete = swan_object.complete;
     }
-    static createContext() { return new CanvasContext(); }
-    static createCanvasContext(object) { return swan.createCanvasContext(object); }
+    // static createContext() { return new CanvasContext(); }
+    static createCanvasContext(canvasId) { return new CanvasContext (swan.createCanvasContext(canvasId)); }
     static createVideoContext(videoId, ui) { return new VideoContext(swan.createVideoContext(videoId)); }
     static createInnerAudioContext(audioId, ui) { return new InnerAudioContext(swan.createInnerAudioContext(audioId)); }
     static createLivePlayerContext(livePlayerId, ui) { return new LivePlayerContext(swan.createLivePlayerContext(livePlayerId)); }

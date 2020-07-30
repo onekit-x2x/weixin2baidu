@@ -27,10 +27,9 @@ OnekitPage({
             };
             this.drawBall();
             this.interval = setInterval(()=>{
-this.drawBall();
-},()=>{
-17();
-});
+          //  console.log(this.position)
+            this.drawBall()
+            },17);
         }
     },
     init:function(res){
@@ -60,6 +59,7 @@ this.drawBall();
         const p = this.position;
         p.x += p.vx;
         p.y += p.vy;
+        console.log(new Date(),p.x,p.vx)
         if(p.x >= 300){
             p.vx = -2;
         }

@@ -1,11 +1,10 @@
 <canvas 
 id="{{Id}}"
 class="onekit-canvas {{Class}}"
-style="{{Style}}"
+style="width:100%;height:100%;{{Style}}"
 type="{{type}}"
 canvas-id="{{canvasId}}"
 disable-scroll="{{disableScroll}}"
-style="width:100%;height:100%;"
 
 bindtouchstart="canvas_start"
 bindtouchmove="canvas_move"   
