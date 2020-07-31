@@ -30,4 +30,6 @@
   bindcallouttap="onCallouttap"
   bindpoitap="onPoitap"
   bindlabeltap="onLabeltap"
-></map>
+>
+<slot/>
+</map>
