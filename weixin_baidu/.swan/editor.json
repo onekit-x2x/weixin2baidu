@@ -1,6 +1,6 @@
 {
     "editor": {
-        "curPath": "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\ad\\ad.js",
+        "curPath": "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\audio\\audio.js",
         "expands": [
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram",
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit",
@@ -10,9 +10,11 @@
         "markdownUploadTimeMap": {},
         "paths": [
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\text\\text.js",
-            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\ad\\ad.js"
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\ad\\ad.js",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\audio\\audio.js"
         ],
         "recentlyFiles": [
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\audio\\audio.js",
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\ad\\ad.js",
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\ad\\ad.json",
             "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\text\\text.js"
