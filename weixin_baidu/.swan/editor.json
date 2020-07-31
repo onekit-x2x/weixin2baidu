@@ -1,21 +1,9 @@
 {
     "editor": {
-        "curPath": "/Users/zhangjin/swan-projects/program/miniprogram/app.json",
-        "expands": [
-            "/Users/zhangjin/swan-projects/program/miniprogram",
-            "/Users/zhangjin/swan-projects/program/miniprogram/pages"
-        ],
+        "curPath": "",
+        "expands": [],
         "markdownUploadTimeMap": {},
-        "paths": [
-            "/Users/zhangjin/swan-projects/program/miniprogram/app.js",
-            "/Users/zhangjin/swan-projects/program/miniprogram/app.json"
-        ],
-        "recentlyFiles": [
-            "/Users/zhangjin/swan-projects/program/miniprogram/app.json",
-            "/Users/zhangjin/swan-projects/program/miniprogram/app.js",
-            "/Users/zhangjin/swan-projects/program/project.swan.json",
-            "/Users/zhangjin/swan-projects/program/pkginfo.json",
-            "/Users/zhangjin/swan-projects/program/jsconfig.json"
-        ]
+        "paths": [],
+        "recentlyFiles": []
     }
 }

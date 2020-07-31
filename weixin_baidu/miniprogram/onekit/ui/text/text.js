@@ -1,8 +1,7 @@
 Component({
    options: {
         addGlobalClass: true,
-    },
-     properties: {     
+    }, 
       properties: {    
      Id:{type:String,value:""},
     Class:{type:String,value:""},
