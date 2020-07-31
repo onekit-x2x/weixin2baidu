@@ -44,7 +44,6 @@
 		"page/component/pages/canvas-2d/canvas-2d",
 		"page/component/pages/webgl/webgl"
 	],
-	"sitemapLocation":"sitemap.json",
 	"tabBar":{
 		"list":[
 			{
