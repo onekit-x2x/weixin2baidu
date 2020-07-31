@@ -2,6 +2,6 @@
 id="{{Id}}"
 class="onekit-ad {{Class}}"
 style="{{Style}}"
-unit-id="{{unit-id}}"
-type="{{ad-type}}"
+apid="{{unitId}}"
+type="{{adType}}"
 ></ad>

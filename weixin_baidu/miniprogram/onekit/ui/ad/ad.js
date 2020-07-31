@@ -6,10 +6,11 @@ options: {
     Id:{type:String,value:""},
     Class:{type:String,value:""},
     Style:{type:String,value:""},
-    "ad-type":{
+    unitId:{type:String,value:""},
+    adType:{
     type: String,
     value: 'banner', 
-    }
+    },
     },
 
     data: {}, // 私有数据，可用于模版渲染
