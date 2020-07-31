@@ -1,30 +1,30 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{{title: 'intersectionObserver'}}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section message">
-      <text s-if="appear">
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section message">
+      <onekit-text s-if="appear">
         小球出现
-      </text>
-      <text s-else>
+      </onekit-text>
+      <onekit-text s-else>
         小球消失
-      </text>
-    </view>
-    <view class="page-section">
-      <scroll-view class="scroll-view" scroll-y>
-        <view class="scroll-area" style="{{appear ? 'background: #ccc' : ''}}">
-          <text class="notice">向下滚动让小球出现</text>
-          <view class="filling"></view>
-          <view class="ball"></view>
-        </view>
-      </scroll-view>
-    </view>
-  </view>
+      </onekit-text>
+    </onekit-view>
+    <onekit-view Class="page-section">
+      <onekit-scroll-view Class="scroll-view" scroll-y>
+        <onekit-view Class="scroll-area" Style="{{appear ? 'background: #ccc' : ''}}">
+          <onekit-text Class="notice">向下滚动让小球出现</onekit-text>
+          <onekit-view Class="filling"></onekit-view>
+          <onekit-view Class="ball"></onekit-view>
+        </onekit-view>
+      </onekit-scroll-view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

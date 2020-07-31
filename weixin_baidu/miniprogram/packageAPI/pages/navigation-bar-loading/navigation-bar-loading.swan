@@ -1,17 +1,17 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{{title: 'navigationBarLoading'}}}">
 </template>
 
-  <view class="page-body">
-    <view class="btn-area">
+  <onekit-view Class="page-body">
+    <onekit-view Class="btn-area">
       <onekit-button type="primary" bindtap="showNavigationBarLoading">显示加载动画</onekit-button>
       <onekit-button bindtap="hideNavigationBarLoading">隐藏加载动画</onekit-button>
-    </view>
-  </view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

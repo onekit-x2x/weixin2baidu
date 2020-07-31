@@ -1,7 +1,7 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{{title: '新建的页面'}}}">
 </template>
-</view>
+</onekit-view>
