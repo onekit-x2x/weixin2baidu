@@ -1,9 +1,21 @@
 {
     "editor": {
-        "curPath": "",
-        "expands": [],
+        "curPath": "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\ad\\ad.js",
+        "expands": [
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\ad"
+        ],
         "markdownUploadTimeMap": {},
-        "paths": [],
-        "recentlyFiles": []
+        "paths": [
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\text\\text.js",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\ad\\ad.js"
+        ],
+        "recentlyFiles": [
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\ad\\ad.js",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\ad\\ad.json",
+            "D:\\work\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\text\\text.js"
+        ]
     }
 }
