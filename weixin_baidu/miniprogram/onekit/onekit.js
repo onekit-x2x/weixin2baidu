@@ -67,4 +67,7 @@ onekit.OnekitApp = function(data){
 onekit.OnekitPage = function(data){
     return Page(data);
 }
+onekit.OnekitComponent = function(data){
+    return Component(data);
+}
 module.exports = onekit;
