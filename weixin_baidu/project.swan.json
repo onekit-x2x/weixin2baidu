@@ -7,7 +7,8 @@
             "babelSetting": {
                 "ignore": []
             },
-            "enhance": false
+            "enhance": false,
+            "useStrict": true
         }
     },
     "condition": {},
