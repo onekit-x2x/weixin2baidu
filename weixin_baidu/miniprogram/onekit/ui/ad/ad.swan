@@ -4,4 +4,5 @@ class="onekit-ad {{Class}}"
 style="{{Style}}"
 apid="{{unitId}}"
 type="{{adType}}"
+updatetime="{{adIntervals}}"
 ></ad>
