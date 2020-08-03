@@ -7,8 +7,11 @@
             "babelSetting": {
                 "ignore": []
             },
-            "enhance": false
-        }
+            "enhance": false,
+            "useStrict": true
+        },
+        "options": [],
+        "selected": -1
     },
     "condition": {},
     "host": "baiduboxapp",

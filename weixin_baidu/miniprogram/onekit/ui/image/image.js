@@ -25,11 +25,9 @@ Component({
     },
     methods: {
        image_error(e){
-       console.log("image_error", e);
         this.triggerEvent('error',e.details)
        },
        image_load(e){
-       console.log("image_load", e);
         this.triggerEvent('load',e.details)
        },
     }
