@@ -1,10 +1,11 @@
 import {OnekitApp,OnekitPage,OnekitComponent} from '../../../../onekit/onekit.js';
 import wx from '../../../../onekit/wx.js';
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'progress',
-            path:'page/component/pages/progress/progress'
-        };
+        title:'progress',
+        path:'page/component/pages/progress/progress'
+    };
     }
+
 });

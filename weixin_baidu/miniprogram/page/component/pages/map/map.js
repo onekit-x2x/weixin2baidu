@@ -1,12 +1,13 @@
 import {OnekitApp,OnekitPage,OnekitComponent} from '../../../../onekit/onekit.js';
 import wx from '../../../../onekit/wx.js';
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'map',
-            path:'page/component/pages/map/map'
-        };
-    },
+        title:'map',
+        path:'page/component/pages/map/map'
+    };
+    }
+,
     data:{
         latitude:23.099994,
         longitude:113.32452,
@@ -60,49 +61,58 @@ OnekitPage({
         enableSatellite:false,
         enableTraffic:false
     },
-    toggle3d:function(){
+    toggle3d:    function(){
         this.setData({
-            enable3d:!this.data.enable3d
-        });
-    },
-    toggleShowCompass:function(){
-        this.setData({
-            showCompass:!this.data.showCompass
-        });
-    },
-    toggleOverlooking:function(){
-        this.setData({
-            enableOverlooking:!this.data.enableOverlooking
-        });
-    },
-    toggleZoom:function(){
-        this.setData({
-            enableZoom:!this.data.enableZoom
-        });
-    },
-    toggleScroll:function(){
-        this.setData({
-            enableScroll:!this.data.enableScroll
-        });
-    },
-    toggleRotate:function(){
-        this.setData({
-            enableRotate:!this.data.enableRotate
-        });
-    },
-    togglePolygon:function(){
-        this.setData({
-            drawPolygon:!this.data.drawPolygon
-        });
-    },
-    toggleSatellite:function(){
-        this.setData({
-            enableSatellite:!this.data.enableSatellite
-        });
-    },
-    toggleTraffic:function(){
-        this.setData({
-            enableTraffic:!this.data.enableTraffic
-        });
+        enable3d:!this.data.enable3d
+    });
     }
+,
+    toggleShowCompass:    function(){
+        this.setData({
+        showCompass:!this.data.showCompass
+    });
+    }
+,
+    toggleOverlooking:    function(){
+        this.setData({
+        enableOverlooking:!this.data.enableOverlooking
+    });
+    }
+,
+    toggleZoom:    function(){
+        this.setData({
+        enableZoom:!this.data.enableZoom
+    });
+    }
+,
+    toggleScroll:    function(){
+        this.setData({
+        enableScroll:!this.data.enableScroll
+    });
+    }
+,
+    toggleRotate:    function(){
+        this.setData({
+        enableRotate:!this.data.enableRotate
+    });
+    }
+,
+    togglePolygon:    function(){
+        this.setData({
+        drawPolygon:!this.data.drawPolygon
+    });
+    }
+,
+    toggleSatellite:    function(){
+        this.setData({
+        enableSatellite:!this.data.enableSatellite
+    });
+    }
+,
+    toggleTraffic:    function(){
+        this.setData({
+        enableTraffic:!this.data.enableTraffic
+    });
+    }
+
 });

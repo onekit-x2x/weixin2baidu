@@ -28,14 +28,16 @@ const duration = Array.apply(null,{
     length:60
 }).map(function(n,i){
     return i + 1;
-});
+}
+);
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'拍摄/选择视频',
-            path:'packageAPI/pages/video/video'
-        };
-    },
+        title:'拍摄/选择视频',
+        path:'packageAPI/pages/video/video'
+    };
+    }
+,
     data:{
         sourceTypeIndex:2,
         sourceType:[
@@ -50,37 +52,43 @@ OnekitPage({
             '前置或后置'
         ],
         durationIndex:59,
-        duration:duration.map(function(t){
+        duration:duration.map(        function(t){
             return t + '秒';
-        }),
+        }
+),
         src:''
     },
-    sourceTypeChange:function(e){
+    sourceTypeChange:    function(e){
         this.setData({
-            sourceTypeIndex:e.detail.value
-        });
-    },
-    cameraChange:function(e){
+        sourceTypeIndex:e.detail.value
+    });
+    }
+,
+    cameraChange:    function(e){
         this.setData({
-            cameraIndex:e.detail.value
-        });
-    },
-    durationChange:function(e){
+        cameraIndex:e.detail.value
+    });
+    }
+,
+    durationChange:    function(e){
         this.setData({
-            durationIndex:e.detail.value
-        });
-    },
-    chooseVideo:function(){
+        durationIndex:e.detail.value
+    });
+    }
+,
+    chooseVideo:    function(){
         const that = this;
         wx.chooseVideo({
-            sourceType:sourceType[this.data.sourceTypeIndex],
-            camera:camera[this.data.cameraIndex],
-            maxDuration:duration[this.data.durationIndex],
-            success:function(res){
-                that.setData({
-                    src:res.tempFilePath
-                });
-            }
+        sourceType:sourceType[this.data.sourceTypeIndex],
+        camera:camera[this.data.cameraIndex],
+        maxDuration:duration[this.data.durationIndex],
+        success:        function(res){
+            that.setData({
+            src:res.tempFilePath
         });
+        }
+
+    });
     }
+
 });

@@ -1,40 +1,49 @@
 {
-  "light": {
-    "navigationBarTextStyle": "black",
-    "navigationBarBackgroundColor": "#F7F7F7",
-    "backgroundColor": "#F7F7F7",
-
-    "tabBarColor": "#7A7E83",
-    "tabBarSelectedColor": "#3cc51f",
-    "tabBarBorderStyle": "black",
-    "tabBarBackgroundColor": "#F7F7F7",
-
-    "iconPathComponent": "image/icon_component.png",
-    "selectedIconPathComponent": "image/icon_component_HL.png",
-    "iconPathAPI": "image/icon_API.png",
-    "selectedIconPathAPI": "image/icon_API_HL.png",
-    "iconPathCloud": "image/icon_cloud.png",
-    "selectedIconPathCloud": "image/icon_cloud_HL.png",
-
-    "backgroundTextStyle": "dark"
-  },
-  "dark": {
-    "navigationBarTextStyle": "white",
-    "navigationBarBackgroundColor": "#1F1F1F",
-    "backgroundColor": "#1F1F1F",
-
-    "tabBarColor": "#FFFFFFCC",
-    "tabBarSelectedColor": "#51A937",
-    "tabBarBorderStyle": "white",
-    "tabBarBackgroundColor": "#1F1F1F",
-
-    "iconPathComponent": "image/icon_component_dark.png",
-    "selectedIconPathComponent": "image/icon_component_HL.png",
-    "iconPathAPI": "image/icon_API_dark.png",
-    "selectedIconPathAPI": "image/icon_API_HL.png",
-    "iconPathCloud": "image/icon_cloud_dark.png",
-    "selectedIconPathCloud": "image/icon_cloud_HL.png",
-
-    "backgroundTextStyle": "light"
-  }
+	"usingComponents":{
+		"onekit-live-player":"/onekit/ui/live-player/live-player",
+		"onekit-radio-group":"/onekit/ui/radio-group/radio-group",
+		"onekit-picker-view":"/onekit/ui/picker-view/picker-view",
+		"onekit-textarea":"/onekit/ui/textarea/textarea",
+		"onekit-picker-view-column":"/onekit/ui/picker-view-column/picker-view-column",
+		"onekit-map":"/onekit/ui/map/map",
+		"onekit-canvas":"/onekit/ui/canvas/canvas",
+		"onekit-text":"/onekit/ui/text/text",
+		"onekit-cover-view":"/onekit/ui/cover-view/cover-view",
+		"onekit-web-view":"/onekit/ui/web-view/web-view",
+		"onekit-navigation-bar":"/onekit/ui/navigation-bar/navigation-bar",
+		"onekit-radio":"/onekit/ui/radio/radio",
+		"onekit-rich-text":"/onekit/ui/rich-text/rich-text",
+		"onekit-icon":"/onekit/ui/icon/icon",
+		"onekit-voip-room":"/onekit/ui/voip-room/voip-room",
+		"onekit-checkbox":"/onekit/ui/checkbox/checkbox",
+		"onekit-video":"/onekit/ui/video/video",
+		"onekit-editor":"/onekit/ui/editor/editor",
+		"onekit-slider":"/onekit/ui/slider/slider",
+		"onekit-audio":"/onekit/ui/audio/audio",
+		"onekit-label":"/onekit/ui/label/label",
+		"onekit-live-pusher":"/onekit/ui/live-pusher/live-pusher",
+		"onekit-match-media":"/onekit/ui/match-media/match-media",
+		"onekit-swiper-item":"/onekit/ui/swiper-item/swiper-item",
+		"onekit-scroll-view":"/onekit/ui/scroll-view/scroll-view",
+		"onekit-open-data":"/onekit/ui/open-data/open-data",
+		"onekit-movable-view":"/onekit/ui/movable-view/movable-view",
+		"onekit-button":"/onekit/ui/button/button",
+		"onekit-swiper":"/onekit/ui/swiper/swiper",
+		"onekit-navigator":"/onekit/ui/navigator/navigator",
+		"onekit-image":"/onekit/ui/image/image",
+		"onekit-switch":"/onekit/ui/switch/switch",
+		"onekit-cover-image":"/onekit/ui/cover-image/cover-image",
+		"onekit-picker":"/onekit/ui/picker/picker",
+		"onekit-native-component":"/onekit/ui/native-component/native-component",
+		"onekit-movable-area":"/onekit/ui/movable-area/movable-area",
+		"onekit-aria-component":"/onekit/ui/aria-component/aria-component",
+		"onekit-ad":"/onekit/ui/ad/ad",
+		"onekit-progress":"/onekit/ui/progress/progress",
+		"onekit-official-account":"/onekit/ui/official-account/official-account",
+		"onekit-functional-page-navigator":"/onekit/ui/functional-page-navigator/functional-page-navigator",
+		"onekit-page-meta":"/onekit/ui/page-meta/page-meta",
+		"onekit-checkbox-group":"/onekit/ui/checkbox-group/checkbox-group",
+		"onekit-input":"/onekit/ui/input/input",
+		"onekit-camera":"/onekit/ui/camera/camera"
+	}
 }

@@ -1,12 +1,13 @@
 import {OnekitApp,OnekitPage,OnekitComponent} from '../../../../onekit/onekit.js';
 import wx from '../../../../onekit/wx.js';
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'radio',
-            path:'page/component/pages/radio/radio'
-        };
-    },
+        title:'radio',
+        path:'page/component/pages/radio/radio'
+    };
+    }
+,
     data:{
         items:[
             {
@@ -36,14 +37,15 @@ OnekitPage({
             }
         ]
     },
-    radioChange:function(e){
+    radioChange:    function(e){
         console.log('radio发生change事件，携带value值为：',e.detail.value);
         const items = this.data.items;
         for(var i = 0,len = items.length;i < len;++i){
-            items[i].checked = items[i].value === e.detail.value;
-        };
+        items[i].checked = items[i].value === e.detail.value;
+    };
         this.setData({
-            items:items
-        });
+        items:items
+    });
     }
+
 });

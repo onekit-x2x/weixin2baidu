@@ -8,7 +8,8 @@ OnekitPage({
             path:'packageAPI/pages/share/share'
         }
     },
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return this.data.shareData;
     }
+
 });

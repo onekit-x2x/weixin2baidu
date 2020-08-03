@@ -1,12 +1,13 @@
 import {OnekitApp,OnekitPage,OnekitComponent} from '../../../../onekit/onekit.js';
 import wx from '../../../../onekit/wx.js';
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'picker',
-            path:'page/component/pages/picker/picker'
-        };
-    },
+        title:'picker',
+        path:'page/component/pages/picker/picker'
+    };
+    }
+,
     data:{
         array:[
             '中国',
@@ -18,20 +19,23 @@ OnekitPage({
         date:'2016-09-01',
         time:'12:01'
     },
-    bindPickerChange:function(e){
+    bindPickerChange:    function(e){
         console.log('picker发送选择改变，携带值为',e.detail.value);
         this.setData({
-            index:e.detail.value
-        });
-    },
-    bindDateChange:function(e){
-        this.setData({
-            date:e.detail.value
-        });
-    },
-    bindTimeChange:function(e){
-        this.setData({
-            time:e.detail.value
-        });
+        index:e.detail.value
+    });
     }
+,
+    bindDateChange:    function(e){
+        this.setData({
+        date:e.detail.value
+    });
+    }
+,
+    bindTimeChange:    function(e){
+        this.setData({
+        time:e.detail.value
+    });
+    }
+
 });

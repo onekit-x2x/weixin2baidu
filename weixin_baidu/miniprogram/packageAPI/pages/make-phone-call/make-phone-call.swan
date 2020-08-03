@@ -1,20 +1,20 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<onekit-view Class="container">
+<view class="container">
   <template is="head" data="{{{title: 'makePhoneCall'}}}">
 </template>
 
-  <onekit-view Class="page-body">
-    <onekit-view Class="page-section">
-      <onekit-view Class="desc">请在下方输入电话号码</onekit-view>
+  <view class="page-body">
+    <view class="page-section">
+      <view class="desc">请在下方输入电话号码</view>
       <onekit-input Class="input" type="number" name="input" bindinput="bindInput"></onekit-input>
-      <onekit-view Class="btn-area">
+      <view class="btn-area">
         <onekit-button type="primary" bindtap="makePhoneCall" disabled="{{disabled}}">拨打</onekit-button>
-      </onekit-view>
-    </onekit-view>
-  </onekit-view>
+      </view>
+    </view>
+  </view>
 
   <template is="foot">
 </template>
-</onekit-view>
+</view>

@@ -11,17 +11,20 @@ function getRandomColor(){
     return '#' + rgb.join('');
 };
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'video',
-            path:'page/component/pages/video/video'
-        };
-    },
-    onReady:function(){
+        title:'video',
+        path:'page/component/pages/video/video'
+    };
+    }
+,
+    onReady:    function(){
         this.videoContext = wx.createVideoContext('myVideo');
-    },
-    onHide:function(){
-    },
+    }
+,
+    onHide:    function(){
+    }
+,
     inputValue:'',
     data:{
         enableAutoRotation:true,
@@ -39,50 +42,59 @@ OnekitPage({
             }
         ]
     },
-    bindInputBlur:function(e){
+    bindInputBlur:    function(e){
         this.inputValue = e.detail.value;
-    },
-    bindButtonTap:function(){
+    }
+,
+    bindButtonTap:    function(){
         const that = this;
         wx.chooseVideo({
-            sourceType:[
-                'album',
-                'camera'
-            ],
-            maxDuration:60,
-            camera:[
-                'front',
-                'back'
-            ],
-            success:function(res){
-                that.setData({
-                    src:res.tempFilePath
-                });
-            }
+        sourceType:[
+            'album',
+            'camera'
+        ],
+        maxDuration:60,
+        camera:[
+            'front',
+            'back'
+        ],
+        success:        function(res){
+            that.setData({
+            src:res.tempFilePath
         });
-    },
-    bindVideoEnterPictureInPicture:function(){
+        }
+
+    });
+    }
+,
+    bindVideoEnterPictureInPicture:    function(){
         console.log('进入小窗模式');
-    },
-    bindVideoLeavePictureInPicture:function(){
+    }
+,
+    bindVideoLeavePictureInPicture:    function(){
         console.log('退出小窗模式');
-    },
-    bindPlayVideo:function(){
+    }
+,
+    bindPlayVideo:    function(){
         this.videoContext.play();
-    },
-    bindSendDanmu:function(){
+    }
+,
+    bindSendDanmu:    function(){
         this.videoContext.sendDanmu({
-            text:this.inputValue,
-            color:getRandomColor()
-        });
-    },
-    videoErrorCallback:function(e){
+        text:this.inputValue,
+        color:getRandomColor()
+    });
+    }
+,
+    videoErrorCallback:    function(e){
         console.log('视频错误信息:');
         console.log(e.detail.errMsg);
-    },
-    handleSwitchChange:function(e){
-        this.setData({
-            enableAutoRotation:e.detail.value
-        });
     }
+,
+    handleSwitchChange:    function(e){
+        this.setData({
+        enableAutoRotation:e.detail.value
+    });
+    }
+
 });

@@ -1,12 +1,13 @@
 import {OnekitApp,OnekitPage,OnekitComponent} from '../../../onekit/onekit.js';
 import wx from '../../../onekit/wx.js';
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'云函数中使用微信开放能力',
-            path:'page/cloud/pages/scf-openapi/scf-openapi'
-        };
-    },
+        title:'云函数中使用微信开放能力',
+        path:'page/cloud/pages/scf-openapi/scf-openapi'
+    };
+    }
+,
     data:{
         sendTemplateMessageResult:'',
         sendTemplateMessageError:false,
@@ -16,22 +17,23 @@ OnekitPage({
         getWXACodeLoading:false,
         theme:'light'
     },
-    onLoad:function(){
+    onLoad:    function(){
         this.setData({
-            theme:wx.getSystemInfoSync().theme || 'light'
-        });
+        theme:wx.getSystemInfoSync().theme || 'light'
+    });
         if(wx.onThemeChange){
-            wx.onThemeChange(({theme})=>{this.setData({
-                theme:theme
-            })});
-        }
-    },
-    sendTemplateMessageViaCloudFunction:function(e){
+        wx.onThemeChange(({theme})=>{this.setData({
+            theme:theme
+        })});
+    }
+    }
+,
+    sendTemplateMessageViaCloudFunction:    function(e){
         this.setData({
-            sendTemplateMessageResult:'',
-            sendTemplateMessageError:false,
-            sendTemplateMessageLoading:true
-        });
+        sendTemplateMessageResult:'',
+        sendTemplateMessageError:false,
+        sendTemplateMessageLoading:true
+    });
         wx.cloud.callFunction({
     name:'openapi',
     data:{
@@ -45,19 +47,20 @@ OnekitPage({
     });
     console.log('[云调用] [发送模板消息] 成功: ',res);
 }).catch((err)=>{
-            this.setData({
-                sendTemplateMessageError:true,
-                sendTemplateMessageLoading:false
-            });
-            console.error('[云调用] [发送模板消息] 失败: ',err);
-        });
-    },
-    getWXACodeViaCloudFunction:function(){
         this.setData({
-            getWXACodeResult:'',
-            getWXACodeError:false,
-            getWXACodeLoading:true
+            sendTemplateMessageError:true,
+            sendTemplateMessageLoading:false
         });
+        console.error('[云调用] [发送模板消息] 失败: ',err);
+    });
+    }
+,
+    getWXACodeViaCloudFunction:    function(){
+        this.setData({
+        getWXACodeResult:'',
+        getWXACodeError:false,
+        getWXACodeLoading:true
+    });
         wx.cloud.callFunction({
     name:'openapi',
     data:{
@@ -70,66 +73,69 @@ OnekitPage({
     });
     console.log('[云调用] [获取小程序码]] 成功: ',res);
 }).catch((err)=>{
-            this.setData({
-                getWXACodeError:true,
-                getWXACodeLoading:false
-            });
-            console.error('[云调用] [获取小程序码] 失败: ',err);
+        this.setData({
+            getWXACodeError:true,
+            getWXACodeLoading:false
         });
-    },
-    queryServerDataViaClient:function(){
+        console.error('[云调用] [获取小程序码] 失败: ',err);
+    });
+    }
+,
+    queryServerDataViaClient:    function(){
         const db = wx.cloud.database();
         this.setData({
-            clientLoading:true,
-            serverDataClient:'',
-            serverDataClientError:false
-        });
+        clientLoading:true,
+        serverDataClient:'',
+        serverDataClientError:false
+    });
         db.collection('perm4').where({
     _openid:'server'
 }).get({
-            success:(res)=>{
-                const resFirstData = (res.data && res.data[0]) || {};
-                this.setData({
-                    serverDataClient:resFirstData.data
-                });
-                console.log('[数据库] [查询记录] 成功: ',res);
-            },
-            fail:(err)=>{
-                this.setData({
-                    serverDataClientError:true
-                });
-                console.error('[数据库] [查询记录] 失败：',err);
-            },
-            complete:()=>{this.setData({
-                clientLoading:false
-            })}
-        });
-    },
-    queryServerDataViaCloudFunction:function(){
-        this.setData({
-            cloudLoading:true,
-            serverDataCloud:'',
-            serverDataCloudError:false
-        });
-        wx.cloud.callFunction({
-            name:'getServerDataDemo',
-            data:{},
-            success:(res)=>{
-                console.log('[云函数] [getServerDataDemo] res: ',res.result);
-                const resFirstData = (res.result.data && res.result.data[0]) || {};
-                this.setData({
-                    serverDataCloud:resFirstData.data
-                });
-            },
-            fail:(err)=>{
-                this.setData({
-                    serverDataCloudError:true
-                });
-                console.error('[云函数] [getServerDataDemo] 调用失败',err);
-            },
-            complete:()=>{this.setData({
-                cloudLoading:false
-            })}
-        });
+        success:(res)=>{
+            const resFirstData = (res.data && res.data[0]) || {};
+            this.setData({
+                serverDataClient:resFirstData.data
+            });
+            console.log('[数据库] [查询记录] 成功: ',res);
+        },
+        fail:(err)=>{
+            this.setData({
+                serverDataClientError:true
+            });
+            console.error('[数据库] [查询记录] 失败：',err);
+        },
+        complete:()=>{this.setData({
+            clientLoading:false
+        })}
+    });
     }
+,
+    queryServerDataViaCloudFunction:    function(){
+        this.setData({
+        cloudLoading:true,
+        serverDataCloud:'',
+        serverDataCloudError:false
+    });
+        wx.cloud.callFunction({
+        name:'getServerDataDemo',
+        data:{},
+        success:(res)=>{
+            console.log('[云函数] [getServerDataDemo] res: ',res.result);
+            const resFirstData = (res.result.data && res.result.data[0]) || {};
+            this.setData({
+                serverDataCloud:resFirstData.data
+            });
+        },
+        fail:(err)=>{
+            this.setData({
+                serverDataCloudError:true
+            });
+            console.error('[云函数] [getServerDataDemo] 调用失败',err);
+        },
+        complete:()=>{this.setData({
+            cloudLoading:false
+        })}
+    });
+    }
+
 });

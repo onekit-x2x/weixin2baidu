@@ -25,12 +25,13 @@ const sizeType = [
     ]
 ];
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'图片',
-            path:'packageAPI/pages/image/image'
-        };
-    },
+        title:'图片',
+        path:'packageAPI/pages/image/image'
+    };
+    }
+,
     data:{
         imageList:[
         ],
@@ -59,40 +60,46 @@ OnekitPage({
             9
         ]
     },
-    sourceTypeChange:function(e){
+    sourceTypeChange:    function(e){
         this.setData({
-            sourceTypeIndex:e.detail.value
-        });
-    },
-    sizeTypeChange:function(e){
+        sourceTypeIndex:e.detail.value
+    });
+    }
+,
+    sizeTypeChange:    function(e){
         this.setData({
-            sizeTypeIndex:e.detail.value
-        });
-    },
-    countChange:function(e){
+        sizeTypeIndex:e.detail.value
+    });
+    }
+,
+    countChange:    function(e){
         this.setData({
-            countIndex:e.detail.value
-        });
-    },
-    chooseImage:function(){
+        countIndex:e.detail.value
+    });
+    }
+,
+    chooseImage:    function(){
         const that = this;
         wx.chooseImage({
-            sourceType:sourceType[this.data.sourceTypeIndex],
-            sizeType:sizeType[this.data.sizeTypeIndex],
-            count:this.data.count[this.data.countIndex],
-            success:function(res){
-                console.log(res);
-                that.setData({
-                    imageList:res.tempFilePaths
-                });
-            }
+        sourceType:sourceType[this.data.sourceTypeIndex],
+        sizeType:sizeType[this.data.sizeTypeIndex],
+        count:this.data.count[this.data.countIndex],
+        success:        function(res){
+            console.log(res);
+            that.setData({
+            imageList:res.tempFilePaths
         });
-    },
-    previewImage:function(e){
+        }
+
+    });
+    }
+,
+    previewImage:    function(e){
         const current = e.target.dataset.src;
         wx.previewImage({
-            current:current,
-            urls:this.data.imageList
-        });
+        current:current,
+        urls:this.data.imageList
+    });
     }
+
 });

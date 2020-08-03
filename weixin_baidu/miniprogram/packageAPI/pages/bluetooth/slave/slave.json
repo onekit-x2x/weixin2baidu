@@ -2,7 +2,6 @@
 	"usingComponents":{
 		"onekit-live-player":"/onekit/ui/live-player/live-player",
 		"onekit-radio-group":"/onekit/ui/radio-group/radio-group",
-		"onekit-view":"/onekit/ui/view/view",
 		"onekit-picker-view":"/onekit/ui/picker-view/picker-view",
 		"onekit-textarea":"/onekit/ui/textarea/textarea",
 		"onekit-picker-view-column":"/onekit/ui/picker-view-column/picker-view-column",

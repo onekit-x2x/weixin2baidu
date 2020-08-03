@@ -14,51 +14,62 @@ const pageObject = {
         plain:false,
         loading:false
     },
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'button',
-            path:'page/component/pages/button/button'
-        };
-    },
-    setDisabled:function(){
+        title:'button',
+        path:'page/component/pages/button/button'
+    };
+    }
+,
+    setDisabled:    function(){
         this.setData({
-            disabled:!this.data.disabled
-        });
-    },
-    setPlain:function(){
+        disabled:!this.data.disabled
+    });
+    }
+,
+    setPlain:    function(){
         this.setData({
-            plain:!this.data.plain
-        });
-    },
-    setLoading:function(){
+        plain:!this.data.plain
+    });
+    }
+,
+    setLoading:    function(){
         this.setData({
-            loading:!this.data.loading
-        });
-    },
-    handleContact:function(e){
+        loading:!this.data.loading
+    });
+    }
+,
+    handleContact:    function(e){
         console.log(e.detail);
-    },
-    handleGetPhoneNumber:function(e){
+    }
+,
+    handleGetPhoneNumber:    function(e){
         console.log(e.detail);
-    },
-    handleGetUserInfo:function(e){
+    }
+,
+    handleGetUserInfo:    function(e){
         console.log(e.detail);
-    },
-    handleOpenSetting:function(e){
+    }
+,
+    handleOpenSetting:    function(e){
         console.log(e.detail.authSetting);
-    },
-    handleGetUserInfo:function(e){
+    }
+,
+    handleGetUserInfo:    function(e){
         console.log(e.detail.userInfo);
     }
+
 };
 for(var i = 0;i < types.length;++i){
-    (function(type){
-        pageObject[type] = function(){
-            const key = type + 'Size';
-            const changedData = {};
-            changedData[key] = this.data[key] === 'default'?'mini':'default';
-            this.setData(changedData);
-        };
-    }(types[i]));
+    (    function(type){
+        pageObject[type] =     function(){
+        const key = type + 'Size';
+        const changedData = {};
+        changedData[key] = this.data[key] === 'default'?'mini':'default';
+        this.setData(changedData);
+    }
+;
+    }
+(types[i]));
 };
 OnekitPage(pageObject);
