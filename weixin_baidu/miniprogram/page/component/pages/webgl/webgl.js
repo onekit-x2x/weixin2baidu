@@ -39,41 +39,43 @@ const triangleVertices = [
     0.6
 ];
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'canvas',
-            path:'page/component/pages/webgl/webgl'
-        };
-    },
+        title:'canvas',
+        path:'page/component/pages/webgl/webgl'
+    };
+    }
+,
     data:{
         canIUse:true
     },
-    onReady:function(){
+    onReady:    function(){
         const {SDKVersion} = wx.getSystemInfoSync();
         if(compareVersion(SDKVersion,'2.7.0') < 0){
-            console.log('123');
-            this.setData({
-                canIUse:false
-            });
-        } else {
-            wx.createSelectorQuery().select('#canvasWebGL').node().exec((res)=>{
-                const canvas = res[0].node;
-                this.renderWebGL(canvas);
-            });
-        }
-    },
-    renderWebGL:function(canvas){
+        console.log('123');
+        this.setData({
+            canIUse:false
+        });
+    } else {
+        wx.createSelectorQuery().select('#canvasWebGL').node().exec((res)=>{
+            const canvas = res[0].node;
+            this.renderWebGL(canvas);
+        });
+    }
+    }
+,
+    renderWebGL:    function(canvas){
         if(!canvas){
-            this.setData({
-                canIUse:false
-            });
-            return;
-        }
+        this.setData({
+            canIUse:false
+        });
+        return;
+    }
         const gl = canvas.getContext('webgl');
         if(!gl){
-            console.error('gl init failed',gl);
-            return;
-        }
+        console.error('gl init failed',gl);
+        return;
+    }
         gl.viewport(0,0,305,305);
         const vertShader = gl.createShader(gl.VERTEX_SHADER);
         gl.shaderSource(vertShader,vs);
@@ -89,18 +91,19 @@ OnekitPage({
         gl.linkProgram(prog);
         gl.useProgram(prog);
         const draw = ()=>{
-            const triangleVertexBufferObject = gl.createBuffer();
-            gl.bindBuffer(gl.ARRAY_BUFFER,triangleVertexBufferObject);
-            gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(triangleVertices),gl.STATIC_DRAW);
-            const positionAttribLocation = gl.getAttribLocation(prog,'vertPosition');
-            const colorAttribLocation = gl.getAttribLocation(prog,'vertColor');
-            gl.vertexAttribPointer(positionAttribLocation,2,gl.FLOAT,gl.FALSE,5 * Float32Array.BYTES_PER_ELEMENT,0);
-            gl.vertexAttribPointer(colorAttribLocation,3,gl.FLOAT,gl.FALSE,5 * Float32Array.BYTES_PER_ELEMENT,2 * Float32Array.BYTES_PER_ELEMENT);
-            gl.enableVertexAttribArray(positionAttribLocation);
-            gl.enableVertexAttribArray(colorAttribLocation);
-            gl.drawArrays(gl.TRIANGLES,0,3);
-            canvas.requestAnimationFrame(draw);
-        };
+        const triangleVertexBufferObject = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER,triangleVertexBufferObject);
+        gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(triangleVertices),gl.STATIC_DRAW);
+        const positionAttribLocation = gl.getAttribLocation(prog,'vertPosition');
+        const colorAttribLocation = gl.getAttribLocation(prog,'vertColor');
+        gl.vertexAttribPointer(positionAttribLocation,2,gl.FLOAT,gl.FALSE,5 * Float32Array.BYTES_PER_ELEMENT,0);
+        gl.vertexAttribPointer(colorAttribLocation,3,gl.FLOAT,gl.FALSE,5 * Float32Array.BYTES_PER_ELEMENT,2 * Float32Array.BYTES_PER_ELEMENT);
+        gl.enableVertexAttribArray(positionAttribLocation);
+        gl.enableVertexAttribArray(colorAttribLocation);
+        gl.drawArrays(gl.TRIANGLES,0,3);
+        canvas.requestAnimationFrame(draw);
+    };
         canvas.requestAnimationFrame(draw);
     }
+
 });

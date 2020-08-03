@@ -1,22 +1,22 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<onekit-view Class="container">
+<view class="container">
   <template is="head" data="{{{title: 'scanCode'}}}">
 </template>
 
-  <onekit-view Class="page-body">
-    <onekit-view Class="weui-cells__title">扫码结果</onekit-view>
-    <onekit-view Class="weui-cells weui-cells_after-title">
-      <onekit-view Class="weui-cell">
-        <onekit-view Class="weui-cell__bd">{{result}}</onekit-view>
-      </onekit-view>
-    </onekit-view>
-    <onekit-view Class="btn-area">
+  <view class="page-body">
+    <view class="weui-cells__title">扫码结果</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">{{result}}</view>
+      </view>
+    </view>
+    <view class="btn-area">
       <onekit-button type="primary" bindtap="scanCode">扫一扫</onekit-button>
-    </onekit-view>
-  </onekit-view>
+    </view>
+  </view>
 
   <template is="foot">
 </template>
-</onekit-view>
+</view>

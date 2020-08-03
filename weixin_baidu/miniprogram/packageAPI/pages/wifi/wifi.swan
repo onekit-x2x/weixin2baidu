@@ -1,15 +1,15 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<onekit-view Class="container">
+<view class="container">
   <template is="head" data="{{{title: 'Wi-Fi'}}}">
 </template>
 
-  <onekit-view Class="page-body">
-    <onekit-view Class="page-body-info">
+  <view class="page-body">
+    <view class="page-body-info">
       <onekit-scroll-view Class="device-list" scroll-y>
-        <onekit-view s-for="wifiList" s-key='index' Class="item">
-          <onekit-view Class="list">
+        <view s-for="wifiList" s-key='index' class="item">
+          <view class="list">
             <onekit-text>{{ item.SSID }}</onekit-text>
             <span class="wifi-icon">
               <span class="wifi-1"></span>
@@ -18,16 +18,16 @@
               <span class="wifi-4 {{item.strength < 4 ? 'off' : ''}}"></span>
               <span class="lock" s-if="item.secure"></span>
             </span>
-          </onekit-view>
-        </onekit-view>
+          </view>
+        </view>
       </onekit-scroll-view>
-    </onekit-view>
-    <onekit-view Class="btn-area">
+    </view>
+    <view class="btn-area">
       <onekit-button type="primary" bindtap="startSearch">搜索Wi-Fi</onekit-button>
       <onekit-button bindtap="stopSearch">停止搜索</onekit-button>
-    </onekit-view>
-  </onekit-view>
+    </view>
+  </view>
 
   <template is="foot">
 </template>
-</onekit-view>
+</view>

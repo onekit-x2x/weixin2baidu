@@ -1,15 +1,17 @@
 import {OnekitApp,OnekitPage,OnekitComponent} from '../../onekit/onekit.js';
 import wx from '../../onekit/wx.js';
 OnekitPage({
-    onShow:function(){
+    onShow:    function(){
         wx.reportAnalytics('enter_home_programmatically',{});
-    },
-    onShareAppMessage:function(){
+    }
+,
+    onShareAppMessage:    function(){
         return {
-            title:'小程序官方组件展示',
-            path:'page/component/index'
-        };
-    },
+        title:'小程序官方组件展示',
+        path:'page/component/index'
+    };
+    }
+,
     data:{
         list:[
             {
@@ -113,29 +115,31 @@ OnekitPage({
         ],
         theme:'light'
     },
-    onLoad:function(){
+    onLoad:    function(){
         this.setData({
-            theme:wx.getSystemInfoSync().theme || 'light'
-        });
+        theme:wx.getSystemInfoSync().theme || 'light'
+    });
         if(wx.onThemeChange){
-            wx.onThemeChange(({theme})=>{this.setData({
-                theme:theme
-            })});
-        }
-    },
-    kindToggle:function(e){
+        wx.onThemeChange(({theme})=>{this.setData({
+            theme:theme
+        })});
+    }
+    }
+,
+    kindToggle:    function(e){
         const id = e.currentTarget.id;
         const list = this.data.list;
         for(var i = 0,len = list.length;i < len;++i){
-            if(list[i].id === id){
-                list[i].open = !list[i].open;
-            } else {
-                list[i].open = false;
-            }
-        };
+        if(list[i].id === id){
+            list[i].open = !list[i].open;
+        } else {
+            list[i].open = false;
+        }
+    };
         this.setData({
-            list:list
-        });
+        list:list
+    });
         wx.reportAnalytics('click_view_programmatically',{});
     }
+
 });

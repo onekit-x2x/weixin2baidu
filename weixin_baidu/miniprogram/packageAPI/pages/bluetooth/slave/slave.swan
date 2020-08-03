@@ -2,40 +2,40 @@
 <import src="../../../../common/foot.swan"/>
 
 
-<onekit-view Class="container">
+<view class="container">
   <template is="head" data="{{{title: 'bluetooth'}}}">
 </template>
-  <onekit-view Class="page-body" Style="display: flex; flex-direction: column">
+  <view class="page-body" style="display: flex; flex-direction: column">
     <onekit-text Style="text-align: center; margin: 16px">当前 serverId {{serverId}}</onekit-text>
-    <onekit-view Class="action-area">
+    <view class="action-area">
       <onekit-button type="primary" bindtap="openBluetoothAdapter">创建server</onekit-button>
       <onekit-button type="primary" bindtap="closeServer">关闭server</onekit-button>
-    </onekit-view>
-    <onekit-view Class="action-area">
+    </view>
+    <view class="action-area">
       <onekit-button type="primary" bindtap="addService">创建服务</onekit-button>
       <onekit-button type="primary" bindtap="removeService">关闭服务</onekit-button>
-    </onekit-view>
-    <onekit-view Class="action-area">
+    </view>
+    <view class="action-area">
       <onekit-button type="primary" bindtap="startAdvertising">开启广播</onekit-button>
       <onekit-button type="primary" bindtap="stopAdvertising">关闭广播</onekit-button>
-    </onekit-view>
-    <onekit-view Class="action-area">
+    </view>
+    <view class="action-area">
       <onekit-button type="primary" bindtap="showInput">写数据</onekit-button>
       <onekit-button type="primary" bindtap="closeBluetoothAdapter">结束流程</onekit-button>
-    </onekit-view>
+    </view>
     <onekit-button type="primary" bindtap="chaneMode">返回主机模式</onekit-button>
     <block s-if="input">
       <onekit-input Style="width: 200px;margin: 0 auto;background: var(--weui-BG-2);padding: 5px;" placeholder="写个数字" bindconfirm="onConfirm"></onekit-input>
     </block>
-    <onekit-view>
-      <onekit-view s-for="connects" s-if="connects.length > 0">
-        <onekit-view>
+    <view>
+      <view s-for="connects" s-if="connects.length > 0">
+        <view>
           <onekit-text>{{item.deviceId}} : {{item.serverId}}</onekit-text>
           <onekit-text>{{item.connected ? "已连接" : "断开"}}</onekit-text>
-        </onekit-view>
-      </onekit-view>
-    </onekit-view>
-  </onekit-view>
+        </view>
+      </view>
+    </view>
+  </view>
   <template is="foot">
 </template>
-</onekit-view>
+</view>

@@ -1,47 +1,47 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<onekit-view Class="container">
+<view class="container">
   <template is="head" data="{{{title: 'Database'}}}">
 </template>
 
-  <onekit-view Class="page-body">
-    <onekit-view Class="page-section">
-      <onekit-view Class="weui-cells__title">
-        <onekit-view>云函数为管理端，通过调用云函数可操作原先在小程序端无法操作的数据。</onekit-view>
-        <onekit-view>后台流水数据：权限为仅管理端可写</onekit-view>
-      </onekit-view>
-      <onekit-view Class="weui-cells weui-cells_after-title">
-        <onekit-view Class="page-body-info">
-          <onekit-view Class="progress-figure">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells__title">
+        <view>云函数为管理端，通过调用云函数可操作原先在小程序端无法操作的数据。</view>
+        <view>后台流水数据：权限为仅管理端可写</view>
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="page-body-info">
+          <view class="progress-figure">
             <onekit-image s-if="theme === 'dark'" src="/page/API/resources/kind/device_dark.png" Class="progress-icon"></onekit-image>
             <onekit-image s-else src="/page/API/resources/kind/device.png" Class="progress-icon"></onekit-image>
             <onekit-text Class="progress-line lg {{clientLoading && 'pending'}} {{serverDataClient && 'success'}} {{serverDataClientError && 'fail'}}"></onekit-text>
             <onekit-image s-if="theme === 'dark'" src="/page/cloud/resources/kind/database_dark.png" Class="progress-icon"></onekit-image>
             <onekit-image s-else src="/page/cloud/resources/kind/database.png" Class="progress-icon"></onekit-image>
-          </onekit-view>
+          </view>
 
-          <onekit-view Class="data-area">
-            <onekit-view Class="data-text" s-if="serverDataClient">
+          <view class="data-area">
+            <view class="data-text" s-if="serverDataClient">
               <onekit-icon type="success"></onekit-icon>
               <onekit-text>获取成功</onekit-text>
-            </onekit-view>
-            <onekit-view Class="data-text" s-elif="serverDataClientError">
+            </view>
+            <view class="data-text" s-elif="serverDataClientError">
               <onekit-icon type="warn" color="#F43530"></onekit-icon>
               <onekit-text>获取失败</onekit-text>
-            </onekit-view>
-          </onekit-view>
+            </view>
+          </view>
 
-          <onekit-view Class="btn-area">
+          <view class="btn-area">
             <onekit-button bindtap="queryServerDataViaClient" loading="{{clientLoading}}">小程序端获取后台流水数据</onekit-button>
-          </onekit-view>
-        </onekit-view>
-      </onekit-view>
+          </view>
+        </view>
+      </view>
 
-      <onekit-view Class="weui-cells__title"></onekit-view>
-      <onekit-view Class="weui-cells weui-cells_after-title">
-        <onekit-view Class="page-body-info">
-          <onekit-view Class="progress-figure">
+      <view class="weui-cells__title"></view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="page-body-info">
+          <view class="progress-figure">
             <onekit-image s-if="theme === 'dark'" src="/page/API/resources/kind/device_dark.png" Class="progress-icon"></onekit-image>
             <onekit-image s-else src="/page/API/resources/kind/device.png" Class="progress-icon"></onekit-image>
             <onekit-text Class="progress-line {{cloudLoading && 'pending'}} {{serverDataCloud && 'success'}} {{serverDataCloudError && 'fail'}}"></onekit-text>
@@ -50,27 +50,27 @@
             <onekit-text Class="progress-line {{cloudLoading && 'pending'}} {{serverDataCloud && 'success'}} {{serverDataCloudError && 'fail'}}"></onekit-text>
             <onekit-image s-if="theme === 'dark'" src="/page/cloud/resources/kind/database_dark.png" Class="progress-icon"></onekit-image>
             <onekit-image s-else src="/page/cloud/resources/kind/database.png" Class="progress-icon"></onekit-image>
-          </onekit-view>
+          </view>
 
-          <onekit-view Class="data-area">
-            <onekit-view Class="data-text" s-if="serverDataCloud">
+          <view class="data-area">
+            <view class="data-text" s-if="serverDataCloud">
               <onekit-icon type="success"></onekit-icon>
               <onekit-text>获取成功</onekit-text>
-            </onekit-view>
-            <onekit-view Class="data-text" s-elif="serverDataCloudError">
+            </view>
+            <view class="data-text" s-elif="serverDataCloudError">
               <onekit-icon type="warn" color="#F43530"></onekit-icon>
               <onekit-text>获取失败</onekit-text>
-            </onekit-view>
-          </onekit-view>
+            </view>
+          </view>
 
-          <onekit-view Class="btn-area">
+          <view class="btn-area">
             <onekit-button bindtap="queryServerDataViaCloudFunction" loading="{{cloudLoading}}">调用云函数获取后台流水数据</onekit-button>
-          </onekit-view>
-        </onekit-view>
-      </onekit-view>
-    </onekit-view>
-  </onekit-view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 
   <template is="foot">
 </template>
-</onekit-view>
+</view>

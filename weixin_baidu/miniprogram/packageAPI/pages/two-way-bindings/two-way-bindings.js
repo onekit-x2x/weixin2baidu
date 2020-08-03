@@ -4,24 +4,32 @@ OnekitPage({
     data:{
         value:''
     },
-    onLoad:function(options){
-    },
-    onReady:function(){
-    },
-    onShow:function(){
-    },
-    onHide:function(){
-    },
-    onUnload:function(){
-    },
-    onPullDownRefresh:function(){
-    },
-    onReachBottom:function(){
-    },
-    onShareAppMessage:function(){
-        return {
-            title:'双向绑定',
-            path:'packageAPI/pages/make-phone-call/make-phone-call'
-        };
+    onLoad:    function(options){
     }
+,
+    onReady:    function(){
+    }
+,
+    onShow:    function(){
+    }
+,
+    onHide:    function(){
+    }
+,
+    onUnload:    function(){
+    }
+,
+    onPullDownRefresh:    function(){
+    }
+,
+    onReachBottom:    function(){
+    }
+,
+    onShareAppMessage:    function(){
+        return {
+        title:'双向绑定',
+        path:'packageAPI/pages/make-phone-call/make-phone-call'
+    };
+    }
+
 });

@@ -2,12 +2,13 @@ import {OnekitApp,OnekitPage,OnekitComponent} from '../../../onekit/onekit.js';
 import wx from '../../../onekit/wx.js';
 const windowWidth = wx.getSystemInfoSync().windowWidth;
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'nearby',
-            path:'packageAPI/pages/wxs/nearby'
-        };
-    },
+        title:'nearby',
+        path:'packageAPI/pages/wxs/nearby'
+    };
+    }
+,
     data:{
         imgUrls:[
             'http://mmbiz.qpic.cn/sz_mmbiz_jpg/GEWVeJPFkSEV5QjxLDJaL6ibHLSZ02TIcve0ocPXrdTVqGGbqAmh5Mw9V7504dlEiatSvnyibibHCrVQO2GEYsJicPA/0?wx_fmt=jpeg',
@@ -36,32 +37,38 @@ OnekitPage({
         left:0,
         windowWidth:windowWidth
     },
-    changeIndicatorDots:function(e){
+    changeIndicatorDots:    function(e){
         this.setData({
-            indicatorDots:!this.data.indicatorDots
-        });
-    },
-    swiperTransition1:function(e){
+        indicatorDots:!this.data.indicatorDots
+    });
+    }
+,
+    swiperTransition1:    function(e){
         console.log('e.transition',e);
         this.setData({
-            left:e.detail.x / 4
-        });
-    },
-    onReady:function(){
-    },
-    changeAutoplay:function(e){
-        this.setData({
-            autoplay:!this.data.autoplay
-        });
-    },
-    intervalChange:function(e){
-        this.setData({
-            interval:e.detail.value
-        });
-    },
-    durationChange:function(e){
-        this.setData({
-            duration:e.detail.value
-        });
+        left:e.detail.x / 4
+    });
     }
+,
+    onReady:    function(){
+    }
+,
+    changeAutoplay:    function(e){
+        this.setData({
+        autoplay:!this.data.autoplay
+    });
+    }
+,
+    intervalChange:    function(e){
+        this.setData({
+        interval:e.detail.value
+    });
+    }
+,
+    durationChange:    function(e){
+        this.setData({
+        duration:e.detail.value
+    });
+    }
+
 });

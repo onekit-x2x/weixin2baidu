@@ -17,12 +17,13 @@ for(var i = 1;i <= 31;i++){
     days.push(i);
 };
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'picker-view',
-            path:'page/component/pages/picker-view/picker-view'
-        };
-    },
+        title:'picker-view',
+        path:'page/component/pages/picker-view/picker-view'
+    };
+    }
+,
     data:{
         years:years,
         year:date.getFullYear(),
@@ -37,13 +38,14 @@ OnekitPage({
         ],
         isDaytime:true
     },
-    bindChange:function(e){
+    bindChange:    function(e){
         const val = e.detail.value;
         this.setData({
-            year:this.data.years[val[0]],
-            month:this.data.months[val[1]],
-            day:this.data.days[val[2]],
-            isDaytime:!val[3]
-        });
+        year:this.data.years[val[0]],
+        month:this.data.months[val[1]],
+        day:this.data.days[val[2]],
+        isDaytime:!val[3]
+    });
     }
+
 });

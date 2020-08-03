@@ -25,12 +25,13 @@ const nodeSnip = `Page({
 })
 `;
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'rich-text',
-            path:'page/component/pages/rich-text/rich-text'
-        };
-    },
+        title:'rich-text',
+        path:'page/component/pages/rich-text/rich-text'
+    };
+    }
+,
     data:{
         htmlSnip:htmlSnip,
         nodeSnip:nodeSnip,
@@ -52,20 +53,23 @@ OnekitPage({
             }
         ]
     },
-    renderHtml:function(){
+    renderHtml:    function(){
         this.setData({
-            renderedByHtml:true
-        });
-    },
-    renderNode:function(){
+        renderedByHtml:true
+    });
+    }
+,
+    renderNode:    function(){
         this.setData({
-            renderedByNode:true
-        });
-    },
-    enterCode:function(e){
+        renderedByNode:true
+    });
+    }
+,
+    enterCode:    function(e){
         console.log(e.detail.value);
         this.setData({
-            htmlSnip:e.detail.value
-        });
+        htmlSnip:e.detail.value
+    });
     }
+
 });

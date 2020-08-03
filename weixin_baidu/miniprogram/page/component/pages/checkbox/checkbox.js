@@ -1,12 +1,13 @@
 import {OnekitApp,OnekitPage,OnekitComponent} from '../../../../onekit/onekit.js';
 import wx from '../../../../onekit/wx.js';
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'checkbox',
-            path:'page/component/pages/checkbox/checkbox'
-        };
-    },
+        title:'checkbox',
+        path:'page/component/pages/checkbox/checkbox'
+    };
+    }
+,
     data:{
         items:[
             {
@@ -36,21 +37,22 @@ OnekitPage({
             }
         ]
     },
-    checkboxChange:function(e){
+    checkboxChange:    function(e){
         console.log('checkbox发生change事件，携带value值为：',e.detail.value);
         const items = this.data.items;
         const values = e.detail.value;
         for(var i = 0,lenI = items.length;i < lenI;++i){
-            items[i].checked = false;
-            for(var j = 0,lenJ = values.length;j < lenJ;++j){
-                if(items[i].value === values[j]){
-                    items[i].checked = true;
-                    break;
-                }
+        items[i].checked = false;
+        for(var j = 0,lenJ = values.length;j < lenJ;++j){
+            if(items[i].value === values[j]){
+                items[i].checked = true;
+                break;
             }
-        };
+        }
+    };
         this.setData({
-            items:items
-        });
+        items:items
+    });
     }
+
 });

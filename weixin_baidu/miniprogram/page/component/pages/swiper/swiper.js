@@ -1,12 +1,13 @@
 import {OnekitApp,OnekitPage,OnekitComponent} from '../../../../onekit/onekit.js';
 import wx from '../../../../onekit/wx.js';
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'swiper',
-            path:'page/component/pages/swiper/swiper'
-        };
-    },
+        title:'swiper',
+        path:'page/component/pages/swiper/swiper'
+    };
+    }
+,
     data:{
         background:[
             'demo-text-1',
@@ -19,24 +20,28 @@ OnekitPage({
         interval:2000,
         duration:500
     },
-    changeIndicatorDots:function(){
+    changeIndicatorDots:    function(){
         this.setData({
-            indicatorDots:!this.data.indicatorDots
-        });
-    },
-    changeAutoplay:function(){
-        this.setData({
-            autoplay:!this.data.autoplay
-        });
-    },
-    intervalChange:function(e){
-        this.setData({
-            interval:e.detail.value
-        });
-    },
-    durationChange:function(e){
-        this.setData({
-            duration:e.detail.value
-        });
+        indicatorDots:!this.data.indicatorDots
+    });
     }
+,
+    changeAutoplay:    function(){
+        this.setData({
+        autoplay:!this.data.autoplay
+    });
+    }
+,
+    intervalChange:    function(e){
+        this.setData({
+        interval:e.detail.value
+    });
+    }
+,
+    durationChange:    function(e){
+        this.setData({
+        duration:e.detail.value
+    });
+    }
+
 });

@@ -4,12 +4,13 @@ const util = require('../../../util/util.js');
 const app = getApp();
 const collection = 'serverDate';
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'服务端时间',
-            path:'page/cloud/pages/server-date/server-date'
-        };
-    },
+        title:'服务端时间',
+        path:'page/cloud/pages/server-date/server-date'
+    };
+    }
+,
     data:{
         openid:'',
         loading:false,
@@ -19,69 +20,73 @@ OnekitPage({
         serverDateFormatted:'',
         delta:0
     },
-    onLoad:function(){
+    onLoad:    function(){
         if(app.globalData.openid){
-            this.setData({
-                openid:app.globalData.openid
-            });
-        } else {
-            wx.showLoading({
-                title:'正在初始化...'
-            });
-            app.getUserOpenIdViaCloud().then((openid)=>{
+        this.setData({
+            openid:app.globalData.openid
+        });
+    } else {
+        wx.showLoading({
+            title:'正在初始化...'
+        });
+        app.getUserOpenIdViaCloud().then((openid)=>{
     this.setData({
         openid:openid
     });
     wx.hideLoading();
     return openid;
 }).catch((err)=>{
-                console.error(err);
-                wx.hideLoading();
-                wx.showToast({
-                    icon:'none',
-                    title:'初始化失败，请检查网络'
-                });
+            console.error(err);
+            wx.hideLoading();
+            wx.showToast({
+                icon:'none',
+                title:'初始化失败，请检查网络'
             });
-        }
-    },
-    showError:function(){
+        });
+    }
+    }
+,
+    showError:    function(){
         wx.showToast({
-            icon:'none',
-            title:'插入失败'
-        });
-    },
-    completeTask:function(){
+        icon:'none',
+        title:'插入失败'
+    });
+    }
+,
+    completeTask:    function(){
         this.setData({
-            loading:false
-        });
-    },
-    insertOrUpdateData:function(existedData,data){
+        loading:false
+    });
+    }
+,
+    insertOrUpdateData:    function(existedData,data){
         const db = wx.cloud.database();
         if(existedData._id){
-            db.collection(collection).doc(existedData._id).update({
+        db.collection(collection).doc(existedData._id).update({
     data:data
 }).then((res)=>{
     this.setCompletedData(existedData._id);
     return res;
 }).catch((err)=>{
-                this.showError();
-                console.error('[数据库] [更新记录] 失败：',err);
-                this.completeTask();
-            });
-        } else {
-            db.collection(collection).add({
+            this.showError();
+            console.error('[数据库] [更新记录] 失败：',err);
+            this.completeTask();
+        });
+    } else {
+        db.collection(collection).add({
     data:data
 }).then((res)=>{
     this.setCompletedData(res._id);
     return res;
 }).catch((err)=>{
-                this.showError();
-                console.error('[数据库] [新增记录] 失败：',err);
-                this.completeTask();
-            });
-        }
-    },
-    setCompletedData:function(id){
+            this.showError();
+            console.error('[数据库] [新增记录] 失败：',err);
+            this.completeTask();
+        });
+    }
+    }
+,
+    setCompletedData:    function(id){
         const db = wx.cloud.database();
         db.collection(collection).doc(id).get().then((res)=>{
     this.setData({
@@ -96,19 +101,20 @@ OnekitPage({
     this.completeTask();
     return res;
 }).catch((err)=>{
-            this.showError();
-            console.error('[数据库] [查询记录] 失败：',err);
-            this.completeTask();
-        });
-    },
-    insertData:function(){
+        this.showError();
+        console.error('[数据库] [查询记录] 失败：',err);
+        this.completeTask();
+    });
+    }
+,
+    insertData:    function(){
         const db = wx.cloud.database();
         const data = {
-            time:db.serverDate()
-        };
+        time:db.serverDate()
+    };
         this.setData({
-            loading:true
-        });
+        loading:true
+    });
         db.collection(collection).where({
     _openid:this.data.openid
 }).get().then((res)=>{
@@ -120,9 +126,10 @@ OnekitPage({
     this.insertOrUpdateData(resFirstData,data);
     return res;
 }).catch((err)=>{
-            this.showError();
-            console.error('[数据库] [查询记录] 失败：',err);
-            this.completeTask();
-        });
+        this.showError();
+        console.error('[数据库] [查询记录] 失败：',err);
+        this.completeTask();
+    });
     }
+
 });

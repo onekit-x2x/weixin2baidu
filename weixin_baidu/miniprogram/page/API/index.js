@@ -1,12 +1,13 @@
 import {OnekitApp,OnekitPage,OnekitComponent} from '../../onekit/onekit.js';
 import wx from '../../onekit/wx.js';
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'小程序接口能力展示',
-            path:'page/API/index'
-        };
-    },
+        title:'小程序接口能力展示',
+        path:'page/API/index'
+    };
+    }
+,
     data:{
         list:[
             {
@@ -335,50 +336,56 @@ OnekitPage({
         isSetTabBarPage:false,
         theme:'light'
     },
-    onLoad:function(){
+    onLoad:    function(){
         this.setData({
-            theme:wx.getSystemInfoSync().theme || 'light'
-        });
+        theme:wx.getSystemInfoSync().theme || 'light'
+    });
         if(wx.onThemeChange){
-            wx.onThemeChange(({theme})=>{this.setData({
-                theme:theme
-            })});
-        }
-    },
-    onShow:function(){
+        wx.onThemeChange(({theme})=>{this.setData({
+            theme:theme
+        })});
+    }
+    }
+,
+    onShow:    function(){
         this.leaveSetTabBarPage();
-    },
-    onHide:function(){
+    }
+,
+    onHide:    function(){
         this.leaveSetTabBarPage();
-    },
-    kindToggle:function(e){
+    }
+,
+    kindToggle:    function(e){
         const id = e.currentTarget.id;
         const list = this.data.list;
         for(var i = 0,len = list.length;i < len;++i){
-            if(list[i].id === id){
-                if(list[i].url){
-                    wx.navigateTo({
-                        url:'../../packageAPI/pages/' + list[i].url
-                    });
-                    return;
-                }
-                list[i].open = !list[i].open;
-            } else {
-                list[i].open = false;
+        if(list[i].id === id){
+            if(list[i].url){
+                wx.navigateTo({
+                    url:'../../packageAPI/pages/' + list[i].url
+                });
+                return;
             }
-        };
+            list[i].open = !list[i].open;
+        } else {
+            list[i].open = false;
+        }
+    };
         this.setData({
-            list:list
-        });
-    },
-    enterSetTabBarPage:function(){
-        this.setData({
-            isSetTabBarPage:true
-        });
-    },
-    leaveSetTabBarPage:function(){
-        this.setData({
-            isSetTabBarPage:false
-        });
+        list:list
+    });
     }
+,
+    enterSetTabBarPage:    function(){
+        this.setData({
+        isSetTabBarPage:true
+    });
+    }
+,
+    leaveSetTabBarPage:    function(){
+        this.setData({
+        isSetTabBarPage:false
+    });
+    }
+
 });

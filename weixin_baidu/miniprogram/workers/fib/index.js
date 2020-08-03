@@ -7,9 +7,10 @@ function fib(n){
 };
 worker.onMessage(function(msg){
     if(msg.type === 'execFunc_fib'){
-        worker.postMessage({
-            type:'execFunc_fib',
-            result:fib(msg.params[0])
-        });
-    }
-});
+    worker.postMessage({
+        type:'execFunc_fib',
+        result:fib(msg.params[0])
+    });
+}
+}
+);

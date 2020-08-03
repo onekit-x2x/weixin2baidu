@@ -1,39 +1,49 @@
 {
-  "window": {
-    "navigationBarTextStyle": "white",
-    "navigationBarBackgroundColor": "#191919",
-    "backgroundColor": "#191919"
-  },
-  "tabBar": {
-    "color": "#FCFCFC",
-    "selectedColor": "#51A937",
-    "borderStyle": "white",
-    "backgroundColor": "#191919",
-    "list": [
-      {
-        "pagePath": "page/component/index",
-        "iconPath": "image/icon_component_HL.png",
-        "selectedIconPath": "image/icon_component_dark.png",
-        "text": "组件"
-      },
-      {
-        "pagePath": "page/weui/example/index",
-        "iconPath": "image/icon_component_HL.png",
-        "selectedIconPath": "image/icon_component_dark.png",
-        "text": "扩展能力"
-      },
-      {
-        "pagePath": "page/API/index",
-        "iconPath": "image/icon_API_HL.png",
-        "selectedIconPath": "image/icon_API_dark.png",
-        "text": "接口"
-      },
-      {
-        "pagePath": "page/cloud/index",
-        "iconPath": "image/icon_cloud_HL.png",
-        "selectedIconPath": "image/icon_cloud_dark.png",
-        "text": "云开发"
-      }
-    ]
-  }
+	"usingComponents":{
+		"onekit-live-player":"/onekit/ui/live-player/live-player",
+		"onekit-radio-group":"/onekit/ui/radio-group/radio-group",
+		"onekit-picker-view":"/onekit/ui/picker-view/picker-view",
+		"onekit-textarea":"/onekit/ui/textarea/textarea",
+		"onekit-picker-view-column":"/onekit/ui/picker-view-column/picker-view-column",
+		"onekit-map":"/onekit/ui/map/map",
+		"onekit-canvas":"/onekit/ui/canvas/canvas",
+		"onekit-text":"/onekit/ui/text/text",
+		"onekit-cover-view":"/onekit/ui/cover-view/cover-view",
+		"onekit-web-view":"/onekit/ui/web-view/web-view",
+		"onekit-navigation-bar":"/onekit/ui/navigation-bar/navigation-bar",
+		"onekit-radio":"/onekit/ui/radio/radio",
+		"onekit-rich-text":"/onekit/ui/rich-text/rich-text",
+		"onekit-icon":"/onekit/ui/icon/icon",
+		"onekit-voip-room":"/onekit/ui/voip-room/voip-room",
+		"onekit-checkbox":"/onekit/ui/checkbox/checkbox",
+		"onekit-video":"/onekit/ui/video/video",
+		"onekit-editor":"/onekit/ui/editor/editor",
+		"onekit-slider":"/onekit/ui/slider/slider",
+		"onekit-audio":"/onekit/ui/audio/audio",
+		"onekit-label":"/onekit/ui/label/label",
+		"onekit-live-pusher":"/onekit/ui/live-pusher/live-pusher",
+		"onekit-match-media":"/onekit/ui/match-media/match-media",
+		"onekit-swiper-item":"/onekit/ui/swiper-item/swiper-item",
+		"onekit-scroll-view":"/onekit/ui/scroll-view/scroll-view",
+		"onekit-open-data":"/onekit/ui/open-data/open-data",
+		"onekit-movable-view":"/onekit/ui/movable-view/movable-view",
+		"onekit-button":"/onekit/ui/button/button",
+		"onekit-swiper":"/onekit/ui/swiper/swiper",
+		"onekit-navigator":"/onekit/ui/navigator/navigator",
+		"onekit-image":"/onekit/ui/image/image",
+		"onekit-switch":"/onekit/ui/switch/switch",
+		"onekit-cover-image":"/onekit/ui/cover-image/cover-image",
+		"onekit-picker":"/onekit/ui/picker/picker",
+		"onekit-native-component":"/onekit/ui/native-component/native-component",
+		"onekit-movable-area":"/onekit/ui/movable-area/movable-area",
+		"onekit-aria-component":"/onekit/ui/aria-component/aria-component",
+		"onekit-ad":"/onekit/ui/ad/ad",
+		"onekit-progress":"/onekit/ui/progress/progress",
+		"onekit-official-account":"/onekit/ui/official-account/official-account",
+		"onekit-functional-page-navigator":"/onekit/ui/functional-page-navigator/functional-page-navigator",
+		"onekit-page-meta":"/onekit/ui/page-meta/page-meta",
+		"onekit-checkbox-group":"/onekit/ui/checkbox-group/checkbox-group",
+		"onekit-input":"/onekit/ui/input/input",
+		"onekit-camera":"/onekit/ui/camera/camera"
+	}
 }
