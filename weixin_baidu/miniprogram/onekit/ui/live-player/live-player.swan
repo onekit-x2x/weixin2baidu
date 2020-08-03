@@ -1,0 +1,21 @@
+<video  
+id="{{Id}}"
+class="onekit-live-player {{Class}}"
+style="{{Style}}"
+id="video"
+src="{{src}}"
+autoplay="{{autoplay}}" 
+muted="{{muted}}" 
+orientation="{{orientation}}"
+object-fit="{{objectFit}}"
+background-mute="{{backgroundMute}}"
+min-cache="{{minCache}}"
+max-cache="{{maxCache}}"
+
+
+
+bindstatechange="livePlayer_statechangge"
+bindfullscreenchange="livePlayer_statechangge"
+bindnetstatus="livePlayer_statechangge"
+
+/>
