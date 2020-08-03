@@ -2,7 +2,6 @@
 id="{{Id}}"
 class="onkit-view {{Class}}"
 style="{{Style}}"
-bindtap="view_tap"
 >
 <slot>
 </slot>
