@@ -9,7 +9,9 @@
             },
             "enhance": false,
             "useStrict": true
-        }
+        },
+        "options": [],
+        "selected": -1
     },
     "condition": {},
     "host": "baiduboxapp",
@@ -20,8 +22,8 @@
     "smartProgramRoot": "miniprogram/",
     "swan": {
         "baiduboxapp": {
-            "swanJsVersion": "3.190.255-rc",
-            "extensionJsVersion": "100.14.255"
+            "swanJsVersion": "3.190.17",
+            "extensionJsVersion": "1.14.2"
         }
     }
 }

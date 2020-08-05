@@ -2,27 +2,27 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<onekit-view Class="container">
+<view class="container">
   <template is="head" data="{{{title: 'getPerformance'}}}">
 </template>
   <block s-if="support">
     <onekit-button type="primary" bind:tap="getPerformanceInfo">
       获取性能数据
     </onekit-button>
-    <onekit-view Class="page-section">
-      <onekit-view s-for="array" Class="performance-list">
-        <onekit-view Class="performance-item">
-          <onekit-view>{{item.entryType}}：{{item.name}}</onekit-view>
-          <onekit-view s-if="item.duration">耗时：{{item.duration}}</onekit-view>
-          <onekit-view s-if="item.startTime">时间：{{item.startTime}}</onekit-view>
-        </onekit-view>
-      </onekit-view>
-    </onekit-view>
+    <view class="page-section">
+      <view s-for="array" class="performance-list">
+        <view class="performance-item">
+          <view>{{item.entryType}}：{{item.name}}</view>
+          <view s-if="item.duration">耗时：{{item.duration}}</view>
+          <view s-if="item.startTime">时间：{{item.startTime}}</view>
+        </view>
+      </view>
+    </view>
   </block>
-  <onekit-view Style="text-align: center" s-else>
+  <view style="text-align: center" s-else>
     微信版本过低，暂不支持本功能
-  </onekit-view>
+  </view>
 
   <template is="foot">
 </template>
-</onekit-view>
+</view>

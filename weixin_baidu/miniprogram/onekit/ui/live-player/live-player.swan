@@ -1,21 +1,21 @@
-<live-player
+<video  
 id="{{Id}}"
 class="onekit-live-player {{Class}}"
 style="{{Style}}"
+id="video"
 src="{{src}}"
-autoplay="{{autoplay}}"
-muted="{{muted}}"
-orientation ="{{orientation}}"
+autoplay="{{autoplay}}" 
+muted="{{muted}}" 
+orientation="{{orientation}}"
 object-fit="{{objectFit}}"
 background-mute="{{backgroundMute}}"
 min-cache="{{minCache}}"
 max-cache="{{maxCache}}"
 
-bindstatechange="live_player_statechange"
-bindnetstatus="live_player_netstatus"
-bindfullscreenchange="live_player_fullscreenchange"
 
 
->
-    <slot></slot>
-</live-player>
+bindstatechange="livePlayer_statechangge"
+bindfullscreenchange="livePlayer_statechangge"
+bindnetstatus="livePlayer_statechangge"
+
+/>

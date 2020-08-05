@@ -1,57 +1,58 @@
 Component({
-options: {
+    options: {
         addGlobalClass: true,
     },
-    properties: {    
+    properties: {  
      Id:{type:String,value:""},
     Class:{type:String,value:""},
     Style:{type:String,value:""},
-        src: {
-            type: String, 
-            value: "", 
+       src:{
+            type: String,
+            value: "",
         },
-        autoplay: {
-            type: Boolean, 
-            value: false, 
+        autoplay:{
+            type: Boolean,
+            value: false,
         },
-        muted: { 
-            type: Boolean, 
-            value: false, 
+        muted:{
+            type: Boolean,
+            value: false,
         },
-        orientation: {
-            type: String, 
-            value: 'vertical', 
+        orientation:{
+            type: String,
+            value: "vertical",
         },
-        objectFit: {
-            type: String, 
-            value: 'contain', 
+        objectFit:{
+            type: String,
+            value: "contain",
         },
-        backgroundMute: {
-            type: Boolean, 
-            value: false,  
+        backgroundMute:{
+            type: Boolean,
+            value: false,
         },
-        minCache: {
-            type: Number, 
-            value:'1', 
+        minCache:{
+            type: Number,
+            value: "3",
         },
-        maxCache: {
-            type: Number, 
-            value:'3', 
+        maxCache:{
+            type: Number,
+            value: "1",
         },
-    },
+    
 
-    methods: {
-        live_player_statechange(e){
-        console.log("live_player_statechange", e);
-        this.triggerEvent('statechange',e.details)
-       },
-       live_player_netstatus(e){
-        console.log("live_player_netstatus", e);
-        this.triggerEvent('netstatus',e.details)
-       },
-       live_player_fullscreenchange(e){
-        console.log("live_player_fullscreenchange", e);
-        this.triggerEvent('fullscreenchange',e.details)
-       },
-    }
+    },
+     methods: {
+    livePlayer_statechangge(e){
+    console.log("livePlayer_statechangge", e);
+     this.triggerEvent('statechangge',e.details)
+    },
+    livePlayer_statechangge(e){
+    console.log("livePlayer_statechangge", e);
+     this.triggerEvent('statechangge',e.details)
+    },
+    livePlayer_statechangge(e){
+    console.log("livePlayer_statechangge", e);
+     this.triggerEvent('statechangge',e.details)
+    },
+ }
 });

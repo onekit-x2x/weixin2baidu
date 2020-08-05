@@ -7,6 +7,7 @@ options: {
     Class:{type:String,value:""},
     Style:{type:String,value:""},
     unitId:{type:String,value:""},
+    adIntervals:{type:String,value:""},
     adType:{
     type: String,
     value: 'banner', 

@@ -1,14 +1,14 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<onekit-view Class="container">
+<view class="container">
   <template is="head" data="{{{title: 'official-account'}}}">
 </template>
 
-  <onekit-view Class="page-body">
+  <view class="page-body">
     <onekit-official-account></onekit-official-account>
-  </onekit-view>
+  </view>
 
   <template is="foot">
 </template>
-</onekit-view>
+</view>

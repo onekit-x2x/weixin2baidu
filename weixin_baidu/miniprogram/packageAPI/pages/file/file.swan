@@ -1,13 +1,13 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<onekit-view Class="container">
+<view class="container">
   <template is="head" data="{{{title: 'saveFile'}}}">
 </template>
 
-  <onekit-view Class="page-body">
-    <onekit-view Class="page-section">
-      <onekit-view Class="page-body-info">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-body-info">
         <block s-if="tempFilePath != ''">
           <onekit-image src="{{tempFilePath}}" Class="image" mode="aspectFit"></onekit-image>
         </block>
@@ -15,22 +15,22 @@
           <onekit-image src="{{savedFilePath}}" Class="image" mode="aspectFit"></onekit-image>
         </block>
         <block s-if="tempFilePath === '' && savedFilePath === ''">
-          <onekit-view Class="image-plus image-plus-nb" bindtap="chooseImage">
-            <onekit-view Class="image-plus-horizontal"></onekit-view>
-            <onekit-view Class="image-plus-vertical"></onekit-view>
-          </onekit-view>
-          <onekit-view Class="image-plus-text">请选择文件</onekit-view>
+          <view class="image-plus image-plus-nb" bindtap="chooseImage">
+            <view class="image-plus-horizontal"></view>
+            <view class="image-plus-vertical"></view>
+          </view>
+          <view class="image-plus-text">请选择文件</view>
         </block>
-      </onekit-view>
-      <onekit-view Class="btn-area">
+      </view>
+      <view class="btn-area">
         <onekit-button type="primary" bindtap="saveFile">保存文件</onekit-button>
         <onekit-button bindtap="clear">删除文件</onekit-button>
-      </onekit-view>
-    </onekit-view>
-  </onekit-view>
+      </view>
+    </view>
+  </view>
 
   <modal title="{{dialog.title}}" hidden="{{dialog.hidden}}" no-cancel bindconfirm="confirm">{{dialog.content}}</modal>
 
   <template is="foot">
 </template>
-</onekit-view>
+</view>

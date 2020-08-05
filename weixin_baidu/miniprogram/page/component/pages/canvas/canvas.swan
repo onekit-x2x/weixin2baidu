@@ -1,26 +1,26 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<onekit-view Class="container">
+<view class="container">
   <template is="head" data="{{{title: 'canvas'}}}">
 </template>
 
-  <onekit-view Class="page-body">
+  <view class="page-body">
     <block s-if="canIUse">
-      <onekit-view Class="page-section">
-        <onekit-view Class="page-section-spacing">
-          <onekit-view Class="page-body-wrapper">
+      <view class="page-section">
+        <view class="page-section-spacing">
+          <view class="page-body-wrapper">
             <onekit-canvas canvas-id="canvas" Class="canvas"></onekit-canvas>
-          </onekit-view>
-        </onekit-view>
-      </onekit-view>
+          </view>
+        </view>
+      </view>
     </block>
-    <onekit-view s-else Style="margin: 15px; text-align:center">
+    <view s-else style="margin: 15px; text-align:center">
       微信版本过低，暂不支持本功能
-    </onekit-view>
-  </onekit-view>
+    </view>
+  </view>
 
   <template is="foot">
 </template>
-</onekit-view>
+</view>
 

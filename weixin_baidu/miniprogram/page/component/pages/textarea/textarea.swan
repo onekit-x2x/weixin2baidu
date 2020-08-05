@@ -1,26 +1,26 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<onekit-view Class="container">
+<view class="container">
   <template is="head" data="{{{title: 'textarea'}}}">
 </template>
 
-  <onekit-view Class="page-body">
-    <onekit-view Class="page-section">
-      <onekit-view Class="page-section-title">输入区域高度自适应，不会出现滚动条</onekit-view>
-      <onekit-view Class="textarea-wrp">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-section-title">输入区域高度自适应，不会出现滚动条</view>
+      <view class="textarea-wrp">
         <onekit-textarea bindblur="bindTextAreaBlur" auto-height></onekit-textarea>
-      </onekit-view>
-    </onekit-view>
+      </view>
+    </view>
 
-    <onekit-view Class="page-section">
-      <onekit-view Class="page-section-title">这是一个可以自动聚焦的textarea</onekit-view>
-      <onekit-view Class="textarea-wrp">
+    <view class="page-section">
+      <view class="page-section-title">这是一个可以自动聚焦的textarea</view>
+      <view class="textarea-wrp">
         <onekit-textarea auto-focus="true" Style="height: 3em"></onekit-textarea>
-      </onekit-view>
-    </onekit-view>
-  </onekit-view>
+      </view>
+    </view>
+  </view>
 
   <template is="foot">
 </template>
-</onekit-view>
+</view>

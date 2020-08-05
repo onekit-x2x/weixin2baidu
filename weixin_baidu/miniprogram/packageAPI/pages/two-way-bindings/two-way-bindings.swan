@@ -1,18 +1,18 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<onekit-view Class="container">
+<view class="container">
   <template is="head" data="{{{title: '双向绑定'}}}">
 </template>
 
-  <onekit-view Class="page-body">
-    <onekit-view Class="page-section">
+  <view class="page-body">
+    <view class="page-section">
       <onekit-input Class="input" model:value="{{value}}" placeholder="请输入"></onekit-input>
-      <onekit-view Class="text">这是你输入的数据：{{value}}</onekit-view>
-    </onekit-view>
+      <view class="text">这是你输入的数据：{{value}}</view>
+    </view>
    
-  </onekit-view>
+  </view>
 
   <template is="foot">
 </template>
-</onekit-view>
+</view>

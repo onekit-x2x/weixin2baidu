@@ -16,12 +16,13 @@ const texts = [
     '......'
 ];
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'text',
-            path:'page/component/pages/text/text'
-        };
-    },
+        title:'text',
+        path:'page/component/pages/text/text'
+    };
+    }
+,
     data:{
         text:'',
         canAdd:true,
@@ -29,28 +30,30 @@ OnekitPage({
     },
     extraLine:[
     ],
-    add:function(){
+    add:    function(){
         this.extraLine.push(texts[this.extraLine.length % 12]);
+        this.setData({
+        text:this.extraLine.join('\n'),
+        canAdd:this.extraLine.length < 12,
+        canRemove:this.extraLine.length > 0
+    });
+        setTimeout(()=>{this.setData({
+        scrollTop:99999
+    })},0);
+    }
+,
+    remove:    function(){
+        if(this.extraLine.length > 0){
+        this.extraLine.pop();
         this.setData({
             text:this.extraLine.join('\n'),
             canAdd:this.extraLine.length < 12,
             canRemove:this.extraLine.length > 0
         });
-        setTimeout(()=>{this.setData({
-            scrollTop:99999
-        })},0);
-    },
-    remove:function(){
-        if(this.extraLine.length > 0){
-            this.extraLine.pop();
-            this.setData({
-                text:this.extraLine.join('\n'),
-                canAdd:this.extraLine.length < 12,
-                canRemove:this.extraLine.length > 0
-            });
-        }
-        setTimeout(()=>{this.setData({
-            scrollTop:99999
-        })},0);
     }
+        setTimeout(()=>{this.setData({
+        scrollTop:99999
+    })},0);
+    }
+
 });

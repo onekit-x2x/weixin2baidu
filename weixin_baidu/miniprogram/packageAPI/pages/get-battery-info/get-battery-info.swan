@@ -1,35 +1,35 @@
 <import src="../../../common/head.swan"/>
 <import src="../../../common/foot.swan"/>
 
-<onekit-view Class="container">
+<view class="container">
   <template is="head" data="{{{title: 'getBatteryInfo'}}}">
 </template>
 
-  <onekit-view Class="page-body">
-  	<onekit-view Class="page-section">
-    <onekit-view Class="weui-cells weui-cells_after-title">
-        <onekit-view Class="weui-cell weui-cell_input">
-          <onekit-view Class="weui-cell__hd">
-            <onekit-view Class="weui-label">当前电量</onekit-view>
-          </onekit-view>
-          <onekit-view Class="weui-cell__bd">
+  <view class="page-body">
+  	<view class="page-section">
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">当前电量</view>
+          </view>
+          <view class="weui-cell__bd">
             <onekit-input Class="weui-input" type="text" disabled="{{true}}" placeholder="未获取" value="{{level}}"></onekit-input>
-          </onekit-view>
-        </onekit-view>
-        <onekit-view Class="weui-cell weui-cell_input">
-          <onekit-view Class="weui-cell__hd">
-            <onekit-view Class="weui-label">电池模式</onekit-view>
-          </onekit-view>
-          <onekit-view Class="weui-cell__bd">
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">电池模式</view>
+          </view>
+          <view class="weui-cell__bd">
             <onekit-input Class="weui-input" type="text" disabled="{{true}}" placeholder="未获取" value="{{isCharging}}"></onekit-input>
-          </onekit-view>
-        </onekit-view>
-      </onekit-view>
+          </view>
+        </view>
+      </view>
       <onekit-button type="primary" bind:tap="getBatteryInfo">
         获取电量信息信息
       </onekit-button>
-    </onekit-view>
-  </onekit-view>
+    </view>
+  </view>
   <template is="foot">
 </template>
-</onekit-view>
+</view>

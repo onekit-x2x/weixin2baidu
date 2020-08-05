@@ -114,12 +114,13 @@ function createRenderer(canvas,width,height){
     };
 };
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'camera',
-            path:'page/component/pages/camera/camera'
-        };
-    },
+        title:'camera',
+        path:'page/component/pages/camera/camera'
+    };
+    }
+,
     data:{
         src:'',
         videoSrc:'',
@@ -132,62 +133,70 @@ OnekitPage({
         height:358,
         showCanvas:false
     },
-    onReady:function(){
+    onReady:    function(){
         this.ctx = wx.createCameraContext();
-    },
-    init:function(res){
+    }
+,
+    init:    function(res){
         if(this.listener){
-            this.listener.stop();
-        }
+        this.listener.stop();
+    }
         const canvas = res.node;
         const render = createRenderer(canvas,this.data.width,this.data.height);
         this.listener = this.ctx.onCameraFrame((frame)=>{
-            render(new Uint8Array(frame.data),frame.width,frame.height);
-            const {frameWidth,frameHeight} = this.data;
-            if((frameWidth === frame.width) && (frameHeight == frame.height))return
-            this.setData({
-                frameWidth:frame.width,
-                frameHeight:frame.height
-            });
-        });
-        this.listener.start();
-    },
-    takePhoto:function(){
-        this.ctx.takePhoto({
-            quality:'high',
-            success:(res)=>{this.setData({
-                src:res.tempImagePath
-            })}
-        });
-    },
-    startRecord:function(){
-        this.ctx.startRecord({
-            success:()=>{console.log('startRecord')}
-        });
-    },
-    stopRecord:function(){
-        this.ctx.stopRecord({
-            success:(res)=>{this.setData({
-                src:res.tempThumbPath,
-                videoSrc:res.tempVideoPath
-            })}
-        });
-    },
-    togglePosition:function(){
+        render(new Uint8Array(frame.data),frame.width,frame.height);
+        const {frameWidth,frameHeight} = this.data;
+        if((frameWidth === frame.width) && (frameHeight == frame.height))return
         this.setData({
-            position:this.data.position === 'front'?'back':'front'
+            frameWidth:frame.width,
+            frameHeight:frame.height
         });
-    },
-    error:function(e){
+    });
+        this.listener.start();
+    }
+,
+    takePhoto:    function(){
+        this.ctx.takePhoto({
+        quality:'high',
+        success:(res)=>{this.setData({
+            src:res.tempImagePath
+        })}
+    });
+    }
+,
+    startRecord:    function(){
+        this.ctx.startRecord({
+        success:()=>{console.log('startRecord')}
+    });
+    }
+,
+    stopRecord:    function(){
+        this.ctx.stopRecord({
+        success:(res)=>{this.setData({
+            src:res.tempThumbPath,
+            videoSrc:res.tempVideoPath
+        })}
+    });
+    }
+,
+    togglePosition:    function(){
+        this.setData({
+        position:this.data.position === 'front'?'back':'front'
+    });
+    }
+,
+    error:    function(e){
         console.log(e.detail);
-    },
-    handleShowCanvas:function(){
+    }
+,
+    handleShowCanvas:    function(){
         const that = this;
         this.setData({
-            showCanvas:!this.data.showCanvas
-        },()=>{if(this.data.showCanvas){
-            const selector = wx.createSelectorQuery();
-            selector.select('#webgl').node(this.init).exec();
-        }});
+        showCanvas:!this.data.showCanvas
+    },()=>{if(this.data.showCanvas){
+        const selector = wx.createSelectorQuery();
+        selector.select('#webgl').node(this.init).exec();
+    }});
     }
+
 });

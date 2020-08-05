@@ -1,16 +1,18 @@
 import {OnekitApp,OnekitPage,OnekitComponent} from '../../../../onekit/onekit.js';
 import wx from '../../../../onekit/wx.js';
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'textarea',
-            path:'page/component/pages/textarea/textarea'
-        };
-    },
+        title:'textarea',
+        path:'page/component/pages/textarea/textarea'
+    };
+    }
+,
     data:{
         focus:false
     },
-    bindTextAreaBlur:function(e){
+    bindTextAreaBlur:    function(e){
         console.log(e.detail.value);
     }
+
 });

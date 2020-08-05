@@ -1,12 +1,13 @@
 import {OnekitApp,OnekitPage,OnekitComponent} from '../../onekit/onekit.js';
 import wx from '../../onekit/wx.js';
 OnekitPage({
-    onShareAppMessage:function(){
+    onShareAppMessage:    function(){
         return {
-            title:'小程序云开发展示',
-            path:'page/cloud/index'
-        };
-    },
+        title:'小程序云开发展示',
+        path:'page/cloud/index'
+    };
+    }
+,
     data:{
         list:[
             {
@@ -92,36 +93,38 @@ OnekitPage({
         ],
         theme:'light'
     },
-    onLoad:function(){
+    onLoad:    function(){
         this.setData({
-            theme:wx.getSystemInfoSync().theme || 'light'
-        });
+        theme:wx.getSystemInfoSync().theme || 'light'
+    });
         if(wx.onThemeChange){
-            wx.onThemeChange(({theme})=>{this.setData({
-                theme:theme
-            })});
-        }
-    },
-    kindToggle:function(e){
+        wx.onThemeChange(({theme})=>{this.setData({
+            theme:theme
+        })});
+    }
+    }
+,
+    kindToggle:    function(e){
         const id = e.currentTarget.id;
         const list = this.data.list;
         console.log(id,list);
         for(var i = 0,len = list.length;i < len;++i){
-            if(list[i].id === id){
-                if(list[i].url){
-                    console.log(list[i].url);
-                    wx.navigateTo({
-                        url:'../../packageCloud/pages/' + list[i].url
-                    });
-                    return;
-                }
-                list[i].open = !list[i].open;
-            } else {
-                list[i].open = false;
+        if(list[i].id === id){
+            if(list[i].url){
+                console.log(list[i].url);
+                wx.navigateTo({
+                    url:'../../packageCloud/pages/' + list[i].url
+                });
+                return;
             }
-        };
+            list[i].open = !list[i].open;
+        } else {
+            list[i].open = false;
+        }
+    };
         this.setData({
-            list:list
-        });
+        list:list
+    });
     }
+
 });
