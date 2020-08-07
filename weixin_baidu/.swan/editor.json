@@ -1,15 +1,15 @@
 {
     "editor": {
-        "curPath": "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\image\\image.swan",
+        "curPath": "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\image\\image.js",
         "expands": [
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram",
+            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit",
+            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui",
+            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\image",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\image",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\image"
+            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\image"
         ],
         "markdownUploadTimeMap": {},
         "paths": [
@@ -18,13 +18,19 @@
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\image\\image.swan",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\image\\image.json",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\text\\text.swan",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\image\\image.swan"
+            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\image\\image.swan",
+            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\image\\image.json"
         ],
         "recentlyFiles": [
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\image\\image.swan",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\image\\image.js",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\image\\image.json",
+            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\image\\image.swan",
+            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\image\\image.json",
+            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\image\\image.js",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\image\\image.swan",
+            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\text\\text.json",
+            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\editor\\editor.json",
+            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\icon\\icon.json",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\text\\text.swan",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\textarea\\textarea.swan",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\video\\picture-in-picture.swan",
@@ -34,13 +40,8 @@
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\view\\view.swan",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\icon\\icon.swan",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\icon\\icon.json",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\page\\component\\pages\\image\\image.json",
             "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\map\\map.js",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\map\\map.json",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\map\\map.swan",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\map\\map.css",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\swiper\\swiper.css",
-            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\swiper\\swiper.json"
+            "D:\\GIT\\github.com\\weixin2baidu\\weixin_baidu\\miniprogram\\onekit\\ui\\map\\map.json"
         ]
     }
 }
