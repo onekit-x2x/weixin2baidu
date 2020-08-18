@@ -15,7 +15,7 @@
           <view>
             帧高度：{{ frameHeight }}  帧宽度：{{ frameWidth }}
           </view>
-          <onekit-canvas Id="webgl" type="webgl" canvas-id="canvas" Style="width: {{width}}px; height: {{height}}px;">
+          <onekit-canvas Id="webgl" type="webgl" canvas-id="canvas" onekit-style="width: {{width}}px; height: {{height}}px;">
           </onekit-canvas>
         </view>
       <view class="btn-area first-btn">
@@ -39,8 +39,8 @@
         </onekit-navigator>
       </view>
       <view class="preview-tips">点击录像或拍照即可在下方预览效果</view>
-      <onekit-image s-if="src" mode="widthFix" Class="photo" src="{{src}}"></onekit-image>
-      <onekit-video s-if="videoSrc" Class="video" src="{{videoSrc}}"></onekit-video>
+      <onekit-image s-if="src" mode="widthFix" onekit-class="photo" src="{{src}}"></onekit-image>
+      <onekit-video s-if="videoSrc" onekit-class="video" src="{{videoSrc}}"></onekit-video>
     </view>
   </view>
 

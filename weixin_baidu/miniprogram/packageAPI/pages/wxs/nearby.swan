@@ -2,10 +2,10 @@
 </import-sjs>
 
 
-<onekit-swiper Class="swiper" data-width="{{windowWidth}}" data-imgsize="{{imgSize}}" bindchange="{{test.change}}" bindanimationfinish="{{test.animationFinish}}" bindtransition="{{test.func}}" indicator-dots="{{indicatorDots}}" autoplay="{{true}}" interval="{{interval}}" circular duration="{{duration}}">
+<onekit-swiper onekit-class="swiper" data-width="{{windowWidth}}" data-imgsize="{{imgSize}}" bindchange="{{test.change}}" bindanimationfinish="{{test.animationFinish}}" bindtransition="{{test.func}}" indicator-dots="{{indicatorDots}}" autoplay="{{true}}" interval="{{interval}}" circular duration="{{duration}}">
   <block s-for="imgUrls">
-    <onekit-swiper-item Style="height:100%;">
-      <onekit-image src="{{item}}" Class="slide-image" Style="height:100%;width:100%;" mode="center" height="300"></onekit-image>
+    <onekit-swiper-item onekit-style="height:100%;">
+      <onekit-image src="{{item}}" onekit-class="slide-image" onekit-style="height:100%;width:100%;" mode="center" height="300"></onekit-image>
     </onekit-swiper-item>
   </block>
 </onekit-swiper>

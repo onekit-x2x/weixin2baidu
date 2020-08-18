@@ -10,10 +10,10 @@
       <view class="page-body-info">
         <view class="page-body-title">网络状态</view>
         <block s-if="isConnected === false">
-          <onekit-text Class="page-body-text">没有网络连接</onekit-text>
+          <onekit-text onekit-class="page-body-text">没有网络连接</onekit-text>
         </block>
         <block s-if="isConnected === true">
-          <onekit-text Class="page-body-text-network-type">{{networkType}}</onekit-text>
+          <onekit-text onekit-class="page-body-text-network-type">{{networkType}}</onekit-text>
         </block>
       </view>
     </view>

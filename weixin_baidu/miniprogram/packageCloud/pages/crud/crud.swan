@@ -13,7 +13,7 @@
             <onekit-icon type="search" size="20"></onekit-icon>
           </view>
           <view class="weui-cell__bd">
-            <onekit-input Class="weui-input" placeholder="精确搜索或使用正则表达式搜索" value="{{searchContent}}" bindinput="onInputSearchContent" bindconfirm="searchTodo"></onekit-input>
+            <onekit-input onekit-class="weui-input" placeholder="精确搜索或使用正则表达式搜索" value="{{searchContent}}" bindinput="onInputSearchContent" bindconfirm="searchTodo"></onekit-input>
           </view>
         </view>
       </view>
@@ -31,13 +31,13 @@
 
         <view class="weui-cell weui-cell_input" s-if="todoList.length < 5 && !filtered">
           <view class="weui-cell__bd">
-            <onekit-input Class="weui-input" placeholder="添加新的 Todo" value="{{newContent}}" focus="{{todoListFetched && !todoList.length}}" bindinput="onInputNewContent" bindconfirm="createTodo"></onekit-input>
+            <onekit-input onekit-class="weui-input" placeholder="添加新的 Todo" value="{{newContent}}" focus="{{todoListFetched && !todoList.length}}" bindinput="onInputNewContent" bindconfirm="createTodo"></onekit-input>
           </view>
         </view>
       </view>
 
       <view class="page-body-info" s-if="!todoList.length && filtered">
-        <onekit-text Class="page-body-text">无数据</onekit-text>
+        <onekit-text onekit-class="page-body-text">无数据</onekit-text>
       </view>
     </view>
   </view>

@@ -1,9 +1,9 @@
 <import-sjs module="test" src="./stick-top.wxs">
 </import-sjs>
 
-<onekit-scroll-view bindscroll="{{theme=== 'dark' ? test.funcD :test.funcA}}" Style="height:{{height}}px;" scroll-y>
+<onekit-scroll-view bindscroll="{{theme=== 'dark' ? test.funcD :test.funcA}}" onekit-style="height:{{height}}px;" scroll-y>
   <view class="page-banner">
-    <onekit-image Class="image" src="http://mmbiz.qpic.cn/mmbiz_jpg/TcDuyasB5T3Eg34AYwjMw7xbEK2n01ekiaicPiaMInEMTkOQtuv1yke5KziaYF4MLia4IAbxlm0m5NxkibicFg4IZ92EA/0?wx_fmt=jpeg" Style="width:100%;height:200px" mode="aspectFit"></onekit-image>
+    <onekit-image onekit-class="image" src="http://mmbiz.qpic.cn/mmbiz_jpg/TcDuyasB5T3Eg34AYwjMw7xbEK2n01ekiaicPiaMInEMTkOQtuv1yke5KziaYF4MLia4IAbxlm0m5NxkibicFg4IZ92EA/0?wx_fmt=jpeg" onekit-style="width:100%;height:200px" mode="aspectFit"></onekit-image>
   </view>
   <view class="page-group-interaction page-group">
     <view class="page-nav-list"><onekit-text>抗疫专区</onekit-text></view>

@@ -12,7 +12,7 @@
           <view class="weui-label">Copy</view>
         </view>
         <view class="weui-cell__bd">
-          <onekit-input Class="weui-input" type="text" name="key" value="{{value}}" bindinput="valueChanged"></onekit-input>
+          <onekit-input onekit-class="weui-input" type="text" name="key" value="{{value}}" bindinput="valueChanged"></onekit-input>
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
@@ -20,7 +20,7 @@
           <view class="weui-label">Paste</view>
         </view>
         <view class="weui-cell__bd">
-          <onekit-input Class="weui-input" type="text" value="{{pasted}}"></onekit-input>
+          <onekit-input onekit-class="weui-input" type="text" value="{{pasted}}"></onekit-input>
         </view>
       </view>
     </view>

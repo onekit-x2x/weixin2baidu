@@ -8,7 +8,7 @@
   <view class="page-body">
     <view class="page-section">
       <view class="desc">请在下方输入电话号码</view>
-      <onekit-input Class="input" type="number" name="input" bindinput="bindInput"></onekit-input>
+      <onekit-input onekit-class="input" type="number" name="input" bindinput="bindInput"></onekit-input>
       <view class="btn-area">
         <onekit-button type="primary" bindtap="makePhoneCall" disabled="{{disabled}}">拨打</onekit-button>
       </view>

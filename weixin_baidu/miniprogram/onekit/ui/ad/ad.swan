@@ -1,7 +1,7 @@
 <ad 
 id="{{Id}}"
-class="onekit-ad {{Class}}"
-style="{{Style}}"
+class="onekit-ad {{onekitClass}}"
+style="{{onekitStyle}}"
 apid="{{unitId}}"
 type="{{adType}}"
 updatetime="{{adIntervals}}"

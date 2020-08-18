@@ -1,7 +1,7 @@
 <image 
 id="{{Id}}"
-class="onekit-image {{Class}}"
-style="{{Style}}"
+class="onekit-image {{onekitClass}}"
+style="overflow:visible;{{onekitStyle}};{{new_size}}"
 mode="{{mode}}" 
 src="{{src}}"
 webp="{{webp}}"

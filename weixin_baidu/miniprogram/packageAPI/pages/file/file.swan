@@ -9,10 +9,10 @@
     <view class="page-section">
       <view class="page-body-info">
         <block s-if="tempFilePath != ''">
-          <onekit-image src="{{tempFilePath}}" Class="image" mode="aspectFit"></onekit-image>
+          <onekit-image src="{{tempFilePath}}" onekit-class="image" mode="aspectFit"></onekit-image>
         </block>
         <block s-if="tempFilePath === '' && savedFilePath != ''">
-          <onekit-image src="{{savedFilePath}}" Class="image" mode="aspectFit"></onekit-image>
+          <onekit-image src="{{savedFilePath}}" onekit-class="image" mode="aspectFit"></onekit-image>
         </block>
         <block s-if="tempFilePath === '' && savedFilePath === ''">
           <view class="image-plus image-plus-nb" bindtap="chooseImage">

@@ -3,8 +3,8 @@ options: {
         addGlobalClass: true,
     },
     properties: {     Id:{type:String,value:""},
-        Class:{type:String,value:""},
-    Style:{type:String,value:""},
+        onekitClass:{type:String,value:""},
+    onekitStyle:{type:String,value:""},
         src: {
             type: String, 
             value: "",
@@ -33,24 +33,20 @@ options: {
 
     methods: {
        audio_play(e){
-        console.log("play audio success",e)
-        this.triggerEvent('play',e.details)
+        this.triggerEvent('play',e)
        },
        audio_pause(e){
-        console.log("pause audio success",e)
-        this.triggerEvent("pause",e.details)
+        this.triggerEvent("pause",e)
        },
        audio_timeupdate(e){
-        console.log("audio_timeupdate",e)
-        this.triggerEvent("timeupdate",e.details)
+        this.triggerEvent("timeupdate",e)
        },
        audio_ended(e){
-        console.log("audio ended",e)
-        this.triggerEvent("ended",e.details)
+        this.triggerEvent("ended",e)
        },
        audio_error(e){
         console.log("audio  error! ",e)
-        this.triggerEvent("error",e.details)
+        this.triggerEvent("error",e)
        },
     }
 });

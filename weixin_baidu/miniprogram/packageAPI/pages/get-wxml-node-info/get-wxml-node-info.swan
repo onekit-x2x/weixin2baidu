@@ -8,7 +8,7 @@
   <view class="page-body">
     <view class="page-section">
       <onekit-movable-area>
-        <onekit-movable-view Class="target" x="{{x}}" y="{{y}}" direction="all" bindchange="getNodeInfo">
+        <onekit-movable-view onekit-class="target" x="{{x}}" y="{{y}}" direction="all" bindchange="getNodeInfo">
           Drag
         </onekit-movable-view>
       </onekit-movable-area>
@@ -17,8 +17,8 @@
     <view class="page-section">
       <view class="metric">
         <view s-for=" metrics " s-key='key'>
-          <onekit-text Class="b">{{ item.key }}</onekit-text>
-          <onekit-text Class="span">{{ item.val }}</onekit-text>
+          <onekit-text onekit-class="b">{{ item.key }}</onekit-text>
+          <onekit-text onekit-class="span">{{ item.val }}</onekit-text>
         </view>
       </view>
     </view>

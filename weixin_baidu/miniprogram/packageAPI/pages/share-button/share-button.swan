@@ -7,13 +7,13 @@
 
   <view class="page-body">
     <view class="page-body-wrapper">
-      <onekit-text Class="page-body-title">
+      <onekit-text onekit-class="page-body-title">
         轻触下方图标即可转发
       </onekit-text>
       <view class="page-body-line">
-        <onekit-button bindtap="handleTapShareButton" open-type="share" Class="button-share" Id="share-button">
+        <onekit-button bindtap="handleTapShareButton" open-type="share" onekit-class="button-share" Id="share-button">
         </onekit-button>
-        <onekit-label for="share-button"><onekit-image Style="width: 27px; height: 27px" src="/image/share.png"></onekit-image></onekit-label>
+        <onekit-label for="share-button"><onekit-image onekit-style="width: 27px; height: 27px" src="/image/share.png"></onekit-image></onekit-label>
       </view>
     </view>
   </view>

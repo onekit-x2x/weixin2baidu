@@ -7,7 +7,7 @@
 
   <view class="page-body">
     <view class="page-section">
-      <onekit-input Class="input" model:value="{{value}}" placeholder="请输入"></onekit-input>
+      <onekit-input onekit-class="input" model:value="{{value}}" placeholder="请输入"></onekit-input>
       <view class="text">这是你输入的数据：{{value}}</view>
     </view>
    

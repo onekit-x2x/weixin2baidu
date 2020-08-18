@@ -7,13 +7,13 @@
 
   <view class="page-body">
     <view class="page-section page-section-gap">
-      <onekit-map Style="width: 100%; height: 300px;" latitude="{{latitude}}" longitude="{{longitude}}">
-        <onekit-cover-view Class="cover-view">
-          <onekit-cover-view Class="container">
-            <onekit-cover-view Class="flex-wrp" Style="flex-direction:row;">
-              <onekit-cover-view Class="flex-item demo-text-1"></onekit-cover-view>
-              <onekit-cover-view Class="flex-item demo-text-2"></onekit-cover-view>
-              <onekit-cover-view Class="flex-item demo-text-3"></onekit-cover-view>
+      <onekit-map onekit-style="width: 100%; height: 300px;" latitude="{{latitude}}" longitude="{{longitude}}">
+        <onekit-cover-view onekit-class="cover-view">
+          <onekit-cover-view onekit-class="container">
+            <onekit-cover-view onekit-class="flex-wrp" onekit-style="flex-direction:row;">
+              <onekit-cover-view onekit-class="flex-item demo-text-1"></onekit-cover-view>
+              <onekit-cover-view onekit-class="flex-item demo-text-2"></onekit-cover-view>
+              <onekit-cover-view onekit-class="flex-item demo-text-3"></onekit-cover-view>
             </onekit-cover-view>
           </onekit-cover-view>
         </onekit-cover-view>

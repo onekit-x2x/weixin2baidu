@@ -8,10 +8,10 @@
   <view class="page-body">
     <view class="page-section page-section-gap">
       <view class="page-section-title">默认样式</view>
-      <onekit-label Class="radio">
+      <onekit-label onekit-class="radio">
         <onekit-radio value="r1" checked="true"></onekit-radio>选中
       </onekit-label>
-      <onekit-label Class="radio">
+      <onekit-label onekit-class="radio">
         <onekit-radio value="r2"></onekit-radio>未选中
       </onekit-label>
     </view>
@@ -21,7 +21,7 @@
       <view class="page-section-title">推荐展示样式</view>
       <view class="weui-cells weui-cells_after-title">
         <onekit-radio-group bindchange="radioChange">
-          <onekit-label s-for="items" s-key='value' Class="weui-cell weui-check__label">
+          <onekit-label s-for="items" s-key='value' onekit-class="weui-cell weui-check__label">
 
             <view class="weui-cell__hd">
               <onekit-radio value="{{item.value}}" checked="true"></onekit-radio>

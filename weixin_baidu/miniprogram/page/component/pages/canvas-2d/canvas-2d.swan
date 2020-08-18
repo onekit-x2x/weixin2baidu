@@ -10,7 +10,7 @@
       <view class="page-section">
         <view class="page-section-spacing">
           <view class="page-body-wrapper">
-            <onekit-canvas type="2d" Id="canvas2D" Class="canvas"></onekit-canvas>    
+            <onekit-canvas type="2d" Id="canvas2D" onekit-class="canvas"></onekit-canvas>    
           </view>
         </view>
       </view>
