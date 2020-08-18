@@ -9,7 +9,7 @@
     <view class="page-section">
       <block s-if="recording === false && playing === false && hasRecord === false">
         <view class="page-body-time">
-          <onekit-text Class="time-big">{{formatedRecordTime}}</onekit-text>
+          <onekit-text onekit-class="time-big">{{formatedRecordTime}}</onekit-text>
         </view>
         <view class="page-body-buttons">
           <view class="page-body-button"></view>
@@ -22,7 +22,7 @@
 
       <block s-if="recording === true">
         <view class="page-body-time">
-          <onekit-text Class="time-big">{{formatedRecordTime}}</onekit-text>
+          <onekit-text onekit-class="time-big">{{formatedRecordTime}}</onekit-text>
         </view>
         <view class="page-body-buttons">
           <view class="page-body-button"></view>
@@ -35,8 +35,8 @@
 
       <block s-if="hasRecord === true && playing === false">
         <view class="page-body-time">
-          <onekit-text Class="time-big">{{formatedPlayTime}}</onekit-text>
-          <onekit-text Class="time-small">{{formatedRecordTime}}</onekit-text>
+          <onekit-text onekit-class="time-big">{{formatedPlayTime}}</onekit-text>
+          <onekit-text onekit-class="time-small">{{formatedRecordTime}}</onekit-text>
         </view>
         <view class="page-body-buttons">
           <view class="page-body-button"></view>
@@ -51,8 +51,8 @@
 
       <block s-if="hasRecord === true && playing === true">
         <view class="page-body-time">
-          <onekit-text Class="time-big">{{formatedPlayTime}}</onekit-text>
-          <onekit-text Class="time-small">{{formatedRecordTime}}</onekit-text>
+          <onekit-text onekit-class="time-big">{{formatedPlayTime}}</onekit-text>
+          <onekit-text onekit-class="time-small">{{formatedRecordTime}}</onekit-text>
         </view>
         <view class="page-body-buttons">
           <view class="page-body-button" bindtap="stopVoice">

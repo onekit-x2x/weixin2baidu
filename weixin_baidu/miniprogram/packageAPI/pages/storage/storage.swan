@@ -13,7 +13,7 @@
             <view class="weui-label">key</view>
           </view>
           <view class="weui-cell__bd">
-            <onekit-input Class="weui-input" type="text" placeholder="请输入key" name="key" value="{{key}}" bindinput="keyChange"></onekit-input>
+            <onekit-input onekit-class="weui-input" type="text" placeholder="请输入key" name="key" value="{{key}}" bindinput="keyChange"></onekit-input>
           </view>
         </view>
         <view class="weui-cell weui-cell_input">
@@ -21,7 +21,7 @@
             <view class="weui-label">value</view>
           </view>
           <view class="weui-cell__bd">
-            <onekit-input Class="weui-input" type="text" placeholder="请输入value" name="data" value="{{data}}" bindinput="dataChange"></onekit-input>
+            <onekit-input onekit-class="weui-input" type="text" placeholder="请输入value" name="data" value="{{data}}" bindinput="dataChange"></onekit-input>
           </view>
         </view>
       </view>

@@ -13,17 +13,17 @@
 
     <view class="page-section">
       <view class="page-url">视频地址 (支持flv, rtmp):</view>
-      <onekit-input Class="input" name="input" placeholder="视频播放链接" value="{{ videoSrc }}" bindinput="handleVideoSrcInput"></onekit-input>
+      <onekit-input onekit-class="input" name="input" placeholder="视频播放链接" value="{{ videoSrc }}" bindinput="handleVideoSrcInput"></onekit-input>
       <onekit-button type="primary" bindtap="handleScanQRCode">
         扫码
       </onekit-button>
     </view>
     <view class="page-section">
-      <onekit-button bindtap="handlePlay" Class="page-body-button" type="primary">播放</onekit-button>
-      <onekit-button bindtap="handlePause" Class="page-body-button" type="primary">暂停</onekit-button>
-      <onekit-button bindtap="handleStop" Class="page-body-button" type="primary">停止</onekit-button>
-      <onekit-button bindtap="handleResume" Class="page-body-button" type="primary">恢复</onekit-button>
-      <onekit-button bindtap="handleMute" Class="page-body-button" type="primary">静音</onekit-button>
+      <onekit-button bindtap="handlePlay" onekit-class="page-body-button" type="primary">播放</onekit-button>
+      <onekit-button bindtap="handlePause" onekit-class="page-body-button" type="primary">暂停</onekit-button>
+      <onekit-button bindtap="handleStop" onekit-class="page-body-button" type="primary">停止</onekit-button>
+      <onekit-button bindtap="handleResume" onekit-class="page-body-button" type="primary">恢复</onekit-button>
+      <onekit-button bindtap="handleMute" onekit-class="page-body-button" type="primary">静音</onekit-button>
     </view>
   </view>
   <template is="foot">

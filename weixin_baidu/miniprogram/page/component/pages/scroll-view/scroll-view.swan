@@ -12,7 +12,7 @@
         <onekit-text>Vertical Scroll\n纵向滚动</onekit-text>
       </view>
       <view class="page-section-spacing">
-        <onekit-scroll-view scroll-y="true" Style="height: 150px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+        <onekit-scroll-view scroll-y="true" onekit-style="height: 150px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
           <view id="demo1" class="scroll-view-item demo-text-1"></view>
           <view id="demo2" class="scroll-view-item demo-text-2"></view>
           <view id="demo3" class="scroll-view-item demo-text-3"></view>
@@ -24,7 +24,7 @@
         <onekit-text>Horizontal Scroll\n横向滚动</onekit-text>
       </view>
       <view class="page-section-spacing">
-        <onekit-scroll-view Class="scroll-view_H" scroll-x="true" bindscroll="scroll" Style="width: 100%">
+        <onekit-scroll-view onekit-class="scroll-view_H" scroll-x="true" bindscroll="scroll" onekit-style="width: 100%">
           <view id="demo1" class="scroll-view-item_H demo-text-1"></view>
           <view id="demo2" class="scroll-view-item_H demo-text-2"></view>
           <view id="demo3" class="scroll-view-item_H demo-text-3"></view>
@@ -36,7 +36,7 @@
         <onekit-text>自定义下拉刷新\n自定义：</onekit-text>
       </view>
       <view class="page-section-spacing">
-        <onekit-scroll-view scroll-y Style="width: 100%; height: 400px;" refresher-enabled="{{true}}" refresher-threshold="{{80}}" refresher-default-style="none" refresher-background="lightgreen" bindrefresherpulling="{{refresh.onPulling}}">
+        <onekit-scroll-view scroll-y onekit-style="width: 100%; height: 400px;" refresher-enabled="{{true}}" refresher-threshold="{{80}}" refresher-default-style="none" refresher-background="lightgreen" bindrefresherpulling="{{refresh.onPulling}}">
           <view slot="refresher" class="refresh-container" style="display: block; width: 100%; height: 80px; background: #ECBDF0; display: flex; align-items: center;">
             <view class="view1" style="position: absolute; color: white; text-align: center; width: 100%;">
               下拉刷新
@@ -54,7 +54,7 @@
         <onekit-text>默认：</onekit-text>
       </view>
       <view class="page-section-spacing">
-        <onekit-scroll-view scroll-y Style="width: 100%; height: 400px;" refresher-enabled="{{true}}" refresher-threshold="{{100}}" refresher-default-style="white" refresher-background="lightgreen" refresher-triggered="{{triggered}}" bindrefresherpulling="onPulling" bindrefresherrefresh="onRefresh" bindrefresherrestore="onRestore" bindrefresherabort="onAbort">
+        <onekit-scroll-view scroll-y onekit-style="width: 100%; height: 400px;" refresher-enabled="{{true}}" refresher-threshold="{{100}}" refresher-default-style="white" refresher-background="lightgreen" refresher-triggered="{{triggered}}" bindrefresherpulling="onPulling" bindrefresherrefresh="onRefresh" bindrefresherrestore="onRestore" bindrefresherabort="onAbort">
           <view id="demo1" class="scroll-view-item_H demo-text-1"></view>
           <view id="demo2" class="scroll-view-item_H demo-text-2"></view>
           <view id="demo3" class="scroll-view-item_H demo-text-3"></view>
@@ -66,7 +66,7 @@
         <onekit-text>滚动驱动动画</onekit-text>
       </view>
       <view class="page-section-spacing">
-        <onekit-scroll-view Id="scroll-view_D" scroll-y="true" Style="height: 150px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+        <onekit-scroll-view Id="scroll-view_D" scroll-y="true" onekit-style="height: 150px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
           <view class="scroll-view-item_H demo-text-1" id="scroll-sample-object1"></view>
           <view class="scroll-view-item_H demo-text-2" id="scroll-sample-object2"></view>
           <view class="scroll-view-item_H demo-text-3" id="scroll-sample-object3"></view>

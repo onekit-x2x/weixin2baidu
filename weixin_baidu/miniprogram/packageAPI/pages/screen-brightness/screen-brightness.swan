@@ -8,7 +8,7 @@
   <view class="page-body">
     <view class="page-body-info">
       <view class="page-body-title">当前屏幕亮度</view>
-      <onekit-text Class="page-body-text-screen-brightness">{{screenBrightness}}</onekit-text>
+      <onekit-text onekit-class="page-body-text-screen-brightness">{{screenBrightness}}</onekit-text>
     </view>
     <view class="page-section page-section-gap">
       <view class="page-section-title">设置屏幕亮度</view>

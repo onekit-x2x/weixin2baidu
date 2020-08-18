@@ -15,9 +15,9 @@
       </onekit-text>
     </view>
     <view class="page-section">
-      <onekit-scroll-view Class="scroll-view" scroll-y>
+      <onekit-scroll-view onekit-class="scroll-view" scroll-y>
         <view class="scroll-area" style="{{appear ? 'background: #ccc' : ''}}">
-          <onekit-text Class="notice">向下滚动让小球出现</onekit-text>
+          <onekit-text onekit-class="notice">向下滚动让小球出现</onekit-text>
           <view class="filling"></view>
           <view class="ball"></view>
         </view>

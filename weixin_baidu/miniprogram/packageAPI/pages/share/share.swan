@@ -13,7 +13,7 @@
           <view class="weui-label">标题</view>
         </view>
         <view class="weui-cell__bd">
-          <onekit-input Class="weui-input" type="text" disabled="{{true}}" value="{{shareData.title}}"></onekit-input>
+          <onekit-input onekit-class="weui-input" type="text" disabled="{{true}}" value="{{shareData.title}}"></onekit-input>
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
@@ -21,7 +21,7 @@
           <view class="weui-label">描述</view>
         </view>
         <view class="weui-cell__bd">
-          <onekit-input Class="weui-input" type="text" disabled="{{true}}" value="{{shareData.desc}}"></onekit-input>
+          <onekit-input onekit-class="weui-input" type="text" disabled="{{true}}" value="{{shareData.desc}}"></onekit-input>
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
@@ -29,7 +29,7 @@
           <view class="weui-label">跳转页面</view>
         </view>
         <view class="weui-cell__bd">
-          <onekit-input Class="weui-input" type="text" disabled="{{true}}" value="{{shareData.path}}"></onekit-input>
+          <onekit-input onekit-class="weui-input" type="text" disabled="{{true}}" value="{{shareData.path}}"></onekit-input>
         </view>
       </view>
     </view>

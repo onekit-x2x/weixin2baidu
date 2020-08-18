@@ -10,12 +10,12 @@
       <view class="page-body-info">
         <view class="page-body-title">用户信息</view>
         <block s-if="hasUserInfo === false">
-          <onekit-text Class="page-body-text">未获取</onekit-text>
-          <onekit-text Class="page-body-text">点击绿色按钮可获取用户头像及昵称</onekit-text>
+          <onekit-text onekit-class="page-body-text">未获取</onekit-text>
+          <onekit-text onekit-class="page-body-text">点击绿色按钮可获取用户头像及昵称</onekit-text>
         </block>
         <block s-if="hasUserInfo === true">
-          <onekit-image Class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></onekit-image>
-          <onekit-text Class="userinfo-nickname">{{userInfo.nickName}}</onekit-text>
+          <onekit-image onekit-class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></onekit-image>
+          <onekit-text onekit-class="userinfo-nickname">{{userInfo.nickName}}</onekit-text>
         </block>
       </view>
       <view class="btn-area">

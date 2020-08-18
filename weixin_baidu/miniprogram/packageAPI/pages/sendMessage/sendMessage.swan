@@ -13,7 +13,7 @@
           <view class="weui-label">实例字段</view>
         </view>
         <view class="weui-cell__bd">
-          <onekit-input Class="weui-input" type="text" placeholder="请输入"></onekit-input>
+          <onekit-input onekit-class="weui-input" type="text" placeholder="请输入"></onekit-input>
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
@@ -21,7 +21,7 @@
           <view class="weui-label">实例字段</view>
         </view>
         <view class="weui-cell__bd">
-          <onekit-input Class="weui-input" type="text" placeholder="请输入"></onekit-input>
+          <onekit-input onekit-class="weui-input" type="text" placeholder="请输入"></onekit-input>
         </view>
       </view>
     </view>
@@ -32,7 +32,7 @@
           <view class="weui-label">跳转链接</view>
         </view>
         <view class="weui-cell__bd">
-          <onekit-input Class="weui-input" type="text" placeholder="请输入" value="{{shareData.path}}"></onekit-input>
+          <onekit-input onekit-class="weui-input" type="text" placeholder="请输入" value="{{shareData.path}}"></onekit-input>
         </view>
       </view>
     </view>

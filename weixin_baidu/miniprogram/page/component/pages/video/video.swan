@@ -20,16 +20,16 @@
             <view class="weui-label">弹幕内容</view>
           </view>
           <view class="weui-cell__bd">
-            <onekit-input bindblur="bindInputBlur" Class="weui-input" type="text" placeholder="在此处输入弹幕内容"></onekit-input>
+            <onekit-input bindblur="bindInputBlur" onekit-class="weui-input" type="text" placeholder="在此处输入弹幕内容"></onekit-input>
           </view>
         </view>
       </view>
       <view class="btn-area">
-        <onekit-button bindtap="bindSendDanmu" Class="page-body-button" type="primary" formType="submit">发送弹幕</onekit-button>
+        <onekit-button bindtap="bindSendDanmu" onekit-class="page-body-button" type="primary" formType="submit">发送弹幕</onekit-button>
       </view>
       <view class="btn-area">
         <onekit-navigator url="picture-in-picture" hover-class="other-navigator-hover">
-          <onekit-button type="primary" Class="page-body-button" bindtap="bindPlayVideo">小窗模式</onekit-button>
+          <onekit-button type="primary" onekit-class="page-body-button" bindtap="bindPlayVideo">小窗模式</onekit-button>
         </onekit-navigator>
       </view>
       

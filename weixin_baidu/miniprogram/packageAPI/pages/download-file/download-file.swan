@@ -9,7 +9,7 @@
     <onekit-image s-if="imageSrc" src="{{imageSrc}}" mode="center"></onekit-image>
     <block s-else>
       <view class="page-body-wording">
-        <onekit-text Class="page-body-text">
+        <onekit-text onekit-class="page-body-text">
           点击按钮下载服务端示例图片
         </onekit-text>
       </view>

@@ -1,6 +1,6 @@
 <image 
 id="{{Id}}"
-class="onekit-image {{Class}}"
+class="onekit-image {{onekitClass}}"
 style="overflow:visible;{{Style}};{{new_size}}"
 mode="{{mode}}" 
 src="{{src}}"

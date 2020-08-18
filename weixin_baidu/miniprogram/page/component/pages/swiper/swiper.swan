@@ -35,12 +35,12 @@
     <view class="page-section page-section-spacing">
       <view class="page-section-title">
         <onekit-text>幻灯片切换时长(ms)</onekit-text>
-        <onekit-text Class="info">{{duration}}</onekit-text>
+        <onekit-text onekit-class="info">{{duration}}</onekit-text>
       </view>
       <onekit-slider bindchange="durationChange" value="{{duration}}" min="500" max="2000"></onekit-slider>
       <view class="page-section-title">
         <onekit-text>自动播放间隔时长(ms)</onekit-text>
-        <onekit-text Class="info">{{interval}}</onekit-text>
+        <onekit-text onekit-class="info">{{interval}}</onekit-text>
       </view>
       <onekit-slider bindchange="intervalChange" value="{{interval}}" min="2000" max="10000"></onekit-slider>
     </view>

@@ -17,14 +17,14 @@
       <view class="weui-cells weui-cells_after-title">
         <view class="page-body-info">
           <view class="progress-figure">
-            <onekit-image s-if="theme === 'dark'" src="/page/API/resources/kind/device_dark.png" Class="progress-icon"></onekit-image>
-            <onekit-image s-else src="/page/API/resources/kind/device.png" Class="progress-icon"></onekit-image>
-            <onekit-text Class="progress-line {{sendTemplateMessageLoading && 'pending'}} {{sendTemplateMessageResult && 'success'}} {{sendTemplateMessageError && 'fail'}}"></onekit-text>
-            <onekit-image s-if="theme === 'dark'" src="/page/cloud/resources/kind/scf_dark.png" Class="progress-icon"></onekit-image>
-            <onekit-image s-else src="/page/cloud/resources/kind/scf.png" Class="progress-icon"></onekit-image>
-            <onekit-text Class="progress-line {{sendTemplateMessageLoading && 'pending'}} {{sendTemplateMessageResult && 'success'}} {{sendTemplateMessageError && 'fail'}}"></onekit-text>
-            <onekit-image s-if="theme === 'dark'" src="/page/API/resources/kind/device_dark.png" Class="progress-icon"></onekit-image>
-            <onekit-image s-else src="/page/API/resources/kind/device.png" Class="progress-icon"></onekit-image>
+            <onekit-image s-if="theme === 'dark'" src="/page/API/resources/kind/device_dark.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-image s-else src="/page/API/resources/kind/device.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-text onekit-class="progress-line {{sendTemplateMessageLoading && 'pending'}} {{sendTemplateMessageResult && 'success'}} {{sendTemplateMessageError && 'fail'}}"></onekit-text>
+            <onekit-image s-if="theme === 'dark'" src="/page/cloud/resources/kind/scf_dark.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-image s-else src="/page/cloud/resources/kind/scf.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-text onekit-class="progress-line {{sendTemplateMessageLoading && 'pending'}} {{sendTemplateMessageResult && 'success'}} {{sendTemplateMessageError && 'fail'}}"></onekit-text>
+            <onekit-image s-if="theme === 'dark'" src="/page/API/resources/kind/device_dark.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-image s-else src="/page/API/resources/kind/device.png" onekit-class="progress-icon"></onekit-image>
           </view>
 
           <view class="data-area">
@@ -50,11 +50,11 @@
       <view class="weui-cells weui-cells_after-title">
         <view class="page-body-info">
           <view class="progress-figure">
-            <onekit-image s-if="theme === 'dark'" src="/page/API/resources/kind/device_dark.png" Class="progress-icon"></onekit-image>
-            <onekit-image s-else src="/page/API/resources/kind/device.png" Class="progress-icon"></onekit-image>
-            <onekit-text Class="progress-line {{getWXACodeLoading && 'pending'}} {{getWXACodeResult && 'success'}} {{getWXACodeError && 'fail'}}"></onekit-text>
-            <onekit-image s-if="theme === 'dark'" src="/page/cloud/resources/kind/scf_dark.png" Class="progress-icon"></onekit-image>
-            <onekit-image s-else src="/page/cloud/resources/kind/scf.png" Class="progress-icon"></onekit-image>
+            <onekit-image s-if="theme === 'dark'" src="/page/API/resources/kind/device_dark.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-image s-else src="/page/API/resources/kind/device.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-text onekit-class="progress-line {{getWXACodeLoading && 'pending'}} {{getWXACodeResult && 'success'}} {{getWXACodeError && 'fail'}}"></onekit-text>
+            <onekit-image s-if="theme === 'dark'" src="/page/cloud/resources/kind/scf_dark.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-image s-else src="/page/cloud/resources/kind/scf.png" onekit-class="progress-icon"></onekit-image>
           </view>
 
           <view class="progress-figure" s-if="getWXACodeResult">

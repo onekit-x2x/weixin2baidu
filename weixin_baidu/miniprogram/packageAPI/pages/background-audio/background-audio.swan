@@ -7,8 +7,8 @@
 
   <view class="page-section">
     <view class="page-body-info">
-      <onekit-text Class="time-big">{{formatedPlayTime}}</onekit-text>
-      <onekit-slider Class="slider" min="0" max="269" step="1" value="{{playTime}}" bindchange="seek"></onekit-slider>
+      <onekit-text onekit-class="time-big">{{formatedPlayTime}}</onekit-text>
+      <onekit-slider onekit-class="slider" min="0" max="269" step="1" value="{{playTime}}" bindchange="seek"></onekit-slider>
       <view class="play-time">
         <onekit-text>00:00</onekit-text>
         <onekit-text>04:29</onekit-text>

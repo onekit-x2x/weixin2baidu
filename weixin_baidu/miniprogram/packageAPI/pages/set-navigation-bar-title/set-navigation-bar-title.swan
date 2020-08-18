@@ -12,7 +12,7 @@
           <view class="weui-label">页面标题</view>
         </view>
         <view class="weui-cell__bd">
-          <onekit-input Class="weui-input" type="text" placeholder="请输入页面标题并点击设置即可" name="title"></onekit-input>
+          <onekit-input onekit-class="weui-input" type="text" placeholder="请输入页面标题并点击设置即可" name="title"></onekit-input>
         </view>
       </view>
     </view>

@@ -38,7 +38,7 @@
                   <view class="weui-cells weui-cells_after-title input-area">
                     <view class="weui-cell weui-cell_input">
                       <view class="weui-cell__bd">
-                        <onekit-input Class="weui-input" placeholder="请输入个性签名" value="{{myWhatsUp}}" focus="{{!hasMyWhatsUp}}" data-name="myWhatsUp" bindinput="bindInput" bindconfirm="updateMyWhatsUp"></onekit-input>
+                        <onekit-input onekit-class="weui-input" placeholder="请输入个性签名" value="{{myWhatsUp}}" focus="{{!hasMyWhatsUp}}" data-name="myWhatsUp" bindinput="bindInput" bindconfirm="updateMyWhatsUp"></onekit-input>
                       </view>
                     </view>
                   </view>
@@ -53,7 +53,7 @@
                   <view class="weui-cells weui-cells_after-title input-area">
                     <view class="weui-cell weui-cell_input">
                       <view class="weui-cell__bd">
-                        <onekit-input Class="weui-input" placeholder="请输入个性签名" value="{{adminWhatsUp}}" data-name="adminWhatsUp" bindinput="bindInput"></onekit-input>
+                        <onekit-input onekit-class="weui-input" placeholder="请输入个性签名" value="{{adminWhatsUp}}" data-name="adminWhatsUp" bindinput="bindInput"></onekit-input>
                       </view>
                     </view>
                   </view>
@@ -82,7 +82,7 @@
                   <view class="weui-cells weui-cells_after-title input-area">
                     <view class="weui-cell weui-cell_input">
                       <view class="weui-cell__bd">
-                        <onekit-input Class="weui-input" placeholder="请输入邮箱" value="{{myEmail}}" data-name="myEmail" bindinput="bindInput"></onekit-input>
+                        <onekit-input onekit-class="weui-input" placeholder="请输入邮箱" value="{{myEmail}}" data-name="myEmail" bindinput="bindInput"></onekit-input>
                       </view>
                     </view>
                   </view>
@@ -97,7 +97,7 @@
                   <view class="weui-cells weui-cells_after-title input-area">
                     <view class="weui-cell weui-cell_input">
                       <view class="weui-cell__bd">
-                        <onekit-input Class="weui-input" placeholder="请输入邮箱" value="{{adminEmail}}" data-name="adminEmail" bindinput="bindInput"></onekit-input>
+                        <onekit-input onekit-class="weui-input" placeholder="请输入邮箱" value="{{adminEmail}}" data-name="adminEmail" bindinput="bindInput"></onekit-input>
                       </view>
                     </view>
                   </view>
@@ -116,7 +116,7 @@
               <view class="weui-cells weui-cells_after-title input-area">
                 <view class="weui-cell weui-cell_input">
                   <view class="weui-cell__bd">
-                    <onekit-input Class="weui-input" placeholder="请输入商品价格" value="{{product.price}}" data-name="product.price" bindinput="bindInput"></onekit-input>
+                    <onekit-input onekit-class="weui-input" placeholder="请输入商品价格" value="{{product.price}}" data-name="product.price" bindinput="bindInput"></onekit-input>
                   </view>
                 </view>
               </view>
@@ -133,7 +133,7 @@
               <view class="weui-cells weui-cells_after-title input-area">
                 <view class="weui-cell weui-cell_input">
                   <view class="weui-cell__bd">
-                    <onekit-input Class="weui-input" placeholder="请输入后台流水数据" value="{{serverData}}" data-name="serverData" bindinput="bindInput"></onekit-input>
+                    <onekit-input onekit-class="weui-input" placeholder="请输入后台流水数据" value="{{serverData}}" data-name="serverData" bindinput="bindInput"></onekit-input>
                   </view>
                 </view>
               </view>

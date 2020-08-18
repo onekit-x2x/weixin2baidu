@@ -7,7 +7,7 @@
 
   <view class="page-body">
     <view class="page-body-wording">
-      <onekit-text Class="page-body-text">
+      <onekit-text onekit-class="page-body-text">
         点击向服务器发起请求
       </onekit-text>
     </view>

@@ -12,7 +12,7 @@
           <view class="weui-label">示例地点</view>
         </view>
         <view class="weui-cell__bd">
-          <onekit-input Class="weui-input" type="text" disabled="{{true}}" value="{{formData.address}}" name="address"></onekit-input>
+          <onekit-input onekit-class="weui-input" type="text" disabled="{{true}}" value="{{formData.address}}" name="address"></onekit-input>
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
@@ -20,7 +20,7 @@
           <view class="weui-label">示例时间</view>
         </view>
         <view class="weui-cell__bd">
-          <onekit-input Class="weui-input" type="text" disabled="{{true}}" value="{{formData.time}}" name="time"></onekit-input>
+          <onekit-input onekit-class="weui-input" type="text" disabled="{{true}}" value="{{formData.time}}" name="time"></onekit-input>
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
@@ -28,7 +28,7 @@
           <view class="weui-label">示例物品</view>
         </view>
         <view class="weui-cell__bd">
-          <onekit-input Class="weui-input" type="text" disabled="{{true}}" value="{{formData.name}}" name="name"></onekit-input>
+          <onekit-input onekit-class="weui-input" type="text" disabled="{{true}}" value="{{formData.name}}" name="name"></onekit-input>
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
@@ -36,7 +36,7 @@
           <view class="weui-label">示例单号</view>
         </view>
         <view class="weui-cell__bd">
-          <onekit-input Class="weui-input" type="text" disabled="{{true}}" value="{{formData.serial}}" name="serial"></onekit-input>
+          <onekit-input onekit-class="weui-input" type="text" disabled="{{true}}" value="{{formData.serial}}" name="serial"></onekit-input>
         </view>
       </view>
     </view>

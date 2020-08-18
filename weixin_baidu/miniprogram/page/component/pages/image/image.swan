@@ -9,19 +9,19 @@
     <view class="page-section page-section-gap">
       <view class="page-section-title">Local Image</view>
       <view class="page-section-ctn">
-        <onekit-image Class="image" src="../../resources/pic/1.jpg"></onekit-image>
+        <onekit-image onekit-class="image" src="../../resources/pic/1.jpg"></onekit-image>
       </view>
     </view>
     <view class="page-section page-section-gap">
       <view class="page-section-title">Internet Image</view>
       <view class="page-section-ctn">
-        <onekit-image Class="image" src="{{imageUrl}}"></onekit-image>
+        <onekit-image  onekit-class="image" src="{{imageUrl}}"></onekit-image>
       </view>
     </view>
      <view class="page-section page-section-gap">
       <view class="page-section-title">Webp Image</view>
       <view class="page-section-ctn">
-        <onekit-image Class="image" webp src="{{webpImageUrl}}" mode="aspectFit"></onekit-image>
+        <onekit-image onekit-class="image" webp src="{{webpImageUrl}}" mode="aspectFit"></onekit-image>
       </view>
     </view>
   </view>

@@ -7,7 +7,7 @@
 
   <view class="page-body">
     <view class="page-body-info">
-      <onekit-scroll-view Class="device-list" scroll-y>
+      <onekit-scroll-view onekit-class="device-list" scroll-y>
         <view s-for="wifiList" s-key='index' class="item">
           <view class="list">
             <onekit-text>{{ item.SSID }}</onekit-text>

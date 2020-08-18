@@ -8,9 +8,9 @@
   <view class="page-body">
     <view class="page-section">
       <view class="page-body-info">
-        <onekit-text Class="page-body-text-small">当前位置经纬度</onekit-text>
+        <onekit-text onekit-class="page-body-text-small">当前位置经纬度</onekit-text>
         <block s-if="hasLocation === false">
-          <onekit-text Class="page-body-text">未获取</onekit-text>
+          <onekit-text onekit-class="page-body-text">未获取</onekit-text>
         </block>
         <block s-if="hasLocation === true">
           <view class="page-body-text-location">

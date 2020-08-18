@@ -3,8 +3,8 @@ options: {
         addGlobalClass: true,
     },
     properties: {     Id:{type:String,value:""},
-        Class:{type:String,value:""},
-    Style:{type:String,value:""},
+        onekitClass:{type:String,value:""},
+    onekitStyle:{type:String,value:""},
         src: {
             type: String, 
             value: "",

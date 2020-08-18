@@ -1,6 +1,6 @@
 <swiper
 id="{{Id}}"
-class="onekit-swiper {{Class}}"
+class="onekit-swiper {{onekitClass}}"
 style="{{Style}}"
 indicator-dots="{{indicatorDots}}"
 indicator-color="{{indicatorColor}}",

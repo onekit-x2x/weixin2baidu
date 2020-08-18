@@ -7,7 +7,7 @@
 
   <view class="page-body">
     <view class="page-body-wrapper">
-      <onekit-text Class="page-body-title">
+      <onekit-text onekit-class="page-body-title">
         点击气泡icon打开客服消息界面
       </onekit-text>
       <view class="page-body-line">

@@ -1,6 +1,6 @@
 <movable-view
 id="{{Id}}"
-class="onekit-movable-view {{Class}}"
+class="onekit-movable-view {{onekitClass}}"
 style="{{Style}}"
 direction="{{direction}}"
 inertia="{{inertia}}"

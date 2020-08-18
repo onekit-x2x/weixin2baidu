@@ -14,11 +14,11 @@
       <view class="weui-cells weui-cells_after-title">
         <view class="page-body-info">
           <view class="progress-figure">
-            <onekit-image s-if="theme === 'dark'" src="/page/API/resources/kind/device_dark.png" Class="progress-icon"></onekit-image>
-            <onekit-image s-else src="/page/API/resources/kind/device.png" Class="progress-icon"></onekit-image>
-            <onekit-text Class="progress-line lg {{clientLoading && 'pending'}} {{serverDataClient && 'success'}} {{serverDataClientError && 'fail'}}"></onekit-text>
-            <onekit-image s-if="theme === 'dark'" src="/page/cloud/resources/kind/database_dark.png" Class="progress-icon"></onekit-image>
-            <onekit-image s-else src="/page/cloud/resources/kind/database.png" Class="progress-icon"></onekit-image>
+            <onekit-image s-if="theme === 'dark'" src="/page/API/resources/kind/device_dark.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-image s-else src="/page/API/resources/kind/device.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-text onekit-class="progress-line lg {{clientLoading && 'pending'}} {{serverDataClient && 'success'}} {{serverDataClientError && 'fail'}}"></onekit-text>
+            <onekit-image s-if="theme === 'dark'" src="/page/cloud/resources/kind/database_dark.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-image s-else src="/page/cloud/resources/kind/database.png" onekit-class="progress-icon"></onekit-image>
           </view>
 
           <view class="data-area">
@@ -42,14 +42,14 @@
       <view class="weui-cells weui-cells_after-title">
         <view class="page-body-info">
           <view class="progress-figure">
-            <onekit-image s-if="theme === 'dark'" src="/page/API/resources/kind/device_dark.png" Class="progress-icon"></onekit-image>
-            <onekit-image s-else src="/page/API/resources/kind/device.png" Class="progress-icon"></onekit-image>
-            <onekit-text Class="progress-line {{cloudLoading && 'pending'}} {{serverDataCloud && 'success'}} {{serverDataCloudError && 'fail'}}"></onekit-text>
-            <onekit-image s-if="theme === 'dark'" src="/page/cloud/resources/kind/scf_dark.png" Class="progress-icon"></onekit-image>
-            <onekit-image s-else src="/page/cloud/resources/kind/scf.png" Class="progress-icon"></onekit-image>
-            <onekit-text Class="progress-line {{cloudLoading && 'pending'}} {{serverDataCloud && 'success'}} {{serverDataCloudError && 'fail'}}"></onekit-text>
-            <onekit-image s-if="theme === 'dark'" src="/page/cloud/resources/kind/database_dark.png" Class="progress-icon"></onekit-image>
-            <onekit-image s-else src="/page/cloud/resources/kind/database.png" Class="progress-icon"></onekit-image>
+            <onekit-image s-if="theme === 'dark'" src="/page/API/resources/kind/device_dark.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-image s-else src="/page/API/resources/kind/device.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-text onekit-class="progress-line {{cloudLoading && 'pending'}} {{serverDataCloud && 'success'}} {{serverDataCloudError && 'fail'}}"></onekit-text>
+            <onekit-image s-if="theme === 'dark'" src="/page/cloud/resources/kind/scf_dark.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-image s-else src="/page/cloud/resources/kind/scf.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-text onekit-class="progress-line {{cloudLoading && 'pending'}} {{serverDataCloud && 'success'}} {{serverDataCloudError && 'fail'}}"></onekit-text>
+            <onekit-image s-if="theme === 'dark'" src="/page/cloud/resources/kind/database_dark.png" onekit-class="progress-icon"></onekit-image>
+            <onekit-image s-else src="/page/cloud/resources/kind/database.png" onekit-class="progress-icon"></onekit-image>
           </view>
 
           <view class="data-area">

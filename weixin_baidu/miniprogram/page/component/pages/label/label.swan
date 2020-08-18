@@ -8,11 +8,11 @@
   <view class="page-body">
     <view class="page-section page-section-gap">
       <view class="page-section-title">表单组件在label内</view>
-      <onekit-checkbox-group Class="group" bindchange="checkboxChange">
+      <onekit-checkbox-group onekit-class="group" bindchange="checkboxChange">
         <view s-for="checkboxItems" class="label-1">
           <onekit-label>
             <onekit-checkbox value="{{item.name}}" checked="{{item.checked}}"></onekit-checkbox>
-            <onekit-text Class="label-1-text">{{item.value}}</onekit-text>
+            <onekit-text onekit-class="label-1-text">{{item.value}}</onekit-text>
           </onekit-label>
         </view>
       </onekit-checkbox-group>
@@ -20,19 +20,19 @@
 
     <view class="page-section page-section-gap">
       <view class="page-section-title">label用for标识表单组件</view>
-      <onekit-radio-group Class="group" bindchange="radioChange">
+      <onekit-radio-group onekit-class="group" bindchange="radioChange">
         <view s-for="radioItems" class="label-2">
           <onekit-radio Id="{{item.name}}" value="{{item.name}}" checked="{{item.checked}}"></onekit-radio>
-          <onekit-label Class="label-2-text" for="{{item.name}}"><onekit-text>{{item.name}}</onekit-text></onekit-label>
+          <onekit-label onekit-class="label-2-text" for="{{item.name}}"><onekit-text>{{item.name}}</onekit-text></onekit-label>
         </view>
       </onekit-radio-group>
     </view>
 
     <view class="page-section page-section-gap">
       <view class="page-section-title">label内有多个时选中第一个</view>
-      <onekit-label Class="label-3">
-        <onekit-checkbox Class="checkbox-3">选项一</onekit-checkbox>
-        <onekit-checkbox Class="checkbox-3">选项二</onekit-checkbox>
+      <onekit-label onekit-class="label-3">
+        <onekit-checkbox onekit-class="checkbox-3">选项一</onekit-checkbox>
+        <onekit-checkbox onekit-class="checkbox-3">选项二</onekit-checkbox>
         <view class="label-3-text">点击该label下的文字默认选中第一个checkbox</view>
       </onekit-label>
     </view>

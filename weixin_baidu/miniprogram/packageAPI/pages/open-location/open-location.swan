@@ -14,7 +14,7 @@
               <view class="weui-label">经度</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-input Class="weui-input" type="text" disabled="{{true}}" value="113.324520" name="longitude"></onekit-input>
+              <onekit-input onekit-class="weui-input" type="text" disabled="{{true}}" value="113.324520" name="longitude"></onekit-input>
             </view>
           </view>
           <view class="weui-cell weui-cell_input">
@@ -22,7 +22,7 @@
               <view class="weui-label">纬度</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-input Class="weui-input" type="text" disabled="{{true}}" value="23.099994" name="latitude"></onekit-input>
+              <onekit-input onekit-class="weui-input" type="text" disabled="{{true}}" value="23.099994" name="latitude"></onekit-input>
             </view>
           </view>
           <view class="weui-cell weui-cell_input">
@@ -30,7 +30,7 @@
               <view class="weui-label">位置名称</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-input Class="weui-input" type="text" disabled="{{true}}" value="T.I.T 创意园" name="name"></onekit-input>
+              <onekit-input onekit-class="weui-input" type="text" disabled="{{true}}" value="T.I.T 创意园" name="name"></onekit-input>
             </view>
           </view>
           <view class="weui-cell weui-cell_input">
@@ -38,7 +38,7 @@
               <view class="weui-label">详细位置</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-input Class="weui-input" type="text" disabled="{{true}}" value="广州市海珠区新港中路397号" name="address"></onekit-input>
+              <onekit-input onekit-class="weui-input" type="text" disabled="{{true}}" value="广州市海珠区新港中路397号" name="address"></onekit-input>
             </view>
           </view>
         </view>

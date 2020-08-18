@@ -55,7 +55,7 @@
                   <view class="weui-uploader__files">
                     <block s-for="imageList" s-for-item='image'>
                       <view class="weui-uploader__file">
-                        <onekit-image Class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></onekit-image>
+                        <onekit-image onekit-class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></onekit-image>
                       </view>
                     </block>
                   </view>

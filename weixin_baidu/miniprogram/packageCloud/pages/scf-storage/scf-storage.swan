@@ -14,7 +14,7 @@
               <view class="weui-label">文件 ID</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-textarea Class="weui-textarea" value="{{fileId}}" Style="height: 3.3em" disabled></onekit-textarea>
+              <onekit-textarea onekit-class="weui-textarea" value="{{fileId}}" onekit-style="height: 3.3em" disabled></onekit-textarea>
             </view>
           </view>
 
@@ -23,13 +23,13 @@
               <view class="weui-label">临时链接</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-textarea Class="weui-textarea" value="{{tempFileURL}}" Style="height: 3.3em" disabled></onekit-textarea>
+              <onekit-textarea onekit-class="weui-textarea" value="{{tempFileURL}}" onekit-style="height: 3.3em" disabled></onekit-textarea>
             </view>
           </view>
 
           <view class="weui-cell">
             <view class="page-section-ctn">
-              <onekit-image src="{{tempFileURL}}" Class="image" mode="aspectFit"></onekit-image>
+              <onekit-image src="{{tempFileURL}}" onekit-class="image" mode="aspectFit"></onekit-image>
             </view>
           </view>
         </view>
@@ -44,7 +44,7 @@
               <view class="weui-label">文件 ID</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-textarea Class="weui-textarea" value="{{fileId}}" Style="height: 3.3em" disabled></onekit-textarea>
+              <onekit-textarea onekit-class="weui-textarea" value="{{fileId}}" onekit-style="height: 3.3em" disabled></onekit-textarea>
             </view>
           </view>
         </view>

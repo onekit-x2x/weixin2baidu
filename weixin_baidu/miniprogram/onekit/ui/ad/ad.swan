@@ -1,6 +1,6 @@
 <ad 
 id="{{Id}}"
-class="onekit-ad {{Class}}"
+class="onekit-ad {{onekitClass}}"
 style="{{Style}}"
 apid="{{unitId}}"
 type="{{adType}}"

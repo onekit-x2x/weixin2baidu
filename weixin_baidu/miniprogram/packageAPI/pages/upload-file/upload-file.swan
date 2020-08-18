@@ -10,7 +10,7 @@
       <view class="page-body-info">
 
         <block s-if="imageSrc">
-          <onekit-image src="{{imageSrc}}" Class="image" mode="aspectFit"></onekit-image>
+          <onekit-image src="{{imageSrc}}" onekit-class="image" mode="aspectFit"></onekit-image>
         </block>
 
         <block s-else>

@@ -9,7 +9,7 @@
     <view class="page-section">
       <block s-if="!fileId">
         <view class="page-section-ctn">
-          <onekit-text Class="page-body-text">还未上传过文件，请先点击按钮上传</onekit-text>
+          <onekit-text onekit-class="page-body-text">还未上传过文件，请先点击按钮上传</onekit-text>
         </view>
         
         <view class="btn-area">
@@ -27,7 +27,7 @@
               <view class="weui-label">文件 ID</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-textarea Class="weui-textarea" value="{{fileId}}" Style="height: 3.3em" disabled></onekit-textarea>
+              <onekit-textarea onekit-class="weui-textarea" value="{{fileId}}" onekit-style="height: 3.3em" disabled></onekit-textarea>
             </view>
           </view>
         </view>

@@ -1,6 +1,6 @@
 <cover-image
 id="{{Id}}"
-class="onekit-cover-image {{Class}}"
+class="onekit-cover-image {{onekitClass}}"
 style="{{Style}}"
 src="{{src}}"
 

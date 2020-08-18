@@ -14,12 +14,12 @@
               <view class="weui-label">文件 ID</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-textarea Class="weui-textarea" value="{{fileId}}" Style="height: 3.3em" disabled></onekit-textarea>
+              <onekit-textarea onekit-class="weui-textarea" value="{{fileId}}" onekit-style="height: 3.3em" disabled></onekit-textarea>
             </view>
           </view>
 
           <view class="weui-cell page-section-ctn">
-            <onekit-image src="{{filePath}}" Class="image" mode="aspectFit"></onekit-image>
+            <onekit-image src="{{filePath}}" onekit-class="image" mode="aspectFit"></onekit-image>
           </view>
         </view>
 
