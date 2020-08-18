@@ -1,7 +1,7 @@
 <navigator
 id="{{Id}}"
 class="{{onekitClass}}"
-style="{{Style}}"
+style="{{onekitStyle}}"
 target="{{target}}"
 url="{{url}}"
 delta="{{delta}}"

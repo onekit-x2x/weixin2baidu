@@ -30,7 +30,7 @@ Component({
     data: { new_size: "" },
     methods: {
         image_error(e) {
-            this.triggerEvent('error', e.details)
+            this.triggerEvent('error', e)
         },
         image_load(e) {
             var that = this;

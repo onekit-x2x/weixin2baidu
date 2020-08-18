@@ -5,7 +5,7 @@
 <scroll-view 
 id="{{Id}}"
 class="onekit-scroll-view {{onekitClass}}"
-style="{{Style}}"
+style="{{onekitStyle}}"
 scroll-y="{{scrollY}}"
 scroll-x="{{scrollX}}"
 upper-threshold="{{upperThreshold}}"

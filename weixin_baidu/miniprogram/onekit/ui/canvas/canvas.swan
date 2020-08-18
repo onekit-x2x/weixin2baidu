@@ -1,7 +1,7 @@
 <canvas 
 id="{{Id}}"
 class="onekit-canvas {{onekitClass}}"
-style="{{Style}}"
+style="{{onekitStyle}}"
 style="width:100%;height:100%;"
 type="{{type}}"
 canvas-id="{{canvasId}}"

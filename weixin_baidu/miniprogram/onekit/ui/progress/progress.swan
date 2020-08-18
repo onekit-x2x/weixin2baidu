@@ -1,7 +1,7 @@
 <progress 
 id="{{Id}}"
 class="onekit-progress {{onekitClass}}" 
-style="{{Style}}"
+style="{{onekitStyle}}"
 percent="{{percent}}"
 show-info="{{showInfo}}"
 stroke-width="{{strokeWidth}}"
