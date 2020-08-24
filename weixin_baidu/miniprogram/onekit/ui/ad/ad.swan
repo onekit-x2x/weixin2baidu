@@ -1,5 +1,5 @@
 <ad 
-id="{{Id}}"
+id="{{onekitId}}"
 class="onekit-ad {{onekitClass}}"
 style="{{onekitStyle}}"
 apid="{{unitId}}"

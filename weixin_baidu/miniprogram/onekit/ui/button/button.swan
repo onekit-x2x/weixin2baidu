@@ -1,5 +1,5 @@
 <button
-id="{{Id}}"
+id="{{onekitId}}"
 scope="phoneNumber"
   bindtap="button_onTap"
   size="{{size}}"

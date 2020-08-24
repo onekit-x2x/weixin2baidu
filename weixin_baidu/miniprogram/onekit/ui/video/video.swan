@@ -1,5 +1,5 @@
 <video  
-id="{{Id}}"
+id="{{onekitId}}"
 class="onekit-video {{onekitClass}}"
 style="{{onekitStyle}}"
 id="video"

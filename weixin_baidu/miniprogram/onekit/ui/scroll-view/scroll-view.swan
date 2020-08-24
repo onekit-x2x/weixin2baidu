@@ -3,7 +3,7 @@
   <slot name="refresher"></slot>
 </view>
 <scroll-view 
-id="{{Id}}"
+id="{{onekitId}}"
 class="onekit-scroll-view {{onekitClass}}"
 style="{{onekitStyle}}"
 scroll-y="{{scrollY}}"

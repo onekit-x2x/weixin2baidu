@@ -1,5 +1,6 @@
-    <map id="eMap" style="{{style}}"
-    id="{{Id}}"
+    <map id="eMap" style="{{onekitStyle}}"
+    id="{{onekitId}}"
+    class="onekit-map {{onekitClass}}"
   longitude="{{longitude}}"
   latitude="{{latitude}}"
   scale="{{scale}}"

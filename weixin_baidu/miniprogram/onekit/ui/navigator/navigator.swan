@@ -1,5 +1,5 @@
 <navigator
-id="{{Id}}"
+id="{{onekitId}}"
 class="{{onekitClass}}"
 style="{{onekitStyle}}"
 target="{{target}}"

@@ -1,5 +1,5 @@
 <image 
-id="{{Id}}"
+id="{{onekitId}}"
 class="onekit-image {{onekitClass}}"
 style="overflow:visible;{{onekitStyle}};{{new_size}}"
 mode="{{mode}}" 

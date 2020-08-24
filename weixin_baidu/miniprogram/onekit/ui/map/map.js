@@ -24,7 +24,7 @@ Component({
         },
 
     },
-    properties: {     Id:{type:String,value:""},
+    properties: {     onekitId:{type:String,value:""},
         enableSatellite: { type: Boolean },
         enableTraffic: { type: Boolean },
         subkey: { type: String },

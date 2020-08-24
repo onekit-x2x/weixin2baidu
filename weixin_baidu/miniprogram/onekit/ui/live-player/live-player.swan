@@ -1,8 +1,7 @@
 <video  
-id="{{Id}}"
+id="{{onekitId}}"
 class="onekit-live-player {{onekitClass}}"
 style="{{onekitStyle}}"
-id="video"
 src="{{src}}"
 autoplay="{{autoplay}}" 
 muted="{{muted}}" 

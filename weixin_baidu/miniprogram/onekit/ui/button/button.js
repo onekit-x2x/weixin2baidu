@@ -5,7 +5,7 @@ Component({
     hideContact: true
   },
   attached() {},
-  properties: {     Id:{type:String,value:""},},
+  properties: {     onekitId:{type:String,value:""},},
   methods: {
       
 bindgetuserinfo(info) {
