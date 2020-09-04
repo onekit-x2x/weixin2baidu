@@ -1,6 +1,0 @@
-<template name="foot">
-
-  <onekit-navigator onekit-class="page-foot" openType="switchTab" url="/page/component/index" hover-class="none">
-    <onekit-image onekit-class="icon-foot" src="../../../../image/icon_foot.png"></onekit-image>
-  </onekit-navigator>
-</template>

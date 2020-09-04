@@ -1,9 +1,0 @@
-<import src="../../../common/head.swan"/>
-<import src="../../../common/foot.swan"/>
-
-<view class="container">
-  <template is="head" data="{{{title: '小窗模式'}}}">
-</template>
-  <template is="foot">
-</template>
-</view>
