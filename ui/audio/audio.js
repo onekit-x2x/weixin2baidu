@@ -1,4 +1,4 @@
-Component({
+﻿Component({
 options: {
         addGlobalClass: true,
     },
@@ -33,20 +33,20 @@ options: {
 
     methods: {
        audio_play(e){
-        this.triggerEvent('play',e)
+        this.triggerEvent('play')
        },
        audio_pause(e){
         this.triggerEvent("pause",e)
        },
        audio_timeupdate(e){
-        this.triggerEvent("timeupdate",e)
+        this.triggerEvent("timeupdate")
        },
        audio_ended(e){
         this.triggerEvent("ended",e)
        },
        audio_error(e){
         console.log("audio  error! ",e)
-        this.triggerEvent("error",e)
+        this.triggerEvent("error")
        },
     }
 });

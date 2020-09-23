@@ -19,10 +19,10 @@ options: {
 
     methods: {
        camera_stop(e){
-        this.triggerEvent('stop',e)
+        this.triggerEvent('stop')
        },
        camera_error(e){
-        this.triggerEvent('error',e)
+        this.triggerEvent('error')
        },
     }
 });
