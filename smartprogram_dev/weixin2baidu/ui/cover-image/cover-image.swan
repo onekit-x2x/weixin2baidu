@@ -1,0 +1,11 @@
+<cover-image
+id="{{onekitId}}"
+class="onekit-cover-image {{onekitClass}}"
+style="{{onekitStyle}}"
+src="{{src}}"
+
+bindload="cover_image_load"
+binderror="cover_image_error"
+>
+<slot></slot>
+</cover-image>

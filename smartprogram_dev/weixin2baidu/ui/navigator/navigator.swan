@@ -1,0 +1,22 @@
+<navigator
+id="{{onekitId}}"
+class="{{onekitClass}}"
+style="{{onekitStyle}}"
+target="{{target}}"
+url="{{url}}"
+delta="{{delta}}"
+app-id="{{appId}}"
+path="{{path}}"
+extra-data="{{extraData}}"
+version="{{version}}"
+open-type="{{openType}}"
+hover-class="{{hoverClass}}"
+hover-start-time="{{hoverStartTime}}"
+hover-stay-time="{{hoverStayTime}}"
+hover-stop-propagation="{{hoverStopPropagation}}"
+bindsuccess="{{bindsuccess}}"
+bindfail="{{bindfail}}"
+bindcomplete="{{bindcomplete}}"
+>
+	<slot />
+</navigator>

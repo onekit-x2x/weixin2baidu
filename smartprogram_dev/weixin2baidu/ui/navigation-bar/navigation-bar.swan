@@ -1,0 +1,10 @@
+<!-- onekit/ui/navigation-bar/navigation-bar.ttml -->
+<navigation-bar
+id="{{onekitId}}"
+    title="{{title}}"
+    loading="{{loading}}"
+    front-color="{{front-color}}"
+    background-color="{{background-color}}"
+    color-animation-duration="2000"
+    color-animation-timing-func="easeIn"
+  />

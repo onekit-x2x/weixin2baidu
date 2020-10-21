@@ -1,0 +1,12 @@
+<camera
+id="{{onekitId}}"
+class="onekit-camera {{onekitClass}}"
+style="{{onekitStyle}}"
+device-position="{{devicePosition}}"
+flash="{{flash}}"
+
+bindstop="camera_stop"
+binderror="camera_error"
+>
+    <slot></slot>
+</camera>

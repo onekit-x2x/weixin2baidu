@@ -1,0 +1,29 @@
+
+<view style="height:{{refresher_height}}px;">
+  <slot name="refresher"></slot>
+</view>
+<scroll-view 
+id="{{onekitId}}"
+class="onekit-scroll-view {{onekitClass}}"
+style="{{onekitStyle}}"
+scroll-y="{{scrollY}}"
+scroll-x="{{scrollX}}"
+upper-threshold="{{upperThreshold}}"
+lower-threshold="{{lowerThreshold}}"
+scroll-into-view="{{scrollIntoView}}"
+scroll-top="{{scrollTop}}"
+scroll-left="{{scrollLeft}}"
+scroll-with-animation="{{scrollWithAnimation}}"
+enable-back-to-top ="{{enableBackToTop}}"
+bindscrolltoupper="scrollToupper"
+bindscrolltolower="scrollTolower"
+bindscroll="scrollScroll"
+
+bindtouchend="on_Touchend"
+bindtouchmove="on_Touchmove"
+bindtouchstart="on_Touchstart"
+bindtouchcancel="on_Touchcancel"
+>
+<slot>
+</slot>
+</scroll-view>
