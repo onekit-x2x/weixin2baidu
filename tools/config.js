@@ -9,7 +9,7 @@ const demoSrc = path.resolve(__dirname, './demo')
 const demoDist = path.resolve(__dirname, '../smartprogram_dev')
 const src = path.resolve(__dirname, '../src')
 const dev = path.join(demoDist, 'weixin2baidu')
-const dist = path.resolve(__dirname, '../dist')
+const dist = path.resolve(__dirname, '../smartprogram_dist')
 
 module.exports = {
   entry: ['index'],
