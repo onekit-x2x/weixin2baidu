@@ -1,4 +1,5 @@
-﻿Component({
+﻿/* eslint-disable no-console */
+Component({
   options: {
     addGlobalClass: true,
   },

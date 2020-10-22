@@ -193,3 +193,6 @@ dist/onekit.css
 dist/official-account/official-account.css
 dist/index.json
 dist/index.js
+smartprogram_dev/weixin2baidu/ui/view/view.swan
+smartprogram_dev/weixin2baidu/ui/audio/audio.js
+smartprogram_dev/project.swan.json
