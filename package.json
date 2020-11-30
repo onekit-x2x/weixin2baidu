@@ -1,6 +1,6 @@
 {
-  "name": "x2baidu",
-  "version": "1.0.10",
+  "name": "weixin2baidu",
+  "version": "1.0.1",
   "description": "",
   "scripts": {
     "init": "git submodule init && git submodule update --init --remote && npm run dev",
@@ -35,10 +35,12 @@
   },
   "author": "xushengni,sanfordsusn",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "oneutil": "^1.4.3"
+  },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@typescript-eslint/parser": "^4.4.1",
     "autoprefixer": "^6.5.1",
     "babel-core": "^6.26.3",
@@ -61,7 +63,7 @@
     "gulp-postcss": "^6.4.0",
     "gulp-rename": "^1.4.0",
     "gulp-sourcemaps": "^2.6.5",
-    "jest": "^23.5.0",
+    "jest": "^26.6.3",
     "through2": "^2.0.3",
     "ts-loader": "^5.3.3",
     "tslint": "^5.13.1",

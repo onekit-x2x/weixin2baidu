@@ -1,5 +1,3 @@
 {
-    "usingComponents":{
-        "onekit-view":"/weixin2baidu/ui/view/view"
-    }
+    "navigationBarTitleText": "智能小程序示例"
 }

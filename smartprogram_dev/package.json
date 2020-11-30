@@ -1,3 +1,5 @@
 {
-	"dependencies": {}
+	"dependencies": {
+		"oneutil": "^1.4.3"
+	}
 }
