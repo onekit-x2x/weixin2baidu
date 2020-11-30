@@ -144,9 +144,24 @@ var wx = function () {
   // /////////////// basic ////////////////////////////////
 
 
-  wx.canIUse = function canIUse() {
-    return true;
+  wx.canIUse = function canIUse(schema) {
+    return swan.canIUse(schema);
   };
+
+  wx.base64ToArrayBuffer = function base64ToArrayBuffer(base64String) {
+    var padding = '='.repeat((4 - base64String.length) % 4 % 4);
+    var base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+
+    var rawData = window.atob(base64);
+    var outputArray = new Uint8Array(rawData.length);
+
+    for (var i = 0; i < rawData.length; ++i) {
+      outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+  };
+
+  wx.arrayBufferToBase64 = function arrayBufferToBase64() {};
 
   wx.getSystemInfo = function getSystemInfo(object) {
     return swan.getSystemInfo(object);
@@ -154,14 +169,6 @@ var wx = function () {
 
   wx.getSystemInfoSync = function getSystemInfoSync() {
     return swan.getSystemInfoSync();
-  };
-
-  wx.base64ToArrayBuffer = function base64ToArrayBuffer(base64) {
-    return swan.base64ToArrayBuffer(base64);
-  };
-
-  wx.arrayBufferToBase64 = function arrayBufferToBase64(arrayBuffer) {
-    return swan.arrayBufferToBase64(arrayBuffer);
   };
 
   wx.getUpdateManager = function getUpdateManager(object) {
@@ -266,19 +273,26 @@ var wx = function () {
           canvasContext.fillText.apply(canvasContext, data);
           break;
         case 'setLineCap':
-          canvasContext.setLineCap(data[0]);break;
+          canvasContext.setLineCap(data[0]);
+          break;
         case 'setLineJoin':
-          canvasContext.setLineJoin(data[0]);break;
+          canvasContext.setLineJoin(data[0]);
+          break;
         case 'setLineWidth':
-          canvasContext.setLineWidth(data[0]);break;
+          canvasContext.setLineWidth(data[0]);
+          break;
         case 'setMiterLimit':
-          canvasContext.setMiterLimit(data[0]);break;
+          canvasContext.setMiterLimit(data[0]);
+          break;
         case 'rotate':
-          canvasContext.rotate(data[0]);break;
+          canvasContext.rotate(data[0]);
+          break;
         case 'scale':
-          canvasContext.scale(data[0], data[1]);break;
+          canvasContext.scale(data[0], data[1]);
+          break;
         case 'translate':
-          canvasContext.translate(data[0], data[1]);break;
+          canvasContext.translate(data[0], data[1]);
+          break;
         case 'strokePath':
           canvasContext.beginPath();
           for (var _iterator2 = data, _isArray2 = Array.isArray(_iterator2), _i2 = 0, _iterator2 = _isArray2 ? _iterator2 : _iterator2[Symbol.iterator]();;) {
@@ -298,20 +312,27 @@ var wx = function () {
             var dt = dat.data;
             switch (dat.method) {
               case 'rect':
-                canvasContext.strokeRect(dt[0], dt[1], dt[2], dt[3]);break;
+                canvasContext.strokeRect(dt[0], dt[1], dt[2], dt[3]);
+                break;
               case 'moveTo':
-                canvasContext.moveTo(dt[0], dt[1]);break;
+                canvasContext.moveTo(dt[0], dt[1]);
+                break;
               case 'lineTo':
-                canvasContext.lineTo(dt[0], dt[1]);break;
+                canvasContext.lineTo(dt[0], dt[1]);
+                break;
               case 'closePath':
-                canvasContext.closePath();break;
+                canvasContext.closePath();
+                break;
               // eslint-disable-next-line prefer-spread
               case 'arc':
-                canvasContext.arc.apply(canvasContext, dt);break;
+                canvasContext.arc.apply(canvasContext, dt);
+                break;
               case 'quadraticCurveTo':
-                canvasContext.quadraticCurveTo.apply(canvasContext, dt);break;
+                canvasContext.quadraticCurveTo.apply(canvasContext, dt);
+                break;
               case 'bezierCurveTo':
-                canvasContext.bezierCurveTo.apply(canvasContext, dt);break;
+                canvasContext.bezierCurveTo.apply(canvasContext, dt);
+                break;
 
               default:
                 console.log('[drawCanvas-strokePath]', dat.method);
@@ -338,9 +359,11 @@ var wx = function () {
             var _dt = _dat.data;
             switch (_dat.method) {
               case 'rect':
-                canvasContext.fillRect(_dt[0], _dt[1], _dt[2], _dt[3]);break;
+                canvasContext.fillRect(_dt[0], _dt[1], _dt[2], _dt[3]);
+                break;
               case 'arc':
-                canvasContext.arc.apply(canvasContext, _dt);break;
+                canvasContext.arc.apply(canvasContext, _dt);
+                break;
               default:
                 console.log('[drawCanvas-fillPath]', _dat.method);
                 break;
@@ -349,7 +372,8 @@ var wx = function () {
           canvasContext.fill();
           break;
         case 'clearRect':
-          canvasContext.clearRect(data[0], data[1], data[2], data[3]);break;
+          canvasContext.clearRect(data[0], data[1], data[2], data[3]);
+          break;
         default:
           console.log('[drawCanvas]', action.method);
           break;
@@ -673,13 +697,15 @@ var wx = function () {
   //
 
 
-  wx.stopBluetoothDevicesDiscovery = function stopBluetoothDevicesDiscovery() {/* return swan.stopBluetoothDevicesDiscovery(object); */};
+  wx.stopBluetoothDevicesDiscovery = function stopBluetoothDevicesDiscovery() {
+    /* return swan.stopBluetoothDevicesDiscovery(object); */};
 
   wx.startBluetoothDevicesDiscovery = function startBluetoothDevicesDiscovery(object) {
     return swan.startBluetoothDevicesDiscovery(object);
   };
 
-  wx.openBluetoothAdapter = function openBluetoothAdapter() {/* return swan.openBluetoothAdapter(object); */};
+  wx.openBluetoothAdapter = function openBluetoothAdapter() {
+    /* return swan.openBluetoothAdapter(object); */};
 
   wx.onBluetoothDeviceFound = function onBluetoothDeviceFound(object) {
     return swan.onBluetoothDeviceFound(object);
