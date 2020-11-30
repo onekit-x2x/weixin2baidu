@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import onekit from '../js/onekit'
+import onekit from 'onekit'
 
 export default class CloudContext {
   constructor(server) {

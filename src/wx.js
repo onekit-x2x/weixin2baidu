@@ -9,7 +9,7 @@ import VideoContext from './api/VideoContext'
 import CameraContext from './api/CameraContext'
 import InnerAudioContext from './api/InnerAudioContext'
 import LivePlayerContext from './api/LivePlayerContext'
-
+import base64Encode from './tools'
 
 import WORKER from './api/WORKER'
 // import wx_cloud from './wx.cloud'
@@ -31,7 +31,7 @@ export default class wx {
       .replace(/-/g, '+')
       .replace(/_/g, '/')
 
-    const rawData = window.atob(base64)
+    const rawData = base64Encode(base64)
     const outputArray = new Uint8Array(rawData.length)
 
     for (let i = 0; i < rawData.length; ++i) {

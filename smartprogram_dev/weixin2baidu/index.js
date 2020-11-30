@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 50);
+/******/ 	return __webpack_require__(__webpack_require__.s = 51);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -119,7 +119,11 @@ var _LivePlayerContext = __webpack_require__(6);
 
 var _LivePlayerContext2 = _interopRequireDefault(_LivePlayerContext);
 
-var _WORKER = __webpack_require__(7);
+var _tools = __webpack_require__(7);
+
+var _tools2 = _interopRequireDefault(_tools);
+
+var _WORKER = __webpack_require__(8);
 
 var _WORKER2 = _interopRequireDefault(_WORKER);
 
@@ -153,7 +157,7 @@ var wx = function () {
     var padding = '='.repeat((4 - base64String.length) % 4 % 4);
     var base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
 
-    var rawData = window.atob(base64);
+    var rawData = (0, _tools2.default)(base64);
     var outputArray = new Uint8Array(rawData.length);
 
     for (var i = 0; i < rawData.length; ++i) {
@@ -1854,7 +1858,7 @@ exports.default = InnerAudioContext;
 
 /***/ }),
 
-/***/ 50:
+/***/ 51:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1862,20 +1866,20 @@ exports.default = InnerAudioContext;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.wx = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
-var OnekitApp_1 = __webpack_require__(51);
+var OnekitApp_1 = __webpack_require__(52);
 exports.OnekitApp = OnekitApp_1.default;
-var OnekitBehavior_1 = __webpack_require__(52);
+var OnekitBehavior_1 = __webpack_require__(53);
 exports.OnekitBehavior = OnekitBehavior_1.default;
-var OnekitComponent_1 = __webpack_require__(53);
+var OnekitComponent_1 = __webpack_require__(54);
 exports.OnekitComponent = OnekitComponent_1.default;
-var OnekitPage_1 = __webpack_require__(55);
+var OnekitPage_1 = __webpack_require__(56);
 exports.OnekitPage = OnekitPage_1.default;
 var wx_1 = __webpack_require__(0);
 exports.wx = wx_1.default;
 
 /***/ }),
 
-/***/ 51:
+/***/ 52:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1892,7 +1896,7 @@ function OnekitApp(object) {
 
 /***/ }),
 
-/***/ 52:
+/***/ 53:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2019,7 +2023,7 @@ function OnekitBehavior(object) {
 
 /***/ }),
 
-/***/ 53:
+/***/ 54:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2032,7 +2036,7 @@ var _oneutil = __webpack_require__(1);
 
 var _oneutil2 = _interopRequireDefault(_oneutil);
 
-var _wxs_behavior = __webpack_require__(54);
+var _wxs_behavior = __webpack_require__(55);
 
 var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
@@ -2220,7 +2224,7 @@ function OnekitComponent(object) {
 
 /***/ }),
 
-/***/ 54:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2266,7 +2270,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 55:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2337,6 +2341,52 @@ exports.default = LivePlayerContext;
 /***/ }),
 
 /***/ 7:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = base64Encode;
+/* eslint-disable no-bitwise */
+function base64Encode(str) {
+  var c1 = void 0;
+  var c2 = void 0;
+  var c3 = void 0;
+  var base64EncodeChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+  var i = 0;
+  var len = str.length;
+  var string = '';
+
+  while (i < len) {
+    // eslint-disable-next-line no-bitwise
+    c1 = str.charCodeAt(i++) & 0xff;
+    if (i === len) {
+      string += base64EncodeChars.charAt(c1 >> 2);
+      string += base64EncodeChars.charAt((c1 & 0x3) << 4);
+      string += '==';
+      break;
+    }
+    c2 = str.charCodeAt(i++);
+    if (i === len) {
+      string += base64EncodeChars.charAt(c1 >> 2);
+      string += base64EncodeChars.charAt((c1 & 0x3) << 4 | (c2 & 0xF0) >> 4);
+      string += base64EncodeChars.charAt((c2 & 0xF) << 2);
+      string += '=';
+      break;
+    }
+    c3 = str.charCodeAt(i++);
+    string += base64EncodeChars.charAt(c1 >> 2);
+    string += base64EncodeChars.charAt((c1 & 0x3) << 4 | (c2 & 0xF0) >> 4);
+    string += base64EncodeChars.charAt((c2 & 0xF) << 2 | (c3 & 0xC0) >> 6);
+    string += base64EncodeChars.charAt(c3 & 0x3F);
+  }
+  return string;
+}
+
+/***/ }),
+
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
