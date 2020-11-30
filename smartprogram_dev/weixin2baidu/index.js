@@ -82,12 +82,11 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 40);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -119,13 +118,13 @@ var _LivePlayerContext = __webpack_require__(6);
 
 var _LivePlayerContext2 = _interopRequireDefault(_LivePlayerContext);
 
-var _WORKER = __webpack_require__(7);
+var _tools = __webpack_require__(7);
+
+var _tools2 = _interopRequireDefault(_tools);
+
+var _WORKER = __webpack_require__(8);
 
 var _WORKER2 = _interopRequireDefault(_WORKER);
-
-var _base64Encode = __webpack_require__(8);
-
-var _base64Encode2 = _interopRequireDefault(_base64Encode);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -154,19 +153,19 @@ var wx = function () {
   };
 
   wx.base64ToArrayBuffer = function base64ToArrayBuffer(base64String) {
-    base64String = base64String.replace(/\s/g, '+');
-    var commonContent = Buffer.from(base64String, 'base64');
-    return commonContent;
+    var padding = '='.repeat((4 - base64String.length) % 4 % 4);
+    var base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+
+    var rawData = (0, _tools2.default)(base64);
+    var outputArray = new Uint8Array(rawData.length);
+
+    for (var i = 0; i < rawData.length; ++i) {
+      outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
   };
 
-  wx.arrayBufferToBase64 = function arrayBufferToBase64(arrayBuffer) {
-    var binary = '';
-    var len = arrayBuffer.byteLength;
-    for (var i = 0; i < len; i++) {
-      binary += String.fromCharCode(arrayBuffer[i]);
-    }
-    return (0, _base64Encode2.default)(binary);
-  };
+  wx.arrayBufferToBase64 = function arrayBufferToBase64() {};
 
   wx.getSystemInfo = function getSystemInfo(object) {
     return swan.getSystemInfo(object);
@@ -1472,15 +1471,13 @@ var wx = function () {
 exports.default = wx;
 
 /***/ }),
-
-/***/ 1:
+/* 1 */
 /***/ (function(module, exports) {
 
 module.exports = require("oneutil");
 
 /***/ }),
-
-/***/ 2:
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1633,8 +1630,7 @@ var CanvasContext = function () {
 exports.default = CanvasContext;
 
 /***/ }),
-
-/***/ 3:
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1697,8 +1693,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-
-/***/ 4:
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1737,8 +1732,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-
-/***/ 5:
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1857,8 +1851,151 @@ var InnerAudioContext = function () {
 exports.default = InnerAudioContext;
 
 /***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/***/ 51:
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var LivePlayerContext = function () {
+  function LivePlayerContext(swanLivePlayerContext) {
+    _classCallCheck(this, LivePlayerContext);
+
+    this.swanLivePlayerContext = swanLivePlayerContext;
+  }
+
+  LivePlayerContext.prototype.play = function play() {
+    return this.swanLivePlayerContext.play();
+  };
+
+  LivePlayerContext.prototype.pause = function pause() {
+    return this.swanLivePlayerContext.pause();
+  };
+
+  LivePlayerContext.prototype.stop = function stop() {
+    return this.swanLivePlayerContext.stop();
+  };
+
+  LivePlayerContext.prototype.mute = function mute() {
+    return this.swanLivePlayerContext.mute();
+  };
+
+  LivePlayerContext.prototype.resume = function resume(data) {
+    return this.swanLivePlayerContext.resume(data);
+  };
+
+  LivePlayerContext.prototype.requestFullScreen = function requestFullScreen(direction) {
+    return this.swanLivePlayerContext.requestFullScreen(direction);
+  };
+
+  LivePlayerContext.prototype.exitFullScreen = function exitFullScreen() {
+    return this.swanLivePlayerContext.exitFullScreen();
+  };
+
+  return LivePlayerContext;
+}();
+
+exports.default = LivePlayerContext;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = base64Encode;
+/* eslint-disable no-bitwise */
+function base64Encode(str) {
+  var c1 = void 0;
+  var c2 = void 0;
+  var c3 = void 0;
+  var base64EncodeChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+  var i = 0;
+  var len = str.length;
+  var string = '';
+
+  while (i < len) {
+    // eslint-disable-next-line no-bitwise
+    c1 = str.charCodeAt(i++) & 0xff;
+    if (i === len) {
+      string += base64EncodeChars.charAt(c1 >> 2);
+      string += base64EncodeChars.charAt((c1 & 0x3) << 4);
+      string += '==';
+      break;
+    }
+    c2 = str.charCodeAt(i++);
+    if (i === len) {
+      string += base64EncodeChars.charAt(c1 >> 2);
+      string += base64EncodeChars.charAt((c1 & 0x3) << 4 | (c2 & 0xF0) >> 4);
+      string += base64EncodeChars.charAt((c2 & 0xF) << 2);
+      string += '=';
+      break;
+    }
+    c3 = str.charCodeAt(i++);
+    string += base64EncodeChars.charAt(c1 >> 2);
+    string += base64EncodeChars.charAt((c1 & 0x3) << 4 | (c2 & 0xF0) >> 4);
+    string += base64EncodeChars.charAt((c2 & 0xF) << 2 | (c3 & 0xC0) >> 6);
+    string += base64EncodeChars.charAt(c3 & 0x3F);
+  }
+  return string;
+}
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var WORKER = function WORKER() {
+  _classCallCheck(this, WORKER);
+};
+
+exports.default = WORKER;
+
+/***/ }),
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1866,20 +2003,19 @@ exports.default = InnerAudioContext;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.wx = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
-var OnekitApp_1 = __webpack_require__(52);
+var OnekitApp_1 = __webpack_require__(41);
 exports.OnekitApp = OnekitApp_1.default;
-var OnekitBehavior_1 = __webpack_require__(53);
+var OnekitBehavior_1 = __webpack_require__(42);
 exports.OnekitBehavior = OnekitBehavior_1.default;
-var OnekitComponent_1 = __webpack_require__(54);
+var OnekitComponent_1 = __webpack_require__(43);
 exports.OnekitComponent = OnekitComponent_1.default;
-var OnekitPage_1 = __webpack_require__(56);
+var OnekitPage_1 = __webpack_require__(45);
 exports.OnekitPage = OnekitPage_1.default;
 var wx_1 = __webpack_require__(0);
 exports.wx = wx_1.default;
 
 /***/ }),
-
-/***/ 52:
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1889,14 +2025,13 @@ exports.__esModule = true;
 exports.default = OnekitApp;
 /* eslint-disable camelcase */
 
-function OnekitApp(object) {
-  var alipay_object = object;
-  return App(alipay_object);
+function OnekitApp(wx_object) {
+  var swan_object = wx_object;
+  return App(swan_object);
 }
 
 /***/ }),
-
-/***/ 53:
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1917,7 +2052,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /* eslint-disable camelcase */
 function OnekitBehavior(object) {
-  var alipay_object = {
+  var wx_object = {
     onInit: function onInit(query) {
       var created = void 0;
       if (object.lifetimes && object.lifetimes.created) {
@@ -1994,7 +2129,7 @@ function OnekitBehavior(object) {
     }
     switch (key) {
       case 'properties':
-        alipay_object.props = {};
+        wx_object.props = {};
         for (var _iterator2 = Object.keys(value), _isArray2 = Array.isArray(_iterator2), _i2 = 0, _iterator2 = _isArray2 ? _iterator2 : _iterator2[Symbol.iterator]();;) {
           var _ref2;
 
@@ -2010,20 +2145,19 @@ function OnekitBehavior(object) {
           var p = _ref2;
 
           var v = value[p];
-          alipay_object.props[p] = v && v.value ? v.value : null;
+          wx_object.props[p] = v && v.value ? v.value : null;
         }
         break;
       default:
-        alipay_object[key] = value;
+        wx_object[key] = value;
     }
   }
 
-  return alipay_object;
+  return wx_object;
 }
 
 /***/ }),
-
-/***/ 54:
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2036,7 +2170,7 @@ var _oneutil = __webpack_require__(1);
 
 var _oneutil2 = _interopRequireDefault(_oneutil);
 
-var _wxs_behavior = __webpack_require__(55);
+var _wxs_behavior = __webpack_require__(44);
 
 var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
@@ -2048,7 +2182,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function OnekitComponent(object) {
   var properties = {};
-  var alipay_object = {
+  var swan_object = {
     mixins: [_wxs_behavior2.default],
     data: function data() {
       '';
@@ -2154,7 +2288,7 @@ function OnekitComponent(object) {
     }
     switch (key) {
       case 'properties':
-        alipay_object.props = {};
+        swan_object.props = {};
         for (var _iterator3 = Object.keys(value), _isArray3 = Array.isArray(_iterator3), _i3 = 0, _iterator3 = _isArray3 ? _iterator3 : _iterator3[Symbol.iterator]();;) {
           var _ref3;
 
@@ -2171,7 +2305,7 @@ function OnekitComponent(object) {
 
           var p = value[k];
           var v = p && p.value ? p.value : null;
-          alipay_object.props[k] = v;
+          swan_object.props[k] = v;
           properties[k] = v;
         }
         break;
@@ -2190,7 +2324,7 @@ function OnekitComponent(object) {
 
           var _k = _ref4;
 
-          alipay_object.methods[_k] = value[_k];
+          swan_object.methods[_k] = value[_k];
         }
         break;
       case 'data':
@@ -2208,23 +2342,22 @@ function OnekitComponent(object) {
 
           var _k2 = _ref5;
 
-          alipay_object.data[_k2] = value[_k2];
+          swan_object.data[_k2] = value[_k2];
         }
         break;
       case 'behaviors':
-        alipay_object.mixins = value;
+        swan_object.mixins = value;
         break;
       default:
-        alipay_object[key] = value;
+        swan_object[key] = value;
         break;
     }
   }
-  return Component(alipay_object);
+  return Component(swan_object);
 } /* eslint-disable camelcase */
 
 /***/ }),
-
-/***/ 55:
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2269,8 +2402,7 @@ exports.default = {
 };
 
 /***/ }),
-
-/***/ 56:
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2286,122 +2418,5 @@ function OnekitPage(wx_object) {
   return Page(swan_object);
 }
 
-/***/ }),
-
-/***/ 6:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var LivePlayerContext = function () {
-  function LivePlayerContext(swanLivePlayerContext) {
-    _classCallCheck(this, LivePlayerContext);
-
-    this.swanLivePlayerContext = swanLivePlayerContext;
-  }
-
-  LivePlayerContext.prototype.play = function play() {
-    return this.swanLivePlayerContext.play();
-  };
-
-  LivePlayerContext.prototype.pause = function pause() {
-    return this.swanLivePlayerContext.pause();
-  };
-
-  LivePlayerContext.prototype.stop = function stop() {
-    return this.swanLivePlayerContext.stop();
-  };
-
-  LivePlayerContext.prototype.mute = function mute() {
-    return this.swanLivePlayerContext.mute();
-  };
-
-  LivePlayerContext.prototype.resume = function resume(data) {
-    return this.swanLivePlayerContext.resume(data);
-  };
-
-  LivePlayerContext.prototype.requestFullScreen = function requestFullScreen(direction) {
-    return this.swanLivePlayerContext.requestFullScreen(direction);
-  };
-
-  LivePlayerContext.prototype.exitFullScreen = function exitFullScreen() {
-    return this.swanLivePlayerContext.exitFullScreen();
-  };
-
-  return LivePlayerContext;
-}();
-
-exports.default = LivePlayerContext;
-
-/***/ }),
-
-/***/ 7:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var WORKER = function WORKER() {
-  _classCallCheck(this, WORKER);
-};
-
-exports.default = WORKER;
-
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = base64Encode;
-/* eslint-disable no-bitwise */
-function base64Encode(str) {
-  var c1 = void 0;
-  var c2 = void 0;
-  var c3 = void 0;
-  var base64EncodeChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-  var i = 0;
-  var len = str.length;
-  var string = '';
-
-  while (i < len) {
-    // eslint-disable-next-line no-bitwise
-    c1 = str.charCodeAt(i++) & 0xff;
-    if (i === len) {
-      string += base64EncodeChars.charAt(c1 >> 2);
-      string += base64EncodeChars.charAt((c1 & 0x3) << 4);
-      string += '==';
-      break;
-    }
-    c2 = str.charCodeAt(i++);
-    if (i === len) {
-      string += base64EncodeChars.charAt(c1 >> 2);
-      string += base64EncodeChars.charAt((c1 & 0x3) << 4 | (c2 & 0xF0) >> 4);
-      string += base64EncodeChars.charAt((c2 & 0xF) << 2);
-      string += '=';
-      break;
-    }
-    c3 = str.charCodeAt(i++);
-    string += base64EncodeChars.charAt(c1 >> 2);
-    string += base64EncodeChars.charAt((c1 & 0x3) << 4 | (c2 & 0xF0) >> 4);
-    string += base64EncodeChars.charAt((c2 & 0xF) << 2 | (c3 & 0xC0) >> 6);
-    string += base64EncodeChars.charAt(c3 & 0x3F);
-  }
-  return string;
-}
-
 /***/ })
-
-/******/ });
+/******/ ]);

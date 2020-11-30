@@ -82,12 +82,11 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 34);
+/******/ 	return __webpack_require__(__webpack_require__.s = 25);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -119,13 +118,13 @@ var _LivePlayerContext = __webpack_require__(6);
 
 var _LivePlayerContext2 = _interopRequireDefault(_LivePlayerContext);
 
-var _WORKER = __webpack_require__(7);
+var _tools = __webpack_require__(7);
+
+var _tools2 = _interopRequireDefault(_tools);
+
+var _WORKER = __webpack_require__(8);
 
 var _WORKER2 = _interopRequireDefault(_WORKER);
-
-var _base64Encode = __webpack_require__(8);
-
-var _base64Encode2 = _interopRequireDefault(_base64Encode);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -154,19 +153,19 @@ var wx = function () {
   };
 
   wx.base64ToArrayBuffer = function base64ToArrayBuffer(base64String) {
-    base64String = base64String.replace(/\s/g, '+');
-    var commonContent = Buffer.from(base64String, 'base64');
-    return commonContent;
+    var padding = '='.repeat((4 - base64String.length) % 4 % 4);
+    var base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+
+    var rawData = (0, _tools2.default)(base64);
+    var outputArray = new Uint8Array(rawData.length);
+
+    for (var i = 0; i < rawData.length; ++i) {
+      outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
   };
 
-  wx.arrayBufferToBase64 = function arrayBufferToBase64(arrayBuffer) {
-    var binary = '';
-    var len = arrayBuffer.byteLength;
-    for (var i = 0; i < len; i++) {
-      binary += String.fromCharCode(arrayBuffer[i]);
-    }
-    return (0, _base64Encode2.default)(binary);
-  };
+  wx.arrayBufferToBase64 = function arrayBufferToBase64() {};
 
   wx.getSystemInfo = function getSystemInfo(object) {
     return swan.getSystemInfo(object);
@@ -1472,15 +1471,13 @@ var wx = function () {
 exports.default = wx;
 
 /***/ }),
-
-/***/ 1:
+/* 1 */
 /***/ (function(module, exports) {
 
 module.exports = require("oneutil");
 
 /***/ }),
-
-/***/ 2:
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1633,8 +1630,7 @@ var CanvasContext = function () {
 exports.default = CanvasContext;
 
 /***/ }),
-
-/***/ 3:
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1697,65 +1693,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-
-/***/ 34:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _wx = __webpack_require__(0);
-
-var _wx2 = _interopRequireDefault(_wx);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-Component({
-  mixins: [],
-  data: {},
-  props: {},
-
-  attached: function attached() {
-    var that = this;
-    _wx2.default.getOpenData({
-      success: function success(opendata) {
-        switch (that.props.type) {
-          case 'userNickName':
-            that.setData({ userNickName: opendata.nickName });
-            break;
-          case 'userAvatarUrl':
-            that.setData({ userAvatarUrl: opendata.avatarUrl });
-            break;
-          case 'userGender':
-            that.setData({ userGender: opendata.gender });
-            break;
-          case 'userCity':
-            that.setData({ userCity: opendata.city });
-            break;
-          case 'userProvince':
-            that.setData({ userProvince: opendata.province });
-            break;
-          case 'userCountry':
-            that.setData({ userCountry: opendata.country });
-            break;
-          case 'userLanguage':
-            that.setData({ userLanguage: opendata.language });
-            break;
-          default:
-            break;
-        }
-      }
-    });
-  },
-  didUpdate: function didUpdate() {},
-  didUnmount: function didUnmount() {},
-
-  methods: {}
-});
-
-/***/ }),
-
-/***/ 4:
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1794,8 +1732,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-
-/***/ 5:
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1914,8 +1851,7 @@ var InnerAudioContext = function () {
 exports.default = InnerAudioContext;
 
 /***/ }),
-
-/***/ 6:
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1966,26 +1902,7 @@ var LivePlayerContext = function () {
 exports.default = LivePlayerContext;
 
 /***/ }),
-
-/***/ 7:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var WORKER = function WORKER() {
-  _classCallCheck(this, WORKER);
-};
-
-exports.default = WORKER;
-
-/***/ }),
-
-/***/ 8:
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2029,6 +1946,94 @@ function base64Encode(str) {
   return string;
 }
 
-/***/ })
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/******/ });
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var WORKER = function WORKER() {
+  _classCallCheck(this, WORKER);
+};
+
+exports.default = WORKER;
+
+/***/ }),
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _wx = __webpack_require__(0);
+
+var _wx2 = _interopRequireDefault(_wx);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+Component({
+  mixins: [],
+  data: {},
+  props: {},
+
+  attached: function attached() {
+    var that = this;
+    _wx2.default.getOpenData({
+      success: function success(opendata) {
+        switch (that.props.type) {
+          case 'userNickName':
+            that.setData({ userNickName: opendata.nickName });
+            break;
+          case 'userAvatarUrl':
+            that.setData({ userAvatarUrl: opendata.avatarUrl });
+            break;
+          case 'userGender':
+            that.setData({ userGender: opendata.gender });
+            break;
+          case 'userCity':
+            that.setData({ userCity: opendata.city });
+            break;
+          case 'userProvince':
+            that.setData({ userProvince: opendata.province });
+            break;
+          case 'userCountry':
+            that.setData({ userCountry: opendata.country });
+            break;
+          case 'userLanguage':
+            that.setData({ userLanguage: opendata.language });
+            break;
+          default:
+            break;
+        }
+      }
+    });
+  },
+  didUpdate: function didUpdate() {},
+  didUnmount: function didUnmount() {},
+
+  methods: {}
+});
+
+/***/ })
+/******/ ]);
