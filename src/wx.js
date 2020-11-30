@@ -9,9 +9,8 @@ import VideoContext from './api/VideoContext'
 import CameraContext from './api/CameraContext'
 import InnerAudioContext from './api/InnerAudioContext'
 import LivePlayerContext from './api/LivePlayerContext'
-import base64Encode from './tools'
-
 import WORKER from './api/WORKER'
+import base64Encode from './tools/base64Encode'
 // import wx_cloud from './wx.cloud'
 
 export default class wx {
@@ -26,22 +25,18 @@ export default class wx {
   }
 
   static base64ToArrayBuffer(base64String) {
-    const padding = '='.repeat(((4 - base64String.length) % 4) % 4)
-    const base64 = (base64String + padding)
-      .replace(/-/g, '+')
-      .replace(/_/g, '/')
-
-    const rawData = base64Encode(base64)
-    const outputArray = new Uint8Array(rawData.length)
-
-    for (let i = 0; i < rawData.length; ++i) {
-      outputArray[i] = rawData.charCodeAt(i)
-    }
-    return outputArray
+    base64String = base64String.replace(/\s/g, '+')
+    const commonContent = Buffer.from(base64String, 'base64')
+    return commonContent
   }
 
-  static arrayBufferToBase64() {
-
+  static arrayBufferToBase64(arrayBuffer) {
+    let binary = ''
+    const len = arrayBuffer.byteLength
+    for (let i = 0; i < len; i++) {
+      binary += String.fromCharCode(arrayBuffer[i])
+    }
+    return base64Encode(binary)
   }
 
   static getSystemInfo(object) {

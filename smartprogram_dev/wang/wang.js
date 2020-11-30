@@ -4,8 +4,8 @@ global = {};
 OnekitPage({
   data: {},
   onLoad: () => {
-    const base64 = 'CxYh'
-    const arrayBuffer = wx.base64ToArrayBuffer(base64)
-    console.log(arrayBuffer)
+    const arrayBuffer = new Uint8Array([11, 22, 33])
+    const base64 = wx.arrayBufferToBase64(arrayBuffer)
+    console.log(base64)
   }
 });

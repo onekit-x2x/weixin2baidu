@@ -119,13 +119,13 @@ var _LivePlayerContext = __webpack_require__(6);
 
 var _LivePlayerContext2 = _interopRequireDefault(_LivePlayerContext);
 
-var _tools = __webpack_require__(7);
-
-var _tools2 = _interopRequireDefault(_tools);
-
-var _WORKER = __webpack_require__(8);
+var _WORKER = __webpack_require__(7);
 
 var _WORKER2 = _interopRequireDefault(_WORKER);
+
+var _base64Encode = __webpack_require__(8);
+
+var _base64Encode2 = _interopRequireDefault(_base64Encode);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -154,19 +154,19 @@ var wx = function () {
   };
 
   wx.base64ToArrayBuffer = function base64ToArrayBuffer(base64String) {
-    var padding = '='.repeat((4 - base64String.length) % 4 % 4);
-    var base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
-
-    var rawData = (0, _tools2.default)(base64);
-    var outputArray = new Uint8Array(rawData.length);
-
-    for (var i = 0; i < rawData.length; ++i) {
-      outputArray[i] = rawData.charCodeAt(i);
-    }
-    return outputArray;
+    base64String = base64String.replace(/\s/g, '+');
+    var commonContent = Buffer.from(base64String, 'base64');
+    return commonContent;
   };
 
-  wx.arrayBufferToBase64 = function arrayBufferToBase64() {};
+  wx.arrayBufferToBase64 = function arrayBufferToBase64(arrayBuffer) {
+    var binary = '';
+    var len = arrayBuffer.byteLength;
+    for (var i = 0; i < len; i++) {
+      binary += String.fromCharCode(arrayBuffer[i]);
+    }
+    return (0, _base64Encode2.default)(binary);
+  };
 
   wx.getSystemInfo = function getSystemInfo(object) {
     return swan.getSystemInfo(object);
@@ -2347,6 +2347,24 @@ exports.default = LivePlayerContext;
 
 
 exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var WORKER = function WORKER() {
+  _classCallCheck(this, WORKER);
+};
+
+exports.default = WORKER;
+
+/***/ }),
+
+/***/ 8:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
 exports.default = base64Encode;
 /* eslint-disable no-bitwise */
 function base64Encode(str) {
@@ -2383,24 +2401,6 @@ function base64Encode(str) {
   }
   return string;
 }
-
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var WORKER = function WORKER() {
-  _classCallCheck(this, WORKER);
-};
-
-exports.default = WORKER;
 
 /***/ })
 
