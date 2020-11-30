@@ -468,3 +468,6 @@ smartprogram_dev/weixin2baidu/ui/video/video.js
 smartprogram_dev/weixin2baidu/ui/view/view.js
 smartprogram_dev/weixin2baidu/ui/voip-room/voip-room.js
 smartprogram_dev/weixin2baidu/ui/web-view/web-view.js
+smartprogram_dev/project.swan.json
+smartprogram_dev/wang/wang.js
+smartprogram_dev/weixin2baidu/index.js

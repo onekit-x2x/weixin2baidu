@@ -1,29 +1,23 @@
-Page({
-    data: {
+import {OnekitPage,wx} from '../weixin2baidu/index';
 
+global = {};
+OnekitPage({
+    data:{},
+    onLoad:function(){
+        console.log('ok')
     },
-    onLoad: function () {
-        // 监听页面加载的生命周期函数
+    onReady:function(){
     },
-    onReady: function() {
-        // 监听页面初次渲染完成的生命周期函数
+    onShow:function(){
     },
-    onShow: function() {
-        // 监听页面显示的生命周期函数
+    onHide:function(){
     },
-    onHide: function() {
-        // 监听页面隐藏的生命周期函数
+    onUnload:function(){
     },
-    onUnload: function() {
-        // 监听页面卸载的生命周期函数
+    onPullDownRefresh:function(){
     },
-    onPullDownRefresh: function() {
-        // 监听用户下拉动作
+    onReachBottom:function(){
     },
-    onReachBottom: function() {
-        // 页面上拉触底事件的处理函数
-    },
-    onShareAppMessage: function () {
-        // 用户点击右上角转发
+    onShareAppMessage:function(){
     }
 });

@@ -2248,57 +2248,12 @@ exports.default = {
 
 exports.__esModule = true;
 exports.default = OnekitPage;
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
-function OnekitPage(object) {
-  var alipay_object = object;
-  alipay_object.animate = function () {};
-  alipay_object.selectComponent = function (selector) {
-    // selector = selector.replace(".","$");
-    // selector = selector.replace("-","_");
-    for (var _iterator = Object.keys(this), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-      var _ref;
+function OnekitPage(wx_object) {
+  var swan_object = wx_object;
 
-      if (_isArray) {
-        if (_i >= _iterator.length) break;
-        _ref = _iterator[_i++];
-      } else {
-        _i = _iterator.next();
-        if (_i.done) break;
-        _ref = _i.value;
-      }
-
-      var key = _ref;
-
-      if (key.indexOf(selector) >= 0) {
-        return this[key];
-      }
-    }
-    return null;
-  };
-  alipay_object.selectAllComponents = function (selector) {
-    //  selector = selector.replace(".","$");
-    //   selector = selector.replace("-","_");
-    for (var _iterator2 = Object.keys(this), _isArray2 = Array.isArray(_iterator2), _i2 = 0, _iterator2 = _isArray2 ? _iterator2 : _iterator2[Symbol.iterator]();;) {
-      var _ref2;
-
-      if (_isArray2) {
-        if (_i2 >= _iterator2.length) break;
-        _ref2 = _iterator2[_i2++];
-      } else {
-        _i2 = _iterator2.next();
-        if (_i2.done) break;
-        _ref2 = _i2.value;
-      }
-
-      var key = _ref2;
-
-      if (key.indexOf(selector) >= 0) {
-        return [this[key]];
-      }
-    }
-    return [];
-  };
-  return Page(alipay_object);
+  return Page(swan_object);
 }
 
 /***/ }),
