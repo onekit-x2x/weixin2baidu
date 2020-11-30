@@ -2,6 +2,8 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
 /* eslint-disable prefer-spread */
+
+import onekit from 'oneutil'
 import CanvasContext from './api/CanvasContext'
 import VideoContext from './api/VideoContext'
 import CameraContext from './api/CameraContext'
@@ -11,7 +13,6 @@ import LivePlayerContext from './api/LivePlayerContext'
 
 import WORKER from './api/WORKER'
 // import wx_cloud from './wx.cloud'
-import onekit from './js/TheKit'
 
 export default class wx {
   // ///////////////// animation //////////////////////////

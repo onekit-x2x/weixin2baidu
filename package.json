@@ -36,7 +36,7 @@
   "author": "xushengni,sanfordsusn",
   "license": "MIT",
   "dependencies": {
-    "oneutil": "^1.4.3"
+    "oneutil": "1.4.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",

@@ -95,6 +95,10 @@ module.exports =
 
 exports.__esModule = true;
 
+var _oneutil = __webpack_require__(1);
+
+var _oneutil2 = _interopRequireDefault(_oneutil);
+
 var _CanvasContext = __webpack_require__(2);
 
 var _CanvasContext2 = _interopRequireDefault(_CanvasContext);
@@ -119,10 +123,6 @@ var _WORKER = __webpack_require__(7);
 
 var _WORKER2 = _interopRequireDefault(_WORKER);
 
-var _TheKit = __webpack_require__(1);
-
-var _TheKit2 = _interopRequireDefault(_TheKit);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } /* eslint-disable max-len */
@@ -131,7 +131,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /* eslint-disable prefer-spread */
 
 // import wx_cloud from './wx.cloud'
-
 
 var wx = function () {
   function wx() {
@@ -245,10 +244,10 @@ var wx = function () {
           canvasContext.restore();
           break;
         case 'setFillStyle':
-          canvasContext.setFillStyle(_TheKit2.default.color.array2str(data[1]));
+          canvasContext.setFillStyle(_oneutil2.default.color.array2str(data[1]));
           break;
         case 'setStrokeStyle':
-          canvasContext.setStrokeStyle(_TheKit2.default.color.array2str(data[1]));
+          canvasContext.setStrokeStyle(_oneutil2.default.color.array2str(data[1]));
           break;
         case 'setFontSize':
           canvasContext.setFontSize(data[0]);
@@ -257,7 +256,7 @@ var wx = function () {
           canvasContext.setGlobalAlpha(data[0]);
           break;
         case 'setShadow':
-          canvasContext.setShadow(data[0], data[1], data[2], _TheKit2.default.color.array2str(data[3]));
+          canvasContext.setShadow(data[0], data[1], data[2], _oneutil2.default.color.array2str(data[3]));
           break;
         case 'drawImage':
           // eslint-disable-next-line prefer-spread
@@ -1445,86 +1444,9 @@ exports.default = wx;
 /***/ }),
 
 /***/ 1:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-var thekit = {};
-thekit.trim = function (str) {
-  return str.replace(/^\s+|\s+$/gm, '');
-};
-thekit.guid = function () {
-  var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-    // const r = Math.floor(Math.random() * 16) | 0
-    // const v = c === 'x' ? r : (r & 0x3 | 0x8)
-    // return v.toString(16)
-    var r = Math.floor(Math.random() * 16) || 0;
-    var v = c === 'x' ? r : r && 0x3 || 0x8;
-    return v.toString(16);
-  });
-  return guid;
-};
-thekit.color = {};
-thekit.color.fix = function (string) {
-  var str = string;
-  if (!str) {
-    return null;
-  }
-  switch (str) {
-    case 'transparent':
-      return 'transparent'; // "#00000000";
-    case 'black':
-      return '#000000'; // "#000000FF";
-    default:
-      break;
-  }
-  if (str.indexOf('rgb') < 0) {
-    if (str.length === 7) {
-      //  str += "FF";
-    }
-    return str;
-  }
-  str = str.substring(str.indexOf('(') + 1, str.indexOf(')'));
-  var array = str.split(',');
-  if (array.length === 3) {
-    array.push(1);
-  }
-  var color = thekit.color.rgba2str(array[0], array[1], array[2], array[3] * 255 + '');
-  return color;
-};
-thekit.color.rgba2str = function (r, g, b, a) {
-  function componentToHex(c) {
-    c = thekit.trim(c);
-    var hex = parseInt(c, 10).toString(16);
-    return hex.length === 1 ? '0' + hex : hex;
-  }
-  return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b) + componentToHex(a * 255);
-};
-thekit.color.str2array = function (str) {
-  return [parseInt(str.substr(1, 2), 16), parseInt(str.substr(3, 2), 16), parseInt(str.substr(5, 2), 16), parseInt(str.substr(7, 2), 16)];
-};
-thekit.color.array2str = function (array) {
-  function f(v) {
-    var s = v.toString(16);
-    if (s.length === 1) {
-      s = '0' + s;
-    }
-    return s;
-  }
-  var str = '#' + f(array[0]) + f(array[1]) + f(array[2]); // +f(array[3]);
-  return str;
-};
-thekit.OnekitApp = function (data) {
-  return App(data);
-};
-thekit.OnekitPage = function (data) {
-  return Page(data);
-};
-thekit.OnekitComponent = function (data) {
-  return Component(data);
-};
-module.exports = thekit;
+module.exports = require("oneutil");
 
 /***/ }),
 
