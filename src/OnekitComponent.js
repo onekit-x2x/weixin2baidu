@@ -5,7 +5,7 @@ import wx from './wx'
 
 export default function OnekitComponent(object) {
   const properties = {}
-  const alipay_object = {
+  const swan_object = {
     mixins: [wxs_behavior],
     data() {
       ''
@@ -82,31 +82,31 @@ export default function OnekitComponent(object) {
     }
     switch (key) {
       case 'properties':
-        alipay_object.props = {}
+        swan_object.props = {}
         for (const k of Object.keys(value)) {
           const p = value[k]
           const v = (p && p.value ? p.value : null)
-          alipay_object.props[k] = v
+          swan_object.props[k] = v
           properties[k] = v
         }
         break
       case 'methods':
         for (const k of Object.keys(value)) {
-          alipay_object.methods[k] = value[k]
+          swan_object.methods[k] = value[k]
         }
         break
       case 'data':
         for (const k of Object.keys(value)) {
-          alipay_object.data[k] = value[k]
+          swan_object.data[k] = value[k]
         }
         break
       case 'behaviors':
-        alipay_object.mixins = value
+        swan_object.mixins = value
         break
       default:
-        alipay_object[key] = value
+        swan_object[key] = value
         break
     }
   }
-  return Component(alipay_object)
+  return Component(swan_object)
 }

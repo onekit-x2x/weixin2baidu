@@ -82,12 +82,11 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 34);
+/******/ 	return __webpack_require__(__webpack_require__.s = 25);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1472,15 +1471,13 @@ var wx = function () {
 exports.default = wx;
 
 /***/ }),
-
-/***/ 1:
+/* 1 */
 /***/ (function(module, exports) {
 
 module.exports = require("oneutil");
 
 /***/ }),
-
-/***/ 2:
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1633,8 +1630,7 @@ var CanvasContext = function () {
 exports.default = CanvasContext;
 
 /***/ }),
-
-/***/ 3:
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1697,65 +1693,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-
-/***/ 34:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _wx = __webpack_require__(0);
-
-var _wx2 = _interopRequireDefault(_wx);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-Component({
-  mixins: [],
-  data: {},
-  props: {},
-
-  attached: function attached() {
-    var that = this;
-    _wx2.default.getOpenData({
-      success: function success(opendata) {
-        switch (that.props.type) {
-          case 'userNickName':
-            that.setData({ userNickName: opendata.nickName });
-            break;
-          case 'userAvatarUrl':
-            that.setData({ userAvatarUrl: opendata.avatarUrl });
-            break;
-          case 'userGender':
-            that.setData({ userGender: opendata.gender });
-            break;
-          case 'userCity':
-            that.setData({ userCity: opendata.city });
-            break;
-          case 'userProvince':
-            that.setData({ userProvince: opendata.province });
-            break;
-          case 'userCountry':
-            that.setData({ userCountry: opendata.country });
-            break;
-          case 'userLanguage':
-            that.setData({ userLanguage: opendata.language });
-            break;
-          default:
-            break;
-        }
-      }
-    });
-  },
-  didUpdate: function didUpdate() {},
-  didUnmount: function didUnmount() {},
-
-  methods: {}
-});
-
-/***/ }),
-
-/***/ 4:
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1794,8 +1732,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-
-/***/ 5:
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1914,8 +1851,7 @@ var InnerAudioContext = function () {
 exports.default = InnerAudioContext;
 
 /***/ }),
-
-/***/ 6:
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1966,8 +1902,7 @@ var LivePlayerContext = function () {
 exports.default = LivePlayerContext;
 
 /***/ }),
-
-/***/ 7:
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2012,8 +1947,7 @@ function base64Encode(str) {
 }
 
 /***/ }),
-
-/***/ 8:
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2029,6 +1963,77 @@ var WORKER = function WORKER() {
 
 exports.default = WORKER;
 
-/***/ })
+/***/ }),
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/******/ });
+"use strict";
+
+
+var _wx = __webpack_require__(0);
+
+var _wx2 = _interopRequireDefault(_wx);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+Component({
+  mixins: [],
+  data: {},
+  props: {},
+
+  attached: function attached() {
+    var that = this;
+    _wx2.default.getOpenData({
+      success: function success(opendata) {
+        switch (that.props.type) {
+          case 'userNickName':
+            that.setData({ userNickName: opendata.nickName });
+            break;
+          case 'userAvatarUrl':
+            that.setData({ userAvatarUrl: opendata.avatarUrl });
+            break;
+          case 'userGender':
+            that.setData({ userGender: opendata.gender });
+            break;
+          case 'userCity':
+            that.setData({ userCity: opendata.city });
+            break;
+          case 'userProvince':
+            that.setData({ userProvince: opendata.province });
+            break;
+          case 'userCountry':
+            that.setData({ userCountry: opendata.country });
+            break;
+          case 'userLanguage':
+            that.setData({ userLanguage: opendata.language });
+            break;
+          default:
+            break;
+        }
+      }
+    });
+  },
+  didUpdate: function didUpdate() {},
+  didUnmount: function didUnmount() {},
+
+  methods: {}
+});
+
+/***/ })
+/******/ ]);
