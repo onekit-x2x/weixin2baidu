@@ -179,6 +179,17 @@ var wx = function () {
     return swan.getUpdateManager(object);
   };
 
+  wx.updateWeChatApp = function updateWeChatApp(wx_object) {
+    var wx_success = wx_object.success;
+    var wx_fail = wx_object.fail;
+    var wx_complete = wx_object.complete;
+    _oneutil2.default.PROMISE(function (SUCCESS) {
+      var errMsg = 'private_openUrl:ok';
+      SUCCESS(errMsg);
+    }, wx_success, wx_complete, wx_fail);
+    return true;
+  };
+
   wx.getLaunchOptionsSync = function getLaunchOptionsSync(object) {
     return swan.getLaunchOptionsSync(object);
   };
@@ -702,14 +713,16 @@ var wx = function () {
 
 
   wx.stopBluetoothDevicesDiscovery = function stopBluetoothDevicesDiscovery() {
-    /* return swan.stopBluetoothDevicesDiscovery(object); */};
+    /* return swan.stopBluetoothDevicesDiscovery(object); */
+  };
 
   wx.startBluetoothDevicesDiscovery = function startBluetoothDevicesDiscovery(object) {
     return swan.startBluetoothDevicesDiscovery(object);
   };
 
   wx.openBluetoothAdapter = function openBluetoothAdapter() {
-    /* return swan.openBluetoothAdapter(object); */};
+    /* return swan.openBluetoothAdapter(object); */
+  };
 
   wx.onBluetoothDeviceFound = function onBluetoothDeviceFound(object) {
     return swan.onBluetoothDeviceFound(object);

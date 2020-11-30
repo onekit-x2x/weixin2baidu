@@ -51,6 +51,17 @@ export default class wx {
     return swan.getUpdateManager(object)
   }
 
+  static updateWeChatApp(wx_object) {
+    const wx_success = wx_object.success
+    const wx_fail = wx_object.fail
+    const wx_complete = wx_object.complete
+    onekit.PROMISE((SUCCESS) => {
+      const errMsg = 'private_openUrl:ok'
+      SUCCESS(errMsg)
+    }, wx_success, wx_complete, wx_fail)
+    return true
+  }
+
   static getLaunchOptionsSync(object) {
     return swan.getLaunchOptionsSync(object)
   }
@@ -511,14 +522,16 @@ export default class wx {
 
   //
   static stopBluetoothDevicesDiscovery() {
-    /* return swan.stopBluetoothDevicesDiscovery(object); */ }
+    /* return swan.stopBluetoothDevicesDiscovery(object); */
+  }
 
   static startBluetoothDevicesDiscovery(object) {
     return swan.startBluetoothDevicesDiscovery(object)
   }
 
   static openBluetoothAdapter() {
-    /* return swan.openBluetoothAdapter(object); */ }
+    /* return swan.openBluetoothAdapter(object); */
+  }
 
   static onBluetoothDeviceFound(object) {
     return swan.onBluetoothDeviceFound(object)
