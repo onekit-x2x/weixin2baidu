@@ -554,3 +554,10 @@ smartprogram_dev/weixin2baidu/ui/video/video.js
 smartprogram_dev/weixin2baidu/ui/view/view.js
 smartprogram_dev/weixin2baidu/ui/voip-room/voip-room.js
 smartprogram_dev/weixin2baidu/ui/web-view/web-view.js
+smartprogram_dev/app.css
+smartprogram_dev/app.js
+smartprogram_dev/app.json
+smartprogram_dev/li/li.css
+smartprogram_dev/li/li.js
+smartprogram_dev/li/li.json
+smartprogram_dev/li/li.swan

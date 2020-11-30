@@ -2,17 +2,17 @@
 id="{{onekitId}}"
 class="onekit-progress {{onekitClass}}" 
 style="{{onekitStyle}}"
+
 percent="{{percent}}"
 show-info="{{showInfo}}"
 stroke-width="{{strokeWidth}}"
+border-radius="{{borderRadius}}"
+font-size="{{fontSize}}"	
+color="{{color}}"
 activeColor="{{activeColor}}"
 background-color="{{backgroundColor}}"
 active="{{active}}"
-border-radius="{{borderRadius}}"
-font-size="{{fontSize}}"	
-stroke-width="{{strokeWidth}}"	
-color="{{color}}"
-active-mode="{{activeMode}}"	
+active-mode="{{activeMode}}"
 duration="{{duration}}"
 >
 <slot>

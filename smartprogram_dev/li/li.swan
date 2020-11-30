@@ -1,3 +1,35 @@
-<view class="container">
-    li/li
-</view>
+<!-- <scroll-view> -->
+<!-- <onekit-view onekit-class="container">
+  <onekit-view onekit-class="page-body">
+    <onekit-view onekit-class="page-section">
+      <onekit-view onekit-class="page-section-title">
+        <onekit-text>Vertical Scroll\n纵向滚动</onekit-text>
+      </onekit-view>
+      <onekit-view onekit-class="page-section-spacing">
+        <onekit-scroll-view scroll-y="true" onekit-style="height: 300rpx;" onScrolltoupper="upper" onScrolltolower="lower" onScroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+          <onekit-view onekit-id="demo1" onekit-class="scroll-view-item demo-text-1"></onekit-view>
+          <onekit-view onekit-id="demo2" onekit-class="scroll-view-item demo-text-2"></onekit-view>
+          <onekit-view onekit-id="demo3" onekit-class="scroll-view-item demo-text-3"></onekit-view>
+        </onekit-scroll-view>
+      </onekit-view>
+    </onekit-view>
+    <onekit-view onekit-class="page-section">
+      <onekit-view onekit-class="page-section-title">
+        <onekit-text>Horizontal Scroll\n横向滚动</onekit-text>
+      </onekit-view>
+      <onekit-view onekit-class="page-section-spacing">
+        <onekit-scroll-view onekit-class="scroll-view_H" scroll-x="true" onScroll="scroll" onekit-style="width: 100%">
+          <onekit-view onekit-id="demo1" onekit-class="scroll-view-item_H demo-text-1"></onekit-view>
+          <onekit-view onekit-id="demo2" onekit-class="scroll-view-item_H demo-text-2"></onekit-view>
+          <onekit-view onekit-id="demo3" onekit-class="scroll-view-item_H demo-text-3"></onekit-view>
+        </onekit-scroll-view>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
+</onekit-view> -->
+
+<!-- <progress> -->
+<onekit-progress percent="20" show-info></onekit-progress>
+<onekit-progress percent="40" stroke-width="12"></onekit-progress>
+<onekit-progress percent="60" color="pink"></onekit-progress>
+<onekit-progress percent="80" active></onekit-progress>

@@ -1,1 +1,8 @@
-{}
+{
+    "usingComponents":{
+        "onekit-view":"../weixin2baidu/ui/view/view",
+        "onekit-scroll-view":"../weixin2baidu/ui/scroll-view/scroll-view",
+        "onekit-progress":"../weixin2baidu/ui/progress/progress",
+        "onekit-text":"../weixin2baidu/ui/text/text"
+    }
+}
