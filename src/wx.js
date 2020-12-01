@@ -1,9 +1,8 @@
-/* eslint-disable max-len */
-/* eslint-disable camelcase */
 /* eslint-disable no-console */
-/* eslint-disable prefer-spread */
+/* eslint-disable camelcase */
 
-import onekit from 'oneutil'
+
+// import onekit from 'oneutil'
 import CanvasContext from './api/CanvasContext'
 import VideoContext from './api/VideoContext'
 import CameraContext from './api/CameraContext'
@@ -90,6 +89,17 @@ export default class wx {
     return res
   }
 
+  static getEnterOptionsSync() {
+    const res = {
+      path: 'index/index',
+      query: {},
+      referrerInfo: {},
+      scence: 1001,
+      shareTicket: ''
+    }
+    return res
+  }
+
   static offPageNotFound(object) {
     return swan.offPageNotFound(object)
   }
@@ -131,126 +141,125 @@ export default class wx {
   }
 
   // ///////////////// Canvas ///////////////////
-  // eslint-disable-next-line complexity
-  static drawCanvas(object) {
-    const canvasId = object.canvasId
-    const actions = object.actions
-    const canvasContext = swan.createCanvasContext(canvasId)
-    for (const action of actions) {
-      const data = action.data
-      switch (action.method) {
-        case 'save':
-          canvasContext.save()
-          break
-        case 'restore':
-          canvasContext.restore()
-          break
-        case 'setFillStyle':
-          canvasContext.setFillStyle(onekit.color.array2str(data[1]))
-          break
-        case 'setStrokeStyle':
-          canvasContext.setStrokeStyle(onekit.color.array2str(data[1]))
-          break
-        case 'setFontSize':
-          canvasContext.setFontSize(data[0])
-          break
-        case 'setGlobalAlpha':
-          canvasContext.setGlobalAlpha(data[0])
-          break
-        case 'setShadow':
-          canvasContext.setShadow(data[0], data[1], data[2], onekit.color.array2str(data[3]))
-          break
-        case 'drawImage':
-          // eslint-disable-next-line prefer-spread
-          canvasContext.drawImage.apply(canvasContext, data)
-          break
-        case 'fillText':
-          // eslint-disable-next-line prefer-spread
-          canvasContext.fillText.apply(canvasContext, data)
-          break
-        case 'setLineCap':
-          canvasContext.setLineCap(data[0])
-          break
-        case 'setLineJoin':
-          canvasContext.setLineJoin(data[0])
-          break
-        case 'setLineWidth':
-          canvasContext.setLineWidth(data[0])
-          break
-        case 'setMiterLimit':
-          canvasContext.setMiterLimit(data[0])
-          break
-        case 'rotate':
-          canvasContext.rotate(data[0])
-          break
-        case 'scale':
-          canvasContext.scale(data[0], data[1])
-          break
-        case 'translate':
-          canvasContext.translate(data[0], data[1])
-          break
-        case 'strokePath':
-          canvasContext.beginPath()
-          for (const dat of data) {
-            const dt = dat.data
-            switch (dat.method) {
-              case 'rect':
-                canvasContext.strokeRect(dt[0], dt[1], dt[2], dt[3])
-                break
-              case 'moveTo':
-                canvasContext.moveTo(dt[0], dt[1])
-                break
-              case 'lineTo':
-                canvasContext.lineTo(dt[0], dt[1])
-                break
-              case 'closePath':
-                canvasContext.closePath()
-                break
-                // eslint-disable-next-line prefer-spread
-              case 'arc':
-                canvasContext.arc.apply(canvasContext, dt)
-                break
-              case 'quadraticCurveTo':
-                canvasContext.quadraticCurveTo.apply(canvasContext, dt)
-                break
-              case 'bezierCurveTo':
-                canvasContext.bezierCurveTo.apply(canvasContext, dt)
-                break
+  // static drawCanvas(object) {
+  //   const canvasId = object.canvasId
+  //   const actions = object.actions
+  //   const canvasContext = swan.createCanvasContext(canvasId)
+  //   for (const action of actions) {
+  //     const data = action.data
+  //     switch (action.method) {
+  //       case 'save':
+  //         canvasContext.save()
+  //         break
+  //       case 'restore':
+  //         canvasContext.restore()
+  //         break
+  //       case 'setFillStyle':
+  //         canvasContext.setFillStyle(onekit.color.array2str(data[1]))
+  //         break
+  //       case 'setStrokeStyle':
+  //         canvasContext.setStrokeStyle(onekit.color.array2str(data[1]))
+  //         break
+  //       case 'setFontSize':
+  //         canvasContext.setFontSize(data[0])
+  //         break
+  //       case 'setGlobalAlpha':
+  //         canvasContext.setGlobalAlpha(data[0])
+  //         break
+  //       case 'setShadow':
+  //         canvasContext.setShadow(data[0], data[1], data[2], onekit.color.array2str(data[3]))
+  //         break
+  //       case 'drawImage':
+  //         // eslint-disable-next-line prefer-spread
+  //         canvasContext.drawImage.apply(canvasContext, data)
+  //         break
+  //       case 'fillText':
+  //         // eslint-disable-next-line prefer-spread
+  //         canvasContext.fillText.apply(canvasContext, data)
+  //         break
+  //       case 'setLineCap':
+  //         canvasContext.setLineCap(data[0])
+  //         break
+  //       case 'setLineJoin':
+  //         canvasContext.setLineJoin(data[0])
+  //         break
+  //       case 'setLineWidth':
+  //         canvasContext.setLineWidth(data[0])
+  //         break
+  //       case 'setMiterLimit':
+  //         canvasContext.setMiterLimit(data[0])
+  //         break
+  //       case 'rotate':
+  //         canvasContext.rotate(data[0])
+  //         break
+  //       case 'scale':
+  //         canvasContext.scale(data[0], data[1])
+  //         break
+  //       case 'translate':
+  //         canvasContext.translate(data[0], data[1])
+  //         break
+  //       case 'strokePath':
+  //         canvasContext.beginPath()
+  //         for (const dat of data) {
+  //           const dt = dat.data
+  //           switch (dat.method) {
+  //             case 'rect':
+  //               canvasContext.strokeRect(dt[0], dt[1], dt[2], dt[3])
+  //               break
+  //             case 'moveTo':
+  //               canvasContext.moveTo(dt[0], dt[1])
+  //               break
+  //             case 'lineTo':
+  //               canvasContext.lineTo(dt[0], dt[1])
+  //               break
+  //             case 'closePath':
+  //               canvasContext.closePath()
+  //               break
+  //               // eslint-disable-next-line prefer-spread
+  //             case 'arc':
+  //               // canvasContext.arc.apply(canvasContext, dt)
+  //               break
+  //             case 'quadraticCurveTo':
+  //               // canvasContext.quadraticCurveTo.apply(canvasContext, dt)
+  //               break
+  //             case 'bezierCurveTo':
+  //               // canvasContext.bezierCurveTo.apply(canvasContext, dt)
+  //               break
 
-              default:
-                console.log('[drawCanvas-strokePath]', dat.method)
-                break
-            }
-          }
-          canvasContext.stroke()
-          break
-        case 'fillPath':
-          for (const dat of data) {
-            const dt = dat.data
-            switch (dat.method) {
-              case 'rect':
-                canvasContext.fillRect(dt[0], dt[1], dt[2], dt[3])
-                break
-              case 'arc':
-                canvasContext.arc.apply(canvasContext, dt)
-                break
-              default:
-                console.log('[drawCanvas-fillPath]', dat.method)
-                break
-            }
-          }
-          canvasContext.fill()
-          break
-        case 'clearRect':
-          canvasContext.clearRect(data[0], data[1], data[2], data[3])
-          break
-        default:
-          console.log('[drawCanvas]', action.method)
-          break
-      }
-    }
-    canvasContext.draw()
-  }
+  //             default:
+  //               console.log('[drawCanvas-strokePath]', dat.method)
+  //               break
+  //           }
+  //         }
+  //         canvasContext.stroke()
+  //         break
+  //       case 'fillPath':
+  //         for (const dat of data) {
+  //           const dt = dat.data
+  //           switch (dat.method) {
+  //             case 'rect':
+  //               canvasContext.fillRect(dt[0], dt[1], dt[2], dt[3])
+  //               break
+  //             case 'arc':
+  //               // canvasContext.arc.apply(canvasContext, dt)
+  //               break
+  //             default:
+  //               console.log('[drawCanvas-fillPath]', dat.method)
+  //               break
+  //           }
+  //         }
+  //         canvasContext.fill()
+  //         break
+  //       case 'clearRect':
+  //         canvasContext.clearRect(data[0], data[1], data[2], data[3])
+  //         break
+  //       default:
+  //         console.log('[drawCanvas]', action.method)
+  //         break
+  //     }
+  //   }
+  //   canvasContext.draw()
+  // }
 
   // ///////////////////////////////////////////
   static setBackgroundFetchToken(swan_object) {
