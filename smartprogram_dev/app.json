@@ -1,7 +1,6 @@
 {
     "pages": [
-        "li/li",
-        "wang/wang"
+      "wang/wang"
     ],
     "window": {
         "navigationBarBackgroundColor": "#ffffff",
