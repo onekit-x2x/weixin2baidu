@@ -183,11 +183,28 @@ var wx = function () {
     var wx_success = wx_object.success;
     var wx_fail = wx_object.fail;
     var wx_complete = wx_object.complete;
-    _oneutil2.default.PROMISE(function (SUCCESS) {
+    // onekit.PROMISE((SUCCESS) => {
+    //   const errMsg = 'private_openUrl:ok'
+    //   SUCCESS(errMsg)
+    // }, wx_success, wx_complete, wx_fail)
+    // return true
+
+    try {
       var errMsg = 'private_openUrl:ok';
-      SUCCESS(errMsg);
-    }, wx_success, wx_complete, wx_fail);
-    return true;
+      if (wx_success) {
+        wx_success(errMsg);
+      }
+      if (wx_complete) {
+        wx_complete(errMsg);
+      }
+    } catch (e) {
+      if (wx_fail) {
+        wx_fail(e);
+      }
+      if (wx_complete) {
+        wx_complete();
+      }
+    }
   };
 
   wx.getLaunchOptionsSync = function getLaunchOptionsSync(object) {
