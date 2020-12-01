@@ -100,6 +100,10 @@ export default class wx {
     return res
   }
 
+  static onUnhandledRejection() {
+    console.log('BaiDu is not support !')
+  }
+
   static offPageNotFound(object) {
     return swan.offPageNotFound(object)
   }
