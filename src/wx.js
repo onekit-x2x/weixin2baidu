@@ -55,11 +55,28 @@ export default class wx {
     const wx_success = wx_object.success
     const wx_fail = wx_object.fail
     const wx_complete = wx_object.complete
-    onekit.PROMISE((SUCCESS) => {
+    // onekit.PROMISE((SUCCESS) => {
+    //   const errMsg = 'private_openUrl:ok'
+    //   SUCCESS(errMsg)
+    // }, wx_success, wx_complete, wx_fail)
+    // return true
+
+    try {
       const errMsg = 'private_openUrl:ok'
-      SUCCESS(errMsg)
-    }, wx_success, wx_complete, wx_fail)
-    return true
+      if (wx_success) {
+        wx_success(errMsg)
+      }
+      if (wx_complete) {
+        wx_complete(errMsg)
+      }
+    } catch (e) {
+      if (wx_fail) {
+        wx_fail(e)
+      }
+      if (wx_complete) {
+        wx_complete()
+      }
+    }
   }
 
   static getLaunchOptionsSync(object) {
