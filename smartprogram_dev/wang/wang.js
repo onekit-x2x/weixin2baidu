@@ -4,7 +4,6 @@ global = {};
 OnekitPage({
   data: {},
   onLoad() {
-    const opt = wx.getLaunchOptionsSync()
-    console.log(opt)
+    console.log('ok')
   }
 });
