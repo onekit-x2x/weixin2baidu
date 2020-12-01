@@ -93,36 +93,83 @@ module.exports =
 
 
 exports.__esModule = true;
+/* eslint-disable no-unused-vars */
+/* eslint-disable camelcase */
+exports.default = {
+    methods: {
+        selectComponent: function selectComponent(selector) {},
+        selectAllComponents: function selectAllComponents(selctor) {},
+        setStyle: function setStyle(styleDict) {
+            var onekit_styles = '';
+            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+                var _ref;
 
-var _oneutil = __webpack_require__(1);
+                if (_isArray) {
+                    if (_i >= _iterator.length) break;
+                    _ref = _iterator[_i++];
+                } else {
+                    _i = _iterator.next();
+                    if (_i.done) break;
+                    _ref = _i.value;
+                }
+
+                var cssName = _ref;
+
+                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
+            }
+            this.setData({ onekit_styles: onekit_styles });
+        },
+        addClass: function addClass(className) {},
+        removeClass: function removeClass(className) {},
+        hasClass: function hasClass(className) {},
+        getDataset: function getDataset() {},
+        callMethod: function callMethod(funcName, args) {},
+        requestAnimationFrame: function requestAnimationFrame(callback) {},
+        getState: function getState() {},
+        getComputedStyle: function getComputedStyle(cssNames) {}
+    }
+};
+
+/***/ }),
+/* 1 */,
+/* 2 */,
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _oneutil = __webpack_require__(4);
 
 var _oneutil2 = _interopRequireDefault(_oneutil);
 
-var _CanvasContext = __webpack_require__(2);
+var _CanvasContext = __webpack_require__(5);
 
 var _CanvasContext2 = _interopRequireDefault(_CanvasContext);
 
-var _VideoContext = __webpack_require__(3);
+var _VideoContext = __webpack_require__(6);
 
 var _VideoContext2 = _interopRequireDefault(_VideoContext);
 
-var _CameraContext = __webpack_require__(4);
+var _CameraContext = __webpack_require__(7);
 
 var _CameraContext2 = _interopRequireDefault(_CameraContext);
 
-var _InnerAudioContext = __webpack_require__(5);
+var _InnerAudioContext = __webpack_require__(8);
 
 var _InnerAudioContext2 = _interopRequireDefault(_InnerAudioContext);
 
-var _LivePlayerContext = __webpack_require__(6);
+var _LivePlayerContext = __webpack_require__(9);
 
 var _LivePlayerContext2 = _interopRequireDefault(_LivePlayerContext);
 
-var _WORKER = __webpack_require__(7);
+var _WORKER = __webpack_require__(10);
 
 var _WORKER2 = _interopRequireDefault(_WORKER);
 
-var _base64Encode = __webpack_require__(8);
+var _base64Encode = __webpack_require__(11);
 
 var _base64Encode2 = _interopRequireDefault(_base64Encode);
 
@@ -1508,13 +1555,13 @@ var wx = function () {
 exports.default = wx;
 
 /***/ }),
-/* 1 */
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = require("oneutil");
 
 /***/ }),
-/* 2 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1667,7 +1714,7 @@ var CanvasContext = function () {
 exports.default = CanvasContext;
 
 /***/ }),
-/* 3 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1730,7 +1777,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 4 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1769,7 +1816,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 5 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1888,7 +1935,7 @@ var InnerAudioContext = function () {
 exports.default = InnerAudioContext;
 
 /***/ }),
-/* 6 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1939,7 +1986,7 @@ var LivePlayerContext = function () {
 exports.default = LivePlayerContext;
 
 /***/ }),
-/* 7 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1956,7 +2003,7 @@ var WORKER = function WORKER() {
 exports.default = WORKER;
 
 /***/ }),
-/* 8 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2001,53 +2048,6 @@ function base64Encode(str) {
 }
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
-exports.default = {
-    methods: {
-        selectComponent: function selectComponent(selector) {},
-        selectAllComponents: function selectAllComponents(selctor) {},
-        setStyle: function setStyle(styleDict) {
-            var onekit_styles = '';
-            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-                var _ref;
-
-                if (_isArray) {
-                    if (_i >= _iterator.length) break;
-                    _ref = _iterator[_i++];
-                } else {
-                    _i = _iterator.next();
-                    if (_i.done) break;
-                    _ref = _i.value;
-                }
-
-                var cssName = _ref;
-
-                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
-            }
-            this.setData({ onekit_styles: onekit_styles });
-        },
-        addClass: function addClass(className) {},
-        removeClass: function removeClass(className) {},
-        hasClass: function hasClass(className) {},
-        getDataset: function getDataset() {},
-        callMethod: function callMethod(funcName, args) {},
-        requestAnimationFrame: function requestAnimationFrame(callback) {},
-        getState: function getState() {},
-        getComputedStyle: function getComputedStyle(cssNames) {}
-    }
-};
-
-/***/ }),
-/* 10 */,
-/* 11 */,
 /* 12 */,
 /* 13 */,
 /* 14 */,
@@ -2095,7 +2095,7 @@ var OnekitComponent_1 = __webpack_require__(46);
 exports.OnekitComponent = OnekitComponent_1.default;
 var OnekitPage_1 = __webpack_require__(47);
 exports.OnekitPage = OnekitPage_1.default;
-var wx_1 = __webpack_require__(0);
+var wx_1 = __webpack_require__(3);
 exports.wx = wx_1.default;
 
 /***/ }),
@@ -2124,11 +2124,11 @@ function OnekitApp(wx_object) {
 exports.__esModule = true;
 exports.default = OnekitBehavior;
 
-var _oneutil = __webpack_require__(1);
+var _oneutil = __webpack_require__(4);
 
 var _oneutil2 = _interopRequireDefault(_oneutil);
 
-var _wx = __webpack_require__(0);
+var _wx = __webpack_require__(3);
 
 var _wx2 = _interopRequireDefault(_wx);
 
@@ -2250,15 +2250,15 @@ function OnekitBehavior(object) {
 exports.__esModule = true;
 exports.default = OnekitComponent;
 
-var _oneutil = __webpack_require__(1);
+var _oneutil = __webpack_require__(4);
 
 var _oneutil2 = _interopRequireDefault(_oneutil);
 
-var _wxs_behavior = __webpack_require__(9);
+var _wxs_behavior = __webpack_require__(0);
 
 var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
-var _wx = __webpack_require__(0);
+var _wx = __webpack_require__(3);
 
 var _wx2 = _interopRequireDefault(_wx);
 

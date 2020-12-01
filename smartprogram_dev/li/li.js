@@ -1,49 +1,45 @@
 import {OnekitPage,wx} from '../weixin2baidu/index';
 global = {};
-global = {};
-const order = [
-    'demo1',
-    'demo2',
-    'demo3'
-];
 OnekitPage({
-    onShareAppMessage:function(){
-        return {
-        title:'scroll-view',
-        path:'page/component/pages/scroll-view/scroll-view'
-    };
-    },
     data:{
-        toView:'green'
+        background:[
+            'demo-text-1',
+            'demo-text-2',
+            'demo-text-3'
+        ],
+        indicatorDots:true,
+        vertical:false,
+        autoplay:false,
+        circular:false,
+        interval:2000,
+        duration:500,
+        previousMargin:0,
+        nextMargin:0
     },
-    upper:function(e){
-        console.log(e);
+    changeProperty:function(e){
+        var propertyName = e.currentTarget.dataset.propertyName;
+        var newData = {};
+        newData[propertyName] = e.detail.value;
+        this.setData(newData);
     },
-    lower:function(e){
-        console.log(e);
-    },
-    scroll:function(e){
-        console.log(e);
-    },
-    scrollToTop:function(){
-        this.setAction({
-        scrollTop:0
+    changeIndicatorDots:function(e){
+        this.setData({
+        indicatorDots:!this.data.indicatorDots
     });
     },
-    tap:function(){
-        for(var i = 0;(i < order.length);++i){
-        if((order[i] === this.data.toView)){
-            this.setData({
-                toView:order[(i + 1)],
-                scrollTop:(((i + 1)) * 200)
-            });
-            break;
-        }
-    };
-    },
-    tapMove:function(){
+    changeAutoplay:function(e){
         this.setData({
-        scrollTop:(this.data.scrollTop + 10)
+        autoplay:!this.data.autoplay
+    });
+    },
+    intervalChange:function(e){
+        this.setData({
+        interval:e.detail.value
+    });
+    },
+    durationChange:function(e){
+        this.setData({
+        duration:e.detail.value
     });
     }
 });

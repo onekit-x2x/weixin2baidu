@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 26);
+/******/ 	return __webpack_require__(__webpack_require__.s = 28);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -93,36 +93,172 @@ module.exports =
 
 
 exports.__esModule = true;
+/* eslint-disable no-unused-vars */
+/* eslint-disable camelcase */
+exports.default = {
+    methods: {
+        selectComponent: function selectComponent(selector) {},
+        selectAllComponents: function selectAllComponents(selctor) {},
+        setStyle: function setStyle(styleDict) {
+            var onekit_styles = '';
+            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+                var _ref;
 
-var _oneutil = __webpack_require__(1);
+                if (_isArray) {
+                    if (_i >= _iterator.length) break;
+                    _ref = _iterator[_i++];
+                } else {
+                    _i = _iterator.next();
+                    if (_i.done) break;
+                    _ref = _i.value;
+                }
+
+                var cssName = _ref;
+
+                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
+            }
+            this.setData({ onekit_styles: onekit_styles });
+        },
+        addClass: function addClass(className) {},
+        removeClass: function removeClass(className) {},
+        hasClass: function hasClass(className) {},
+        getDataset: function getDataset() {},
+        callMethod: function callMethod(funcName, args) {},
+        requestAnimationFrame: function requestAnimationFrame(callback) {},
+        getState: function getState() {},
+        getComputedStyle: function getComputedStyle(cssNames) {}
+    }
+};
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = {
+  props: {
+    onekitClass: '',
+    onekitStyle: '',
+    onekitId: ''
+  }
+};
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+module.exports = {
+  props: {},
+  methods: {
+    ui_tap: function ui_tap() {
+      if (this.props.ontap) {
+        this.props.ontap();
+      }
+    },
+    ui_touchstart: function ui_touchstart() {
+      if (this.props.ontouchstart) {
+        this.props.ontouchstart();
+      }
+    },
+    ui_touchmove: function ui_touchmove() {
+      if (this.props.ontouchmove) {
+        this.props.ontouchmove();
+      }
+    },
+    ui_touchcancel: function ui_touchcancel() {
+      if (this.props.ontouchcancel) {
+        this.props.ontouchcancel();
+      }
+    },
+    ui_touchend: function ui_touchend() {
+      if (this.props.ontouchend) {
+        this.props.ontouchend();
+      }
+    },
+    ui_longpress: function ui_longpress() {
+      if (this.props.onlongpress) {
+        this.props.onlongpress();
+      }
+    },
+    ui_longtap: function ui_longtap() {
+      if (this.props.onlongtap) {
+        this.props.onlongtap();
+      }
+    },
+    ui_transitionend: function ui_transitionend() {
+      if (this.props.ontransitionend) {
+        this.props.ontransitionend();
+      }
+    },
+    ui_animationstart: function ui_animationstart() {
+      if (this.props.onanimationstart) {
+        this.props.onanimationstart();
+      }
+    },
+    ui_animationiteration: function ui_animationiteration() {
+      if (this.props.onanimationiteration) {
+        this.props.onanimationiteration();
+      }
+    },
+    ui_animationend: function ui_animationend() {
+      if (this.props.onanimationend) {
+        this.props.onanimationend();
+      }
+    },
+    ui_touchforcechange: function ui_touchforcechange() {
+      if (this.props.ontouchforcechange) {
+        this.props.ontouchforcechange();
+      }
+    }
+  }
+};
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _oneutil = __webpack_require__(4);
 
 var _oneutil2 = _interopRequireDefault(_oneutil);
 
-var _CanvasContext = __webpack_require__(2);
+var _CanvasContext = __webpack_require__(5);
 
 var _CanvasContext2 = _interopRequireDefault(_CanvasContext);
 
-var _VideoContext = __webpack_require__(3);
+var _VideoContext = __webpack_require__(6);
 
 var _VideoContext2 = _interopRequireDefault(_VideoContext);
 
-var _CameraContext = __webpack_require__(4);
+var _CameraContext = __webpack_require__(7);
 
 var _CameraContext2 = _interopRequireDefault(_CameraContext);
 
-var _InnerAudioContext = __webpack_require__(5);
+var _InnerAudioContext = __webpack_require__(8);
 
 var _InnerAudioContext2 = _interopRequireDefault(_InnerAudioContext);
 
-var _LivePlayerContext = __webpack_require__(6);
+var _LivePlayerContext = __webpack_require__(9);
 
 var _LivePlayerContext2 = _interopRequireDefault(_LivePlayerContext);
 
-var _WORKER = __webpack_require__(7);
+var _WORKER = __webpack_require__(10);
 
 var _WORKER2 = _interopRequireDefault(_WORKER);
 
-var _base64Encode = __webpack_require__(8);
+var _base64Encode = __webpack_require__(11);
 
 var _base64Encode2 = _interopRequireDefault(_base64Encode);
 
@@ -1508,13 +1644,13 @@ var wx = function () {
 exports.default = wx;
 
 /***/ }),
-/* 1 */
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = require("oneutil");
 
 /***/ }),
-/* 2 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1667,7 +1803,7 @@ var CanvasContext = function () {
 exports.default = CanvasContext;
 
 /***/ }),
-/* 3 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1730,7 +1866,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 4 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1769,7 +1905,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 5 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1888,7 +2024,7 @@ var InnerAudioContext = function () {
 exports.default = InnerAudioContext;
 
 /***/ }),
-/* 6 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1939,7 +2075,7 @@ var LivePlayerContext = function () {
 exports.default = LivePlayerContext;
 
 /***/ }),
-/* 7 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1956,7 +2092,7 @@ var WORKER = function WORKER() {
 exports.default = WORKER;
 
 /***/ }),
-/* 8 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2001,9 +2137,6 @@ function base64Encode(str) {
 }
 
 /***/ }),
-/* 9 */,
-/* 10 */,
-/* 11 */,
 /* 12 */,
 /* 13 */,
 /* 14 */,
@@ -2018,20 +2151,37 @@ function base64Encode(str) {
 /* 23 */,
 /* 24 */,
 /* 25 */,
-/* 26 */
+/* 26 */,
+/* 27 */,
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _wx = __webpack_require__(0);
+var _wx = __webpack_require__(3);
 
 var _wx2 = _interopRequireDefault(_wx);
+
+var _onekit_behavior = __webpack_require__(1);
+
+var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
+
+var _wxs_behavior = __webpack_require__(0);
+
+var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
+
+var _weixin_behavior = __webpack_require__(2);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 Component({
-  mixins: [],
+  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
+  options: {
+    addGlobalClass: true
+  },
   data: {},
   props: {},
 
@@ -2072,6 +2222,9 @@ Component({
 
   methods: {}
 });
+
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
 
 /***/ })
 /******/ ]);

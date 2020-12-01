@@ -82,144 +82,58 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 31);
+/******/ 	return __webpack_require__(__webpack_require__.s = 33);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 31:
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _onekit_behavior = __webpack_require__(32);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _wxs_behavior = __webpack_require__(9);
-
-var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
-
-var _weixin_behavior = __webpack_require__(33);
-
-var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-Component({
-  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
-  options: {
-    addGlobalClass: true
-  },
-  properties: {
-    percent: {
-      type: Number,
-      value: ''
-    },
-    showInfo: {
-      type: Boolean,
-      value: false
-    },
-    borderRadius: {
-      type: Number || String,
-      value: '0'
-    },
-    fontSize: {
-      type: Number || String,
-      value: '16'
-    },
-    strokeWidth: {
-      type: Number || String,
-      value: '6'
-    },
-    color: {
-      type: String,
-      value: ''
-    },
-    activeColor: {
-      type: String,
-      value: '#09BB07'
-    },
-    backgroundColor: {
-      type: String,
-      value: '#EBEBEB'
-    },
-    active: {
-      type: Boolean,
-      value: false
-    },
-    activeMode: {
-      type: String,
-      value: '#backwards'
-    },
-    duration: {
-      type: Number,
-      value: 30
-    }
-  },
-  attached: function attached() {
-    var _this = this;
-
-    var activeColor = void 0;
-    var timestamp = this.properties.duration * this.properties.percent;
-    //
-    if (this.properties.color) {
-      activeColor = this.properties.color;
-    } else if (this.properties.activeColor) {
-      activeColor = this.properties.activeColor;
-    } else {
-      activeColor = '09BB07';
-    }
-
-    // swan.createSelectorQuery().select('.onekit-progress').boundingClientRect(rect => {
-    if (this.properties.active) {
-      // const activeend = {
-      //   currentTarget: {
-      //     dataset: {},
-      //     id: '',
-      //     offsetLeft: rect.left,
-      //     offsetTop: rect.right,
-      //   },
-      //   detail: {
-      //     curPercent: this.properties.percent
-      //   },
-      //   mark: {},
-      //   mut: false,
-      //   target: {
-      //     dataset: {},
-      //     id: '',
-      //     offsetLeft: rect.left,
-      //     offsetTop: rect.right,
-      //   },
-      //   timeStamp: timestamp,
-      //   type: 'activeend',
-      //   _userTap: false
-      // }
-      // if (activeend) {
-      setTimeout(function () {
-        _this.trigger_activeend({
-          name: 'wangyewei',
-          detail: null
-        });
-      }, timestamp);
-      // }
-    }
-    // }).exec()
-    this.setData({ activeColor: activeColor });
-  },
-
-  methods: {
-    trigger_activeend: function trigger_activeend(wx_objcet) {
-      this.triggerEvent('activeend', wx_objcet, { bubbles: false, capturePhase: false });
-    }
-  }
-}); /* eslint-disable no-console */
+exports.__esModule = true;
+/* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
+exports.default = {
+    methods: {
+        selectComponent: function selectComponent(selector) {},
+        selectAllComponents: function selectAllComponents(selctor) {},
+        setStyle: function setStyle(styleDict) {
+            var onekit_styles = '';
+            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+                var _ref;
+
+                if (_isArray) {
+                    if (_i >= _iterator.length) break;
+                    _ref = _iterator[_i++];
+                } else {
+                    _i = _iterator.next();
+                    if (_i.done) break;
+                    _ref = _i.value;
+                }
+
+                var cssName = _ref;
+
+                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
+            }
+            this.setData({ onekit_styles: onekit_styles });
+        },
+        addClass: function addClass(className) {},
+        removeClass: function removeClass(className) {},
+        hasClass: function hasClass(className) {},
+        getDataset: function getDataset() {},
+        callMethod: function callMethod(funcName, args) {},
+        requestAnimationFrame: function requestAnimationFrame(callback) {},
+        getState: function getState() {},
+        getComputedStyle: function getComputedStyle(cssNames) {}
+    }
+};
 
 /***/ }),
 
-/***/ 32:
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -236,7 +150,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 33:
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -312,49 +226,130 @@ module.exports = {
 
 /***/ }),
 
-/***/ 9:
+/***/ 33:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.__esModule = true;
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
-exports.default = {
-    methods: {
-        selectComponent: function selectComponent(selector) {},
-        selectAllComponents: function selectAllComponents(selctor) {},
-        setStyle: function setStyle(styleDict) {
-            var onekit_styles = '';
-            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-                var _ref;
+var _onekit_behavior = __webpack_require__(1);
 
-                if (_isArray) {
-                    if (_i >= _iterator.length) break;
-                    _ref = _iterator[_i++];
-                } else {
-                    _i = _iterator.next();
-                    if (_i.done) break;
-                    _ref = _i.value;
-                }
+var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
 
-                var cssName = _ref;
+var _wxs_behavior = __webpack_require__(0);
 
-                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
-            }
-            this.setData({ onekit_styles: onekit_styles });
-        },
-        addClass: function addClass(className) {},
-        removeClass: function removeClass(className) {},
-        hasClass: function hasClass(className) {},
-        getDataset: function getDataset() {},
-        callMethod: function callMethod(funcName, args) {},
-        requestAnimationFrame: function requestAnimationFrame(callback) {},
-        getState: function getState() {},
-        getComputedStyle: function getComputedStyle(cssNames) {}
+var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
+
+var _weixin_behavior = __webpack_require__(2);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+Component({
+  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
+  options: {
+    addGlobalClass: true
+  },
+  properties: {
+    percent: {
+      type: Number,
+      value: ''
+    },
+    showInfo: {
+      type: Boolean,
+      value: false
+    },
+    borderRadius: {
+      type: Number || String,
+      value: '0'
+    },
+    fontSize: {
+      type: Number || String,
+      value: '16'
+    },
+    strokeWidth: {
+      type: Number || String,
+      value: '6'
+    },
+    color: {
+      type: String,
+      value: ''
+    },
+    activeColor: {
+      type: String,
+      value: '#09BB07'
+    },
+    backgroundColor: {
+      type: String,
+      value: '#EBEBEB'
+    },
+    active: {
+      type: Boolean,
+      value: false
+    },
+    activeMode: {
+      type: String,
+      value: '#backwards'
+    },
+    duration: {
+      type: Number,
+      value: 30
     }
-};
+  },
+  attached: function attached() {
+    var activeColor = void 0;
+    // const timestamp = this.properties.duration * this.properties.percent
+    //
+    if (this.properties.color) {
+      activeColor = this.properties.color;
+    } else if (this.properties.activeColor) {
+      activeColor = this.properties.activeColor;
+    } else {
+      activeColor = '09BB07';
+    }
+
+    // swan.createSelectorQuery().select('.onekit-progress').boundingClientRect(rect => {
+    //   if (this.properties.active) {
+    //     const activeend = {
+    //       currentTarget: {
+    //         dataset: {},
+    //         id: '',
+    //         offsetLeft: rect.left,
+    //         offsetTop: rect.right,
+    //       },
+    //       detail: {
+    //         curPercent: this.properties.percent
+    //       },
+    //       mark: {},
+    //       mut: false,
+    //       target: {
+    //         dataset: {},
+    //         id: '',
+    //         offsetLeft: rect.left,
+    //         offsetTop: rect.right,
+    //       },
+    //       timeStamp: timestamp,
+    //       type: 'activeend',
+    //       _userTap: false
+    //     }
+    //     if (activeend) {
+    //       setTimeout(() => {
+    //         this.trigger_activeend('activeend', activeend)
+    //       }, timestamp)
+    //     }
+    //   }
+    // }).exec()
+    this.setData({ activeColor: activeColor });
+  },
+
+  methods: {
+    trigger_activeend: function trigger_activeend(e) {
+      this.triggerEvent('activeend', e);
+    }
+  }
+}); /* eslint-disable no-console */
+/* eslint-disable camelcase */
 
 /***/ })
 
