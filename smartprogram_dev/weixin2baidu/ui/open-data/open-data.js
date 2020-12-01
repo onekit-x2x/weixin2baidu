@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 25);
+/******/ 	return __webpack_require__(__webpack_require__.s = 26);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -175,8 +175,8 @@ var wx = function () {
     return swan.getSystemInfoSync();
   };
 
-  wx.getUpdateManager = function getUpdateManager(object) {
-    return swan.getUpdateManager(object);
+  wx.getUpdateManager = function getUpdateManager() {
+    return swan.getUpdateManager();
   };
 
   wx.updateWeChatApp = function updateWeChatApp(wx_object) {
@@ -207,8 +207,15 @@ var wx = function () {
     }
   };
 
-  wx.getLaunchOptionsSync = function getLaunchOptionsSync(object) {
-    return swan.getLaunchOptionsSync(object);
+  wx.getLaunchOptionsSync = function getLaunchOptionsSync() {
+    var res = {
+      path: 'index/index',
+      query: {},
+      referrerInfo: {},
+      scence: 1001,
+      shareTicket: ''
+    };
+    return res;
   };
 
   wx.offPageNotFound = function offPageNotFound(object) {
@@ -2010,7 +2017,8 @@ function base64Encode(str) {
 /* 22 */,
 /* 23 */,
 /* 24 */,
-/* 25 */
+/* 25 */,
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

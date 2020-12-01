@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 40);
+/******/ 	return __webpack_require__(__webpack_require__.s = 43);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -175,8 +175,8 @@ var wx = function () {
     return swan.getSystemInfoSync();
   };
 
-  wx.getUpdateManager = function getUpdateManager(object) {
-    return swan.getUpdateManager(object);
+  wx.getUpdateManager = function getUpdateManager() {
+    return swan.getUpdateManager();
   };
 
   wx.updateWeChatApp = function updateWeChatApp(wx_object) {
@@ -207,8 +207,15 @@ var wx = function () {
     }
   };
 
-  wx.getLaunchOptionsSync = function getLaunchOptionsSync(object) {
-    return swan.getLaunchOptionsSync(object);
+  wx.getLaunchOptionsSync = function getLaunchOptionsSync() {
+    var res = {
+      path: 'index/index',
+      query: {},
+      referrerInfo: {},
+      scence: 1001,
+      shareTicket: ''
+    };
+    return res;
   };
 
   wx.offPageNotFound = function offPageNotFound(object) {
@@ -1994,7 +2001,51 @@ function base64Encode(str) {
 }
 
 /***/ }),
-/* 9 */,
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+/* eslint-disable no-unused-vars */
+/* eslint-disable camelcase */
+exports.default = {
+    methods: {
+        selectComponent: function selectComponent(selector) {},
+        selectAllComponents: function selectAllComponents(selctor) {},
+        setStyle: function setStyle(styleDict) {
+            var onekit_styles = '';
+            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+                var _ref;
+
+                if (_isArray) {
+                    if (_i >= _iterator.length) break;
+                    _ref = _iterator[_i++];
+                } else {
+                    _i = _iterator.next();
+                    if (_i.done) break;
+                    _ref = _i.value;
+                }
+
+                var cssName = _ref;
+
+                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
+            }
+            this.setData({ onekit_styles: onekit_styles });
+        },
+        addClass: function addClass(className) {},
+        removeClass: function removeClass(className) {},
+        hasClass: function hasClass(className) {},
+        getDataset: function getDataset() {},
+        callMethod: function callMethod(funcName, args) {},
+        requestAnimationFrame: function requestAnimationFrame(callback) {},
+        getState: function getState() {},
+        getComputedStyle: function getComputedStyle(cssNames) {}
+    }
+};
+
+/***/ }),
 /* 10 */,
 /* 11 */,
 /* 12 */,
@@ -2025,7 +2076,10 @@ function base64Encode(str) {
 /* 37 */,
 /* 38 */,
 /* 39 */,
-/* 40 */
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2033,19 +2087,19 @@ function base64Encode(str) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.wx = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
-var OnekitApp_1 = __webpack_require__(41);
+var OnekitApp_1 = __webpack_require__(44);
 exports.OnekitApp = OnekitApp_1.default;
-var OnekitBehavior_1 = __webpack_require__(42);
+var OnekitBehavior_1 = __webpack_require__(45);
 exports.OnekitBehavior = OnekitBehavior_1.default;
-var OnekitComponent_1 = __webpack_require__(43);
+var OnekitComponent_1 = __webpack_require__(46);
 exports.OnekitComponent = OnekitComponent_1.default;
-var OnekitPage_1 = __webpack_require__(45);
+var OnekitPage_1 = __webpack_require__(47);
 exports.OnekitPage = OnekitPage_1.default;
 var wx_1 = __webpack_require__(0);
 exports.wx = wx_1.default;
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2061,7 +2115,7 @@ function OnekitApp(wx_object) {
 }
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2187,7 +2241,7 @@ function OnekitBehavior(object) {
 }
 
 /***/ }),
-/* 43 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2200,7 +2254,7 @@ var _oneutil = __webpack_require__(1);
 
 var _oneutil2 = _interopRequireDefault(_oneutil);
 
-var _wxs_behavior = __webpack_require__(44);
+var _wxs_behavior = __webpack_require__(9);
 
 var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
@@ -2387,52 +2441,7 @@ function OnekitComponent(object) {
 } /* eslint-disable camelcase */
 
 /***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
-exports.default = {
-    methods: {
-        selectComponent: function selectComponent(selector) {},
-        selectAllComponents: function selectAllComponents(selctor) {},
-        setStyle: function setStyle(styleDict) {
-            var onekit_styles = '';
-            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-                var _ref;
-
-                if (_isArray) {
-                    if (_i >= _iterator.length) break;
-                    _ref = _iterator[_i++];
-                } else {
-                    _i = _iterator.next();
-                    if (_i.done) break;
-                    _ref = _i.value;
-                }
-
-                var cssName = _ref;
-
-                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
-            }
-            this.setData({ onekit_styles: onekit_styles });
-        },
-        addClass: function addClass(className) {},
-        removeClass: function removeClass(className) {},
-        hasClass: function hasClass(className) {},
-        getDataset: function getDataset() {},
-        callMethod: function callMethod(funcName, args) {},
-        requestAnimationFrame: function requestAnimationFrame(callback) {},
-        getState: function getState() {},
-        getComputedStyle: function getComputedStyle(cssNames) {}
-    }
-};
-
-/***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

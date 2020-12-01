@@ -47,8 +47,8 @@ export default class wx {
     return swan.getSystemInfoSync()
   }
 
-  static getUpdateManager(object) {
-    return swan.getUpdateManager(object)
+  static getUpdateManager() {
+    return swan.getUpdateManager()
   }
 
   static updateWeChatApp(wx_object) {
@@ -79,8 +79,15 @@ export default class wx {
     }
   }
 
-  static getLaunchOptionsSync(object) {
-    return swan.getLaunchOptionsSync(object)
+  static getLaunchOptionsSync() {
+    const res = {
+      path: 'index/index',
+      query: {},
+      referrerInfo: {},
+      scence: 1001,
+      shareTicket: ''
+    }
+    return res
   }
 
   static offPageNotFound(object) {
