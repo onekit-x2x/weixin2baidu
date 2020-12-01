@@ -1,13 +1,49 @@
 import {OnekitPage,wx} from '../weixin2baidu/index';
 global = {};
-const app = getApp();
+global = {};
+const order = [
+    'demo1',
+    'demo2',
+    'demo3'
+];
 OnekitPage({
-    data:{},
-    activeend(e){
-        console.log(e)
+    onShareAppMessage:function(){
+        return {
+        title:'scroll-view',
+        path:'page/component/pages/scroll-view/scroll-view'
+    };
     },
-    onLoad:function(){
-        console.log('代码片段是一种迷你、可分享的小程序或小游戏项目，可用于分享小程序和小游戏的开发经验、展示组件和 API 的使用、复现开发问题和 Bug 等。可点击以下链接查看代码片段的详细文档：');
-        console.log('https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html');
+    data:{
+        toView:'green'
+    },
+    upper:function(e){
+        console.log(e);
+    },
+    lower:function(e){
+        console.log(e);
+    },
+    scroll:function(e){
+        console.log(e);
+    },
+    scrollToTop:function(){
+        this.setAction({
+        scrollTop:0
+    });
+    },
+    tap:function(){
+        for(var i = 0;(i < order.length);++i){
+        if((order[i] === this.data.toView)){
+            this.setData({
+                toView:order[(i + 1)],
+                scrollTop:(((i + 1)) * 200)
+            });
+            break;
+        }
+    };
+    },
+    tapMove:function(){
+        this.setData({
+        scrollTop:(this.data.scrollTop + 10)
+    });
     }
 });

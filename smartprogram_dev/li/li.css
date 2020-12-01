@@ -1,1 +1,14 @@
-.onekit-progress {margin: 10px;}
+.flex-wrp{
+    margin-top: 1.6rem;
+    display:flex;
+  }
+  .flex-item{
+    width: 5.333333333333333rem;
+    height: 8rem;
+    font-size: 0.6933333333333334rem;
+  }
+  .flex-item-V{
+    margin: 0 auto;
+    width: 8rem;
+    height: 5.333333333333333rem;
+  }

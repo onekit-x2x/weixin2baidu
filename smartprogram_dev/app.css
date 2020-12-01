@@ -1,12 +1,12 @@
 @import url('./weixin2baidu/onekit.css');
 
-demo-text-1{
+.demo-text-1{
     position: relative;
     align-items: center;
     justify-content: center;
     background-color: #1AAD19;
     color: #FFFFFF;
-    font-size: 36rpx;
+    font-size: 0.96rem;
   }
   .demo-text-1:before{
     content: 'A';
@@ -21,7 +21,7 @@ demo-text-1{
     justify-content: center;
     background-color: #2782D7;
     color: #FFFFFF;
-    font-size: 36rpx;
+    font-size: 0.96rem;
   }
   .demo-text-2:before{
     content: 'B';
@@ -36,7 +36,7 @@ demo-text-1{
     justify-content: center;
     background-color: #F1F1F1;
     color: #353535;
-    font-size: 36rpx;
+    font-size: 0.96rem;
   }
   .demo-text-3:before{
     content: 'C';
