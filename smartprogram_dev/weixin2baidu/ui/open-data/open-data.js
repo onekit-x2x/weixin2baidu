@@ -175,8 +175,8 @@ var wx = function () {
     return swan.getSystemInfoSync();
   };
 
-  wx.getUpdateManager = function getUpdateManager(object) {
-    return swan.getUpdateManager(object);
+  wx.getUpdateManager = function getUpdateManager() {
+    return swan.getUpdateManager();
   };
 
   wx.updateWeChatApp = function updateWeChatApp(wx_object) {
@@ -207,8 +207,15 @@ var wx = function () {
     }
   };
 
-  wx.getLaunchOptionsSync = function getLaunchOptionsSync(object) {
-    return swan.getLaunchOptionsSync(object);
+  wx.getLaunchOptionsSync = function getLaunchOptionsSync() {
+    var res = {
+      path: 'index/index',
+      query: {},
+      referrerInfo: {},
+      scence: 1001,
+      shareTicket: ''
+    };
+    return res;
   };
 
   wx.offPageNotFound = function offPageNotFound(object) {
