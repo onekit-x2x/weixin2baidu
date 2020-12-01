@@ -113,9 +113,6 @@ Component({
     addGlobalClass: true
   },
   properties: {
-    // onekitId: {type: String, value: ''},
-    // onekitClass: {type: String, value: ''},
-    // onekitStyle: {type: String, value: ''},
     percent: {
       type: Number,
       value: ''
@@ -123,6 +120,22 @@ Component({
     showInfo: {
       type: Boolean,
       value: false
+    },
+    borderRadius: {
+      type: Number || String,
+      value: '0'
+    },
+    fontSize: {
+      type: Number || String,
+      value: '16'
+    },
+    strokeWidth: {
+      type: Number || String,
+      value: '6'
+    },
+    color: {
+      type: String,
+      value: ''
     },
     activeColor: {
       type: String,
@@ -136,33 +149,73 @@ Component({
       type: Boolean,
       value: false
     },
-    borderRadius: {
-      type: String,
-      value: '0'
-    },
-    fontSize: {
-      type: Number,
-      value: 16
-    },
-    strokeWidth: {
-      type: Number,
-      value: 6
-    },
-    color: {
-      type: String,
-      value: '#09BB07'
-    },
     activeMode: {
       type: String,
-      value: '#09BB07'
+      value: '#backwards'
     },
     duration: {
-      type: String,
-      value: '#EBEBEB'
+      type: Number,
+      value: 30
+    }
+  },
+  attached: function attached() {
+    var _this = this;
+
+    var activeColor = void 0;
+    var timestamp = this.properties.duration * this.properties.percent;
+    //
+    if (this.properties.color) {
+      activeColor = this.properties.color;
+    } else if (this.properties.activeColor) {
+      activeColor = this.properties.activeColor;
+    } else {
+      activeColor = '09BB07';
     }
 
+    // swan.createSelectorQuery().select('.onekit-progress').boundingClientRect(rect => {
+    if (this.properties.active) {
+      // const activeend = {
+      //   currentTarget: {
+      //     dataset: {},
+      //     id: '',
+      //     offsetLeft: rect.left,
+      //     offsetTop: rect.right,
+      //   },
+      //   detail: {
+      //     curPercent: this.properties.percent
+      //   },
+      //   mark: {},
+      //   mut: false,
+      //   target: {
+      //     dataset: {},
+      //     id: '',
+      //     offsetLeft: rect.left,
+      //     offsetTop: rect.right,
+      //   },
+      //   timeStamp: timestamp,
+      //   type: 'activeend',
+      //   _userTap: false
+      // }
+      // if (activeend) {
+      setTimeout(function () {
+        _this.trigger_activeend({
+          name: 'wangyewei',
+          detail: null
+        });
+      }, timestamp);
+      // }
+    }
+    // }).exec()
+    this.setData({ activeColor: activeColor });
+  },
+
+  methods: {
+    trigger_activeend: function trigger_activeend(wx_objcet) {
+      this.triggerEvent('activeend', wx_objcet, { bubbles: false, capturePhase: false });
+    }
   }
-}); /* eslint-disable camelcase */
+}); /* eslint-disable no-console */
+/* eslint-disable camelcase */
 
 /***/ }),
 

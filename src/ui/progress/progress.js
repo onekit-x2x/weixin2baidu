@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
@@ -9,9 +10,6 @@ Component({
     addGlobalClass: true,
   },
   properties: {
-    // onekitId: {type: String, value: ''},
-    // onekitClass: {type: String, value: ''},
-    // onekitStyle: {type: String, value: ''},
     percent: {
       type: Number,
       value: '',
@@ -19,6 +17,22 @@ Component({
     showInfo: {
       type: Boolean,
       value: false,
+    },
+    borderRadius: {
+      type: Number || String,
+      value: '0',
+    },
+    fontSize: {
+      type: Number || String,
+      value: '16',
+    },
+    strokeWidth: {
+      type: Number || String,
+      value: '6',
+    },
+    color: {
+      type: String,
+      value: '',
     },
     activeColor: {
       type: String,
@@ -32,30 +46,63 @@ Component({
       type: Boolean,
       value: false,
     },
-    borderRadius: {
-      type: String,
-      value: '0',
-    },
-    fontSize: {
-      type: Number,
-      value: 16,
-    },
-    strokeWidth: {
-      type: Number,
-      value: 6,
-    },
-    color: {
-      type: String,
-      value: '#09BB07',
-    },
     activeMode: {
       type: String,
-      value: '#09BB07',
+      value: '#backwards',
     },
     duration: {
-      type: String,
-      value: '#EBEBEB',
+      type: Number,
+      value: 30,
     },
-
   },
+  attached() {
+    let activeColor
+    // const timestamp = this.properties.duration * this.properties.percent
+    //
+    if (this.properties.color) {
+      activeColor = this.properties.color
+    } else if (this.properties.activeColor) {
+      activeColor = this.properties.activeColor
+    } else {
+      activeColor = '09BB07'
+    }
+
+    // swan.createSelectorQuery().select('.onekit-progress').boundingClientRect(rect => {
+    //   if (this.properties.active) {
+    //     const activeend = {
+    //       currentTarget: {
+    //         dataset: {},
+    //         id: '',
+    //         offsetLeft: rect.left,
+    //         offsetTop: rect.right,
+    //       },
+    //       detail: {
+    //         curPercent: this.properties.percent
+    //       },
+    //       mark: {},
+    //       mut: false,
+    //       target: {
+    //         dataset: {},
+    //         id: '',
+    //         offsetLeft: rect.left,
+    //         offsetTop: rect.right,
+    //       },
+    //       timeStamp: timestamp,
+    //       type: 'activeend',
+    //       _userTap: false
+    //     }
+    //     if (activeend) {
+    //       setTimeout(() => {
+    //         this.trigger_activeend('activeend', activeend)
+    //       }, timestamp)
+    //     }
+    //   }
+    // }).exec()
+    this.setData({activeColor})
+  },
+  methods: {
+    trigger_activeend(e) {
+      this.triggerEvent('activeend', e)
+    }
+  }
 })
