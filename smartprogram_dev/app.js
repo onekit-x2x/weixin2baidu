@@ -1,9 +1,6 @@
-/**
- * @file app.js
- * @author swan
- */
+import {OnekitApp} from './weixin2baidu/index';
 
-App({
+OnekitApp({
   onLaunch() {
     // do something when launch
   },

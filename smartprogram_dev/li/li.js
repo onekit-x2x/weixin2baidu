@@ -1,29 +1,10 @@
-Page({
-    data: {
-
-    },
-    onLoad: function () {
-        // 监听页面加载的生命周期函数
-    },
-    onReady: function() {
-        // 监听页面初次渲染完成的生命周期函数
-    },
-    onShow: function() {
-        // 监听页面显示的生命周期函数
-    },
-    onHide: function() {
-        // 监听页面隐藏的生命周期函数
-    },
-    onUnload: function() {
-        // 监听页面卸载的生命周期函数
-    },
-    onPullDownRefresh: function() {
-        // 监听用户下拉动作
-    },
-    onReachBottom: function() {
-        // 页面上拉触底事件的处理函数
-    },
-    onShareAppMessage: function () {
-        // 用户点击右上角转发
+import {OnekitPage,wx} from '../weixin2baidu/index';
+global = {};
+const app = getApp();
+OnekitPage({
+    data:{},
+    onLoad:function(){
+        console.log('代码片段是一种迷你、可分享的小程序或小游戏项目，可用于分享小程序和小游戏的开发经验、展示组件和 API 的使用、复现开发问题和 Bug 等。可点击以下链接查看代码片段的详细文档：');
+        console.log('https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html');
     }
 });
