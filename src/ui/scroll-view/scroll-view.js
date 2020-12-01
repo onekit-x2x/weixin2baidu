@@ -15,14 +15,11 @@ Component({
     addGlobalClass: true,
   },
   properties: {
-    onekitId: {type: String, value: ''},
-    onekitClass: {type: String, value: ''},
-    onekitStyle: {type: String, value: ''},
-    scrollY: {
+    scrollX: {
       type: Boolean,
       value: false,
     },
-    scrollX: {
+    scrollY: {
       type: Boolean,
       value: false,
     },
@@ -34,16 +31,16 @@ Component({
       type: Number,
       value: 50,
     },
-    scrollIntoView: {
-      type: String,
-      value: '',
-    },
     scrollTop: {
       type: Number,
       value: '',
     },
     scrollLeft: {
       type: Number,
+      value: '',
+    },
+    scrollIntoView: {
+      type: String,
       value: '',
     },
     scrollWithAnimation: {
@@ -53,6 +50,14 @@ Component({
     enableBackToTop: {
       type: Boolean,
       value: false,
+    },
+    enableFlex: {
+      type: Boolean,
+      value: false
+    },
+    scrollAnchoring: {
+      type: Boolean,
+      value: false
     },
     refresherEnabled: {
       type: Boolean,
@@ -69,8 +74,31 @@ Component({
     refresherBackground: {
       type: String,
       value: '#fff'
-    }
-
+    },
+    refresherTriggered: {
+      type: Boolean,
+      value: false,
+    },
+    enhanced: {
+      type: Boolean,
+      value: false,
+    },
+    bounces: {
+      type: Boolean,
+      value: true,
+    },
+    showScrollbar: {
+      type: Boolean,
+      value: true,
+    },
+    pagingEnabled: {
+      type: Boolean,
+      value: false,
+    },
+    fastDeceleration: {
+      type: Boolean,
+      value: false,
+    },
   },
   data: {
     refresher_height: 0

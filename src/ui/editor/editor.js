@@ -13,9 +13,6 @@ Component({
   },
   data: {},
   properties: {
-    onekitId: {type: String, value: ''},
-    onekitClass: {type: String, value: ''},
-    onekitStyle: {type: String, value: ''},
     readOnly: false,
     placeholder: '',
     showImgSize: false,
