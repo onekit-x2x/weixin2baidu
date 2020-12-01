@@ -82,25 +82,37 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 30);
+/******/ 	return __webpack_require__(__webpack_require__.s = 31);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 30:
+/***/ 31:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+var _onekit_behavior = __webpack_require__(32);
+
+var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
+
+var _wxs_behavior = __webpack_require__(9);
+
+var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
+
+var _weixin_behavior = __webpack_require__(33);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 Component({
+  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
   options: {
     addGlobalClass: true
   },
   properties: {
-    onekitId: { type: String, value: '' },
-    onekitClass: { type: String, value: '' },
-    onekitStyle: { type: String, value: '' },
     percent: {
       type: Number,
       value: ''
@@ -108,6 +120,22 @@ Component({
     showInfo: {
       type: Boolean,
       value: false
+    },
+    borderRadius: {
+      type: Number || String,
+      value: '0'
+    },
+    fontSize: {
+      type: Number || String,
+      value: '16'
+    },
+    strokeWidth: {
+      type: Number || String,
+      value: '6'
+    },
+    color: {
+      type: String,
+      value: ''
     },
     activeColor: {
       type: String,
@@ -121,33 +149,212 @@ Component({
       type: Boolean,
       value: false
     },
-    borderRadius: {
-      type: String,
-      value: '0'
-    },
-    fontSize: {
-      type: Number,
-      value: 16
-    },
-    strokeWidth: {
-      type: Number,
-      value: 6
-    },
-    color: {
-      type: String,
-      value: '#09BB07'
-    },
     activeMode: {
       type: String,
-      value: '#09BB07'
+      value: '#backwards'
     },
     duration: {
-      type: String,
-      value: '#EBEBEB'
+      type: Number,
+      value: 30
+    }
+  },
+  attached: function attached() {
+    var _this = this;
+
+    var activeColor = void 0;
+    var timestamp = this.properties.duration * this.properties.percent;
+    //
+    if (this.properties.color) {
+      activeColor = this.properties.color;
+    } else if (this.properties.activeColor) {
+      activeColor = this.properties.activeColor;
+    } else {
+      activeColor = '09BB07';
     }
 
+    // swan.createSelectorQuery().select('.onekit-progress').boundingClientRect(rect => {
+    if (this.properties.active) {
+      // const activeend = {
+      //   currentTarget: {
+      //     dataset: {},
+      //     id: '',
+      //     offsetLeft: rect.left,
+      //     offsetTop: rect.right,
+      //   },
+      //   detail: {
+      //     curPercent: this.properties.percent
+      //   },
+      //   mark: {},
+      //   mut: false,
+      //   target: {
+      //     dataset: {},
+      //     id: '',
+      //     offsetLeft: rect.left,
+      //     offsetTop: rect.right,
+      //   },
+      //   timeStamp: timestamp,
+      //   type: 'activeend',
+      //   _userTap: false
+      // }
+      // if (activeend) {
+      setTimeout(function () {
+        _this.trigger_activeend({
+          name: 'wangyewei',
+          detail: null
+        });
+      }, timestamp);
+      // }
+    }
+    // }).exec()
+    this.setData({ activeColor: activeColor });
+  },
+
+  methods: {
+    trigger_activeend: function trigger_activeend(wx_objcet) {
+      this.triggerEvent('activeend', wx_objcet, { bubbles: false, capturePhase: false });
+    }
   }
-});
+}); /* eslint-disable no-console */
+/* eslint-disable camelcase */
+
+/***/ }),
+
+/***/ 32:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = {
+  props: {
+    onekitClass: '',
+    onekitStyle: '',
+    onekitId: ''
+  }
+};
+
+/***/ }),
+
+/***/ 33:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+module.exports = {
+  props: {},
+  methods: {
+    ui_tap: function ui_tap() {
+      if (this.props.ontap) {
+        this.props.ontap();
+      }
+    },
+    ui_touchstart: function ui_touchstart() {
+      if (this.props.ontouchstart) {
+        this.props.ontouchstart();
+      }
+    },
+    ui_touchmove: function ui_touchmove() {
+      if (this.props.ontouchmove) {
+        this.props.ontouchmove();
+      }
+    },
+    ui_touchcancel: function ui_touchcancel() {
+      if (this.props.ontouchcancel) {
+        this.props.ontouchcancel();
+      }
+    },
+    ui_touchend: function ui_touchend() {
+      if (this.props.ontouchend) {
+        this.props.ontouchend();
+      }
+    },
+    ui_longpress: function ui_longpress() {
+      if (this.props.onlongpress) {
+        this.props.onlongpress();
+      }
+    },
+    ui_longtap: function ui_longtap() {
+      if (this.props.onlongtap) {
+        this.props.onlongtap();
+      }
+    },
+    ui_transitionend: function ui_transitionend() {
+      if (this.props.ontransitionend) {
+        this.props.ontransitionend();
+      }
+    },
+    ui_animationstart: function ui_animationstart() {
+      if (this.props.onanimationstart) {
+        this.props.onanimationstart();
+      }
+    },
+    ui_animationiteration: function ui_animationiteration() {
+      if (this.props.onanimationiteration) {
+        this.props.onanimationiteration();
+      }
+    },
+    ui_animationend: function ui_animationend() {
+      if (this.props.onanimationend) {
+        this.props.onanimationend();
+      }
+    },
+    ui_touchforcechange: function ui_touchforcechange() {
+      if (this.props.ontouchforcechange) {
+        this.props.ontouchforcechange();
+      }
+    }
+  }
+};
+
+/***/ }),
+
+/***/ 9:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+/* eslint-disable no-unused-vars */
+/* eslint-disable camelcase */
+exports.default = {
+    methods: {
+        selectComponent: function selectComponent(selector) {},
+        selectAllComponents: function selectAllComponents(selctor) {},
+        setStyle: function setStyle(styleDict) {
+            var onekit_styles = '';
+            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+                var _ref;
+
+                if (_isArray) {
+                    if (_i >= _iterator.length) break;
+                    _ref = _iterator[_i++];
+                } else {
+                    _i = _iterator.next();
+                    if (_i.done) break;
+                    _ref = _i.value;
+                }
+
+                var cssName = _ref;
+
+                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
+            }
+            this.setData({ onekit_styles: onekit_styles });
+        },
+        addClass: function addClass(className) {},
+        removeClass: function removeClass(className) {},
+        hasClass: function hasClass(className) {},
+        getDataset: function getDataset() {},
+        callMethod: function callMethod(funcName, args) {},
+        requestAnimationFrame: function requestAnimationFrame(callback) {},
+        getState: function getState() {},
+        getComputedStyle: function getComputedStyle(cssNames) {}
+    }
+};
 
 /***/ })
 
