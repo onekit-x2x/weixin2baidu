@@ -51,6 +51,7 @@ Component({
       type: Boolean,
       value: false,
     },
+    //
     enableFlex: {
       type: Boolean,
       value: false

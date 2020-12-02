@@ -93,7 +93,7 @@ Component({
     //     }
     //     if (activeend) {
     //       setTimeout(() => {
-    //         this.trigger_activeend('activeend', activeend)
+    //         this.trigger_Activeend('activeend', activeend)
     //       }, timestamp)
     //     }
     //   }
@@ -101,8 +101,9 @@ Component({
     this.setData({activeColor})
   },
   methods: {
-    trigger_activeend(e) {
-      this.triggerEvent('activeend', e)
+    trigger_Activeend(e) {
+      console.log('trigger_Activeend', e)
+      this.triggerEvent('Activeend', e.details)
     }
   }
 })

@@ -73,25 +73,25 @@
         <onekit-view onekit-class="weui-cell weui-cell_switch">
           <onekit-view onekit-class="weui-cell__bd">指示点</onekit-view>
           <onekit-view onekit-class="weui-cell__ft">
-            <onekit-switch checked="{{indicatorDots}}" bindChange="changeProperty" data-property-name="indicatorDots"></onekit-switch>
+            <switch checked="{{indicatorDots}}" bindChange="changeProperty" data-property-name="indicatorDots"></switch>
           </onekit-view>
         </onekit-view>
         <onekit-view onekit-class="weui-cell weui-cell_switch">
           <onekit-view onekit-class="weui-cell__bd">自动播放</onekit-view>
           <onekit-view onekit-class="weui-cell__ft">
-            <onekit-switch checked="{{autoplay}}" bindChange="changeProperty" data-property-name="autoplay"></onekit-switch>
+            <switch checked="{{autoplay}}" bindChange="changeProperty" data-property-name="autoplay"></switch>
           </onekit-view>
         </onekit-view>
         <onekit-view onekit-class="weui-cell weui-cell_switch">
           <onekit-view onekit-class="weui-cell__bd">衔接滑动</onekit-view>
           <onekit-view onekit-class="weui-cell__ft">
-            <onekit-switch checked="{{circular}}" bindChange="changeProperty" data-property-name="circular"></onekit-switch>
+            <switch checked="{{circular}}" bindChange="changeProperty" data-property-name="circular"></switch>
           </onekit-view>
         </onekit-view>
         <onekit-view onekit-class="weui-cell weui-cell_switch">
           <onekit-view onekit-class="weui-cell__bd">竖向</onekit-view>
           <onekit-view onekit-class="weui-cell__ft">
-            <onekit-switch checked="{{vertical}}" bindChange="changeProperty" data-property-name="vertical"></onekit-switch>
+            <switch checked="{{vertical}}" bindChange="changeProperty" data-property-name="vertical"></switch>
           </onekit-view>
         </onekit-view>
       </onekit-view>
@@ -102,22 +102,22 @@
         <onekit-text>幻灯片切换时长(ms)</onekit-text>
         <onekit-text onekit-class="info">{{duration}}</onekit-text>
       </onekit-view>
-      <onekit-slider value="{{duration}}" min="500" max="2000" bindChange="changeProperty" data-property-name="duration"></onekit-slider>
+      <slider value="{{duration}}" min="500" max="2000" bindChange="changeProperty" data-property-name="duration"></slider>
       <onekit-view onekit-class="page-section-title">
         <onekit-text>自动播放间隔时长(ms)</onekit-text>
         <onekit-text onekit-class="info">{{interval}}</onekit-text>
       </onekit-view>
-      <onekit-slider value="{{interval}}" min="2000" max="10000" bindChange="changeProperty" data-property-name="interval"></onekit-slider>
+      <slider value="{{interval}}" min="2000" max="10000" bindChange="changeProperty" data-property-name="interval"></slider>
       <onekit-view onekit-class="page-section-title">
         <onekit-text>前边距(px)</onekit-text>
         <onekit-text onekit-class="info">{{previousMargin}}</onekit-text>
       </onekit-view>
-      <onekit-slider value="{{previousMargin}}" min="0" max="50" bindChange="changeProperty" data-property-name="previousMargin"></onekit-slider>
+      <slider value="{{previousMargin}}" min="0" max="50" bindChange="changeProperty" data-property-name="previousMargin"></slider>
       <onekit-view onekit-class="page-section-title">
         <onekit-text>后边距(px)</onekit-text>
         <onekit-text onekit-class="info">{{nextMargin}}</onekit-text>
       </onekit-view>
-      <onekit-slider value="{{nextMargin}}" min="0" max="50" bindChange="changeProperty" data-property-name="nextMargin"></onekit-slider>
+      <slider value="{{nextMargin}}" min="0" max="50" bindChange="changeProperty" data-property-name="nextMargin"></slider>
     </onekit-view>
   </onekit-view>
 </onekit-view>

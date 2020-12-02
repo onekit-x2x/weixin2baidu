@@ -11,6 +11,16 @@ Component({
   },
   data: {},
   properties: {
+    itemId: {
+      type: String,
+      value: ''
+    },
+
+    //
+    skipHiddenItemLayout: {
+      type: Boolean,
+      value: false
+    }
   },
   didMount() {},
   didUpdate() {},

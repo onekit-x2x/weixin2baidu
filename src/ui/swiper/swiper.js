@@ -1,6 +1,4 @@
 /* eslint-disable no-console */
-
-/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
@@ -18,11 +16,11 @@ Component({
     },
     indicatorColor: {
       type: String,
-      value: '',
+      value: 'rgba(0, 0, 0, .3)',
     },
     indicatorActiveColor: {
       type: String,
-      value: '',
+      value: '#000000',
     },
     autoplay: {
       type: Boolean,
@@ -56,11 +54,21 @@ Component({
       type: String,
       value: '0px',
     },
+    //
+    snapToEdge: {
+      type: Boolean,
+      value: false,
+    },
     multipleItems: {
       type: Number,
       value: 1,
     },
 
+    //
+    easingFunction: {
+      type: String,
+      value: 'default',
+    },
   },
   methods: {
     swiper_Change(e) {
@@ -71,5 +79,10 @@ Component({
       console.log('swiper_AnimationEnd', e)
       this.triggerEvent('AnimationEnd', e.details)
     },
+
+    trigger_Transition(e) {
+      console.log('trigger_Transition', e)
+      this.triggerEvent('Transition', e.details)
+    }
   }
 })
