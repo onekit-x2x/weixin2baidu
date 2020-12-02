@@ -104,20 +104,31 @@ export default class wx {
     console.log('BaiDu is not support !')
   }
 
-  static offPageNotFound(object) {
-    return swan.offPageNotFound(object)
+  static onThemeChange() {
+    const res = {
+      theme: 'light' || 'dark'
+    }
+    return res
   }
 
-  static onPageNotFound(object) {
-    return swan.onPageNotFound(object)
+  static onPageNotFound() {
+    return swan.onPageNotFound()
+  }
+
+  static onError() {
+    return swan.onError()
   }
 
   static offError(object) {
     return swan.offError(object)
   }
 
-  static onError(object) {
-    return swan.onError(object)
+  static offPageNotFound(object) {
+    return swan.offPageNotFound(object)
+  }
+
+  static onAudioInterruptionEnd(callback) {
+    callback()
   }
 
   static offAppShow(object) {
