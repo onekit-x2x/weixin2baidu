@@ -9,7 +9,6 @@ import CameraContext from './api/CameraContext'
 import InnerAudioContext from './api/InnerAudioContext'
 import LivePlayerContext from './api/LivePlayerContext'
 import WORKER from './api/WORKER'
-import base64Encode from './tools/base64Encode'
 // import wx_cloud from './wx.cloud'
 
 export default class wx {
@@ -23,19 +22,15 @@ export default class wx {
     return swan.canIUse(schema)
   }
 
-  static base64ToArrayBuffer(base64String) {
-    base64String = base64String.replace(/\s/g, '+')
-    const commonContent = Buffer.from(base64String, 'base64')
+  static base64ToArrayBuffer(base64) {
+    base64 = base64.replace(/\s/g, '+')
+    const commonContent = Buffer.from(base64, 'base64')
     return commonContent
   }
 
   static arrayBufferToBase64(arrayBuffer) {
-    let binary = ''
-    const len = arrayBuffer.byteLength
-    for (let i = 0; i < len; i++) {
-      binary += String.fromCharCode(arrayBuffer[i])
-    }
-    return base64Encode(binary)
+    const base64Content = Buffer.from(arrayBuffer).toString('base64')
+    return base64Content
   }
 
   static getSystemInfo(object) {
