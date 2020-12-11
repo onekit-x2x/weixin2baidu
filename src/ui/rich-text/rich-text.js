@@ -14,33 +14,39 @@ Component({
       type: Array || String,
       value: '',
     },
+    // 做不了
     space: {
       type: String,
       value: '',
     },
-    value: {
-      type: String,
-      value: '',
-      observer(newVal) {
-        const value = this.properties.space ? this._space(newVal) : newVal
-        this.setData({value})
-      }
-    }
   },
   attached() {
-
+    const space = this.properties.space
+    let nodes = this.properties.nodes
+    if (!space) {
+      nodes = null
+    }
+    switch (space) {
+      case 'ensp':
+        nodes = ' '
+        break
+      case 'emsp':
+        nodes = '  '
+        break
+      case 'nbsp':
+        nodes = '  '
+        break
+      default:
+        break
+    }
+    console.log(nodes)
+    this.setData({
+      nodes
+    })
   },
 
   detached() {},
 
   methods: {
-    _space() {
-      let space = this.properties.space
-      if (!space) return ''
-      space = space.replace(/&ensp;/g, ' ')
-      space = space.replace(/&emsp;/g, '  ')
-      space = space.replace(/&nbsp;/g, ' ')
-      return space
-    }
   }
 })

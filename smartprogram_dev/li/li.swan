@@ -134,35 +134,13 @@
     <view class="page-section">
       <view class="page-section-title">通过HTML String渲染</view>
       <view class="page-content">
-        <onekit-scroll-view scroll-y>{{htmlSnip}}</onekit-scroll-view>
-        <onekit-button style="margin: 30rpx 0" type="primary" bindTap="renderHtml">渲染HTML</onekit-button>
-        <block s-if="renderedByHtml">
-          <onekit-rich-text nodes="{{htmlSnip}}"></onekit-rich-text>
-        </block>
-      </view>
-    </view>
-    <view class="page-section">
-      <view class="page-section-title">通过节点渲染</view>
-      <view class="page-content">
-        <onekit-scroll-view scroll-y>{{nodeSnip}}</onekit-scroll-view>
-        <button style="margin: 30rpx 0" type="primary" bindTap="renderNode">渲染Node</onekit-button>
-        <block s-if="renderedByNode">
-          <onekit-rich-text nodes="{{nodes}}"></onekit-rich-text>
-        </block>
-      </view>
-    </view>
-  </view>
-</view> -->
-
-<view class="container">
-  <view class="page-body">
-    <view class="page-section">
-      <view class="page-section-title">通过HTML String渲染</view>
-      <view class="page-content">
         <scroll-view scroll-y>{{htmlSnip}}</scroll-view>
         <button style="margin: 30rpx 0" type="primary" bindtap="renderHtml">渲染HTML</button>
         <block wx:if="{{renderedByHtml}}">
-          <rich-text nodes="{{htmlSnip}}"></rich-text>
+          <onekit-rich-text nodes="{{htmlSnip}}"></onekit-rich-text>
+          <onekit-rich-text nodes="{{htmlSnip}}" space="emsp"></onekit-rich-text>
+          <onekit-rich-text nodes="{{htmlSnip}}" space="ensp"></onekit-rich-text>
+          <onekit-rich-text nodes="{{htmlSnip}}" space="nbsp"></onekit-rich-text>
         </block>
       </view>
     </view>
@@ -173,10 +151,32 @@
         <scroll-view scroll-y>{{nodeSnip}}</scroll-view>
         <button style="margin: 30rpx 0" type="primary" bindtap="renderNode">渲染Node</button>
         <block wx:if="{{renderedByNode}}">
-          <rich-text nodes="{{nodes}}"></rich-text>
+          <onekit-rich-text nodes="{{nodes}}"></onekit-rich-text>
         </block>
       </view>
     </view>
   </view>
+</view> -->
 
-</view>
+<!-- <text> -->
+<!-- <view class="container">
+  <view class="page-body">
+    <view class="page-section page-section-spacing">
+      <view class="text-box" scroll-y="true" scroll-top="{{scrollTop}}">
+        <onekit-text>{{text}}</onekit-text>
+      </view>
+      <button disabled="{{!canAdd}}" bindtap="add">add line</button>
+      <button disabled="{{!canRemove}}" bindtap="remove">remove line</button>
+    </view>
+  </view>
+</view> -->
+<!-- <onekit-text decode>&nbsp;</onekit-text>
+<onekit-text decode>&lt;</onekit-text>
+<onekit-text decode>&gt;</onekit-text>
+<onekit-text decode>&amp;</onekit-text>
+<onekit-text decode>&apos;</onekit-text>
+<onekit-text decode>&ensp;</onekit-text>
+<onekit-text decode>&emsp;</onekit-text> -->
+
+<onekit-text>hhhh</onekit-text>
+<onekit-text user-select>hhhh</onekit-text>

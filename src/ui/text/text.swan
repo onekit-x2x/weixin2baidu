@@ -1,11 +1,11 @@
 <text
-id="{{onekitId}}"
 class="onekit-text {{onekitClass}}"
 style="{{onekitStyle}}"
-selectable="{{selectable}}"
-space="{{space}}"
+id="{{onekitId}}"
 
+space="{{space}}"
+selectable="{{selectable}}"
 >
-<slot>
-</slot>
+{{value}}
+<slot/>
 </text>

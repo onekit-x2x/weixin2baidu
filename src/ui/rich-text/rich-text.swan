@@ -4,6 +4,6 @@
   style="{{onekitStyle}}" 
   nodes="{{nodes}}"
 >
-  {{value}}
+  rich-text 不翻译
   <slot></slot>
 </rich-text>
