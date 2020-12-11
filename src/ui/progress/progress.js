@@ -12,7 +12,7 @@ Component({
   properties: {
     percent: {
       type: Number,
-      value: '',
+      value: null,
     },
     showInfo: {
       type: Boolean,

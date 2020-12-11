@@ -5,6 +5,7 @@
         "onekit-swiper":"../weixin2baidu/ui/swiper/swiper",
         "onekit-swiper-item":"../weixin2baidu/ui/swiper-item/swiper-item",
         "onekit-progress":"../weixin2baidu/ui/progress/progress",
-        "onekit-text":"../weixin2baidu/ui/text/text"
+        "onekit-text":"../weixin2baidu/ui/text/text",
+        "onekit-button":"../weixin2baidu/ui/button/button"
     }
 }

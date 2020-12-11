@@ -1,45 +1,142 @@
 import {OnekitPage,wx} from '../weixin2baidu/index';
-global = {};
-OnekitPage({
-    data:{
-        background:[
-            'demo-text-1',
-            'demo-text-2',
-            'demo-text-3'
-        ],
-        indicatorDots:true,
-        vertical:false,
-        autoplay:false,
-        circular:false,
-        interval:2000,
-        duration:500,
-        previousMargin:0,
-        nextMargin:0
-    },
-    changeProperty:function(e){
-        var propertyName = e.currentTarget.dataset.propertyName;
-        var newData = {};
-        newData[propertyName] = e.detail.value;
-        this.setData(newData);
-    },
-    changeIndicatorDots:function(e){
-        this.setData({
-        indicatorDots:!this.data.indicatorDots
-    });
-    },
-    changeAutoplay:function(e){
-        this.setData({
-        autoplay:!this.data.autoplay
-    });
-    },
-    intervalChange:function(e){
-        this.setData({
-        interval:e.detail.value
-    });
-    },
-    durationChange:function(e){
-        this.setData({
-        duration:e.detail.value
-    });
+// global = {};
+// const htmlSnip = `<div class="div_class">
+//   <h1>Title</h1>
+//   <p class="p">
+//     Life is&nbsp;<i>like</i>&nbsp;a box of
+//     <b>&nbsp;chocolates</b>.
+//   </p>
+// </div>
+// `;
+// const nodeSnip = `Page({
+//   data: {
+//     nodes: [{
+//       name: 'div',
+//       attrs: {
+//         class: 'div_class',
+//         style: 'line-height: 60px; color: red;'
+//       },
+//       children: [{
+//         type: 'text',
+//         text: 'You never know what you're gonna get.'
+//       }]
+//     }]
+//   }
+// })
+// `;
+// OnekitPage({
+//     onShareAppMessage:function(){
+//         return {
+//         title:'rich-text',
+//         path:'page/component/pages/rich-text/rich-text'
+//     };
+//     },
+//     data:{
+//         htmlSnip:htmlSnip,
+//         nodeSnip:nodeSnip,
+//         renderedByHtml:false,
+//         renderedByNode:false,
+//         nodes:[
+//             {
+//                 name:'div',
+//                 attrs:{
+//                     class:'div_class',
+//                     style:'line-height: 60px; color: #1AAD19;'
+//                 },
+//                 children:[
+//                     {
+//                         type:'text',
+//                         text:'You never know what you\'re gonna get.'
+//                     }
+//                 ]
+//             }
+//         ]
+//     },
+//     renderHtml:function(){
+//         this.setData({
+//         renderedByHtml:true
+//     });
+//     },
+//     renderNode:function(){
+//         this.setData({
+//         renderedByNode:true
+//     });
+//     },
+//     enterCode:function(e){
+//         console.log(e.detail.value);
+//         this.setData({
+//         htmlSnip:e.detail.value
+//     });
+//     }
+// });
+
+const htmlSnip =
+`<div class="div_class">
+  <h1>Title</h1>
+  <p class="p">
+    Life is&nbsp;<i>like</i>&nbsp;a box of
+    <b>&nbsp;chocolates</b>.
+  </p>
+</div>
+`
+
+const nodeSnip =
+`Page({
+  data: {
+    nodes: [{
+      name: 'div',
+      attrs: {
+        class: 'div_class',
+        style: 'line-height: 60px; color: red;'
+      },
+      children: [{
+        type: 'text',
+        text: 'You never know what you're gonna get.'
+      }]
+    }]
+  }
+})
+`
+
+Page({
+  onShareAppMessage() {
+    return {
+      title: 'rich-text',
+      path: 'page/component/pages/rich-text/rich-text'
     }
-});
+  },
+
+  data: {
+    htmlSnip,
+    nodeSnip,
+    renderedByHtml: false,
+    renderedByNode: false,
+    nodes: [{
+      name: 'div',
+      attrs: {
+        class: 'div_class',
+        style: 'line-height: 60px; color: #1AAD19;'
+      },
+      children: [{
+        type: 'text',
+        text: 'You never know what you\'re gonna get.'
+      }]
+    }]
+  },
+  renderHtml() {
+    this.setData({
+      renderedByHtml: true
+    })
+  },
+  renderNode() {
+    this.setData({
+      renderedByNode: true
+    })
+  },
+  enterCode(e) {
+    console.log(e.detail.value)
+    this.setData({
+      htmlSnip: e.detail.value
+    })
+  }
+})

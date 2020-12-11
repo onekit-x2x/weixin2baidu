@@ -11,23 +11,36 @@ Component({
   },
   properties: {
     nodes: {
+      type: Array || String,
+      value: '',
+    },
+    space: {
       type: String,
       value: '',
+    },
+    value: {
+      type: String,
+      value: '',
+      observer(newVal) {
+        const value = this.properties.space ? this._space(newVal) : newVal
+        this.setData({value})
+      }
     }
   },
+  attached() {
 
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached() {},
+  },
 
   detached() {},
 
   methods: {
-    onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      })
+    _space() {
+      let space = this.properties.space
+      if (!space) return ''
+      space = space.replace(/&ensp;/g, ' ')
+      space = space.replace(/&emsp;/g, '  ')
+      space = space.replace(/&nbsp;/g, ' ')
+      return space
     }
   }
 })

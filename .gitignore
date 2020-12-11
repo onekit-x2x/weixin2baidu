@@ -650,3 +650,12 @@ smartprogram_dev/weixin2baidu/ui/swiper/swiper.js
 smartprogram_dev/weixin2baidu/ui/swiper/swiper.json
 smartprogram_dev/weixin2baidu/ui/swiper/swiper.swan
 smartprogram_dev/weixin2baidu/ui/switch/switch.css
+smartprogram_dev/app.json
+smartprogram_dev/li/li.css
+smartprogram_dev/li/li.js
+smartprogram_dev/li/li.json
+smartprogram_dev/li/li.swan
+smartprogram_dev/package.json
+smartprogram_dev/project.swan.json
+smartprogram_dev/weixin2baidu/ui/rich-text/rich-text.swan
+smartprogram_dev/weixin2baidu/ui/view/view.swan

@@ -3,6 +3,5 @@ id="{{onekitId}}"
 class="onekit-view {{onekitClass}}"
 style="{{onekitStyle}}"
 >
-<slot>
-</slot>
+view 不翻译，百度小程序没有去壳
 </view>
