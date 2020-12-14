@@ -183,7 +183,7 @@
 <!-- <button> -->
 <view class="page-body">
   <view class="btn-area" id="buttonContainer">
-    <onekit-button type="primary">页面主操作 Normal</onekit-button>
+    <onekit-button onekit-version="2" type="primary">页面主操作 Normal</onekit-button>
     <onekit-button type="primary" loading="true">页面主操作 Loading</onekit-button>
     <onekit-button type="primary" disabled="true">页面主操作 Disabled</onekit-button>
 
