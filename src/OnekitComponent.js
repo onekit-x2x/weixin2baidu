@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import thekit from 'oneutil'
+import {STRING} from 'oneutil'
 import wxs_behavior from './behavior/wxs_behavior'
 import wx from './wx'
 
@@ -68,7 +68,7 @@ export default function OnekitComponent(object) {
   if (object) {
     if (!object.methods) { object.methods = {} }
     object.methods.triggerEvent = function (name, data) {
-      const funcName = `on${thekit.firstUpper(name)}`
+      const funcName = `on${STRING.firstUpper(name)}`
       if (this.props[funcName]) {
         this.props[funcName](data)
       }

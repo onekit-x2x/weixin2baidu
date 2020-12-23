@@ -1,0 +1,11 @@
+<swiper>
+ <swiper-item 
+    id="{{onekitId}}"
+    class="onekit-swiper-item {{onekitClass}}"
+    style="{{onekitStyle}}"
+    
+    item-id="{{itemId}}"
+>
+<slot></slot>
+</swiper-item>
+</swiper>

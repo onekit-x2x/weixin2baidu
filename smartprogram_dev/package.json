@@ -1,5 +1,5 @@
 {
 	"dependencies": {
-		"oneutil": "1.4.3"
+		"oneutil": "^2.1.3"
 	}
 }
