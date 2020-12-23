@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import {STRING} from 'oneutil'
+import STRING from 'oneutil/STRING'
 import wxs_behavior from './behavior/wxs_behavior'
 import wx from './wx'
 

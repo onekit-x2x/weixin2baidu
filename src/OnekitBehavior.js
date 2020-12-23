@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import {STRING} from 'oneutil'
+import STRING from 'oneutil/STRING'
 import wx from './wx'
 
 export default function OnekitBehavior(object) {

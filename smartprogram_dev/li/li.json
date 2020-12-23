@@ -1,12 +1,12 @@
 {
     "usingComponents":{
-        "onekit-view":"../weixin2baidu/ui/view/view",
-        "onekit-scroll-view":"../weixin2baidu/ui/scroll-view/scroll-view",
-        "onekit-swiper":"../weixin2baidu/ui/swiper/swiper",
-        "onekit-swiper-item":"../weixin2baidu/ui/swiper-item/swiper-item",
-        "onekit-progress":"../weixin2baidu/ui/progress/progress",
-        "onekit-text":"../weixin2baidu/ui/text/text",
-        "onekit-rich-text":"../weixin2baidu/ui/rich-text/rich-text",
-        "onekit-button":"../weixin2baidu/ui/button/button"
+        "onekit-view":"../weixin2baidu/ui/view/view/index",
+        "onekit-scroll-view":"../weixin2baidu/ui/scroll-view/scroll-view/index",
+        "onekit-swiper":"../weixin2baidu/ui/swiper/swiper/index",
+        "onekit-swiper-item":"../weixin2baidu/ui/swiper-item/swiper-item/index",
+        "onekit-progress":"../weixin2baidu/ui/progress/progress/index",
+        "onekit-text":"../weixin2baidu/ui/text/text/index",
+        "onekit-rich-text":"../weixin2baidu/ui/rich-text/rich-text/index",
+        "onekit-button":"../weixin2baidu/ui/button/button/index"
     }
 }
