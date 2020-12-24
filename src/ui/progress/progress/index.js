@@ -68,7 +68,7 @@ Component({
       activeColor = '09BB07'
     }
 
-    if (curPercent) {
+    if (this.properties.active) {
       setTimeout(() => {
         this.trigger_Activeend(parseInt(curPercent, 10))
       }, timestamp)

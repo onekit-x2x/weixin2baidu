@@ -1,7 +1,7 @@
 <rich-text 
-  id="{{onekitId}}" 
   class="onekit-rich-text {{onekitClass}}" 
-  style="{{onekitStyle}}" 
+  style="{{onekitStyle}}"
+  id="{{onekitId}}" 
   nodes="{{nodes}}"
 >
   rich-text 不翻译
