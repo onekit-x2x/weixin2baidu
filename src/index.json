@@ -29,7 +29,6 @@
     "text":"./ui/text/text/index",
     "textarea":"./ui/textarea/textarea/index",
     "video":"./ui/video/video/index",
-    "view":"./ui/view/view/index",
     "voip-room":"./ui/voip-room/voip-room/index",
     "web-view":"./ui/web-view/web-view/index"
   }

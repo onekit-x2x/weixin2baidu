@@ -57,7 +57,8 @@ Component({
   },
   attached() {
     let activeColor
-    // const timestamp = this.properties.duration * this.properties.percent
+    const curPercent = this.properties.percent
+    const timestamp = this.properties.duration * this.properties.percent
     //
     if (this.properties.color) {
       activeColor = this.properties.color
@@ -67,43 +68,16 @@ Component({
       activeColor = '09BB07'
     }
 
-    // swan.createSelectorQuery().select('.onekit-progress').boundingClientRect(rect => {
-    //   if (this.properties.active) {
-    //     const activeend = {
-    //       currentTarget: {
-    //         dataset: {},
-    //         id: '',
-    //         offsetLeft: rect.left,
-    //         offsetTop: rect.right,
-    //       },
-    //       detail: {
-    //         curPercent: this.properties.percent
-    //       },
-    //       mark: {},
-    //       mut: false,
-    //       target: {
-    //         dataset: {},
-    //         id: '',
-    //         offsetLeft: rect.left,
-    //         offsetTop: rect.right,
-    //       },
-    //       timeStamp: timestamp,
-    //       type: 'activeend',
-    //       _userTap: false
-    //     }
-    //     if (activeend) {
-    //       setTimeout(() => {
-    //         this.trigger_Activeend('activeend', activeend)
-    //       }, timestamp)
-    //     }
-    //   }
-    // }).exec()
+    if (curPercent) {
+      setTimeout(() => {
+        this.trigger_Activeend(parseInt(curPercent, 10))
+      }, timestamp)
+    }
     this.setData({activeColor})
   },
   methods: {
-    trigger_Activeend(e) {
-      console.log('trigger_Activeend', e)
-      this.triggerEvent('Activeend', e.details)
+    trigger_Activeend(curPercent) {
+      this.triggerEvent('activeend', {curPercent})
     }
   }
 })

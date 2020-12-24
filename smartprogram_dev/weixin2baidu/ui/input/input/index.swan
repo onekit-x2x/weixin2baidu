@@ -1,3 +1,6 @@
-<view class="container">
-    <!--to do-->
-</view>
+<input 
+class="onekit-input {{onekitClass}}"
+style="{{onekitStyle}}"
+id="{{onekitId}}"
+
+></input>

@@ -123,10 +123,10 @@
 </view> -->
 
 <!-- <progress> -->
-<!-- <onekit-progress percent="20" show-info></onekit-progress>
+<onekit-progress percent="20" show-info></onekit-progress>
 <onekit-progress percent="40" stroke-width="12"></onekit-progress>
 <onekit-progress percent="60" color="pink"></onekit-progress>
-<onekit-progress percent="80" active bindactiveend="activeend"></onekit-progress> -->
+<onekit-progress percent="80" active bindactiveend="activeend"></onekit-progress>
 
 <!-- <rich-text> -->
 <!-- <view class="container">
@@ -181,7 +181,7 @@
 <onekit-text user-select>hhhh</onekit-text> -->
 
 <!-- <button> -->
-<view class="page-body">
+<!-- <view class="page-body">
   <view class="btn-area" id="buttonContainer">
     <onekit-button onekit-version="2" type="primary">页面主操作 Normal</onekit-button>
     <onekit-button type="primary" loading="true">页面主操作 Loading</onekit-button>
@@ -205,4 +205,4 @@
       <onekit-button class="mini-btn" type="warn" size="mini">按钮</onekit-button>
     </view>
   </view>
-</view>
+</view> -->

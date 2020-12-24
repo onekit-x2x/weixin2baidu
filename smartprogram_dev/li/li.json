@@ -1,6 +1,5 @@
 {
     "usingComponents":{
-        "onekit-view":"../weixin2baidu/ui/view/view/index",
         "onekit-scroll-view":"../weixin2baidu/ui/scroll-view/scroll-view/index",
         "onekit-swiper":"../weixin2baidu/ui/swiper/swiper/index",
         "onekit-swiper-item":"../weixin2baidu/ui/swiper-item/swiper-item/index",

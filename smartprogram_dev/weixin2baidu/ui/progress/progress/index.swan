@@ -1,7 +1,7 @@
 <progress 
-id="{{onekitId}}"
 class="onekit-progress {{onekitClass}}" 
 style="{{onekitStyle}}"
+id="{{onekitId}}"
 
 percent="{{percent}}"
 show-info="{{showInfo}}"
@@ -15,6 +15,5 @@ active="{{active}}"
 active-mode="{{activeMode}}"
 duration="{{duration}}"
 >
-<slot>
-</slot>
+<slot></slot>
 </progress>
