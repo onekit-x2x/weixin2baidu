@@ -83,22 +83,22 @@ Component({
   attached() {},
   methods: {
     button_getuserinfo(e) {
-      this.triggerEvent('getuserinfo', e)
+      this.triggerEvent('getuserinfo', e.detail)
     },
     button_contact(e) {
-      this.triggerEvent('contact', e)
+      this.triggerEvent('contact', e.detail)
     },
     button_getphonenumber(e) {
-      this.triggerEvent('getphonenumber', e)
+      this.triggerEvent('getphonenumber', e.detail)
     },
     trigger_error(e) { // 做不了
-      this.triggerEvent('error', e)
+      this.triggerEvent('error', e.detail)
     },
     button_opensetting(e) {
-      this.triggerEvent('opensetting', e)
+      this.triggerEvent('opensetting', e.detail)
     },
     trigger_launchapp(e) {
-      this.triggerEvent('launchapp', e)
+      this.triggerEvent('launchapp', e.detail)
     }
   }
 })

@@ -288,7 +288,7 @@ Component({
   },
   methods: {
     livePlayer_statechangge: function livePlayer_statechangge(e) {
-      console.log('livePlayer_statechangge', e);
+      console.log('livePlayer_statechangge', e.detail);
       this.triggerEvent('statechangge', e.details);
     }
   }

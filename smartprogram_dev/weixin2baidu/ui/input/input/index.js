@@ -176,27 +176,107 @@ Component({
     addGlobalClass: true
   },
   properties: {
-    // propName: { // 属性名
-    //   type: String, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
-    //   value: 'val', // 属性初始值（必填）
-    //   observer(newVal, oldVal) {
-    //     // 属性被改变时执行的函数（可选）
-    //   }
-    // }
+    value: {
+      type: String,
+      value: ''
+    },
+    type: {
+      type: String,
+      value: 'text'
+    },
+    password: {
+      type: Boolean,
+      value: false
+    },
+    placeholder: {
+      type: String,
+      value: ''
+    },
+    placeholderStyle: {
+      type: String,
+      value: ''
+    },
+    placeholderClass: {
+      type: String,
+      value: 'input-placeholder'
+    },
+    disabled: {
+      type: Boolean,
+      value: false
+    },
+    maxlength: {
+      type: Number,
+      value: 140
+    },
+    cursorSpacing: {
+      type: Boolean,
+      value: false
+    },
+    autoFocus: {
+      type: Boolean,
+      value: null
+    },
+    focus: {
+      type: Boolean,
+      value: false
+    },
+    confirmType: {
+      type: String,
+      value: 'done'
+    },
+    //
+    alwaysEmbed: {
+      type: Boolean,
+      value: false
+    },
+    confirmHold: {
+      type: Boolean,
+      value: false
+    },
+    cursor: {
+      type: Number,
+      value: null
+    },
+    selectionStart: {
+      type: Number,
+      value: -1
+    },
+    selectionEnd: {
+      type: Number,
+      value: -1
+    },
+    adjustPosition: {
+      type: Boolean,
+      value: true
+    },
+    //
+    holdKeyboard: {
+      type: Boolean,
+      value: false
+    }
   },
-
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   attached: function attached() {},
   detached: function detached() {},
 
 
   methods: {
-    onTap: function onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      });
+    input_input: function input_input(e) {
+      console.log('input_input');
+      this.triggerEvent('Input', e.detail);
+    },
+    input_focus: function input_focus(e) {
+      this.triggerEvent('Focus', e.detail);
+    },
+    input_blur: function input_blur(e) {
+      this.triggerEvent('Blur', e.detail);
+    },
+    input_confirm: function input_confirm(e) {
+      this.triggerEvent('Confirm', e.detail);
+    },
+
+    //
+    trigger_boardheightchange: function trigger_boardheightchange(e) {
+      this.triggerEvent('Boardheightchange', e.detail);
     }
   }
 }); /* eslint-disable no-console */

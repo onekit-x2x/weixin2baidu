@@ -6,6 +6,7 @@
         "onekit-progress":"../weixin2baidu/ui/progress/progress/index",
         "onekit-text":"../weixin2baidu/ui/text/text/index",
         "onekit-rich-text":"../weixin2baidu/ui/rich-text/rich-text/index",
-        "onekit-button":"../weixin2baidu/ui/button/button/index"
+        "onekit-button":"../weixin2baidu/ui/button/button/index",
+        "onekit-input":"../weixin2baidu/ui/input/input/index"
     }
 }

@@ -290,31 +290,31 @@ Component({
   methods: {
     onMarkertap: function onMarkertap(e) {
       console.log('onMarkertap', e);
-      this.triggerEvent('bindmarkertap', e);
+      this.triggerEvent('bindmarkertap', e.detail);
     },
     onCallouttap: function onCallouttap(e) {
       console.log('onCallouttap', e);
-      this.triggerEvent('onCallouttap', e);
+      this.triggerEvent('onCallouttap', e.detail);
     },
     onControltap: function onControltap(e) {
       console.log('onControltap', e);
-      this.triggerEvent('onControltap', e);
+      this.triggerEvent('onControltap', e.detail);
     },
     onRegionchange: function onRegionchange(e) {
       console.log('onRegionchange', e);
-      this.triggerEvent('onRegionchange', e);
+      this.triggerEvent('onRegionchange', e.detail);
     },
     onTap: function onTap(e) {
       console.log('onTap', e);
-      this.triggerEvent('onTap', e);
+      this.triggerEvent('onTap', e.detail);
     },
     onUpdated: function onUpdated(e) {
       console.log('onUpdated', e);
-      this.triggerEvent('onUpdated', e);
+      this.triggerEvent('onUpdated', e.detail);
     },
     onPoitap: function onPoitap(e) {
       console.log('onPoitap', e);
-      this.triggerEvent('onPoitap', e);
+      this.triggerEvent('onPoitap', e.detail);
     },
     onLabeltap: function onLabeltap(e) {
       console.warn('暂不支持!');

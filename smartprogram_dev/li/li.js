@@ -1,18 +1,21 @@
 import {OnekitPage,wx} from '../weixin2baidu/index';
 global = {};
-const app = getApp()
-OnekitPage({
-    data:{},
-    activeend(e){
-        console.log(e)
-    },
-    onLoad:function(){
-        console.log('代码片段是一种迷你、可分享的小程序或小游戏项目，可用于分享小程序和小游戏的开发经验、展示组件和 API 的使用、复现开发问题和 Bug 等。可点击以下链接查看代码片段的详细文档：')
-        console.log('https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html')
-    }
-})
+
+//progress
+// const app = getApp()
+// OnekitPage({
+//     data:{},
+//     activeend(e){
+//         console.log(e)
+//     },
+//     onLoad:function(){
+//         console.log('代码片段是一种迷你、可分享的小程序或小游戏项目，可用于分享小程序和小游戏的开发经验、展示组件和 API 的使用、复现开发问题和 Bug 等。可点击以下链接查看代码片段的详细文档：')
+//         console.log('https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html')
+//     }
+// })
 
 
+//button
 // const types = [
 //     'default',
 //     'primary',
@@ -75,3 +78,35 @@ OnekitPage({
 //     })(types[i]);
 // };
 // OnekitPage(pageObject);
+
+
+//input
+OnekitPage({
+    data:{
+        focus:false,
+        inputValue:''
+    },
+    bindKeyInput:function(e){
+        this.setData({
+            inputValue:e.detail.value
+        })
+    },
+    bindReplaceInput:function(e){
+        var value = e.detail.value
+        var pos = e.detail.cursor
+        var left
+        if((pos !== -1)){
+        left = e.detail.value.slice(0,pos);
+        pos = left.replace(/11/,'2').length;
+    }
+        return {
+        value:value.replace(/11/,'2'),
+        cursor:pos
+    }
+    },
+    bindHideKeyboard:function(e){
+        if((e.detail.value === '123')){
+        wx.hideKeyboard();
+    }
+    }
+})
