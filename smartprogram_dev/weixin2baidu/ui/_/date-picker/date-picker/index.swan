@@ -1,0 +1,21 @@
+<view 
+    id="{{onekitId}}"
+    class="onekit-picker {{onekitClass}}"
+    style="{{onekitStyle}}"
+    bindtap="date_show">
+  <slot>
+  </slot>
+  </view>
+  <bottom-view s-if="{{show}}" bindcancle="date_cancle" onConfirm="date_confirm">
+    <picker-view style="height:400rpx" bindchange="date_change" value="{{date}}">
+      <picker-view-column>
+        <view s-for="{{years}}" s-for-item="year" s-for-key="year">{{year}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view s-for="{{months}}" s-for-item="month" s-for-key="month">{{month}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view s-for="{{days}}" s-for-item="day" s-for-key="day">{{day}}</view>
+      </picker-view-column>
+    </picker-view>
+  </bottom-view>

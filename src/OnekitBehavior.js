@@ -15,7 +15,7 @@ export default function OnekitBehavior(object) {
       }
       created.call(this, query)
     },
-    didMount() {
+    attached() {
       let attached
       if (object.lifetimes && object.lifetimes.attached) {
         attached = object.lifetimes.attached

@@ -10,7 +10,7 @@ Component({
     addGlobalClass: true,
   },
   data: {},
-  props: {},
+  properties: {},
   attached() { },
   didUpdate() { },
   didUnmount() { },

@@ -1,5 +1,5 @@
 export default {
-  props: {
+  properties: {
     onekitClass: '',
     onekitStyle: '',
     onekitId: ''

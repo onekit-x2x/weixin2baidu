@@ -12,7 +12,7 @@ Component({
     addGlobalClass: true,
   },
   data: {},
-  props: {},
+  properties: {},
 
   attached() {
     const that = this

@@ -6,7 +6,7 @@ import wx from './wx'
 export default function OnekitComponent(object) {
   const properties = {}
   const swan_object = {
-    mixins: [wxs_behavior],
+    behaviors: [wxs_behavior],
     data() {
       ''
     },
@@ -21,7 +21,7 @@ export default function OnekitComponent(object) {
       }
       created.call(this, query)
     },
-    didMount() {
+    attached() {
       for (const k of Object.keys(this.props)) {
         const v = this.props[k]
         properties[k] = v
@@ -101,7 +101,7 @@ export default function OnekitComponent(object) {
         }
         break
       case 'behaviors':
-        swan_object.mixins = value
+        swan_object.behaviors = value
         break
       default:
         swan_object[key] = value

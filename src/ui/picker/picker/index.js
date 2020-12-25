@@ -10,27 +10,58 @@ Component({
     addGlobalClass: true,
   },
   properties: {
-    // propName: { // 属性名
-    //   type: String, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
-    //   value: 'val', // 属性初始值（必填）
-    //   observer(newVal, oldVal) {
-    //     // 属性被改变时执行的函数（可选）
-    //   }
-    // }
+    headerText: {
+      type: String,
+      value: ''
+    },
+    mode: {
+      type: String,
+      value: 'selector'
+    },
+    disabled: {
+      type: Boolean,
+      value: false
+    },
+    range: {
+      type: Array || Object,
+      value: []
+    },
+    rangeKey: {
+      type: String,
+      value: ''
+    },
+    value: {
+      type: Number || Array || String,
+      value: null
+    },
+    start: {
+      type: String,
+      value: ''
+    },
+    end: {
+      type: String,
+      value: ''
+    },
+    fields: {
+      type: String,
+      value: 'day'
+    },
+    customItem: {
+      type: String,
+      value: ''
+    },
   },
-
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached() {},
-
   detached() {},
 
   methods: {
-    onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      })
-    }
+    picker_cancel(e) {
+      this.triggerEvent('Cancel', e.detail)
+    },
+    picker_change(e) {
+      this.triggerEvent('Change', e.detail)
+    },
+    picker_columnchange(e) {
+      this.triggerEvent('Columnchange', e.detail)
+    },
   }
 })

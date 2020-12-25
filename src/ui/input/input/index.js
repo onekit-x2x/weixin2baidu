@@ -58,7 +58,7 @@ Component({
       type: String,
       value: 'done',
     },
-    //
+    // 做不了
     alwaysEmbed: {
       type: Boolean,
       value: false,
@@ -83,32 +83,28 @@ Component({
       type: Boolean,
       value: true
     },
-    //
+    // 做不了
     holdKeyboard: {
       type: Boolean,
       value: false
     }
   },
-  attached() {},
-
-  detached() {},
-
   methods: {
     input_input(e) {
       this.triggerEvent('Input', e.detail)
     },
     input_focus(e) {
-      this.triggerEvent('Focus', e)
+      this.triggerEvent('Focus', e.detail)
     },
     input_blur(e) {
-      this.triggerEvent('Blur', e)
+      this.triggerEvent('Blur', e.detail)
     },
     input_confirm(e) {
-      this.triggerEvent('Confirm', e)
+      this.triggerEvent('Confirm', e.detail)
     },
-    //
+    // 做不了
     trigger_boardheightchange(e) {
-      this.triggerEvent('Boardheightchange', e)
+      this.triggerEvent('Boardheightchange', e.detail)
     },
   }
 })

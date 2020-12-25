@@ -36,13 +36,10 @@ Component({
     this.setData({
       url
     })
-  },
-  didMount() {
+
     this.webView = swan.createWebViewContext('webView')
     // this.triggerEvent.onReady();
   },
-  didUpdate() { },
-  didUnmount() { },
 
   methods: {
     webView_message(e) {

@@ -22,7 +22,7 @@ Component({
       value: false
     }
   },
-  didMount() {},
+  attached() {},
   didUpdate() {},
   didUnmount() {},
   methods: {},
