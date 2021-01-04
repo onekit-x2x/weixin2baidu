@@ -96,7 +96,7 @@ export default class wx {
   }
 
   static onUnhandledRejection() {
-    console.log('BaiDu is not support !')
+    console.warn('BaiDu is not support !')
   }
 
   static onThemeChange() {
@@ -122,8 +122,12 @@ export default class wx {
     return swan.offPageNotFound(object)
   }
 
-  static onAudioInterruptionEnd(callback) {
-    callback()
+  static onAudioInterruptionBegin() {
+    return console.warn('onAudioInterruptionBegin is not support')
+  }
+
+  static onAudioInterruptionEnd() {
+    return console.warn('onAudioInterruptionEnd is not support')
   }
 
   static offAppShow(object) {
@@ -146,9 +150,30 @@ export default class wx {
     return swan.setEnableDebug(object)
   }
 
-  static getLogManager(object) {
-    return swan.getLogManager(object)
+  static getRealtimeLogManager() {
+    return console.warn('getRealtimeLogManager is not support')
   }
+
+  static getLogManager() {
+    return console.warn('getLogManager is not support')
+  }
+
+  static offUnhandledRejection() {
+    return console.warn('offUnhandledRejection is not support')
+  }
+
+  static offThemeChange() {
+    return console.warn('offUnhandledRejection is not support')
+  }
+
+  static offAudioInterruptionBegin() {
+    return console.warn('offAudioInterruptionBegin is not support')
+  }
+
+  static offAudioInterruptionEnd() {
+    return console.warn('offAudioInterruptionEnd is not support')
+  }
+
 
   // ///////////////// Canvas ///////////////////
   // static drawCanvas(object) {
@@ -237,7 +262,7 @@ export default class wx {
   //               break
 
   //             default:
-  //               console.log('[drawCanvas-strokePath]', dat.method)
+  //               console.warn('[drawCanvas-strokePath]', dat.method)
   //               break
   //           }
   //         }
@@ -254,7 +279,7 @@ export default class wx {
   //               // canvasContext.arc.apply(canvasContext, dt)
   //               break
   //             default:
-  //               console.log('[drawCanvas-fillPath]', dat.method)
+  //               console.warn('[drawCanvas-fillPath]', dat.method)
   //               break
   //           }
   //         }
@@ -264,7 +289,7 @@ export default class wx {
   //         canvasContext.clearRect(data[0], data[1], data[2], data[3])
   //         break
   //       default:
-  //         console.log('[drawCanvas]', action.method)
+  //         console.warn('[drawCanvas]', action.method)
   //         break
   //     }
   //   }
@@ -715,7 +740,7 @@ export default class wx {
   }
 
   static chooseMessageFile() {
-    return console.log('暂不支持！')
+    return console.warn('暂不支持！')
   } // swan.chooseMessageFile(object)
   // //////////////////////////////////////////////////////////////
 
@@ -728,7 +753,7 @@ export default class wx {
   }
 
   static chooseMedia() {
-    return console.log('暂不支持！')
+    return console.warn('暂不支持！')
   }
 
   static stopVoice(object) {
@@ -1186,6 +1211,14 @@ export default class wx {
     return swan.showModal(object)
   }
 
+  static enableAlertBeforeUnload() {
+    return console.warn('enableAlertBeforeUnload is not support')
+  }
+
+  static disableAlertBeforeUnload() {
+    return console.warn('disableAlertBeforeUnload is not support')
+  }
+
   static setNavigationBarColor(object) {
     return swan.setNavigationBarColor(object)
   }
@@ -1200,6 +1233,10 @@ export default class wx {
 
   static setNavigationBarTitle(object) {
     return swan.setNavigationBarTitle(object)
+  }
+
+  static hideHomeButton() {
+    return console.warn('hideHomeButton is not support')
   }
 
   static setBackgroundTextStyle(object) {
@@ -1243,8 +1280,8 @@ export default class wx {
   }
 
   static loadFontFace() {
-    return console.log('注释了')
-  } // swan.loadFontFace(object)
+    return console.warn('hideHomeButton is not support')
+  }
 
   static stopPullDownRefresh(object) {
     return swan.stopPullDownRefresh(object)
@@ -1258,24 +1295,28 @@ export default class wx {
     return swan.pageScrollTo(object)
   }
 
-  static setTopBarText(object) {
-    return swan.setTopBarText(object)
+  static setTopBarText() {
+    return console.warn('setTopBarText is not support')
   }
 
-  static nextTick(object) {
-    return swan.nextTick(object)
+  static nextTick(callback) {
+    return swan.nextTick(callback)
   }
 
   static getMenuButtonBoundingClientRect(object) {
     return swan.getMenuButtonBoundingClientRect(object)
   }
 
-  static offWindowResize(object) {
-    return swan.offWindowResize(object)
+  static setWindowSize() {
+    return console.warn('setWindowSize is not support')
   }
 
-  static onWindowResize(object) {
-    return swan.onWindowResize(object)
+  static onWindowResize() {
+    return console.warn('onWindowResize is not support')
+  }
+
+  static offWindowResize() {
+    return console.warn('offWindowResize is not support')
   }
 
   // //////////// Worker ///////////////
