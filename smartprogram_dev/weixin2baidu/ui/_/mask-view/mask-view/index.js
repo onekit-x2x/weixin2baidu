@@ -82,12 +82,11 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -132,8 +131,7 @@ exports.default = {
 };
 
 /***/ }),
-
-/***/ 1:
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -149,8 +147,7 @@ exports.default = {
 };
 
 /***/ }),
-
-/***/ 2:
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -204,8 +201,15 @@ module.exports = Behavior({
 });
 
 /***/ }),
-
-/***/ 51:
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -230,25 +234,12 @@ Component({
   options: {
     addGlobalClass: true
   },
-  properties: {},
-
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached: function attached() {},
-  detached: function detached() {},
-
-
   methods: {
-    onTap: function onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      });
+    view_tap: function view_tap(e) {
+      this.triggerEvent('Tap', e.detail);
     }
   }
-}); /* eslint-disable no-console */
-/* eslint-disable camelcase */
+}); /* eslint-disable camelcase */
 
 /***/ })
-
-/******/ });
+/******/ ]);

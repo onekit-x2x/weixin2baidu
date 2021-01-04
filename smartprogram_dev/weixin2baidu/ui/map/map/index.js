@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 22);
+/******/ 	return __webpack_require__(__webpack_require__.s = 33);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -141,7 +141,7 @@ exports.default = {
 
 exports.__esModule = true;
 exports.default = {
-  props: {
+  properties: {
     onekitClass: '',
     onekitStyle: '',
     onekitId: ''
@@ -158,75 +158,54 @@ exports.default = {
 
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
-module.exports = {
-  props: {},
+module.exports = Behavior({
+
+  properties: {
+    animation: { type: Object }
+  },
   methods: {
     ui_tap: function ui_tap() {
-      if (this.props.ontap) {
-        this.props.ontap();
-      }
+      this.triggerEvent('Tap');
     },
     ui_touchstart: function ui_touchstart() {
-      if (this.props.ontouchstart) {
-        this.props.ontouchstart();
-      }
+      this.triggerEvent('Touchstart');
     },
     ui_touchmove: function ui_touchmove() {
-      if (this.props.ontouchmove) {
-        this.props.ontouchmove();
-      }
+      this.triggerEvent('Touchmove');
     },
     ui_touchcancel: function ui_touchcancel() {
-      if (this.props.ontouchcancel) {
-        this.props.ontouchcancel();
-      }
+      this.triggerEvent('Touchcancel');
     },
     ui_touchend: function ui_touchend() {
-      if (this.props.ontouchend) {
-        this.props.ontouchend();
-      }
+      this.triggerEvent('Touchend');
     },
     ui_longpress: function ui_longpress() {
-      if (this.props.onlongpress) {
-        this.props.onlongpress();
-      }
+      this.triggerEvent('Longpress');
     },
     ui_longtap: function ui_longtap() {
-      if (this.props.onlongtap) {
-        this.props.onlongtap();
-      }
+      this.triggerEvent('Longtap');
     },
     ui_transitionend: function ui_transitionend() {
-      if (this.props.ontransitionend) {
-        this.props.ontransitionend();
-      }
+      this.triggerEvent('Transitionend');
     },
     ui_animationstart: function ui_animationstart() {
-      if (this.props.onanimationstart) {
-        this.props.onanimationstart();
-      }
+      this.triggerEvent('Animationstart');
     },
     ui_animationiteration: function ui_animationiteration() {
-      if (this.props.onanimationiteration) {
-        this.props.onanimationiteration();
-      }
+      this.triggerEvent('Animationiteration');
     },
     ui_animationend: function ui_animationend() {
-      if (this.props.onanimationend) {
-        this.props.onanimationend();
-      }
+      this.triggerEvent('Animationend');
     },
     ui_touchforcechange: function ui_touchforcechange() {
-      if (this.props.ontouchforcechange) {
-        this.props.ontouchforcechange();
-      }
+      this.triggerEvent('Touchforcechange');
     }
   }
-};
+});
 
 /***/ }),
 
-/***/ 22:
+/***/ 33:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -290,31 +269,31 @@ Component({
   methods: {
     onMarkertap: function onMarkertap(e) {
       console.log('onMarkertap', e);
-      this.triggerEvent('bindmarkertap', e.detail);
+      this.triggerEvent('bindmarkertap', e);
     },
     onCallouttap: function onCallouttap(e) {
       console.log('onCallouttap', e);
-      this.triggerEvent('onCallouttap', e.detail);
+      this.triggerEvent('onCallouttap', e);
     },
     onControltap: function onControltap(e) {
       console.log('onControltap', e);
-      this.triggerEvent('onControltap', e.detail);
+      this.triggerEvent('onControltap', e);
     },
     onRegionchange: function onRegionchange(e) {
       console.log('onRegionchange', e);
-      this.triggerEvent('onRegionchange', e.detail);
+      this.triggerEvent('onRegionchange', e);
     },
     onTap: function onTap(e) {
       console.log('onTap', e);
-      this.triggerEvent('onTap', e.detail);
+      this.triggerEvent('onTap', e);
     },
     onUpdated: function onUpdated(e) {
       console.log('onUpdated', e);
-      this.triggerEvent('onUpdated', e.detail);
+      this.triggerEvent('onUpdated', e);
     },
     onPoitap: function onPoitap(e) {
       console.log('onPoitap', e);
-      this.triggerEvent('onPoitap', e.detail);
+      this.triggerEvent('onPoitap', e);
     },
     onLabeltap: function onLabeltap(e) {
       console.warn('暂不支持!');

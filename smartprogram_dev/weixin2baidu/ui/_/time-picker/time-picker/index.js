@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 21);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 51:
+/***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -230,20 +230,86 @@ Component({
   options: {
     addGlobalClass: true
   },
-  properties: {},
-
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached: function attached() {},
-  detached: function detached() {},
-
+  data: {},
+  properties: {
+    headerText: {
+      type: String,
+      value: ''
+    },
+    disabled: {
+      type: Boolean,
+      value: false
+    },
+    range: {
+      type: Array,
+      value: []
+    },
+    value: {
+      type: String,
+      value: '00:00'
+    },
+    start: {
+      type: String,
+      value: ''
+    },
+    end: {
+      type: String,
+      value: ''
+    }
+  },
+  attached: function attached() {
+    var hours = [];
+    for (var h = 0; h < 24; h++) {
+      var hour = h >= 10 ? h : '0' + h;
+      hours.push(hour);
+    }
+    var minutes = [];
+    for (var m = 0; m < 60; m++) {
+      var minute = m >= 10 ? m : '0' + m;
+      minutes.push(minute);
+    }
+    this.setData({ hours: hours, minutes: minutes });
+  },
 
   methods: {
-    onTap: function onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      });
+    time_show: function time_show() {
+      if (this.properties.disabled) {
+        return;
+      }
+      var time = this.properties.value.split(':');
+      time = [parseInt(time[0], 10), parseInt(time[1], 10)];
+      this.setData({ time: time, show: true });
+    },
+    time_cancle: function time_cancle(e) {
+      this.setData({ show: false });
+      this.triggerEvent('Cancle', e.detail);
+    },
+    time_confirm: function time_confirm(e) {
+      this.setData({ show: false });
+      this.triggerEvent('Change', e.detail);
+    },
+    time_change: function time_change(e) {
+      var current = e.detail.value;
+      var h = current[0];h = h >= 10 ? h : '0' + h;
+      var m = current[1];m = m >= 10 ? m : '0' + m;
+      var value = h + ':' + m;
+      if (this.properties.start) {
+        if (value < this.properties.start) {
+          var time = this.properties.start.split(':');
+          time = [parseInt(time[0], 10), parseInt(time[1], 10)];
+          this.setData({ value: this.properties.start, time: time });
+          return;
+        }
+      }
+      if (this.properties.end) {
+        if (value > this.properties.end) {
+          var _time = this.properties.end.split(':');
+          _time = [parseInt(_time[0], 10), parseInt(_time[1], 10)];
+          this.setData({ value: this.properties.end, time: _time });
+          return;
+        }
+      }
+      this.data.value = value;
     }
   }
 }); /* eslint-disable no-console */

@@ -82,12 +82,11 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -132,8 +131,7 @@ exports.default = {
 };
 
 /***/ }),
-
-/***/ 1:
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -149,8 +147,7 @@ exports.default = {
 };
 
 /***/ }),
-
-/***/ 2:
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -204,12 +201,25 @@ module.exports = Behavior({
 });
 
 /***/ }),
-
-/***/ 51:
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+var _DATE = __webpack_require__(14);
+
+var _DATE2 = _interopRequireDefault(_DATE);
 
 var _onekit_behavior = __webpack_require__(1);
 
@@ -225,30 +235,115 @@ var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable camelcase */
+var YEAR_START = 1900;
+var YEAR_END = 2100;
 Component({
   behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
   options: {
     addGlobalClass: true
   },
-  properties: {},
-
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached: function attached() {},
-  detached: function detached() {},
-
+  properties: {
+    headerText: {
+      type: String,
+      value: ''
+    },
+    disabled: {
+      type: Boolean,
+      value: false
+    },
+    range: {
+      type: Array || Object,
+      value: []
+    },
+    value: {
+      type: String,
+      value: new Date().toDateString()
+    },
+    start: {
+      type: String,
+      value: ''
+    },
+    end: {
+      type: String,
+      value: ''
+    }
+  },
+  attached: function attached() {
+    var years = [];
+    for (var y = YEAR_START; y <= YEAR_END; y++) {
+      var year = y;
+      years.push(year + '\u5E74');
+    }
+    var months = [];
+    for (var m = 1; m <= 12; m++) {
+      var month = m >= 10 ? m : '0' + m;
+      months.push(month + '\u6708');
+    }
+    this.setData({ years: years, months: months });
+  },
 
   methods: {
-    onTap: function onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      });
+    updateDays: function updateDays() {
+      var value = (this.data.value || this.properties.value).split('-');
+      var days = [];
+      var dayCount = _DATE2.default.monthDays(value[0], value[1]);
+      for (var d = 1; d <= dayCount; d++) {
+        var day = d >= 10 ? d : '0' + d;
+        days.push(day + '\u65E5');
+      }
+      this.setData({ days: days });
+    },
+    date_show: function date_show() {
+      if (this.properties.disabled) {
+        return;
+      }
+      var date = this.properties.value.split('-');
+      date = [date[0] - YEAR_START, date[1] - 1, date[2] - 1];
+      this.setData({ date: date, show: true });
+      this.updateDays();
+    },
+    date_cancle: function date_cancle(e) {
+      this.setData({ show: false });
+      this.triggerEvent('Cancle', e.detail);
+    },
+    date_confirm: function date_confirm(e) {
+      this.setData({ show: false });
+      this.triggerEvent('Change', e.detail);
+    },
+    date_change: function date_change(e) {
+      var current = e.detail.value;
+      var y = current[0] + YEAR_START;
+      var m = current[1] + 1;m = m >= 10 ? m : '0' + m;
+      var d = current[2] + 1;d = d >= 10 ? d : '0' + d;
+      var value = y + '-' + m + '-' + d;
+      if (this.properties.start) {
+        if (value < this.properties.start) {
+          var date = this.properties.start.split('-');
+          date = [date[0] - YEAR_START, date[1] - 1, date[2] - 1];
+          this.setData({ value: this.properties.start, date: date });
+          return;
+        }
+      }
+      if (this.properties.end) {
+        if (value > this.properties.end) {
+          var _date = this.properties.end.split('-');
+          _date = [_date[0] - YEAR_START, _date[1] - 1, _date[2] - 1];
+          this.setData({ value: this.properties.end, date: _date });
+          return;
+        }
+      }
+      this.data.value = value;
+      this.updateDays();
     }
   }
-}); /* eslint-disable no-console */
-/* eslint-disable camelcase */
+});
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+module.exports = require("oneutil/DATE");
 
 /***/ })
-
-/******/ });
+/******/ ]);

@@ -82,11 +82,12 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 27);
+/******/ 	return __webpack_require__(__webpack_require__.s = 38);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -131,7 +132,8 @@ exports.default = {
 };
 
 /***/ }),
-/* 1 */
+
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -139,7 +141,7 @@ exports.default = {
 
 exports.__esModule = true;
 exports.default = {
-  props: {
+  properties: {
     onekitClass: '',
     onekitStyle: '',
     onekitId: ''
@@ -147,7 +149,8 @@ exports.default = {
 };
 
 /***/ }),
-/* 2 */
+
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -155,74 +158,54 @@ exports.default = {
 
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
-module.exports = {
-  props: {},
+module.exports = Behavior({
+
+  properties: {
+    animation: { type: Object }
+  },
   methods: {
     ui_tap: function ui_tap() {
-      if (this.props.ontap) {
-        this.props.ontap();
-      }
+      this.triggerEvent('Tap');
     },
     ui_touchstart: function ui_touchstart() {
-      if (this.props.ontouchstart) {
-        this.props.ontouchstart();
-      }
+      this.triggerEvent('Touchstart');
     },
     ui_touchmove: function ui_touchmove() {
-      if (this.props.ontouchmove) {
-        this.props.ontouchmove();
-      }
+      this.triggerEvent('Touchmove');
     },
     ui_touchcancel: function ui_touchcancel() {
-      if (this.props.ontouchcancel) {
-        this.props.ontouchcancel();
-      }
+      this.triggerEvent('Touchcancel');
     },
     ui_touchend: function ui_touchend() {
-      if (this.props.ontouchend) {
-        this.props.ontouchend();
-      }
+      this.triggerEvent('Touchend');
     },
     ui_longpress: function ui_longpress() {
-      if (this.props.onlongpress) {
-        this.props.onlongpress();
-      }
+      this.triggerEvent('Longpress');
     },
     ui_longtap: function ui_longtap() {
-      if (this.props.onlongtap) {
-        this.props.onlongtap();
-      }
+      this.triggerEvent('Longtap');
     },
     ui_transitionend: function ui_transitionend() {
-      if (this.props.ontransitionend) {
-        this.props.ontransitionend();
-      }
+      this.triggerEvent('Transitionend');
     },
     ui_animationstart: function ui_animationstart() {
-      if (this.props.onanimationstart) {
-        this.props.onanimationstart();
-      }
+      this.triggerEvent('Animationstart');
     },
     ui_animationiteration: function ui_animationiteration() {
-      if (this.props.onanimationiteration) {
-        this.props.onanimationiteration();
-      }
+      this.triggerEvent('Animationiteration');
     },
     ui_animationend: function ui_animationend() {
-      if (this.props.onanimationend) {
-        this.props.onanimationend();
-      }
+      this.triggerEvent('Animationend');
     },
     ui_touchforcechange: function ui_touchforcechange() {
-      if (this.props.ontouchforcechange) {
-        this.props.ontouchforcechange();
-      }
+      this.triggerEvent('Touchforcechange');
     }
   }
-};
+});
 
 /***/ }),
-/* 3 */
+
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1617,7 +1600,83 @@ var wx = function () {
 exports.default = wx;
 
 /***/ }),
-/* 4 */
+
+/***/ 38:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _wx = __webpack_require__(3);
+
+var _wx2 = _interopRequireDefault(_wx);
+
+var _onekit_behavior = __webpack_require__(1);
+
+var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
+
+var _wxs_behavior = __webpack_require__(0);
+
+var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
+
+var _weixin_behavior = __webpack_require__(2);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+Component({
+  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
+  options: {
+    addGlobalClass: true
+  },
+  data: {},
+  properties: {},
+
+  attached: function attached() {
+    var that = this;
+    _wx2.default.getOpenData({
+      success: function success(opendata) {
+        switch (that.props.type) {
+          case 'userNickName':
+            that.setData({ userNickName: opendata.nickName });
+            break;
+          case 'userAvatarUrl':
+            that.setData({ userAvatarUrl: opendata.avatarUrl });
+            break;
+          case 'userGender':
+            that.setData({ userGender: opendata.gender });
+            break;
+          case 'userCity':
+            that.setData({ userCity: opendata.city });
+            break;
+          case 'userProvince':
+            that.setData({ userProvince: opendata.province });
+            break;
+          case 'userCountry':
+            that.setData({ userCountry: opendata.country });
+            break;
+          case 'userLanguage':
+            that.setData({ userLanguage: opendata.language });
+            break;
+          default:
+            break;
+        }
+      }
+    });
+  },
+  didUpdate: function didUpdate() {},
+  didUnmount: function didUnmount() {},
+
+  methods: {}
+});
+
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+
+/***/ }),
+
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1770,7 +1829,8 @@ var CanvasContext = function () {
 exports.default = CanvasContext;
 
 /***/ }),
-/* 5 */
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1833,7 +1893,8 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 6 */
+
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1872,7 +1933,8 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 7 */
+
+/***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1991,7 +2053,8 @@ var InnerAudioContext = function () {
 exports.default = InnerAudioContext;
 
 /***/ }),
-/* 8 */
+
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2042,7 +2105,8 @@ var LivePlayerContext = function () {
 exports.default = LivePlayerContext;
 
 /***/ }),
-/* 9 */
+
+/***/ 9:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2058,96 +2122,6 @@ var WORKER = function WORKER() {
 
 exports.default = WORKER;
 
-/***/ }),
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _wx = __webpack_require__(3);
-
-var _wx2 = _interopRequireDefault(_wx);
-
-var _onekit_behavior = __webpack_require__(1);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _wxs_behavior = __webpack_require__(0);
-
-var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
-
-var _weixin_behavior = __webpack_require__(2);
-
-var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-Component({
-  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
-  options: {
-    addGlobalClass: true
-  },
-  data: {},
-  props: {},
-
-  attached: function attached() {
-    var that = this;
-    _wx2.default.getOpenData({
-      success: function success(opendata) {
-        switch (that.props.type) {
-          case 'userNickName':
-            that.setData({ userNickName: opendata.nickName });
-            break;
-          case 'userAvatarUrl':
-            that.setData({ userAvatarUrl: opendata.avatarUrl });
-            break;
-          case 'userGender':
-            that.setData({ userGender: opendata.gender });
-            break;
-          case 'userCity':
-            that.setData({ userCity: opendata.city });
-            break;
-          case 'userProvince':
-            that.setData({ userProvince: opendata.province });
-            break;
-          case 'userCountry':
-            that.setData({ userCountry: opendata.country });
-            break;
-          case 'userLanguage':
-            that.setData({ userLanguage: opendata.language });
-            break;
-          default:
-            break;
-        }
-      }
-    });
-  },
-  didUpdate: function didUpdate() {},
-  didUnmount: function didUnmount() {},
-
-  methods: {}
-});
-
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
-
 /***/ })
-/******/ ]);
+
+/******/ });

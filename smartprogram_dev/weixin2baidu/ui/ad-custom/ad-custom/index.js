@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 23);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -141,7 +141,7 @@ exports.default = {
 
 exports.__esModule = true;
 exports.default = {
-  props: {
+  properties: {
     onekitClass: '',
     onekitStyle: '',
     onekitId: ''
@@ -150,7 +150,62 @@ exports.default = {
 
 /***/ }),
 
-/***/ 12:
+/***/ 2:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+module.exports = Behavior({
+
+  properties: {
+    animation: { type: Object }
+  },
+  methods: {
+    ui_tap: function ui_tap() {
+      this.triggerEvent('Tap');
+    },
+    ui_touchstart: function ui_touchstart() {
+      this.triggerEvent('Touchstart');
+    },
+    ui_touchmove: function ui_touchmove() {
+      this.triggerEvent('Touchmove');
+    },
+    ui_touchcancel: function ui_touchcancel() {
+      this.triggerEvent('Touchcancel');
+    },
+    ui_touchend: function ui_touchend() {
+      this.triggerEvent('Touchend');
+    },
+    ui_longpress: function ui_longpress() {
+      this.triggerEvent('Longpress');
+    },
+    ui_longtap: function ui_longtap() {
+      this.triggerEvent('Longtap');
+    },
+    ui_transitionend: function ui_transitionend() {
+      this.triggerEvent('Transitionend');
+    },
+    ui_animationstart: function ui_animationstart() {
+      this.triggerEvent('Animationstart');
+    },
+    ui_animationiteration: function ui_animationiteration() {
+      this.triggerEvent('Animationiteration');
+    },
+    ui_animationend: function ui_animationend() {
+      this.triggerEvent('Animationend');
+    },
+    ui_touchforcechange: function ui_touchforcechange() {
+      this.triggerEvent('Touchforcechange');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -194,82 +249,6 @@ Component({
   methods: {}
 }); /* eslint-disable no-console */
 /* eslint-disable camelcase */
-
-/***/ }),
-
-/***/ 2:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
-module.exports = {
-  props: {},
-  methods: {
-    ui_tap: function ui_tap() {
-      if (this.props.ontap) {
-        this.props.ontap();
-      }
-    },
-    ui_touchstart: function ui_touchstart() {
-      if (this.props.ontouchstart) {
-        this.props.ontouchstart();
-      }
-    },
-    ui_touchmove: function ui_touchmove() {
-      if (this.props.ontouchmove) {
-        this.props.ontouchmove();
-      }
-    },
-    ui_touchcancel: function ui_touchcancel() {
-      if (this.props.ontouchcancel) {
-        this.props.ontouchcancel();
-      }
-    },
-    ui_touchend: function ui_touchend() {
-      if (this.props.ontouchend) {
-        this.props.ontouchend();
-      }
-    },
-    ui_longpress: function ui_longpress() {
-      if (this.props.onlongpress) {
-        this.props.onlongpress();
-      }
-    },
-    ui_longtap: function ui_longtap() {
-      if (this.props.onlongtap) {
-        this.props.onlongtap();
-      }
-    },
-    ui_transitionend: function ui_transitionend() {
-      if (this.props.ontransitionend) {
-        this.props.ontransitionend();
-      }
-    },
-    ui_animationstart: function ui_animationstart() {
-      if (this.props.onanimationstart) {
-        this.props.onanimationstart();
-      }
-    },
-    ui_animationiteration: function ui_animationiteration() {
-      if (this.props.onanimationiteration) {
-        this.props.onanimationiteration();
-      }
-    },
-    ui_animationend: function ui_animationend() {
-      if (this.props.onanimationend) {
-        this.props.onanimationend();
-      }
-    },
-    ui_touchforcechange: function ui_touchforcechange() {
-      if (this.props.ontouchforcechange) {
-        this.props.ontouchforcechange();
-      }
-    }
-  }
-};
 
 /***/ })
 

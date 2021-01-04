@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 51:
+/***/ 20:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -230,20 +230,46 @@ Component({
   options: {
     addGlobalClass: true
   },
-  properties: {},
-
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached: function attached() {},
-  detached: function detached() {},
-
-
+  properties: {
+    headerText: {
+      type: String,
+      value: ''
+    },
+    range: {
+      type: Array || Object,
+      value: []
+    },
+    'range-key': {
+      type: String,
+      value: ''
+    },
+    value: {
+      type: Number,
+      value: 0
+    },
+    disabled: {
+      type: Boolean,
+      value: false
+    }
+  },
   methods: {
-    onTap: function onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      });
+    selector_show: function selector_show() {
+      if (this.properties.disabled) {
+        return;
+      }
+      var select = [this.properties.value];
+      this.setData({ select: select, show: true });
+    },
+    selector_cancle: function selector_cancle(e) {
+      this.setData({ show: false });
+      this.triggerEvent('Cancle', e.detail);
+    },
+    selector_confirm: function selector_confirm() {
+      this.setData({ show: false });
+      this.triggerEvent('Change', { value: this.data.value });
+    },
+    selector_change: function selector_change(e) {
+      this.data.value = e.detail.value[0];
     }
   }
 }); /* eslint-disable no-console */

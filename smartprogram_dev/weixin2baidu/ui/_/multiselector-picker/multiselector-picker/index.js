@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -150,6 +150,99 @@ exports.default = {
 
 /***/ }),
 
+/***/ 15:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _onekit_behavior = __webpack_require__(1);
+
+var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
+
+var _wxs_behavior = __webpack_require__(0);
+
+var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
+
+var _weixin_behavior = __webpack_require__(2);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+Component({
+  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
+  options: {
+    addGlobalClass: true
+  },
+  data: {
+    value: []
+  },
+  properties: {
+    headerText: {
+      type: String,
+      value: ''
+    },
+    range: {
+      type: Array || Object,
+      value: []
+    },
+    'range-key': {
+      type: String,
+      value: ''
+    },
+    value: {
+      type: Array,
+      value: []
+    },
+    disabled: {
+      type: Boolean,
+      value: false
+    }
+  },
+  methods: {
+    selector_show: function selector_show() {
+      if (this.properties.disabled) {
+        return;
+      }
+      var select = [];
+      for (var _iterator = this.properties.value, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+        var _ref;
+
+        if (_isArray) {
+          if (_i >= _iterator.length) break;
+          _ref = _iterator[_i++];
+        } else {
+          _i = _iterator.next();
+          if (_i.done) break;
+          _ref = _i.value;
+        }
+
+        var v = _ref;
+
+        select.push([v]);
+      }
+      this.setData({ select: select, show: true });
+    },
+    selector_cancle: function selector_cancle(e) {
+      this.setData({ show: false });
+      this.triggerEvent('Cancle', e.detail);
+    },
+    selector_confirm: function selector_confirm(e) {
+      this.setData({ show: false });
+      this.triggerEvent('Change', e.detail);
+    },
+    selector_change: function selector_change(e) {
+      var value = e.detail.value[0];
+      var column = e.currentTarget.dataset.index;
+      this.data.value[column] = value;
+      this.triggerEvent('Columnchange', e.detail);
+    }
+  }
+}); /* eslint-disable camelcase */
+
+/***/ }),
+
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -202,52 +295,6 @@ module.exports = Behavior({
     }
   }
 });
-
-/***/ }),
-
-/***/ 51:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _onekit_behavior = __webpack_require__(1);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _wxs_behavior = __webpack_require__(0);
-
-var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
-
-var _weixin_behavior = __webpack_require__(2);
-
-var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-Component({
-  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
-  options: {
-    addGlobalClass: true
-  },
-  properties: {},
-
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached: function attached() {},
-  detached: function detached() {},
-
-
-  methods: {
-    onTap: function onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      });
-    }
-  }
-}); /* eslint-disable no-console */
-/* eslint-disable camelcase */
 
 /***/ })
 

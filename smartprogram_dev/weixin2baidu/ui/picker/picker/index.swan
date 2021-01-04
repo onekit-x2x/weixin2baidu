@@ -1,3 +1,85 @@
-<view class="container">
-    <!--to do-->
-</view>
+<selector-picker s-if="{{mode == 'selector'}}"
+    class="onekit-picker {{onekitClass}}"
+    style="{{onekitStyle}}"
+    id="{{onekitId}}"
+
+    disabled="{{disabled}}"
+    range="{{range}}"
+    range-key="{{rangeKey}}"
+    value="{{value}}"
+    title="{{headerText}}"
+
+    bindcancel="picker_cancel"
+    bindchange="picker_change"
+>
+<slot/>
+</selector-picker>
+
+<time-picker s-if="{{mode == 'time'}}"
+    class="onekit-picker {{onekitClass}}"
+    style="{{onekitStyle}}"
+    id="{{onekitId}}"
+
+    disabled="{{disabled}}"
+    value="{{value}}"
+    start="{{start}}"
+    end="{{end}}"
+    title="{{headerText}}"
+
+    bindcancel="picker_cancel"
+    bindchange="picker_change"
+>
+<slot/>
+</time-picker>
+
+<date-picker s-if="{{mode == 'date'}}"
+    class="onekit-picker {{onekitClass}}"
+    style="{{onekitStyle}}"
+    id="{{onekitId}}"
+
+    disabled="{{disabled}}"
+    value="{{value}}"
+    start="{{start}}"
+    end="{{end}}"
+    fields="{{fields}}"
+    title="{{headerText}}"
+
+    bindcancel="picker_cancel"
+    bindchange="picker_change"
+>
+<slot/>
+</date-picker>
+
+<multiselector-picker s-if="{{mode == 'multiSelector'}}"
+    class="onekit-picker {{onekitClass}}"
+    style="{{onekitStyle}}"
+    id="{{onekitId}}"
+
+    disabled="{{disabled}}"
+    range="{{range}}"
+    range-key="{{rangeKey}}"
+    value="{{value}}"
+    title="{{headerText}}"
+
+    bindcancel="picker_cancel"
+    bindcolumnchange="picker_columnchange"
+    bindchange="picker_change"
+>
+<slot/>
+</multiselector-picker>
+
+<ragion-picker s-if="{{mode == 'region'}}"
+    class="onekit-picker {{onekitClass}}"
+    style="{{onekitStyle}}"
+    id="{{onekitId}}"
+
+    disabled="{{disabled}}"
+    value="{{value}}"
+    custom-item="{{customItem}}"
+    title="{{headerText}}"
+
+    bindcancel="picker_cancel"
+    bindchange="picker_change"
+>
+<slot/>
+</ragion-picker>
