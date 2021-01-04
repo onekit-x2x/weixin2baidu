@@ -1,10 +1,6 @@
-/* eslint-disable camelcase */
-import onekit_behavior from '../../../../behavior/onekit_behavior'
-import wxs_behavior from '../../../../behavior/wxs_behavior'
-import weixin_behavior from '../../../../behavior/weixin_behavior'
+/* eslint-disable no-console */
 
 Component({
-  behaviors: [onekit_behavior, wxs_behavior, weixin_behavior],
   options: {
     addGlobalClass: true,
   },
@@ -16,9 +12,11 @@ Component({
   },
   methods: {
     cancle_tap(e) {
+      console.log('bottom-view cancle')
       this.triggerEvent('Cancle', e.detail)
     },
     confirm_tap(e) {
+      console.log('bottom-view confirm')
       this.triggerEvent('Confirm', e.detail)
     },
   },

@@ -85,152 +85,13 @@ module.exports =
 /******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-
-exports.__esModule = true;
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
-exports.default = {
-  methods: {
-    selectComponent: function selectComponent(selector) {},
-    selectAllComponents: function selectAllComponents(selctor) {},
-    setStyle: function setStyle(styleDict) {
-      var onekit_styles = '';
-      for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-        var _ref;
-
-        if (_isArray) {
-          if (_i >= _iterator.length) break;
-          _ref = _iterator[_i++];
-        } else {
-          _i = _iterator.next();
-          if (_i.done) break;
-          _ref = _i.value;
-        }
-
-        var cssName = _ref;
-
-        onekit_styles += cssName + ':' + styleDict[cssName] + ';';
-      }
-      this.setData({ onekit_styles: onekit_styles });
-    },
-    addClass: function addClass(className) {},
-    removeClass: function removeClass(className) {},
-    hasClass: function hasClass(className) {},
-    getDataset: function getDataset() {},
-    callMethod: function callMethod(funcName, args) {},
-    requestAnimationFrame: function requestAnimationFrame(callback) {},
-    getState: function getState() {},
-    getComputedStyle: function getComputedStyle(cssNames) {}
-  }
-};
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = {
-  properties: {
-    onekitClass: '',
-    onekitStyle: '',
-    onekitId: ''
-  }
-};
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
-module.exports = Behavior({
-
-  properties: {
-    animation: { type: Object }
-  },
-  methods: {
-    ui_tap: function ui_tap() {
-      this.triggerEvent('Tap');
-    },
-    ui_touchstart: function ui_touchstart() {
-      this.triggerEvent('Touchstart');
-    },
-    ui_touchmove: function ui_touchmove() {
-      this.triggerEvent('Touchmove');
-    },
-    ui_touchcancel: function ui_touchcancel() {
-      this.triggerEvent('Touchcancel');
-    },
-    ui_touchend: function ui_touchend() {
-      this.triggerEvent('Touchend');
-    },
-    ui_longpress: function ui_longpress() {
-      this.triggerEvent('Longpress');
-    },
-    ui_longtap: function ui_longtap() {
-      this.triggerEvent('Longtap');
-    },
-    ui_transitionend: function ui_transitionend() {
-      this.triggerEvent('Transitionend');
-    },
-    ui_animationstart: function ui_animationstart() {
-      this.triggerEvent('Animationstart');
-    },
-    ui_animationiteration: function ui_animationiteration() {
-      this.triggerEvent('Animationiteration');
-    },
-    ui_animationend: function ui_animationend() {
-      this.triggerEvent('Animationend');
-    },
-    ui_touchforcechange: function ui_touchforcechange() {
-      this.triggerEvent('Touchforcechange');
-    }
-  }
-});
-
-/***/ }),
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _onekit_behavior = __webpack_require__(1);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _wxs_behavior = __webpack_require__(0);
-
-var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
-
-var _weixin_behavior = __webpack_require__(2);
-
-var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
 
 var _provices = __webpack_require__(17);
 
@@ -246,11 +107,7 @@ var _towns2 = _interopRequireDefault(_towns);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint-disable no-nested-ternary */
-/* eslint-disable max-len */
-/* eslint-disable camelcase */
 Component({
-  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
   options: {
     addGlobalClass: true
   },
@@ -283,6 +140,7 @@ Component({
 
   methods: {
     init: function init(value) {
+      console.log('ragion-picker init');
       for (var p = 0; p < this.data.provinces.length; p++) {
         if (this.data.provinces[p].name === value[0]) {
           var i = [this.properties.customItem ? p + 1 : p];
@@ -309,6 +167,7 @@ Component({
       }
     },
     provinceChange: function provinceChange(index) {
+      console.log('ragion-picker provinceChange');
       if (index < 0) {
         this.data.ragion.value[0] = this.properties.customItem;
         this.data.ragion.code = [];
@@ -325,6 +184,7 @@ Component({
       this.setData({ citys: citys, cityIndexes: [i] });
     },
     cityChange: function cityChange(index) {
+      console.log('ragion-picker cityChange');
       if (index < 0) {
         this.data.ragion.value[1] = this.properties.customItem;
         switch (this.data.ragion.code.length) {
@@ -351,6 +211,7 @@ Component({
       this.setData({ towns: towns, townIndexes: [i] });
     },
     townChange: function townChange(index) {
+      console.log('ragion-picker townChange');
       if (index < 0) {
         this.data.ragion.value[2] = this.properties.customItem;
         switch (this.data.ragion.code.length) {
@@ -376,6 +237,7 @@ Component({
       this.data.ragion.postcode = town.zipcode;
     },
     ragion_show: function ragion_show() {
+      console.log('ragion-picker ragion_show');
       if (this.properties.disabled) {
         return;
       }
@@ -384,14 +246,17 @@ Component({
       this.setData({ show: true, provinceIndexes: this.data.provinceIndexes });
     },
     ragion_cancle: function ragion_cancle(e) {
+      console.log('ragion-picker ragion_cancle');
       this.setData({ show: false });
       this.triggerEvent('Cancle', e.detail);
     },
     ragion_confirm: function ragion_confirm(e) {
+      console.log('ragion-picker ragion_confirm');
       this.setData({ show: false });
       this.triggerEvent('Confirm', e.detail);
     },
     province_change: function province_change(e) {
+      console.log('ragion-picker province_change');
       var index = e.detail.value[0];
       this.data.provinceIndexes = [index];
       this.provinceChange(this.properties.customItem && index === 0 ? -1 : this.properties.customItem ? index - 1 : index);
@@ -399,21 +264,27 @@ Component({
       this.townChange(this.properties.customItem ? -1 : 0);
     },
     city_change: function city_change(e) {
+      console.log('ragion-picker city_change');
       var index = e.detail.value[0];
       this.data.cityIndexes = [index];
       this.cityChange(this.properties.customItem && index === 0 ? -1 : this.properties.customItem ? index - 1 : index);
       this.townChange(this.properties.customItem ? -1 : 0);
     },
     town_change: function town_change(e) {
+      console.log('ragion-picker town_change');
       var index = e.detail.value[0];
       this.data.townIndexes = [index];
       this.townChange(this.properties.customItem && index === 0 ? -1 : this.properties.customItem ? index - 1 : index);
     }
   }
-});
+}); /* eslint-disable no-console */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable max-len */
+/* eslint-disable camelcase */
 
 /***/ }),
-/* 17 */
+
+/***/ 17:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -422,7 +293,8 @@ Component({
 module.exports = [{ id: '110000', name: '北京市' }, { id: '120000', name: '天津市' }, { id: '130000', name: '河北省' }, { id: '140000', name: '山西省' }, { id: '150000', name: '内蒙古自治区' }, { id: '210000', name: '辽宁省' }, { id: '220000', name: '吉林省' }, { id: '230000', name: '黑龙江省' }, { id: '310000', name: '上海市' }, { id: '320000', name: '江苏省' }, { id: '330000', name: '浙江省' }, { id: '340000', name: '安徽省' }, { id: '350000', name: '福建省' }, { id: '360000', name: '江西省' }, { id: '370000', name: '山东省' }, { id: '410000', name: '河南省' }, { id: '420000', name: '湖北省' }, { id: '430000', name: '湖南省' }, { id: '440000', name: '广东省' }, { id: '450000', name: '广西壮族自治区' }, { id: '460000', name: '海南省' }, { id: '500000', name: '重庆市' }, { id: '510000', name: '四川省' }, { id: '520000', name: '贵州省' }, { id: '530000', name: '云南省' }, { id: '540000', name: '西藏自治区' }, { id: '610000', name: '陕西省' }, { id: '620000', name: '甘肃省' }, { id: '630000', name: '青海省' }, { id: '640000', name: '宁夏回族自治区' }, { id: '650000', name: '新疆维吾尔自治区' }, { id: '710000', name: '台湾' }, { id: '810000', name: '香港特别行政区' }, { id: '820000', name: '澳门特别行政区' }];
 
 /***/ }),
-/* 18 */
+
+/***/ 18:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -466,7 +338,8 @@ module.exports = {
 };
 
 /***/ }),
-/* 19 */
+
+/***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -849,4 +722,5 @@ module.exports = {
 };
 
 /***/ })
-/******/ ]);
+
+/******/ });

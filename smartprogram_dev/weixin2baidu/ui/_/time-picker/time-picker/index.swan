@@ -6,7 +6,7 @@
   <slot>
   </slot>
 </view>
-  <bottom-view s-if="{{show}}" headerText="{{headerText}}" bindcancle="time_cancle" bindconfirm="time_confirm">
+  <bottom-view s-if="{{show}}" headerText="{{headerText}}" bindCancle="time_cancle" bindConfirm="time_confirm">
     <picker-view bindchange="time_change" value="{{time}}">
       <picker-view-column>
         <view s-for="{{hours}}" s-for-item="hour" s-for-key="hour">{{hour}}</view>

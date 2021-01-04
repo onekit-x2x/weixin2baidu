@@ -1,10 +1,7 @@
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
-import onekit_behavior from '../../../../behavior/onekit_behavior'
-import wxs_behavior from '../../../../behavior/wxs_behavior'
-import weixin_behavior from '../../../../behavior/weixin_behavior'
 
 Component({
-  behaviors: [onekit_behavior, wxs_behavior, weixin_behavior],
   options: {
     addGlobalClass: true,
   },
@@ -35,6 +32,7 @@ Component({
   },
   methods: {
     selector_show() {
+      console.log('multiselector-picker selector_show')
       if (this.properties.disabled) {
         return
       }
@@ -45,14 +43,17 @@ Component({
       this.setData({select, show: true})
     },
     selector_cancle(e) {
+      console.log('multiselector-picker selector_cancle')
       this.setData({show: false})
       this.triggerEvent('Cancle', e.detail)
     },
     selector_confirm(e) {
+      console.log('multiselector-picker selector_confirm')
       this.setData({show: false})
       this.triggerEvent('Change', e.detail)
     },
     selector_change(e) {
+      console.log('multiselector-picker selector_change')
       const value = e.detail.value[0]
       const column = e.currentTarget.dataset.index
       this.data.value[column] = value
