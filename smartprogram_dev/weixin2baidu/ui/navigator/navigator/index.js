@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 36);
+/******/ 	return __webpack_require__(__webpack_require__.s = 25);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 36:
+/***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

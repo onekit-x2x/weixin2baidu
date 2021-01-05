@@ -1,3 +1,15 @@
-<view class="container">
-    <!--to do-->
-</view>
+<picker-view
+    class="onekit-picker-view {{onekitClass}}"
+    style="{{onekitStyle}}"
+    id="{{onekitId}}"
+
+    value="{{value}}"
+    indicator-style="{{indicatorStyle}}"
+    indicator-class="{{indicatorClass}}"
+    mask-style="{{maskStyle}}"
+    mask-class="{{maskClass}}"
+
+    bindchange="pickView_change"
+>
+ <slot/>
+</picker-view>

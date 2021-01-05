@@ -82,12 +82,11 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 38);
+/******/ 	return __webpack_require__(__webpack_require__.s = 27);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -132,8 +131,7 @@ exports.default = {
 };
 
 /***/ }),
-
-/***/ 1:
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -149,8 +147,7 @@ exports.default = {
 };
 
 /***/ }),
-
-/***/ 2:
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -204,8 +201,7 @@ module.exports = Behavior({
 });
 
 /***/ }),
-
-/***/ 3:
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -338,7 +334,7 @@ var wx = function () {
   };
 
   wx.onUnhandledRejection = function onUnhandledRejection() {
-    console.log('BaiDu is not support !');
+    console.warn('BaiDu is not support !');
   };
 
   wx.onThemeChange = function onThemeChange() {
@@ -364,8 +360,12 @@ var wx = function () {
     return swan.offPageNotFound(object);
   };
 
-  wx.onAudioInterruptionEnd = function onAudioInterruptionEnd(callback) {
-    callback();
+  wx.onAudioInterruptionBegin = function onAudioInterruptionBegin() {
+    return console.warn('onAudioInterruptionBegin is not support');
+  };
+
+  wx.onAudioInterruptionEnd = function onAudioInterruptionEnd() {
+    return console.warn('onAudioInterruptionEnd is not support');
   };
 
   wx.offAppShow = function offAppShow(object) {
@@ -388,8 +388,28 @@ var wx = function () {
     return swan.setEnableDebug(object);
   };
 
-  wx.getLogManager = function getLogManager(object) {
-    return swan.getLogManager(object);
+  wx.getRealtimeLogManager = function getRealtimeLogManager() {
+    return console.warn('getRealtimeLogManager is not support');
+  };
+
+  wx.getLogManager = function getLogManager() {
+    return console.warn('getLogManager is not support');
+  };
+
+  wx.offUnhandledRejection = function offUnhandledRejection() {
+    return console.warn('offUnhandledRejection is not support');
+  };
+
+  wx.offThemeChange = function offThemeChange() {
+    return console.warn('offUnhandledRejection is not support');
+  };
+
+  wx.offAudioInterruptionBegin = function offAudioInterruptionBegin() {
+    return console.warn('offAudioInterruptionBegin is not support');
+  };
+
+  wx.offAudioInterruptionEnd = function offAudioInterruptionEnd() {
+    return console.warn('offAudioInterruptionEnd is not support');
   };
 
   // ///////////////// Canvas ///////////////////
@@ -479,7 +499,7 @@ var wx = function () {
   //               break
 
   //             default:
-  //               console.log('[drawCanvas-strokePath]', dat.method)
+  //               console.warn('[drawCanvas-strokePath]', dat.method)
   //               break
   //           }
   //         }
@@ -496,7 +516,7 @@ var wx = function () {
   //               // canvasContext.arc.apply(canvasContext, dt)
   //               break
   //             default:
-  //               console.log('[drawCanvas-fillPath]', dat.method)
+  //               console.warn('[drawCanvas-fillPath]', dat.method)
   //               break
   //           }
   //         }
@@ -506,7 +526,7 @@ var wx = function () {
   //         canvasContext.clearRect(data[0], data[1], data[2], data[3])
   //         break
   //       default:
-  //         console.log('[drawCanvas]', action.method)
+  //         console.warn('[drawCanvas]', action.method)
   //         break
   //     }
   //   }
@@ -991,7 +1011,7 @@ var wx = function () {
   };
 
   wx.chooseMessageFile = function chooseMessageFile() {
-    return console.log('暂不支持！');
+    return console.warn('暂不支持！');
   }; // swan.chooseMessageFile(object)
   // //////////////////////////////////////////////////////////////
 
@@ -1004,7 +1024,7 @@ var wx = function () {
   };
 
   wx.chooseMedia = function chooseMedia() {
-    return console.log('暂不支持！');
+    return console.warn('暂不支持！');
   };
 
   wx.stopVoice = function stopVoice(object) {
@@ -1131,16 +1151,16 @@ var wx = function () {
     return swan.connectSocket(object);
   };
 
-  wx.onSocketError = function onSocketError(object) {
-    return swan.onSocketError(object);
+  wx.onSocketError = function onSocketError(callback) {
+    return swan.onSocketError(callback);
   };
 
-  wx.onSocketMessage = function onSocketMessage(object) {
-    return swan.onSocketMessage(object);
+  wx.onSocketMessage = function onSocketMessage(callback) {
+    return swan.onSocketMessage(callback);
   };
 
-  wx.onSocketClose = function onSocketClose(object) {
-    return swan.onSocketClose(object);
+  wx.onSocketClose = function onSocketClose(callback) {
+    return swan.onSocketClose(callback);
   };
 
   wx.onSocketOpen = function onSocketOpen(object) {
@@ -1155,44 +1175,44 @@ var wx = function () {
     return swan.closeSocket(object);
   };
 
-  wx.offLocalServiceResolveFail = function offLocalServiceResolveFail(object) {
-    return swan.offLocalServiceResolveFail(object);
+  wx.offLocalServiceResolveFail = function offLocalServiceResolveFail() {
+    return console.warn('offLocalServiceResolveFail is not support');
   };
 
-  wx.onLocalServiceResolveFail = function onLocalServiceResolveFail(object) {
-    return swan.onLocalServiceResolveFail(object);
+  wx.onLocalServiceResolveFail = function onLocalServiceResolveFail() {
+    return console.warn('onLocalServiceResolveFail is not support');
   };
 
-  wx.offLocalServiceDiscoveryStop = function offLocalServiceDiscoveryStop(object) {
-    return swan.offLocalServiceDiscoveryStop(object);
+  wx.offLocalServiceDiscoveryStop = function offLocalServiceDiscoveryStop() {
+    return console.warn('offLocalServiceDiscoveryStop is not support');
   };
 
-  wx.onLocalServiceDiscoveryStop = function onLocalServiceDiscoveryStop(object) {
-    return swan.onLocalServiceDiscoveryStop(object);
+  wx.onLocalServiceDiscoveryStop = function onLocalServiceDiscoveryStop() {
+    return console.warn('onLocalServiceDiscoveryStop is not support');
   };
 
-  wx.offLocalServiceLost = function offLocalServiceLost(object) {
-    return swan.offLocalServiceLost(object);
+  wx.offLocalServiceLost = function offLocalServiceLost() {
+    return console.warn('offLocalServiceLost is not support');
   };
 
-  wx.onLocalServiceLost = function onLocalServiceLost(object) {
-    return swan.onLocalServiceLost(object);
+  wx.onLocalServiceLost = function onLocalServiceLost() {
+    return console.warn('onLocalServiceLost is not support');
   };
 
-  wx.offLocalServiceFound = function offLocalServiceFound(object) {
-    return swan.offLocalServiceFound(object);
+  wx.offLocalServiceFound = function offLocalServiceFound() {
+    return console.warn('offLocalServiceFound is not support');
   };
 
-  wx.onLocalServiceFound = function onLocalServiceFound(object) {
-    return swan.onLocalServiceFound(object);
+  wx.onLocalServiceFound = function onLocalServiceFound() {
+    return console.warn('onLocalServiceFound is not support');
   };
 
-  wx.stopLocalServiceDiscovery = function stopLocalServiceDiscovery(object) {
-    return swan.stopLocalServiceDiscovery(object);
+  wx.stopLocalServiceDiscovery = function stopLocalServiceDiscovery() {
+    return console.warn('stopLocalServiceDiscovery is not support');
   };
 
-  wx.startLocalServiceDiscovery = function startLocalServiceDiscovery(object) {
-    return swan.startLocalServiceDiscovery(object);
+  wx.startLocalServiceDiscovery = function startLocalServiceDiscovery() {
+    return console.warn('startLocalServiceDiscovery is not support');
   };
 
   //
@@ -1477,6 +1497,14 @@ var wx = function () {
     return swan.showModal(object);
   };
 
+  wx.enableAlertBeforeUnload = function enableAlertBeforeUnload() {
+    return console.warn('enableAlertBeforeUnload is not support');
+  };
+
+  wx.disableAlertBeforeUnload = function disableAlertBeforeUnload() {
+    return console.warn('disableAlertBeforeUnload is not support');
+  };
+
   wx.setNavigationBarColor = function setNavigationBarColor(object) {
     return swan.setNavigationBarColor(object);
   };
@@ -1491,6 +1519,10 @@ var wx = function () {
 
   wx.setNavigationBarTitle = function setNavigationBarTitle(object) {
     return swan.setNavigationBarTitle(object);
+  };
+
+  wx.hideHomeButton = function hideHomeButton() {
+    return console.warn('hideHomeButton is not support');
   };
 
   wx.setBackgroundTextStyle = function setBackgroundTextStyle(object) {
@@ -1534,8 +1566,8 @@ var wx = function () {
   };
 
   wx.loadFontFace = function loadFontFace() {
-    return console.log('注释了');
-  }; // swan.loadFontFace(object)
+    return console.warn('hideHomeButton is not support');
+  };
 
   wx.stopPullDownRefresh = function stopPullDownRefresh(object) {
     return swan.stopPullDownRefresh(object);
@@ -1549,24 +1581,44 @@ var wx = function () {
     return swan.pageScrollTo(object);
   };
 
-  wx.setTopBarText = function setTopBarText(object) {
-    return swan.setTopBarText(object);
+  wx.setTopBarText = function setTopBarText() {
+    return console.warn('setTopBarText is not support');
   };
 
-  wx.nextTick = function nextTick(object) {
-    return swan.nextTick(object);
+  wx.nextTick = function nextTick(callback) {
+    return swan.nextTick(callback);
   };
 
   wx.getMenuButtonBoundingClientRect = function getMenuButtonBoundingClientRect(object) {
     return swan.getMenuButtonBoundingClientRect(object);
   };
 
-  wx.offWindowResize = function offWindowResize(object) {
-    return swan.offWindowResize(object);
+  wx.setWindowSize = function setWindowSize() {
+    return console.warn('setWindowSize is not support');
   };
 
-  wx.onWindowResize = function onWindowResize(object) {
-    return swan.onWindowResize(object);
+  wx.onWindowResize = function onWindowResize() {
+    return console.warn('onWindowResize is not support');
+  };
+
+  wx.offWindowResize = function offWindowResize() {
+    return console.warn('offWindowResize is not support');
+  };
+
+  wx.onKeyboardHeightChange = function onKeyboardHeightChange(callback) {
+    return swan.onKeyboardHeightChange(callback);
+  };
+
+  wx.offKeyboardHeightChange = function offKeyboardHeightChange(callback) {
+    return swan.offKeyboardHeightChange(callback);
+  };
+
+  wx.hideKeyboard = function hideKeyboard() {
+    return console.warn('hideKeyboard is not support');
+  };
+
+  wx.getSelectedTextRange = function getSelectedTextRange() {
+    return console.warn('getSelectedTextRange is not support');
   };
 
   // //////////// Worker ///////////////
@@ -1587,96 +1639,13 @@ var wx = function () {
     return swan.createIntersectionObserver(object);
   };
 
-  // ///////////////////////////////////
-
-
-  wx.hideKeyboard = function hideKeyboard(object) {
-    return swan.hideKeyboard(object);
-  };
-
   return wx;
 }();
 
 exports.default = wx;
 
 /***/ }),
-
-/***/ 38:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _wx = __webpack_require__(3);
-
-var _wx2 = _interopRequireDefault(_wx);
-
-var _onekit_behavior = __webpack_require__(1);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _wxs_behavior = __webpack_require__(0);
-
-var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
-
-var _weixin_behavior = __webpack_require__(2);
-
-var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-Component({
-  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
-  options: {
-    addGlobalClass: true
-  },
-  data: {},
-  properties: {},
-
-  attached: function attached() {
-    var that = this;
-    _wx2.default.getOpenData({
-      success: function success(opendata) {
-        switch (that.props.type) {
-          case 'userNickName':
-            that.setData({ userNickName: opendata.nickName });
-            break;
-          case 'userAvatarUrl':
-            that.setData({ userAvatarUrl: opendata.avatarUrl });
-            break;
-          case 'userGender':
-            that.setData({ userGender: opendata.gender });
-            break;
-          case 'userCity':
-            that.setData({ userCity: opendata.city });
-            break;
-          case 'userProvince':
-            that.setData({ userProvince: opendata.province });
-            break;
-          case 'userCountry':
-            that.setData({ userCountry: opendata.country });
-            break;
-          case 'userLanguage':
-            that.setData({ userLanguage: opendata.language });
-            break;
-          default:
-            break;
-        }
-      }
-    });
-  },
-  didUpdate: function didUpdate() {},
-  didUnmount: function didUnmount() {},
-
-  methods: {}
-});
-
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
-
-/***/ }),
-
-/***/ 4:
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1829,8 +1798,7 @@ var CanvasContext = function () {
 exports.default = CanvasContext;
 
 /***/ }),
-
-/***/ 5:
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1893,8 +1861,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-
-/***/ 6:
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1933,8 +1900,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-
-/***/ 7:
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2053,8 +2019,7 @@ var InnerAudioContext = function () {
 exports.default = InnerAudioContext;
 
 /***/ }),
-
-/***/ 8:
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2105,8 +2070,7 @@ var LivePlayerContext = function () {
 exports.default = LivePlayerContext;
 
 /***/ }),
-
-/***/ 9:
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2122,6 +2086,96 @@ var WORKER = function WORKER() {
 
 exports.default = WORKER;
 
-/***/ })
+/***/ }),
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/******/ });
+"use strict";
+
+
+var _wx = __webpack_require__(3);
+
+var _wx2 = _interopRequireDefault(_wx);
+
+var _onekit_behavior = __webpack_require__(1);
+
+var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
+
+var _wxs_behavior = __webpack_require__(0);
+
+var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
+
+var _weixin_behavior = __webpack_require__(2);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+Component({
+  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
+  options: {
+    addGlobalClass: true
+  },
+  data: {},
+  properties: {},
+
+  attached: function attached() {
+    var that = this;
+    _wx2.default.getOpenData({
+      success: function success(opendata) {
+        switch (that.props.type) {
+          case 'userNickName':
+            that.setData({ userNickName: opendata.nickName });
+            break;
+          case 'userAvatarUrl':
+            that.setData({ userAvatarUrl: opendata.avatarUrl });
+            break;
+          case 'userGender':
+            that.setData({ userGender: opendata.gender });
+            break;
+          case 'userCity':
+            that.setData({ userCity: opendata.city });
+            break;
+          case 'userProvince':
+            that.setData({ userProvince: opendata.province });
+            break;
+          case 'userCountry':
+            that.setData({ userCountry: opendata.country });
+            break;
+          case 'userLanguage':
+            that.setData({ userLanguage: opendata.language });
+            break;
+          default:
+            break;
+        }
+      }
+    });
+  },
+  didUpdate: function didUpdate() {},
+  didUnmount: function didUnmount() {},
+
+  methods: {}
+});
+
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+
+/***/ })
+/******/ ]);

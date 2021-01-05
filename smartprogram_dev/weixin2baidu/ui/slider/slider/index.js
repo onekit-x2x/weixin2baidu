@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 42);
+/******/ 	return __webpack_require__(__webpack_require__.s = 34);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 42:
+/***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -231,27 +231,59 @@ Component({
     addGlobalClass: true
   },
   properties: {
-    // propName: { // 属性名
-    //   type: String, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
-    //   value: 'val', // 属性初始值（必填）
-    //   observer(newVal, oldVal) {
-    //     // 属性被改变时执行的函数（可选）
-    //   }
-    // }
+    min: {
+      type: Number,
+      value: 0
+    },
+    max: {
+      type: Number,
+      value: 100
+    },
+    step: {
+      type: Number,
+      value: 1
+    },
+    disabled: {
+      type: Boolean,
+      value: false
+    },
+    value: {
+      type: Number,
+      value: 0
+    },
+    color: {
+      type: String
+    },
+    selectedColor: {
+      type: String
+    },
+    activeColor: {
+      type: String,
+      value: '#1aad19'
+    },
+    backgroundColor: {
+      type: String,
+      value: '#e9e9e9'
+    },
+    blockSize: {
+      type: Number,
+      value: 28
+    },
+    blockColor: {
+      type: String,
+      value: '#ffffff'
+    },
+    showValue: {
+      type: Boolean,
+      value: false
+    }
   },
-
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached: function attached() {},
-  detached: function detached() {},
-
-
   methods: {
-    onTap: function onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      });
+    slider_change: function slider_change(e) {
+      this.triggerEvent('Change', e.detail);
+    },
+    slider_changing: function slider_changing(e) {
+      this.triggerEvent('Changing', e.detail);
     }
   }
 }); /* eslint-disable no-console */

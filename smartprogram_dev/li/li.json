@@ -8,6 +8,8 @@
         "onekit-rich-text":"../weixin2baidu/ui/rich-text/rich-text/index",
         "onekit-button":"../weixin2baidu/ui/button/button/index",
         "onekit-input":"../weixin2baidu/ui/input/input/index",
-        "onekit-picker":"../weixin2baidu/ui/picker/picker/index"
+        "onekit-picker":"../weixin2baidu/ui/picker/picker/index",
+        "onekit-picker-view":"../weixin2baidu/ui/picker-view/picker-view/index",
+        "onekit-slider":"../weixin2baidu/ui/slider/slider/index"
     }
 }
