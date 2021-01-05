@@ -876,16 +876,16 @@ export default class wx {
     return swan.connectSocket(object)
   }
 
-  static onSocketError(object) {
-    return swan.onSocketError(object)
+  static onSocketError(callback) {
+    return swan.onSocketError(callback)
   }
 
-  static onSocketMessage(object) {
-    return swan.onSocketMessage(object)
+  static onSocketMessage(callback) {
+    return swan.onSocketMessage(callback)
   }
 
-  static onSocketClose(object) {
-    return swan.onSocketClose(object)
+  static onSocketClose(callback) {
+    return swan.onSocketClose(callback)
   }
 
   static onSocketOpen(object) {
@@ -900,44 +900,44 @@ export default class wx {
     return swan.closeSocket(object)
   }
 
-  static offLocalServiceResolveFail(object) {
-    return swan.offLocalServiceResolveFail(object)
+  static offLocalServiceResolveFail() {
+    return console.warn('offLocalServiceResolveFail is not support')
   }
 
-  static onLocalServiceResolveFail(object) {
-    return swan.onLocalServiceResolveFail(object)
+  static onLocalServiceResolveFail() {
+    return console.warn('onLocalServiceResolveFail is not support')
   }
 
-  static offLocalServiceDiscoveryStop(object) {
-    return swan.offLocalServiceDiscoveryStop(object)
+  static offLocalServiceDiscoveryStop() {
+    return console.warn('offLocalServiceDiscoveryStop is not support')
   }
 
-  static onLocalServiceDiscoveryStop(object) {
-    return swan.onLocalServiceDiscoveryStop(object)
+  static onLocalServiceDiscoveryStop() {
+    return console.warn('onLocalServiceDiscoveryStop is not support')
   }
 
-  static offLocalServiceLost(object) {
-    return swan.offLocalServiceLost(object)
+  static offLocalServiceLost() {
+    return console.warn('offLocalServiceLost is not support')
   }
 
-  static onLocalServiceLost(object) {
-    return swan.onLocalServiceLost(object)
+  static onLocalServiceLost() {
+    return console.warn('onLocalServiceLost is not support')
   }
 
-  static offLocalServiceFound(object) {
-    return swan.offLocalServiceFound(object)
+  static offLocalServiceFound() {
+    return console.warn('offLocalServiceFound is not support')
   }
 
-  static onLocalServiceFound(object) {
-    return swan.onLocalServiceFound(object)
+  static onLocalServiceFound() {
+    return console.warn('onLocalServiceFound is not support')
   }
 
-  static stopLocalServiceDiscovery(object) {
-    return swan.stopLocalServiceDiscovery(object)
+  static stopLocalServiceDiscovery() {
+    return console.warn('stopLocalServiceDiscovery is not support')
   }
 
-  static startLocalServiceDiscovery(object) {
-    return swan.startLocalServiceDiscovery(object)
+  static startLocalServiceDiscovery() {
+    return console.warn('startLocalServiceDiscovery is not support')
   }
 
   //
@@ -1319,6 +1319,22 @@ export default class wx {
     return console.warn('offWindowResize is not support')
   }
 
+  static onKeyboardHeightChange(callback) {
+    return swan.onKeyboardHeightChange(callback)
+  }
+
+  static offKeyboardHeightChange(callback) {
+    return swan.offKeyboardHeightChange(callback)
+  }
+
+  static hideKeyboard() {
+    return console.warn('hideKeyboard is not support')
+  }
+
+  static getSelectedTextRange() {
+    return console.warn('getSelectedTextRange is not support')
+  }
+
   // //////////// Worker ///////////////
   static createWorker(path) {
     return new WORKER(path)
@@ -1331,10 +1347,5 @@ export default class wx {
 
   static createIntersectionObserver(object) {
     return swan.createIntersectionObserver(object)
-  }
-
-  // ///////////////////////////////////
-  static hideKeyboard(object) {
-    return swan.hideKeyboard(object)
   }
 }
