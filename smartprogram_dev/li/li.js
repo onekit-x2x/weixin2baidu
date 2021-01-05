@@ -432,17 +432,17 @@ global = {};
 // OnekitPage(pageData)
 
 //camera
-OnekitPage({
-    takePhoto:function(){
-        const ctx = wx.createCameraContext()
-        ctx.takePhoto({
-        quality:'high',
-        success:(res)=>{this.setData({
-            src:res.tempImagePath
-        })}
-    })
-    },
-    error:function(e){
-        console.log(e.detail)
-    }
-})
+// OnekitPage({
+//     takePhoto:function(){
+//         const ctx = wx.createCameraContext()
+//         ctx.takePhoto({
+//         quality:'high',
+//         success:(res)=>{this.setData({
+//             src:res.tempImagePath
+//         })}
+//     })
+//     },
+//     error:function(e){
+//         console.log(e.detail)
+//     }
+// })

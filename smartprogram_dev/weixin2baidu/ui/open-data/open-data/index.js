@@ -233,6 +233,10 @@ var _WORKER = __webpack_require__(9);
 
 var _WORKER2 = _interopRequireDefault(_WORKER);
 
+var _PROMISE = __webpack_require__(10);
+
+var _PROMISE2 = _interopRequireDefault(_PROMISE);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } /* eslint-disable no-console */
@@ -587,9 +591,13 @@ var wx = function () {
     };
   };
 
-  wx.onBackgroundFetchData = function onBackgroundFetchData() {};
+  wx.onBackgroundFetchData = function onBackgroundFetchData() {
+    return console.warn('onBackgroundFetchData is not support');
+  };
 
-  wx.getBackgroundFetchData = function getBackgroundFetchData() {};
+  wx.getBackgroundFetchData = function getBackgroundFetchData() {
+    return console.warn('getBackgroundFetchData is not support');
+  };
 
   // static createContext() { return new CanvasContext(); }
 
@@ -614,6 +622,10 @@ var wx = function () {
     return new _CameraContext2.default(swan.createCameraContext());
   };
 
+  wx.createOffscreenCanvas = function createOffscreenCanvas() {
+    return console.warn('createOffscreenCanvas is not support');
+  };
+
   wx.canvasToTempFilePath = function canvasToTempFilePath(object) {
     return swan.canvasToTempFilePath(object);
   };
@@ -629,56 +641,72 @@ var wx = function () {
   // //////////// Device //////////////////
 
 
-  wx.onBeaconServiceChange = function onBeaconServiceChange(object) {
-    return swan.onBeaconServiceChange(object);
+  wx.onBeaconServiceChange = function onBeaconServiceChange() {
+    return console.warn('onBeaconServiceChange is not support');
   };
 
-  wx.onBeaconUpdate = function onBeaconUpdate(object) {
-    return swan.onBeaconUpdate(object);
+  wx.onBeaconUpdate = function onBeaconUpdate() {
+    return console.warn('onBeaconUpdate is not support');
   };
 
-  wx.getBeacons = function getBeacons(object) {
-    return swan.getBeacons(object);
+  wx.getBeacons = function getBeacons() {
+    return console.warn('getBeacons is not support');
   };
 
-  wx.stopBeaconDiscovery = function stopBeaconDiscovery(object) {
-    return swan.stopBeaconDiscovery(object);
+  wx.stopBeaconDiscovery = function stopBeaconDiscovery() {
+    return console.warn('stopBeaconDiscovery is not support');
   };
 
-  wx.startBeaconDiscovery = function startBeaconDiscovery(object) {
-    return swan.startBeaconDiscovery(object);
+  wx.startBeaconDiscovery = function startBeaconDiscovery() {
+    return console.warn('startBeaconDiscovery is not support');
   };
 
-  wx.stopWifi = function stopWifi(object) {
-    return swan.stopWifi(object);
+  wx.offBeaconUpdate = function offBeaconUpdate() {
+    return console.warn('offBeaconUpdate is not support');
   };
 
-  wx.startWifi = function startWifi(object) {
-    return swan.startWifi(object);
+  wx.offBeaconServiceChange = function offBeaconServiceChange() {
+    return console.warn('offBeaconServiceChange is not support');
   };
 
-  wx.setWifiList = function setWifiList(object) {
-    return swan.setWifiList(object);
+  wx.stopWifi = function stopWifi() {
+    return console.warn('stopWifi is not support');
   };
 
-  wx.onWifiConnected = function onWifiConnected(object) {
-    return swan.onWifiConnected(object);
+  wx.startWifi = function startWifi() {
+    return console.warn('startWifi is not support');
   };
 
-  wx.onGetWifiList = function onGetWifiList(object) {
-    return swan.onGetWifiList(object);
+  wx.setWifiList = function setWifiList() {
+    return console.warn('setWifiList is not support');
   };
 
-  wx.getWifiList = function getWifiList(object) {
-    return swan.getWifiList(object);
+  wx.onWifiConnected = function onWifiConnected() {
+    return console.warn('onWifiConnected is not support');
   };
 
-  wx.getConnectedWifi = function getConnectedWifi(object) {
-    return swan.getConnectedWifi(object);
+  wx.onGetWifiList = function onGetWifiList() {
+    return console.warn('onGetWifiList is not support');
   };
 
-  wx.connectWifi = function connectWifi(object) {
-    return swan.connectWifi(object);
+  wx.offWifiConnected = function offWifiConnected() {
+    return console.warn('offWifiConnected is not support');
+  };
+
+  wx.offGetWifiList = function offGetWifiList() {
+    return console.warn('offGetWifiList is not support');
+  };
+
+  wx.getWifiList = function getWifiList() {
+    return console.warn('getWifiList is not support');
+  };
+
+  wx.getConnectedWifi = function getConnectedWifi() {
+    return console.warn('getConnectedWifi is not support');
+  };
+
+  wx.connectWifi = function connectWifi() {
+    return console.warn('connectWifi is not support');
   };
 
   //
@@ -686,6 +714,10 @@ var wx = function () {
 
   wx.onAccelerometerChange = function onAccelerometerChange(callback) {
     return swan.onAccelerometerChange(callback);
+  };
+
+  wx.offAccelerometerChange = function offAccelerometerChange() {
+    return console.warn('offAccelerometerChange is not support');
   };
 
   wx.stopAccelerometer = function stopAccelerometer(object) {
@@ -698,10 +730,6 @@ var wx = function () {
 
   wx.getBatteryInfoSync = function getBatteryInfoSync(object) {
     return swan.getBatteryInfoSync(object);
-  };
-
-  wx._getBatteryInfo = function _getBatteryInfo(object) {
-    return swan._getBatteryInfo(object);
   };
 
   wx.getBatteryInfo = function getBatteryInfo(object) {
@@ -720,7 +748,11 @@ var wx = function () {
   };
 
   wx.onCompassChange = function onCompassChange(callback) {
-    return swan.onCompassChange(callback);
+    this._CompassChange = callback;
+  };
+
+  wx.offCompassChange = function offCompassChange() {
+    this._CompassChange = null;
   };
 
   wx.stopCompass = function stopCompass(object) {
@@ -733,6 +765,10 @@ var wx = function () {
 
   wx.addPhoneContact = function addPhoneContact(object) {
     return swan.addPhoneContact(object);
+  };
+
+  wx.checkIsOpenAccessibility = function checkIsOpenAccessibility() {
+    return console.warn('checkIsOpenAccessibility is not support');
   };
 
   wx.onGyroscopeChange = function onGyroscopeChange(callback) {
@@ -750,16 +786,44 @@ var wx = function () {
   //
 
 
-  wx.onDeviceMotionChange = function onDeviceMotionChange(object) {
-    return swan.onDeviceMotionChange(object);
+  wx.onDeviceMotionChange = function onDeviceMotionChange(callback) {
+    getApp().onekit_DeviceMotionChange = callback;
+  };
+
+  wx.offDeviceMotionChange = function offDeviceMotionChange() {
+    getApp().onekit_DeviceMotionChange = null;
   };
 
   wx.stopDeviceMotionListening = function stopDeviceMotionListening(object) {
+    /* swan.onDeviceMotionChange((res) => {
+    if (getApp().onekit_DeviceMotionChange) {
+    getApp().onekit_DeviceMotionChange(res)
+    }
+    })
+    */
     return swan.stopDeviceMotionListening(object);
   };
 
-  wx.startDeviceMotionListening = function startDeviceMotionListening(object) {
-    return swan.startDeviceMotionListening(object);
+  wx.startDeviceMotionListening = function startDeviceMotionListening(wx_object) {
+    var wx_success = wx_object.success;
+    var wx_fail = wx_object.fail;
+    var wx_complete = wx_object.complete;
+    wx_object = null;
+    (0, _PROMISE2.default)(function (SUCCESS, FAIL) {
+      swan.startDeviceMotionListening({
+        success: function success(res) {
+          swan.onDeviceMotionChange(function (res) {
+            if (getApp().onekit_DeviceMotionChange) {
+              getApp().onekit_DeviceMotionChange(res);
+            }
+          });
+          SUCCESS(res);
+        },
+        fail: function fail(err) {
+          FAIL(err);
+        }
+      });
+    }, wx_success, wx_fail, wx_complete);
   };
 
   //
@@ -769,12 +833,12 @@ var wx = function () {
     return swan.getNetworkType(object);
   };
 
-  wx._network = function _network(res) {
-    return swan._network(res);
+  wx.offNetworkStatusChange = function offNetworkStatusChange() {
+    return console.log('offNetworkStatusChange is not support');
   };
 
-  wx.onNetworkStatusChange = function onNetworkStatusChange(object) {
-    return swan.onNetworkStatusChange(object);
+  wx.onNetworkStatusChange = function onNetworkStatusChange(callback) {
+    return swan.onNetworkStatusChange(callback);
   };
 
   //
@@ -809,102 +873,138 @@ var wx = function () {
   //
 
 
-  wx.writeBLECharacteristicValue = function writeBLECharacteristicValue(object) {
-    return swan.writeBLECharacteristicValue(object);
+  wx.writeBLECharacteristicValue = function writeBLECharacteristicValue() {
+    return console.warn('writeBLECharacteristicValue is not support');
   };
 
-  wx.readBLECharacteristicValue = function readBLECharacteristicValue(object) {
-    return swan.readBLECharacteristicValue(object);
+  wx.setBLEMTU = function setBLEMTU() {
+    return console.warn('setBLEMTU is not support');
   };
 
-  wx.onBLEConnectionStateChange = function onBLEConnectionStateChange(object) {
-    return swan.onBLEConnectionStateChange(object);
+  wx.readBLECharacteristicValue = function readBLECharacteristicValue() {
+    return console.warn('setBLEMTU is not support');
   };
 
-  wx.onBLECharacteristicValueChange = function onBLECharacteristicValueChange(object) {
-    return swan.onBLECharacteristicValueChange(object);
+  wx.onBLEConnectionStateChange = function onBLEConnectionStateChange() {
+    return console.warn('onBLEConnectionStateChange is not support');
   };
 
-  wx.notifyBLECharacteristicValueChange = function notifyBLECharacteristicValueChange(object) {
-    return swan.notifyBLECharacteristicValueChange(object);
+  wx.onBLECharacteristicValueChange = function onBLECharacteristicValueChange() {
+    return console.warn('onBLECharacteristicValueChange is not support');
   };
 
-  wx.getBLEDeviceServices = function getBLEDeviceServices(object) {
-    return swan.getBLEDeviceServices(object);
+  wx.offBLEConnectionStateChange = function offBLEConnectionStateChange() {
+    return console.warn('offBLEConnectionStateChange is not support');
   };
 
-  wx.getBLEDeviceCharacteristics = function getBLEDeviceCharacteristics(object) {
-    return swan.getBLEDeviceCharacteristics(object);
+  wx.offBLECharacteristicValueChange = function offBLECharacteristicValueChange() {
+    return console.warn('offBLECharacteristicValueChange is not support');
   };
 
-  wx.createBLEConnection = function createBLEConnection(object) {
-    return swan.createBLEConnection(object);
+  wx.notifyBLECharacteristicValueChange = function notifyBLECharacteristicValueChange() {
+    return console.warn('notifyBLECharacteristicValueChange is not support');
   };
 
-  wx.closeBLEConnection = function closeBLEConnection(object) {
-    return swan.closeBLEConnection(object);
+  wx.makeBluetoothPair = function makeBluetoothPair() {
+    return console.warn('makeBluetoothPair is not support');
+  };
+
+  wx.getBLEDeviceServices = function getBLEDeviceServices() {
+    return console.warn('getBLEDeviceServices is not support');
+  };
+
+  wx.getBLEDeviceRSSI = function getBLEDeviceRSSI() {
+    return console.warn('getBLEDeviceRSSI is not support');
+  };
+
+  wx.getBLEDeviceCharacteristics = function getBLEDeviceCharacteristics() {
+    return console.warn('getBLEDeviceCharacteristics is not support');
+  };
+
+  wx.createBLEConnection = function createBLEConnection() {
+    return console.warn('createBLEConnection is not support');
+  };
+
+  wx.closeBLEConnection = function closeBLEConnection() {
+    return console.warn('closeBLEConnection is not support');
   };
 
   //
 
 
   wx.stopBluetoothDevicesDiscovery = function stopBluetoothDevicesDiscovery() {
-    /* return swan.stopBluetoothDevicesDiscovery(object); */
+    return console.warn('stopBluetoothDevicesDiscovery is not support');
   };
 
-  wx.startBluetoothDevicesDiscovery = function startBluetoothDevicesDiscovery(object) {
-    return swan.startBluetoothDevicesDiscovery(object);
+  wx.startBluetoothDevicesDiscovery = function startBluetoothDevicesDiscovery() {
+    return console.warn('startBluetoothDevicesDiscovery is not support');
   };
 
   wx.openBluetoothAdapter = function openBluetoothAdapter() {
-    /* return swan.openBluetoothAdapter(object); */
+    return console.warn('openBluetoothAdapter is not support');
   };
 
-  wx.onBluetoothDeviceFound = function onBluetoothDeviceFound(object) {
-    return swan.onBluetoothDeviceFound(object);
+  wx.onBluetoothDeviceFound = function onBluetoothDeviceFound() {
+    return console.warn('onBluetoothDeviceFound is not support');
   };
 
-  wx.onBluetoothAdapterStateChange = function onBluetoothAdapterStateChange(object) {
-    return swan.onBluetoothAdapterStateChange(object);
+  wx.onBluetoothAdapterStateChange = function onBluetoothAdapterStateChange() {
+    return console.warn('onBluetoothAdapterStateChange is not support');
   };
 
-  wx.getConnectedBluetoothDevices = function getConnectedBluetoothDevices(object) {
-    return swan.getConnectedBluetoothDevices(object);
+  wx.offBluetoothDeviceFound = function offBluetoothDeviceFound() {
+    return console.warn('offBluetoothDeviceFound is not support');
   };
 
-  wx.getBluetoothDevices = function getBluetoothDevices(object) {
-    return swan.getBluetoothDevices(object);
+  wx.offBluetoothAdapterStateChange = function offBluetoothAdapterStateChange() {
+    return console.warn('offBluetoothAdapterStateChange is not support');
   };
 
-  wx.getBluetoothAdapterState = function getBluetoothAdapterState(object) {
-    return swan.getBluetoothAdapterState(object);
+  wx.getConnectedBluetoothDevices = function getConnectedBluetoothDevices() {
+    return console.warn('getConnectedBluetoothDevices is not support');
   };
 
-  wx.closeBluetoothAdapter = function closeBluetoothAdapter(object) {
-    return swan.closeBluetoothAdapter(object);
+  wx.getBluetoothDevices = function getBluetoothDevices() {
+    return console.warn('getBluetoothDevices is not support');
+  };
+
+  wx.getBluetoothAdapterState = function getBluetoothAdapterState() {
+    return console.warn('getBluetoothAdapterState is not support');
+  };
+
+  wx.closeBluetoothAdapter = function closeBluetoothAdapter() {
+    return console.warn('closeBluetoothAdapter is not support');
   };
 
   //
 
 
-  wx.stopHCE = function stopHCE(object) {
-    return swan.stopHCE(object);
+  wx.stopHCE = function stopHCE() {
+    return console.warn('stopHCE is not support');
   };
 
-  wx.startHCE = function startHCE(object) {
-    return swan.startHCE(object);
+  wx.startHCE = function startHCE() {
+    return console.warn('startHCE is not support');
   };
 
-  wx.sendHCEMessage = function sendHCEMessage(object) {
-    return swan.sendHCEMessage(object);
+  wx.sendHCEMessage = function sendHCEMessage() {
+    return console.warn('sendHCEMessage is not support');
   };
 
-  wx.onHCEMessage = function onHCEMessage(object) {
-    return swan.onHCEMessage(object);
+  wx.onHCEMessage = function onHCEMessage() {
+    return console.warn('onHCEMessage is not support');
   };
 
-  wx.getHCEState = function getHCEState(object) {
-    return swan.getHCEState(object);
+  wx.offHCEMessage = function offHCEMessage() {
+    return console.warn('offHCEMessage is not support');
+  };
+
+  wx.getNFCAdapter = function getNFCAdapter() {
+    return console.warn('getNFCAdapter is not support');
+  };
+
+  wx.getHCEState = function getHCEState() {
+    return console.warn('getHCEState is not support');
   };
 
   //
@@ -918,8 +1018,12 @@ var wx = function () {
     return swan.setKeepScreenOn(object);
   };
 
-  wx.onUserCaptureScreen = function onUserCaptureScreen(object) {
-    return swan.onUserCaptureScreen(object);
+  wx.onUserCaptureScreen = function onUserCaptureScreen(callback) {
+    return swan.onUserCaptureScreen(callback);
+  };
+
+  wx.offUserCaptureScreen = function offUserCaptureScreen() {
+    return console.warn('offUserCaptureScreen is not support');
   };
 
   wx.getScreenBrightness = function getScreenBrightness(object) {
@@ -939,6 +1043,10 @@ var wx = function () {
 
   // ////////////////// File //////////
 
+
+  wx.saveFileToDisk = function saveFileToDisk() {
+    return console.warn('saveFileToDisk is not support');
+  };
 
   wx.getFileSystemManager = function getFileSystemManager(object) {
     return swan.getFileSystemManager(object);
@@ -971,8 +1079,28 @@ var wx = function () {
   // ////////// Location ///////////////
 
 
+  wx.stopLocationUpdate = function stopLocationUpdate(object) {
+    return swan.stopLocationUpdate(object);
+  };
+
+  wx.startLocationUpdateBackground = function startLocationUpdateBackground() {
+    return console.warn('startLocationUpdateBackground is not support');
+  };
+
+  wx.startLocationUpdate = function startLocationUpdate(object) {
+    return swan.startLocationUpdate(object);
+  };
+
   wx.openLocation = function openLocation(object) {
     return swan.openLocation(object);
+  };
+
+  wx.onLocationChange = function onLocationChange(callback) {
+    return swan.onLocationChange(callback);
+  };
+
+  wx.offLocationChange = function offLocationChange(callback) {
+    return swan.offLocationChange(callback);
   };
 
   wx.getLocation = function getLocation(object) {
@@ -1011,8 +1139,13 @@ var wx = function () {
   };
 
   wx.chooseMessageFile = function chooseMessageFile() {
-    return console.warn('暂不支持！');
-  }; // swan.chooseMessageFile(object)
+    return console.warn('chooseMessageFile is not support');
+  };
+
+  wx.previewMedia = function previewMedia() {
+    return console.warn('previewMedia is not support');
+  };
+
   // //////////////////////////////////////////////////////////////
 
   wx.saveVideoToPhotosAlbum = function saveVideoToPhotosAlbum(object) {
@@ -1024,27 +1157,34 @@ var wx = function () {
   };
 
   wx.chooseMedia = function chooseMedia() {
-    return console.warn('暂不支持！');
+    return console.warn('chooseMedia is not support');
   };
 
-  wx.stopVoice = function stopVoice(object) {
-    object.success = function () {
-      console.log('VVV    ');
-    };
-
-    return swan.stopVoice(object);
+  wx.openVideoEditor = function openVideoEditor() {
+    return console.warn('openVideoEditor is not support');
   };
 
-  wx.pauseVoice = function pauseVoice(object) {
-    return swan.pauseVoice(object);
+  wx.getVideoInfo = function getVideoInfo() {
+    return console.warn('getVideoInfo is not support');
   };
 
-  wx.playVoice = function playVoice(object) {
-    return swan.playVoice(object);
+  wx.compressVideo = function compressVideo() {
+    return console.warn('compressVideo is not support');
+  };
+
+  wx.stopVoice = function stopVoice() {
+    return console.warn('stopVoice is not support');
+  };
+
+  wx.pauseVoice = function pauseVoice() {
+    return console.warn('pauseVoice is not support');
+  };
+
+  wx.playVoice = function playVoice() {
+    return console.warn('playVoice is not support');
   };
 
   wx.setInnerAudioOption = function setInnerAudioOption(object) {
-    // const obeyMuteSwitch = true
     return swan.setInnerAudioOption(object);
   };
 
@@ -1052,48 +1192,52 @@ var wx = function () {
     return swan.getAvailableAudioSources(object);
   };
 
-  wx.createAudioContext = function createAudioContext(object) {
-    return swan.createAudioContext(object);
+  wx.createMediaAudioPlayer = function createMediaAudioPlayer() {
+    return console.warn('createMediaAudioPlayer is not support');
   };
 
-  wx.onBackgroundAudioStop = function onBackgroundAudioStop(object) {
-    return swan.onBackgroundAudioStop(object);
+  wx.createAudioContext = function createAudioContext() {
+    return console.warn('createAudioContext is not support');
   };
 
-  wx.onBackgroundAudioPause = function onBackgroundAudioPause(object) {
-    return swan.onBackgroundAudioPause(object);
+  wx.onBackgroundAudioStop = function onBackgroundAudioStop() {
+    return console.warn('onBackgroundAudioStop is not support');
   };
 
-  wx.onBackgroundAudioPlay = function onBackgroundAudioPlay(object) {
-    return swan.onBackgroundAudioPlay(object);
+  wx.onBackgroundAudioPause = function onBackgroundAudioPause() {
+    return console.warn('onBackgroundAudioPause is not support');
   };
 
-  wx.stopBackgroundAudio = function stopBackgroundAudio(object) {
-    return swan.stopBackgroundAudio(object);
+  wx.onBackgroundAudioPlay = function onBackgroundAudioPlay() {
+    return console.warn('onBackgroundAudioPlay is not support');
   };
 
-  wx.seekBackgroundAudio = function seekBackgroundAudio(object) {
-    return swan.seekBackgroundAudio(object);
+  wx.stopBackgroundAudio = function stopBackgroundAudio() {
+    return console.warn('stopBackgroundAudio is not support');
   };
 
-  wx.pauseBackgroundAudio = function pauseBackgroundAudio(object) {
-    return swan.pauseBackgroundAudio(object);
+  wx.seekBackgroundAudio = function seekBackgroundAudio() {
+    return console.warn('seekBackgroundAudio is not support');
   };
 
-  wx.playBackgroundAudio = function playBackgroundAudio(object) {
-    return swan.playBackgroundAudio(object);
+  wx.pauseBackgroundAudio = function pauseBackgroundAudio() {
+    return console.warn('pauseBackgroundAudio is not support');
   };
 
-  wx.getBackgroundAudioPlayerState = function getBackgroundAudioPlayerState(object) {
-    return swan.getBackgroundAudioPlayerState(object);
+  wx.playBackgroundAudio = function playBackgroundAudio() {
+    return console.warn('playBackgroundAudio is not support');
+  };
+
+  wx.getBackgroundAudioPlayerState = function getBackgroundAudioPlayerState() {
+    return console.warn('getBackgroundAudioPlayerState is not support');
   };
 
   wx.getBackgroundAudioManager = function getBackgroundAudioManager(object) {
     return swan.getBackgroundAudioManager(object);
   };
 
-  wx.createLivePusherContext = function createLivePusherContext(object) {
-    return swan.createLivePusherContext(object);
+  wx.createLivePusherContext = function createLivePusherContext() {
+    return console.warn('createLivePusherContext is not support');
   };
 
   wx.startRecord = function startRecord(object) {
@@ -1127,6 +1271,62 @@ var wx = function () {
 
   wx.getRecorderManager = function getRecorderManager(object) {
     return swan.getRecorderManager(object);
+  };
+
+  wx.createMediaContainer = function createMediaContainer() {
+    return console.warn('createMediaContainer is not support');
+  };
+
+  wx.updateVoIPChatMuteConfig = function updateVoIPChatMuteConfig() {
+    return console.warn('updateVoIPChatMuteConfig is not support');
+  };
+
+  wx.subscribeVoIPVideoMembers = function subscribeVoIPVideoMembers() {
+    return console.warn('subscribeVoIPVideoMembers is not support');
+  };
+
+  wx.onVoIPVideoMembersChanged = function onVoIPVideoMembersChanged() {
+    return console.warn('onVoIPVideoMembersChanged is not support');
+  };
+
+  wx.onVoIPChatSpeakersChanged = function onVoIPChatSpeakersChanged() {
+    return console.warn('onVoIPChatSpeakersChanged is not support');
+  };
+
+  wx.onVoIPChatMembersChanged = function onVoIPChatMembersChanged() {
+    return console.warn('onVoIPChatMembersChanged is not support');
+  };
+
+  wx.onVoIPChatInterrupted = function onVoIPChatInterrupted() {
+    return console.warn('onVoIPChatInterrupted is not support');
+  };
+
+  wx.offVoIPVideoMembersChanged = function offVoIPVideoMembersChanged() {
+    return console.warn('offVoIPVideoMembersChanged is not support');
+  };
+
+  wx.offVoIPChatMembersChanged = function offVoIPChatMembersChanged() {
+    return console.warn('offVoIPChatMembersChanged is not support');
+  };
+
+  wx.offVoIPChatInterrupted = function offVoIPChatInterrupted() {
+    return console.warn('offVoIPChatInterrupted is not support');
+  };
+
+  wx.joinVoIPChat = function joinVoIPChat() {
+    return console.warn('joinVoIPChat is not support');
+  };
+
+  wx.exitVoIPChat = function exitVoIPChat() {
+    return console.warn('exitVoIPChat is not support');
+  };
+
+  wx.createMediaRecorder = function createMediaRecorder() {
+    return console.warn('createMediaRecorder is not support');
+  };
+
+  wx.createVideoDecoder = function createVideoDecoder() {
+    return console.warn('createVideoDecoder is not support');
   };
 
   // ////////////// Network ///////////////
@@ -1215,6 +1415,10 @@ var wx = function () {
     return console.warn('startLocalServiceDiscovery is not support');
   };
 
+  wx.createUDPSocket = function createUDPSocket() {
+    return console.warn('createUDPSocket is not support');
+  };
+
   //
 
   // /////// Open Interface //////////
@@ -1224,35 +1428,8 @@ var wx = function () {
     return swan.checkSession(object);
   };
 
-  wx.login = function login() {
-    /*
-      const that = this
-      if (!object) {
-        return swan.login(object)
-      }
-      const object2 = {
-        //   scopes: "auth_user"
-      }
-      object2.success = function (res) {
-        swan._sessoion = new Date().getTime()
-        getApp().onejit.jscode = res.authCode
-        const result = {code: res.authCode}
-        if (object.success) {
-          object.success(result)
-        }
-        if (object.complete) {
-          object.complete(complete)
-        }
-      }
-      object2.fail = function (res) {
-        if (object.fail) {
-          object.fail(res)
-        }
-        if (object.complete) {
-          object.complete(res)
-        }
-      }
-      return swan.login(object2) */
+  wx.login = function login(object) {
+    return swan.login(object);
   };
 
   wx.getUserInfo = function getUserInfo() {
@@ -1294,8 +1471,8 @@ var wx = function () {
     return swan.navigateBackMiniProgram(object);
   };
 
-  wx.getAccountInfoSync = function getAccountInfoSync(object) {
-    return swan.getAccountInfoSync(object);
+  wx.getAccountInfoSync = function getAccountInfoSync() {
+    return console.warn('getAccountInfoSync is not support');
   };
 
   wx.reportAnalytics = function reportAnalytics(object, eventName) {
@@ -1322,67 +1499,100 @@ var wx = function () {
     return swan.chooseAddress(object);
   };
 
-  wx.openCard = function openCard(object) {
-    return swan.openCard(object);
+  wx.openCard = function openCard() {
+    return console.warn('openCard is not support');
   };
 
-  wx.addCard = function addCard(object) {
-    return swan.addCard(object);
+  wx.addCard = function addCard() {
+    return console.warn('addCard is not support');
   };
 
   wx.chooseInvoiceTitle = function chooseInvoiceTitle(object) {
     return swan.chooseInvoiceTitle(object);
   };
 
-  wx.chooseInvoice = function chooseInvoice(object) {
-    return swan.chooseInvoice(object);
+  wx.chooseInvoice = function chooseInvoice() {
+    return console.warn('chooseInvoice is not support');
   };
 
-  wx.startSoterAuthentication = function startSoterAuthentication(object) {
-    return swan.startSoterAuthentication(object);
+  wx.startSoterAuthentication = function startSoterAuthentication() {
+    return console.warn('startSoterAuthentication is not support');
   };
 
-  wx.checkIsSupportSoterAuthentication = function checkIsSupportSoterAuthentication(object) {
-    return swan.checkIsSupportSoterAuthentication(object);
+  wx.checkIsSupportSoterAuthentication = function checkIsSupportSoterAuthentication() {
+    return console.warn('checkIsSupportSoterAuthentication is not support');
   };
 
-  wx.checkIsSoterEnrolledInDevice = function checkIsSoterEnrolledInDevice(object) {
-    return swan.checkIsSoterEnrolledInDevice(object);
+  wx.checkIsSoterEnrolledInDevice = function checkIsSoterEnrolledInDevice() {
+    return console.warn('checkIsSoterEnrolledInDevice is not support');
   };
 
-  wx.getWeRunData = function getWeRunData(object) {
-    return swan.getWeRunData(object);
+  wx.getWeRunData = function getWeRunData() {
+    return console.warn('getWeRunData is not support');
   };
 
-  wx.reportMonitor = function reportMonitor() {}
-  /*
-    const js_code = getApp().onejit.jscode
-    swan.httpRequest({
-      url: 'http://192.168.0.106:8080/onekit-adapter/reportMonitor',
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      method: 'POST',
-      data: {
-        js_code,
-        name,
-        number: value
-      },
-      success: (res) => {
-        console.log('success')
-        console.log(res.data)
-      },
-      fail(res) {
-        console.log(res)
-      },
-      complete(res) {
-        console.log(res)
-      }
-    }) */
+  wx.reportPerformance = function reportPerformance() {
+    return console.warn('reportPerformance is not support');
+  };
 
+  wx.getPerformance = function getPerformance() {
+    return console.warn('getPerformance is not support');
+  };
+
+  wx.requestSubscribeMessage = function requestSubscribeMessage() {
+    return console.warn('requestSubscribeMessage is not support');
+  };
+
+  wx.showRedPackage = function showRedPackage() {
+    return console.warn('showRedPackage is not support');
+  };
+
+  wx.getGroupEnterInfo = function getGroupEnterInfo() {
+    return console.warn('getGroupEnterInfo is not support');
+  };
+
+  wx.onBLEPeripheralConnectionStateChanged = function onBLEPeripheralConnectionStateChanged() {
+    return console.warn('onBLEPeripheralConnectionStateChanged is not support');
+  };
+
+  wx.offBLEPeripheralConnectionStateChanged = function offBLEPeripheralConnectionStateChanged() {
+    return console.warn('offBLEPeripheralConnectionStateChanged is not support');
+  };
+
+  wx.createBLEPeripheralServer = function createBLEPeripheralServer() {
+    return console.warn('createBLEPeripheralServer is not support');
+  };
+
+  wx.reportMonitor = function reportMonitor() {
+    /*
+      const js_code = getApp().onejit.jscode
+      swan.httpRequest({
+        url: 'http://192.168.0.106:8080/onekit-adapter/reportMonitor',
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        method: 'POST',
+        data: {
+          js_code,
+          name,
+          number: value
+        },
+        success: (res) => {
+          console.log('success')
+          console.log(res.data)
+        },
+        fail(res) {
+          console.log(res)
+        },
+        complete(res) {
+          console.log(res)
+        }
+      }) */
+    return console.warn('reportMonitor is not support');
+  };
 
   // //////// Router //////////////
-  ;
+
 
   wx.navigateBack = function navigateBack(object) {
     return swan.navigateBack(object);
@@ -1407,20 +1617,24 @@ var wx = function () {
   // /////////// Share /////////////
 
 
-  wx.updateShareMenu = function updateShareMenu(object) {
-    return swan.updateShareMenu(object);
+  wx.updateShareMenu = function updateShareMenu() {
+    return console.warn('updateShareMenu is not support');
   };
 
-  wx.showShareMenu = function showShareMenu(object) {
-    return swan.showShareMenu(object);
+  wx.showShareMenu = function showShareMenu() {
+    return console.warn('showShareMenu is not support');
   };
 
-  wx.hideShareMenu = function hideShareMenu(object) {
-    return swan.hideShareMenu(object);
+  wx.hideShareMenu = function hideShareMenu() {
+    return console.warn('hideShareMenu is not support');
   };
 
-  wx.getShareInfo = function getShareInfo(object) {
-    return swan.getShareInfo(object);
+  wx.getShareInfo = function getShareInfo() {
+    return console.warn('getShareInfo is not support');
+  };
+
+  wx.authPrivateMessage = function authPrivateMessage() {
+    return console.warn('authPrivateMessage is not support');
   };
 
   // ///////////// Storage //////////////
@@ -1434,8 +1648,8 @@ var wx = function () {
     return swan.getStorageInfo(object);
   };
 
-  wx.clearStorageSync = function clearStorageSync(object) {
-    return swan.clearStorageSync(object);
+  wx.clearStorageSync = function clearStorageSync() {
+    return swan.clearStorageSync();
   };
 
   wx.clearStorage = function clearStorage(object) {
@@ -1643,6 +1857,13 @@ var wx = function () {
 }();
 
 exports.default = wx;
+
+
+swan.onCompassChange(function (res) {
+  if (getApp().onekit_CompassChange) {
+    getApp().onekit_CompassChange(res);
+  }
+});
 
 /***/ }),
 /* 4 */
@@ -2087,7 +2308,45 @@ var WORKER = function WORKER() {
 exports.default = WORKER;
 
 /***/ }),
-/* 10 */,
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* eslint-disable camelcase */
+/* harmony default export */ __webpack_exports__["default"] = (function (body, success, fail, complete) {
+  try {
+    return body(res => {
+      if (success) {
+        success(res)
+      }
+      if (complete) {
+        complete(res)
+      }
+    }, res => {
+      if (fail) {
+        fail(res)
+      }
+      if (complete) {
+        complete(res)
+      }
+    },)
+  } catch (e) {
+    const res = {
+      errMsg: e.message
+    }
+    if (fail) {
+      fail(res)
+    }
+    if (complete) {
+      complete(res)
+    }
+    return null
+  }
+});
+
+
+/***/ }),
 /* 11 */,
 /* 12 */,
 /* 13 */,
