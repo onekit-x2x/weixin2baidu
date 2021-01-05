@@ -407,8 +407,8 @@
 </view> -->
 
 <!-- <camera> -->
-<!-- <onekit-camera device-position="back" flash="off" bindError="error" onekit-style="width: 100%; height: 300px;"></onekit-camera>
+<onekit-camera device-position="back" flash="off" bindError="error" onekit-style="width: 100%; height: 300px;"></onekit-camera>
 <onekit-button type="primary" bindTap="takePhoto">拍照</onekit-button>
 <view>预览</view>
 <image mode="widthFix" src="{{src}}"></image> -->
-<!-- <onekit-camera mode="scanCode" bindscancode="scancode"></onekit-camera> -->
+<!-- <onekit-camera mode="scanCode" bindscancode="scancode"></onekit-camera>
