@@ -176,6 +176,15 @@ Component({
     addGlobalClass: true
   },
   properties: {
+    mode: {
+      type: String,
+      value: 'normal'
+    },
+    // 做不了
+    resolution: {
+      type: String,
+      value: 'medium'
+    },
     devicePosition: {
       type: String,
       value: 'back'
@@ -183,8 +192,30 @@ Component({
     flash: {
       type: String,
       value: 'auto'
+    },
+    // 做不了
+    frameSize: {
+      type: String,
+      value: 'medium'
     }
   },
+  attached: function attached() {
+    var _this = this;
+
+    var mode = this.properties.mode;
+    if (mode === 'scanCode') {
+      swan.scanCode({
+        success: function success(res) {
+          console.log('scanCode success', res);
+          _this.trigger_scancode();
+        },
+        fail: function fail(err) {
+          console.log('scanCode fail', err);
+        }
+      });
+    }
+  },
+
 
   methods: {
     camera_stop: function camera_stop() {
@@ -192,6 +223,14 @@ Component({
     },
     camera_error: function camera_error() {
       this.triggerEvent('error');
+    },
+
+    // 做不了
+    trigger_initdone: function trigger_initdone(e) {
+      this.triggerEvent('Initdone', e.detail);
+    },
+    trigger_scancode: function trigger_scancode() {
+      this.triggerEvent('Scancode');
     }
   }
 }); /* eslint-disable no-console */

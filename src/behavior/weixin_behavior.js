@@ -7,7 +7,7 @@ module.exports = Behavior({
   },
   methods: {
     ui_tap() {
-      this.triggerEvent('Tap',)
+      this.triggerEvent('Tap')
     },
     ui_touchstart() {
       this.triggerEvent('Touchstart')
