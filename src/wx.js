@@ -9,6 +9,7 @@ import CameraContext from './api/CameraContext'
 import InnerAudioContext from './api/InnerAudioContext'
 import LivePlayerContext from './api/LivePlayerContext'
 import WORKER from './api/WORKER'
+import PROMISE from '../node_modules/oneutil/PROMISE'
 // import wx_cloud from './wx.cloud'
 
 export default class wx {
@@ -497,11 +498,11 @@ export default class wx {
   }
 
   static onCompassChange(callback) {
-    this._offCompassChange = callback
+    this._CompassChange = callback
   }
 
   static offCompassChange() {
-    this._offCompassChange = null
+    this._CompassChange = null
   }
 
   static stopCompass(object) {
@@ -534,19 +535,43 @@ export default class wx {
 
   //
   static onDeviceMotionChange(callback) {
-    this._offCompassChange = callback
+    getApp().onekit_DeviceMotionChange = callback
   }
 
   static offDeviceMotionChange() {
-    this._offCompassChange = null
+    getApp().onekit_DeviceMotionChange = null
   }
 
   static stopDeviceMotionListening(object) {
+    /* swan.onDeviceMotionChange((res) => {
+  if (getApp().onekit_DeviceMotionChange) {
+    getApp().onekit_DeviceMotionChange(res)
+  }
+})
+ */
     return swan.stopDeviceMotionListening(object)
   }
 
-  static startDeviceMotionListening(object) {
-    return swan.startDeviceMotionListening(object)
+  static startDeviceMotionListening(wx_object) {
+    const wx_success = wx_object.success
+    const wx_fail = wx_object.fail
+    const wx_complete = wx_object.complete
+    wx_object = null
+    PROMISE((SUCCESS, FAIL) => {
+      swan.startDeviceMotionListening({
+        success: res => {
+          swan.onDeviceMotionChange((res) => {
+            if (getApp().onekit_DeviceMotionChange) {
+              getApp().onekit_DeviceMotionChange(res)
+            }
+          })
+          SUCCESS(res)
+        },
+        fail: err => {
+          FAIL(err)
+        }
+      })
+    }, wx_success, wx_fail, wx_complete)
   }
 
   //
@@ -1534,14 +1559,8 @@ export default class wx {
   }
 }
 
-swan.onCompassChange = function (res) {
-  if (wx._onCompassChange) {
-    wx._onCompassChange(res)
+swan.onCompassChange((res) => {
+  if (getApp().onekit_CompassChange) {
+    getApp().onekit_CompassChange(res)
   }
-}
-
-swan.onDeviceMotionChange = function (res) {
-  if (wx._onDeviceMotionChange) {
-    wx._onDeviceMotionChange(res)
-  }
-}
+})
