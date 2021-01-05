@@ -349,10 +349,12 @@ export default class wx {
   }
 
   static onBackgroundFetchData() {
-
+    return console.warn('onBackgroundFetchData is not support')
   }
 
-  static getBackgroundFetchData() {}
+  static getBackgroundFetchData() {
+    return console.warn('getBackgroundFetchData is not support')
+  }
 
   // static createContext() { return new CanvasContext(); }
   static createCanvasContext(canvasId) {
@@ -375,6 +377,10 @@ export default class wx {
     return new CameraContext(swan.createCameraContext())
   }
 
+  static createOffscreenCanvas() {
+    return console.warn('createOffscreenCanvas is not support')
+  }
+
   static canvasToTempFilePath(object) {
     return swan.canvasToTempFilePath(object)
   }
@@ -388,61 +394,81 @@ export default class wx {
   }
 
   // //////////// Device //////////////////
-  static onBeaconServiceChange(object) {
-    return swan.onBeaconServiceChange(object)
+  static onBeaconServiceChange() {
+    return console.warn('onBeaconServiceChange is not support')
   }
 
-  static onBeaconUpdate(object) {
-    return swan.onBeaconUpdate(object)
+  static onBeaconUpdate() {
+    return console.warn('onBeaconUpdate is not support')
   }
 
-  static getBeacons(object) {
-    return swan.getBeacons(object)
+  static getBeacons() {
+    return console.warn('getBeacons is not support')
   }
 
-  static stopBeaconDiscovery(object) {
-    return swan.stopBeaconDiscovery(object)
+  static stopBeaconDiscovery() {
+    return console.warn('stopBeaconDiscovery is not support')
   }
 
-  static startBeaconDiscovery(object) {
-    return swan.startBeaconDiscovery(object)
+  static startBeaconDiscovery() {
+    return console.warn('startBeaconDiscovery is not support')
   }
 
-  static stopWifi(object) {
-    return swan.stopWifi(object)
+  static offBeaconUpdate() {
+    return console.warn('offBeaconUpdate is not support')
   }
 
-  static startWifi(object) {
-    return swan.startWifi(object)
+  static offBeaconServiceChange() {
+    return console.warn('offBeaconServiceChange is not support')
   }
 
-  static setWifiList(object) {
-    return swan.setWifiList(object)
+  static stopWifi() {
+    return console.warn('stopWifi is not support')
   }
 
-  static onWifiConnected(object) {
-    return swan.onWifiConnected(object)
+  static startWifi() {
+    return console.warn('startWifi is not support')
   }
 
-  static onGetWifiList(object) {
-    return swan.onGetWifiList(object)
+  static setWifiList() {
+    return console.warn('setWifiList is not support')
   }
 
-  static getWifiList(object) {
-    return swan.getWifiList(object)
+  static onWifiConnected() {
+    return console.warn('onWifiConnected is not support')
   }
 
-  static getConnectedWifi(object) {
-    return swan.getConnectedWifi(object)
+  static onGetWifiList() {
+    return console.warn('onGetWifiList is not support')
   }
 
-  static connectWifi(object) {
-    return swan.connectWifi(object)
+  static offWifiConnected() {
+    return console.warn('offWifiConnected is not support')
+  }
+
+  static offGetWifiList() {
+    return console.warn('offGetWifiList is not support')
+  }
+
+  static getWifiList() {
+    return console.warn('getWifiList is not support')
+  }
+
+  static getConnectedWifi() {
+    return console.warn('getConnectedWifi is not support')
+  }
+
+  static connectWifi() {
+    return console.warn('connectWifi is not support')
   }
 
   //
   static onAccelerometerChange(callback) {
     return swan.onAccelerometerChange(callback)
+  }
+
+  static offAccelerometerChange() {
+    return console.warn('offAccelerometerChange is not support')
   }
 
   static stopAccelerometer(object) {
@@ -455,10 +481,6 @@ export default class wx {
 
   static getBatteryInfoSync(object) {
     return swan.getBatteryInfoSync(object)
-  }
-
-  static _getBatteryInfo(object) {
-    return swan._getBatteryInfo(object)
   }
 
   static getBatteryInfo(object) {
@@ -475,7 +497,11 @@ export default class wx {
   }
 
   static onCompassChange(callback) {
-    return swan.onCompassChange(callback)
+    this._offCompassChange = callback
+  }
+
+  static offCompassChange() {
+    this._offCompassChange = null
   }
 
   static stopCompass(object) {
@@ -488,6 +514,10 @@ export default class wx {
 
   static addPhoneContact(object) {
     return swan.addPhoneContact(object)
+  }
+
+  static checkIsOpenAccessibility() {
+    return console.warn('checkIsOpenAccessibility is not support')
   }
 
   static onGyroscopeChange(callback) {
@@ -503,8 +533,12 @@ export default class wx {
   }
 
   //
-  static onDeviceMotionChange(object) {
-    return swan.onDeviceMotionChange(object)
+  static onDeviceMotionChange(callback) {
+    this._offCompassChange = callback
+  }
+
+  static offDeviceMotionChange() {
+    this._offCompassChange = null
   }
 
   static stopDeviceMotionListening(object) {
@@ -520,12 +554,12 @@ export default class wx {
     return swan.getNetworkType(object)
   }
 
-  static _network(res) {
-    return swan._network(res)
+  static offNetworkStatusChange() {
+    return console.log('offNetworkStatusChange is not support')
   }
 
-  static onNetworkStatusChange(object) {
-    return swan.onNetworkStatusChange(object)
+  static onNetworkStatusChange(callback) {
+    return swan.onNetworkStatusChange(callback)
   }
 
   //
@@ -552,98 +586,134 @@ export default class wx {
   }
 
   //
-  static writeBLECharacteristicValue(object) {
-    return swan.writeBLECharacteristicValue(object)
+  static writeBLECharacteristicValue() {
+    return console.warn('writeBLECharacteristicValue is not support')
   }
 
-  static readBLECharacteristicValue(object) {
-    return swan.readBLECharacteristicValue(object)
+  static setBLEMTU() {
+    return console.warn('setBLEMTU is not support')
   }
 
-  static onBLEConnectionStateChange(object) {
-    return swan.onBLEConnectionStateChange(object)
+  static readBLECharacteristicValue() {
+    return console.warn('setBLEMTU is not support')
   }
 
-  static onBLECharacteristicValueChange(object) {
-    return swan.onBLECharacteristicValueChange(object)
+  static onBLEConnectionStateChange() {
+    return console.warn('onBLEConnectionStateChange is not support')
   }
 
-  static notifyBLECharacteristicValueChange(object) {
-    return swan.notifyBLECharacteristicValueChange(object)
+  static onBLECharacteristicValueChange() {
+    return console.warn('onBLECharacteristicValueChange is not support')
   }
 
-  static getBLEDeviceServices(object) {
-    return swan.getBLEDeviceServices(object)
+  static offBLEConnectionStateChange() {
+    return console.warn('offBLEConnectionStateChange is not support')
   }
 
-  static getBLEDeviceCharacteristics(object) {
-    return swan.getBLEDeviceCharacteristics(object)
+  static offBLECharacteristicValueChange() {
+    return console.warn('offBLECharacteristicValueChange is not support')
   }
 
-  static createBLEConnection(object) {
-    return swan.createBLEConnection(object)
+  static notifyBLECharacteristicValueChange() {
+    return console.warn('notifyBLECharacteristicValueChange is not support')
   }
 
-  static closeBLEConnection(object) {
-    return swan.closeBLEConnection(object)
+  static makeBluetoothPair() {
+    return console.warn('makeBluetoothPair is not support')
+  }
+
+  static getBLEDeviceServices() {
+    return console.warn('getBLEDeviceServices is not support')
+  }
+
+  static getBLEDeviceRSSI() {
+    return console.warn('getBLEDeviceRSSI is not support')
+  }
+
+  static getBLEDeviceCharacteristics() {
+    return console.warn('getBLEDeviceCharacteristics is not support')
+  }
+
+  static createBLEConnection() {
+    return console.warn('createBLEConnection is not support')
+  }
+
+  static closeBLEConnection() {
+    return console.warn('closeBLEConnection is not support')
   }
 
   //
   static stopBluetoothDevicesDiscovery() {
-    /* return swan.stopBluetoothDevicesDiscovery(object); */
+    return console.warn('stopBluetoothDevicesDiscovery is not support')
   }
 
-  static startBluetoothDevicesDiscovery(object) {
-    return swan.startBluetoothDevicesDiscovery(object)
+  static startBluetoothDevicesDiscovery() {
+    return console.warn('startBluetoothDevicesDiscovery is not support')
   }
 
   static openBluetoothAdapter() {
-    /* return swan.openBluetoothAdapter(object); */
+    return console.warn('openBluetoothAdapter is not support')
   }
 
-  static onBluetoothDeviceFound(object) {
-    return swan.onBluetoothDeviceFound(object)
+  static onBluetoothDeviceFound() {
+    return console.warn('onBluetoothDeviceFound is not support')
   }
 
-  static onBluetoothAdapterStateChange(object) {
-    return swan.onBluetoothAdapterStateChange(object)
+  static onBluetoothAdapterStateChange() {
+    return console.warn('onBluetoothAdapterStateChange is not support')
   }
 
-  static getConnectedBluetoothDevices(object) {
-    return swan.getConnectedBluetoothDevices(object)
+  static offBluetoothDeviceFound() {
+    return console.warn('offBluetoothDeviceFound is not support')
   }
 
-  static getBluetoothDevices(object) {
-    return swan.getBluetoothDevices(object)
+  static offBluetoothAdapterStateChange() {
+    return console.warn('offBluetoothAdapterStateChange is not support')
   }
 
-  static getBluetoothAdapterState(object) {
-    return swan.getBluetoothAdapterState(object)
+  static getConnectedBluetoothDevices() {
+    return console.warn('getConnectedBluetoothDevices is not support')
   }
 
-  static closeBluetoothAdapter(object) {
-    return swan.closeBluetoothAdapter(object)
+  static getBluetoothDevices() {
+    return console.warn('getBluetoothDevices is not support')
+  }
+
+  static getBluetoothAdapterState() {
+    return console.warn('getBluetoothAdapterState is not support')
+  }
+
+  static closeBluetoothAdapter() {
+    return console.warn('closeBluetoothAdapter is not support')
   }
 
   //
-  static stopHCE(object) {
-    return swan.stopHCE(object)
+  static stopHCE() {
+    return console.warn('stopHCE is not support')
   }
 
-  static startHCE(object) {
-    return swan.startHCE(object)
+  static startHCE() {
+    return console.warn('startHCE is not support')
   }
 
-  static sendHCEMessage(object) {
-    return swan.sendHCEMessage(object)
+  static sendHCEMessage() {
+    return console.warn('sendHCEMessage is not support')
   }
 
-  static onHCEMessage(object) {
-    return swan.onHCEMessage(object)
+  static onHCEMessage() {
+    return console.warn('onHCEMessage is not support')
   }
 
-  static getHCEState(object) {
-    return swan.getHCEState(object)
+  static offHCEMessage() {
+    return console.warn('offHCEMessage is not support')
+  }
+
+  static getNFCAdapter() {
+    return console.warn('getNFCAdapter is not support')
+  }
+
+  static getHCEState() {
+    return console.warn('getHCEState is not support')
   }
 
   //
@@ -655,8 +725,12 @@ export default class wx {
     return swan.setKeepScreenOn(object)
   }
 
-  static onUserCaptureScreen(object) {
-    return swan.onUserCaptureScreen(object)
+  static onUserCaptureScreen(callback) {
+    return swan.onUserCaptureScreen(callback)
+  }
+
+  static offUserCaptureScreen() {
+    return console.warn('offUserCaptureScreen is not support')
   }
 
   static getScreenBrightness(object) {
@@ -673,6 +747,10 @@ export default class wx {
   }
 
   // ////////////////// File //////////
+  static saveFileToDisk() {
+    return console.warn('saveFileToDisk is not support')
+  }
+
   static getFileSystemManager(object) {
     return swan.getFileSystemManager(object)
   }
@@ -702,8 +780,28 @@ export default class wx {
   }
 
   // ////////// Location ///////////////
+  static stopLocationUpdate(object) {
+    return swan.stopLocationUpdate(object)
+  }
+
+  static startLocationUpdateBackground() {
+    return console.warn('startLocationUpdateBackground is not support')
+  }
+
+  static startLocationUpdate(object) {
+    return swan.startLocationUpdate(object)
+  }
+
   static openLocation(object) {
     return swan.openLocation(object)
+  }
+
+  static onLocationChange(callback) {
+    return swan.onLocationChange(callback)
+  }
+
+  static offLocationChange(callback) {
+    return swan.offLocationChange(callback)
   }
 
   static getLocation(object) {
@@ -740,8 +838,13 @@ export default class wx {
   }
 
   static chooseMessageFile() {
-    return console.warn('暂不支持！')
-  } // swan.chooseMessageFile(object)
+    return console.warn('chooseMessageFile is not support')
+  }
+
+  static previewMedia() {
+    return console.warn('previewMedia is not support')
+  }
+
   // //////////////////////////////////////////////////////////////
 
   static saveVideoToPhotosAlbum(object) {
@@ -753,27 +856,34 @@ export default class wx {
   }
 
   static chooseMedia() {
-    return console.warn('暂不支持！')
+    return console.warn('chooseMedia is not support')
   }
 
-  static stopVoice(object) {
-    object.success = function () {
-      console.log('VVV    ')
-    }
-
-    return swan.stopVoice(object)
+  static openVideoEditor() {
+    return console.warn('openVideoEditor is not support')
   }
 
-  static pauseVoice(object) {
-    return swan.pauseVoice(object)
+  static getVideoInfo() {
+    return console.warn('getVideoInfo is not support')
   }
 
-  static playVoice(object) {
-    return swan.playVoice(object)
+  static compressVideo() {
+    return console.warn('compressVideo is not support')
+  }
+
+  static stopVoice() {
+    return console.warn('stopVoice is not support')
+  }
+
+  static pauseVoice() {
+    return console.warn('pauseVoice is not support')
+  }
+
+  static playVoice() {
+    return console.warn('playVoice is not support')
   }
 
   static setInnerAudioOption(object) {
-    // const obeyMuteSwitch = true
     return swan.setInnerAudioOption(object)
   }
 
@@ -781,48 +891,52 @@ export default class wx {
     return swan.getAvailableAudioSources(object)
   }
 
-  static createAudioContext(object) {
-    return swan.createAudioContext(object)
+  static createMediaAudioPlayer() {
+    return console.warn('createMediaAudioPlayer is not support')
   }
 
-  static onBackgroundAudioStop(object) {
-    return swan.onBackgroundAudioStop(object)
+  static createAudioContext() {
+    return console.warn('createAudioContext is not support')
   }
 
-  static onBackgroundAudioPause(object) {
-    return swan.onBackgroundAudioPause(object)
+  static onBackgroundAudioStop() {
+    return console.warn('onBackgroundAudioStop is not support')
   }
 
-  static onBackgroundAudioPlay(object) {
-    return swan.onBackgroundAudioPlay(object)
+  static onBackgroundAudioPause() {
+    return console.warn('onBackgroundAudioPause is not support')
   }
 
-  static stopBackgroundAudio(object) {
-    return swan.stopBackgroundAudio(object)
+  static onBackgroundAudioPlay() {
+    return console.warn('onBackgroundAudioPlay is not support')
   }
 
-  static seekBackgroundAudio(object) {
-    return swan.seekBackgroundAudio(object)
+  static stopBackgroundAudio() {
+    return console.warn('stopBackgroundAudio is not support')
   }
 
-  static pauseBackgroundAudio(object) {
-    return swan.pauseBackgroundAudio(object)
+  static seekBackgroundAudio() {
+    return console.warn('seekBackgroundAudio is not support')
   }
 
-  static playBackgroundAudio(object) {
-    return swan.playBackgroundAudio(object)
+  static pauseBackgroundAudio() {
+    return console.warn('pauseBackgroundAudio is not support')
   }
 
-  static getBackgroundAudioPlayerState(object) {
-    return swan.getBackgroundAudioPlayerState(object)
+  static playBackgroundAudio() {
+    return console.warn('playBackgroundAudio is not support')
+  }
+
+  static getBackgroundAudioPlayerState() {
+    return console.warn('getBackgroundAudioPlayerState is not support')
   }
 
   static getBackgroundAudioManager(object) {
     return swan.getBackgroundAudioManager(object)
   }
 
-  static createLivePusherContext(object) {
-    return swan.createLivePusherContext(object)
+  static createLivePusherContext() {
+    return console.warn('createLivePusherContext is not support')
   }
 
   static startRecord(object) {
@@ -856,6 +970,62 @@ export default class wx {
 
   static getRecorderManager(object) {
     return swan.getRecorderManager(object)
+  }
+
+  static createMediaContainer() {
+    return console.warn('createMediaContainer is not support')
+  }
+
+  static updateVoIPChatMuteConfig() {
+    return console.warn('updateVoIPChatMuteConfig is not support')
+  }
+
+  static subscribeVoIPVideoMembers() {
+    return console.warn('subscribeVoIPVideoMembers is not support')
+  }
+
+  static onVoIPVideoMembersChanged() {
+    return console.warn('onVoIPVideoMembersChanged is not support')
+  }
+
+  static onVoIPChatSpeakersChanged() {
+    return console.warn('onVoIPChatSpeakersChanged is not support')
+  }
+
+  static onVoIPChatMembersChanged() {
+    return console.warn('onVoIPChatMembersChanged is not support')
+  }
+
+  static onVoIPChatInterrupted() {
+    return console.warn('onVoIPChatInterrupted is not support')
+  }
+
+  static offVoIPVideoMembersChanged() {
+    return console.warn('offVoIPVideoMembersChanged is not support')
+  }
+
+  static offVoIPChatMembersChanged() {
+    return console.warn('offVoIPChatMembersChanged is not support')
+  }
+
+  static offVoIPChatInterrupted() {
+    return console.warn('offVoIPChatInterrupted is not support')
+  }
+
+  static joinVoIPChat() {
+    return console.warn('joinVoIPChat is not support')
+  }
+
+  static exitVoIPChat() {
+    return console.warn('exitVoIPChat is not support')
+  }
+
+  static createMediaRecorder() {
+    return console.warn('createMediaRecorder is not support')
+  }
+
+  static createVideoDecoder() {
+    return console.warn('createVideoDecoder is not support')
   }
 
   // ////////////// Network ///////////////
@@ -940,6 +1110,10 @@ export default class wx {
     return console.warn('startLocalServiceDiscovery is not support')
   }
 
+  static createUDPSocket() {
+    return console.warn('createUDPSocket is not support')
+  }
+
   //
 
   // /////// Open Interface //////////
@@ -947,35 +1121,8 @@ export default class wx {
     return swan.checkSession(object)
   }
 
-  static login() {
-    /*
-      const that = this
-      if (!object) {
-        return swan.login(object)
-      }
-      const object2 = {
-        //   scopes: "auth_user"
-      }
-      object2.success = function (res) {
-        swan._sessoion = new Date().getTime()
-        getApp().onejit.jscode = res.authCode
-        const result = {code: res.authCode}
-        if (object.success) {
-          object.success(result)
-        }
-        if (object.complete) {
-          object.complete(complete)
-        }
-      }
-      object2.fail = function (res) {
-        if (object.fail) {
-          object.fail(res)
-        }
-        if (object.complete) {
-          object.complete(res)
-        }
-      }
-      return swan.login(object2) */
+  static login(object) {
+    return swan.login(object)
   }
 
   static getUserInfo() {
@@ -1018,8 +1165,8 @@ export default class wx {
     return swan.navigateBackMiniProgram(object)
   }
 
-  static getAccountInfoSync(object) {
-    return swan.getAccountInfoSync(object)
+  static getAccountInfoSync() {
+    return console.warn('getAccountInfoSync is not support')
   }
 
   static reportAnalytics(object, eventName) {
@@ -1046,36 +1193,68 @@ export default class wx {
     return swan.chooseAddress(object)
   }
 
-  static openCard(object) {
-    return swan.openCard(object)
+  static openCard() {
+    return console.warn('openCard is not support')
   }
 
-  static addCard(object) {
-    return swan.addCard(object)
+  static addCard() {
+    return console.warn('addCard is not support')
   }
 
   static chooseInvoiceTitle(object) {
     return swan.chooseInvoiceTitle(object)
   }
 
-  static chooseInvoice(object) {
-    return swan.chooseInvoice(object)
+  static chooseInvoice() {
+    return console.warn('chooseInvoice is not support')
   }
 
-  static startSoterAuthentication(object) {
-    return swan.startSoterAuthentication(object)
+  static startSoterAuthentication() {
+    return console.warn('startSoterAuthentication is not support')
   }
 
-  static checkIsSupportSoterAuthentication(object) {
-    return swan.checkIsSupportSoterAuthentication(object)
+  static checkIsSupportSoterAuthentication() {
+    return console.warn('checkIsSupportSoterAuthentication is not support')
   }
 
-  static checkIsSoterEnrolledInDevice(object) {
-    return swan.checkIsSoterEnrolledInDevice(object)
+  static checkIsSoterEnrolledInDevice() {
+    return console.warn('checkIsSoterEnrolledInDevice is not support')
   }
 
-  static getWeRunData(object) {
-    return swan.getWeRunData(object)
+  static getWeRunData() {
+    return console.warn('getWeRunData is not support')
+  }
+
+  static reportPerformance() {
+    return console.warn('reportPerformance is not support')
+  }
+
+  static getPerformance() {
+    return console.warn('getPerformance is not support')
+  }
+
+  static requestSubscribeMessage() {
+    return console.warn('requestSubscribeMessage is not support')
+  }
+
+  static showRedPackage() {
+    return console.warn('showRedPackage is not support')
+  }
+
+  static getGroupEnterInfo() {
+    return console.warn('getGroupEnterInfo is not support')
+  }
+
+  static onBLEPeripheralConnectionStateChanged() {
+    return console.warn('onBLEPeripheralConnectionStateChanged is not support')
+  }
+
+  static offBLEPeripheralConnectionStateChanged() {
+    return console.warn('offBLEPeripheralConnectionStateChanged is not support')
+  }
+
+  static createBLEPeripheralServer() {
+    return console.warn('createBLEPeripheralServer is not support')
   }
 
   static reportMonitor() {
@@ -1103,6 +1282,7 @@ export default class wx {
           console.log(res)
         }
       }) */
+    return console.warn('reportMonitor is not support')
   }
 
   // //////// Router //////////////
@@ -1127,20 +1307,24 @@ export default class wx {
   }
 
   // /////////// Share /////////////
-  static updateShareMenu(object) {
-    return swan.updateShareMenu(object)
+  static updateShareMenu() {
+    return console.warn('updateShareMenu is not support')
   }
 
-  static showShareMenu(object) {
-    return swan.showShareMenu(object)
+  static showShareMenu() {
+    return console.warn('showShareMenu is not support')
   }
 
-  static hideShareMenu(object) {
-    return swan.hideShareMenu(object)
+  static hideShareMenu() {
+    return console.warn('hideShareMenu is not support')
   }
 
-  static getShareInfo(object) {
-    return swan.getShareInfo(object)
+  static getShareInfo() {
+    return console.warn('getShareInfo is not support')
+  }
+
+  static authPrivateMessage() {
+    return console.warn('authPrivateMessage is not support')
   }
 
   // ///////////// Storage //////////////
@@ -1152,8 +1336,8 @@ export default class wx {
     return swan.getStorageInfo(object)
   }
 
-  static clearStorageSync(object) {
-    return swan.clearStorageSync(object)
+  static clearStorageSync() {
+    return swan.clearStorageSync()
   }
 
   static clearStorage(object) {
@@ -1347,5 +1531,17 @@ export default class wx {
 
   static createIntersectionObserver(object) {
     return swan.createIntersectionObserver(object)
+  }
+}
+
+swan.onCompassChange = function (res) {
+  if (wx._onCompassChange) {
+    wx._onCompassChange(res)
+  }
+}
+
+swan.onDeviceMotionChange = function (res) {
+  if (wx._onDeviceMotionChange) {
+    wx._onDeviceMotionChange(res)
   }
 }
