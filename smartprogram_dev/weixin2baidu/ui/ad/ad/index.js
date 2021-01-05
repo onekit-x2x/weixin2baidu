@@ -82,11 +82,12 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -131,7 +132,8 @@ exports.default = {
 };
 
 /***/ }),
-/* 1 */
+
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -147,7 +149,55 @@ exports.default = {
 };
 
 /***/ }),
-/* 2 */
+
+/***/ 12:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _onekit_behavior = __webpack_require__(1);
+
+var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
+
+var _wxs_behavior = __webpack_require__(0);
+
+var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
+
+var _weixin_behavior = __webpack_require__(2);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+Component({
+  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
+  options: {
+    addGlobalClass: true
+  },
+  properties: {
+    unitId: { type: String, value: '' },
+    adIntervals: { type: String, value: '' },
+    adType: {
+      type: String,
+      value: 'banner'
+    }
+  },
+
+  data: {}, // 私有数据，可用于模版渲染
+
+  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
+  attached: function attached() {},
+  detached: function detached() {},
+
+
+  methods: {}
+}); /* eslint-disable no-console */
+/* eslint-disable camelcase */
+
+/***/ }),
+
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -200,59 +250,6 @@ module.exports = Behavior({
   }
 });
 
-/***/ }),
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _onekit_behavior = __webpack_require__(1);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _wxs_behavior = __webpack_require__(0);
-
-var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
-
-var _weixin_behavior = __webpack_require__(2);
-
-var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-Component({
-  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
-  options: {
-    addGlobalClass: true
-  },
-  properties: {
-    unitId: { type: String, value: '' },
-    adIntervals: { type: String, value: '' },
-    adType: {
-      type: String,
-      value: 'banner'
-    }
-  },
-
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached: function attached() {},
-  detached: function detached() {},
-
-
-  methods: {}
-}); /* eslint-disable no-console */
-/* eslint-disable camelcase */
-
 /***/ })
-/******/ ]);
+
+/******/ });

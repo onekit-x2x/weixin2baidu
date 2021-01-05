@@ -14,10 +14,6 @@ Component({
       type: String,
       value: '',
     },
-    video: {
-      type: String,
-      value: '',
-    },
     duration: {
       type: Number,
       value: '',
@@ -30,12 +26,11 @@ Component({
       type: Array,
       value: '',
     },
-
     danmuBtn: {
       type: Boolean,
       value: false,
     },
-    enableBanmu: {
+    enableDanmu: {
       type: Boolean,
       value: false,
     },
@@ -71,7 +66,6 @@ Component({
       type: Boolean,
       value: true,
     },
-
     showPlayBtn: {
       type: Boolean,
       value: true,
@@ -83,6 +77,10 @@ Component({
     enableProgressGesture: {
       type: Boolean,
       value: true,
+    },
+    objectFit: {
+      type: String,
+      value: 'contain',
     },
     poster: {
       type: String,
@@ -96,7 +94,26 @@ Component({
       type: String,
       value: '',
     },
+    //
+    playBtnPosition: {
+      type: String,
+      value: 'bottom',
+    },
     enablePlayGesture: {
+      type: Boolean,
+      value: false,
+    },
+    //
+    autoPauseIfNavigate: {
+      type: Boolean,
+      value: true,
+    },
+    //
+    autoPauseIfOpenNative: {
+      type: Boolean,
+      value: true,
+    },
+    vslideGesture: {
       type: Boolean,
       value: false,
     },
@@ -104,11 +121,23 @@ Component({
       type: Boolean,
       value: true,
     },
-    enableDanmu: {
-      type: Boolean,
-      value: false,
+    //
+    adUnitId: {},
+    posterForCrawler: {},
+    showCastingButton: {},
+    pictureInPictureMode: {},
+    pictureInPictureShowProgress: {},
+    enableAutoRotation: {},
+    showScreenLockButton: {},
+    showSnapshotButton: {},
+  },
+  attached() {
+    const playBtnPosition = this.properties.playBtnPosition
+    if (playBtnPosition === 'bottom') {
+      this.properties.showPlayBtn = true
+    } else if (playBtnPosition === 'center') {
+      this.properties.showCenterPlayBtn = true
     }
-
   },
   methods: {
     video_play() {
@@ -132,8 +161,25 @@ Component({
     video_error() {
       this.triggerEvent('error')
     },
+    //
+    trigger_progress(e) {
+      this.triggerEvent('Progress', e.detail)
+    },
     video_loadedmetadata() {
       this.triggerEvent('loadedmetadata')
+    },
+    //
+    trigger_controlstoggle(e) {
+      this.triggerEvent('Controlstoggle', e.detail)
+    },
+    trigger_enterpictureinpicture(e) {
+      this.triggerEvent('Enterpictureinpicture', e.detail)
+    },
+    trigger_leavepictureinpicture(e) {
+      this.triggerEvent('Leavepictureinpicture', e.detail)
+    },
+    trigger_seekcomplete(e) {
+      this.triggerEvent('Seekcomplete', e.detail)
     },
   }
 })
