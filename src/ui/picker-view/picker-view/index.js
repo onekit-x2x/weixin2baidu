@@ -38,8 +38,8 @@ Component({
   detached() {},
 
   methods: {
-    pickView_change(e) {
-      this.triggerEvent('Change', e.detail)
+    pickView_change() {
+      // this.triggerEvent('Change', e.detail)
     },
     trigger_start(e) {
       this.triggerEvent('Start', e.detail)

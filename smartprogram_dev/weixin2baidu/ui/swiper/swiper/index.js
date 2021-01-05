@@ -293,16 +293,13 @@ Component({
   },
   methods: {
     swiper_Change: function swiper_Change(e) {
-      console.log('swiper_Change', e);
-      this.triggerEvent('change', e.details);
+      this.triggerEvent('Change', e.detail);
     },
     swiper_AnimationEnd: function swiper_AnimationEnd(e) {
-      console.log('swiper_AnimationEnd', e);
-      this.triggerEvent('AnimationEnd', e.details);
+      this.triggerEvent('AnimationEnd', e.detail);
     },
     trigger_Transition: function trigger_Transition(e) {
-      console.log('trigger_Transition', e);
-      this.triggerEvent('Transition', e.details);
+      this.triggerEvent('Transition', e.detail);
     }
   }
 }); /* eslint-disable no-console */

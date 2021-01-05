@@ -10,4 +10,6 @@
     mask-class="{{maskClass}}"
 
     bindchange="pickView_change"
-    ></picker-view>
+>
+ <slot/>
+</picker-view>

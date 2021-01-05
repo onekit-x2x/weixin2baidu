@@ -1151,16 +1151,16 @@ var wx = function () {
     return swan.connectSocket(object);
   };
 
-  wx.onSocketError = function onSocketError(object) {
-    return swan.onSocketError(object);
+  wx.onSocketError = function onSocketError(callback) {
+    return swan.onSocketError(callback);
   };
 
-  wx.onSocketMessage = function onSocketMessage(object) {
-    return swan.onSocketMessage(object);
+  wx.onSocketMessage = function onSocketMessage(callback) {
+    return swan.onSocketMessage(callback);
   };
 
-  wx.onSocketClose = function onSocketClose(object) {
-    return swan.onSocketClose(object);
+  wx.onSocketClose = function onSocketClose(callback) {
+    return swan.onSocketClose(callback);
   };
 
   wx.onSocketOpen = function onSocketOpen(object) {
@@ -1175,44 +1175,44 @@ var wx = function () {
     return swan.closeSocket(object);
   };
 
-  wx.offLocalServiceResolveFail = function offLocalServiceResolveFail(object) {
-    return swan.offLocalServiceResolveFail(object);
+  wx.offLocalServiceResolveFail = function offLocalServiceResolveFail() {
+    return console.warn('offLocalServiceResolveFail is not support');
   };
 
-  wx.onLocalServiceResolveFail = function onLocalServiceResolveFail(object) {
-    return swan.onLocalServiceResolveFail(object);
+  wx.onLocalServiceResolveFail = function onLocalServiceResolveFail() {
+    return console.warn('onLocalServiceResolveFail is not support');
   };
 
-  wx.offLocalServiceDiscoveryStop = function offLocalServiceDiscoveryStop(object) {
-    return swan.offLocalServiceDiscoveryStop(object);
+  wx.offLocalServiceDiscoveryStop = function offLocalServiceDiscoveryStop() {
+    return console.warn('offLocalServiceDiscoveryStop is not support');
   };
 
-  wx.onLocalServiceDiscoveryStop = function onLocalServiceDiscoveryStop(object) {
-    return swan.onLocalServiceDiscoveryStop(object);
+  wx.onLocalServiceDiscoveryStop = function onLocalServiceDiscoveryStop() {
+    return console.warn('onLocalServiceDiscoveryStop is not support');
   };
 
-  wx.offLocalServiceLost = function offLocalServiceLost(object) {
-    return swan.offLocalServiceLost(object);
+  wx.offLocalServiceLost = function offLocalServiceLost() {
+    return console.warn('offLocalServiceLost is not support');
   };
 
-  wx.onLocalServiceLost = function onLocalServiceLost(object) {
-    return swan.onLocalServiceLost(object);
+  wx.onLocalServiceLost = function onLocalServiceLost() {
+    return console.warn('onLocalServiceLost is not support');
   };
 
-  wx.offLocalServiceFound = function offLocalServiceFound(object) {
-    return swan.offLocalServiceFound(object);
+  wx.offLocalServiceFound = function offLocalServiceFound() {
+    return console.warn('offLocalServiceFound is not support');
   };
 
-  wx.onLocalServiceFound = function onLocalServiceFound(object) {
-    return swan.onLocalServiceFound(object);
+  wx.onLocalServiceFound = function onLocalServiceFound() {
+    return console.warn('onLocalServiceFound is not support');
   };
 
-  wx.stopLocalServiceDiscovery = function stopLocalServiceDiscovery(object) {
-    return swan.stopLocalServiceDiscovery(object);
+  wx.stopLocalServiceDiscovery = function stopLocalServiceDiscovery() {
+    return console.warn('stopLocalServiceDiscovery is not support');
   };
 
-  wx.startLocalServiceDiscovery = function startLocalServiceDiscovery(object) {
-    return swan.startLocalServiceDiscovery(object);
+  wx.startLocalServiceDiscovery = function startLocalServiceDiscovery() {
+    return console.warn('startLocalServiceDiscovery is not support');
   };
 
   //
@@ -1605,6 +1605,22 @@ var wx = function () {
     return console.warn('offWindowResize is not support');
   };
 
+  wx.onKeyboardHeightChange = function onKeyboardHeightChange(callback) {
+    return swan.onKeyboardHeightChange(callback);
+  };
+
+  wx.offKeyboardHeightChange = function offKeyboardHeightChange(callback) {
+    return swan.offKeyboardHeightChange(callback);
+  };
+
+  wx.hideKeyboard = function hideKeyboard() {
+    return console.warn('hideKeyboard is not support');
+  };
+
+  wx.getSelectedTextRange = function getSelectedTextRange() {
+    return console.warn('getSelectedTextRange is not support');
+  };
+
   // //////////// Worker ///////////////
 
 
@@ -1621,13 +1637,6 @@ var wx = function () {
 
   wx.createIntersectionObserver = function createIntersectionObserver(object) {
     return swan.createIntersectionObserver(object);
-  };
-
-  // ///////////////////////////////////
-
-
-  wx.hideKeyboard = function hideKeyboard(object) {
-    return swan.hideKeyboard(object);
   };
 
   return wx;

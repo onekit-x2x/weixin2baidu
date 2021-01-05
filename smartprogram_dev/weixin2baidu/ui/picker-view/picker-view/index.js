@@ -259,8 +259,8 @@ Component({
 
 
   methods: {
-    pickView_change: function pickView_change(e) {
-      this.triggerEvent('Change', e.detail);
+    pickView_change: function pickView_change() {
+      // this.triggerEvent('Change', e.detail)
     },
     trigger_start: function trigger_start(e) {
       this.triggerEvent('Start', e.detail);

@@ -304,8 +304,7 @@
     当前选择：{{array[index]}}
   </view>
 </onekit-picker> -->
-
-<view class="section">
+<!-- <view class="section">
   <view class="section__title">普通选择器</view>
   <onekit-picker bindChange="bindPickerChange" value="{{index}}" range="{{array}}">
     <view class="picker">
@@ -345,4 +344,64 @@
       当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
     </view>
   </onekit-picker>
+</view> -->
+
+<!-- <picker-view> -->
+<!-- <view class="container">
+  <view class="page-body">
+    <view class="selected-date">{{year}}年{{month}}月{{day}}日{{isDaytime ? "白天" : "夜晚"}}</view>
+    <onekit-picker-view indicator-style="height: 50px;"
+                        onekit-style="width: 100%; height: 300px;"
+                        value="{{value}}"
+                        bindChange="bindChange"
+                        bindPickstart="bindStart"
+                        bindPickend="bindEnd">
+      <picker-view-column>
+        <view s-for="years" s-key="years" style="line-height: 50px; text-align: center;">{{item}}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view s-for="months" s-key="months" style="line-height: 50px; text-align: center;">{{item}}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view s-for="days" s-key="days" style="line-height: 50px; text-align: center;">{{item}}日</view>
+      </picker-view-column>
+    </onekit-picker-view>
+  </view>
+</view> -->
+
+<!-- <slider> -->
+<view class="page">
+    <view class="page__hd">
+        <onekit-text onekit-class="page__title">slider</onekit-text>
+        <onekit-text onekit-class="page__desc">滑块</onekit-text>
+    </view>
+    <view class="page__bd">
+        <view class="section section_gap">
+            <onekit-text onekit-class="section__title">设置left/right icon</onekit-text>
+            <view class="body-view">
+                <onekit-slider bindChange="slider1change" left-icon="cancel" right-icon="success_no_circle"/>
+            </view>
+        </view>
+
+        <view class="section section_gap">
+            <onekit-text onekit-class="section__title">设置step</onekit-text>
+            <view class="body-view">
+                <onekit-slider bindChange="slider2change" step="5"/>
+            </view>
+        </view>
+
+        <view class="section section_gap">
+             <onekit-text onekit-class="section__title">显示当前value</onekit-text>
+            <view class="body-view">
+                <onekit-slider bindChange="slider3change" show-value/>
+            </view>
+        </view>
+
+        <view class="section section_gap">
+            <onekit-text onekit-class="section__title">设置最小/最大值</onekit-text>
+            <view class="body-view">
+                <onekit-slider bindChange="slider4change" min="50" max="200" show-value/>
+            </view>
+        </view>
+    </view>
 </view>
