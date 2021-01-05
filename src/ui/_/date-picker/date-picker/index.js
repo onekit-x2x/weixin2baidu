@@ -1,14 +1,10 @@
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import DATE from 'oneutil/DATE'
-
-import onekit_behavior from '../../../../behavior/onekit_behavior'
-import wxs_behavior from '../../../../behavior/wxs_behavior'
-import weixin_behavior from '../../../../behavior/weixin_behavior'
 
 const YEAR_START = 1900
 const YEAR_END = 2100
 Component({
-  behaviors: [onekit_behavior, wxs_behavior, weixin_behavior],
   options: {
     addGlobalClass: true,
   },
@@ -53,6 +49,7 @@ Component({
   },
   methods: {
     updateDays() {
+      console.log('data-picker updateDays')
       const value = (this.data.value || this.properties.value).split('-')
       const days = []
       const dayCount = DATE.monthDays(value[0], value[1])
@@ -63,6 +60,7 @@ Component({
       this.setData({days})
     },
     date_show() {
+      console.log('data-picker date_show')
       if (this.properties.disabled) {
         return
       }
@@ -72,14 +70,17 @@ Component({
       this.updateDays()
     },
     date_cancle(e) {
+      console.log('data-picker date_show')
       this.setData({show: false})
       this.triggerEvent('Cancle', e.detail)
     },
     date_confirm(e) {
+      console.log('data-picker date_confirm')
       this.setData({show: false})
       this.triggerEvent('Change', e.detail)
     },
     date_change(e) {
+      console.log('data-picker date_change')
       const current = e.detail.value
       const y = current[0] + YEAR_START
       let m = current[1] + 1; m = m >= 10 ? m : ('0' + m)

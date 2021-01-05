@@ -6,7 +6,7 @@
   <slot>
   </slot>
   </view>
-  <bottom-view s-if="{{show}}" bindcancle="date_cancle" onConfirm="date_confirm">
+  <bottom-view s-if="{{show}}" bindCancle="date_cancle" bindConfirm="date_confirm">
     <picker-view style="height:400rpx" bindchange="date_change" value="{{date}}">
       <picker-view-column>
         <view s-for="{{years}}" s-for-item="year" s-for-key="year">{{year}}</view>

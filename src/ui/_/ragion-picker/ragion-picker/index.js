@@ -1,15 +1,12 @@
+/* eslint-disable no-console */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-import onekit_behavior from '../../../../behavior/onekit_behavior'
-import wxs_behavior from '../../../../behavior/wxs_behavior'
-import weixin_behavior from '../../../../behavior/weixin_behavior'
 import provinces from './data/provices.json'
 import allCitys from './data/citys.json'
 import allTowns from './data/towns.json'
 
 Component({
-  behaviors: [onekit_behavior, wxs_behavior, weixin_behavior],
   options: {
     addGlobalClass: true,
   },
@@ -41,6 +38,7 @@ Component({
   },
   methods: {
     init(value) {
+      console.log('ragion-picker init')
       for (let p = 0; p < this.data.provinces.length; p++) {
         if (this.data.provinces[p].name === value[0]) {
           const i = [this.properties.customItem ? (p + 1) : p]
@@ -67,6 +65,7 @@ Component({
       }
     },
     provinceChange(index) {
+      console.log('ragion-picker provinceChange')
       if (index < 0) {
         this.data.ragion.value[0] = this.properties.customItem
         this.data.ragion.code = []
@@ -83,6 +82,7 @@ Component({
       this.setData({citys, cityIndexes: [i]})
     },
     cityChange(index) {
+      console.log('ragion-picker cityChange')
       if (index < 0) {
         this.data.ragion.value[1] = this.properties.customItem
         switch (this.data.ragion.code.length) {
@@ -109,6 +109,7 @@ Component({
       this.setData({towns, townIndexes: [i]})
     },
     townChange(index) {
+      console.log('ragion-picker townChange')
       if (index < 0) {
         this.data.ragion.value[2] = this.properties.customItem
         switch (this.data.ragion.code.length) {
@@ -134,6 +135,7 @@ Component({
       this.data.ragion.postcode = town.zipcode
     },
     ragion_show() {
+      console.log('ragion-picker ragion_show')
       if (this.properties.disabled) {
         return
       }
@@ -142,14 +144,17 @@ Component({
       this.setData({show: true, provinceIndexes: this.data.provinceIndexes})
     },
     ragion_cancle(e) {
+      console.log('ragion-picker ragion_cancle')
       this.setData({show: false})
       this.triggerEvent('Cancle', e.detail)
     },
     ragion_confirm(e) {
+      console.log('ragion-picker ragion_confirm')
       this.setData({show: false})
       this.triggerEvent('Confirm', e.detail)
     },
     province_change(e) {
+      console.log('ragion-picker province_change')
       const index = e.detail.value[0]
       this.data.provinceIndexes = [index]
       this.provinceChange(this.properties.customItem && index === 0 ? -1 : (this.properties.customItem ? (index - 1) : index))
@@ -157,12 +162,14 @@ Component({
       this.townChange(this.properties.customItem ? -1 : 0)
     },
     city_change(e) {
+      console.log('ragion-picker city_change')
       const index = e.detail.value[0]
       this.data.cityIndexes = [index]
       this.cityChange(this.properties.customItem && index === 0 ? -1 : (this.properties.customItem ? (index - 1) : index))
       this.townChange(this.properties.customItem ? -1 : 0)
     },
     town_change(e) {
+      console.log('ragion-picker town_change')
       const index = e.detail.value[0]
       this.data.townIndexes = [index]
       this.townChange(this.properties.customItem && index === 0 ? -1 : (this.properties.customItem ? (index - 1) : index))

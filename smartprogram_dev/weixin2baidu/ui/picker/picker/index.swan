@@ -7,15 +7,15 @@
     range="{{range}}"
     range-key="{{rangeKey}}"
     value="{{value}}"
-    title="{{headerText}}"
+    headerText="{{headerText}}"
 
-    bindcancel="picker_cancel"
-    bindchange="picker_change"
+    bindCancel="picker_cancel"
+    bindChange="picker_change"
 >
 <slot/>
 </selector-picker>
 
-<time-picker s-if="{{mode == 'time'}}"
+<time-picker s-elif="{{mode == 'time'}}"
     class="onekit-picker {{onekitClass}}"
     style="{{onekitStyle}}"
     id="{{onekitId}}"
@@ -24,15 +24,15 @@
     value="{{value}}"
     start="{{start}}"
     end="{{end}}"
-    title="{{headerText}}"
+    headerText="{{headerText}}"
 
-    bindcancel="picker_cancel"
-    bindchange="picker_change"
+    bindCancel="picker_cancel"
+    bindChange="picker_change"
 >
 <slot/>
 </time-picker>
 
-<date-picker s-if="{{mode == 'date'}}"
+<date-picker s-elif="{{mode == 'date'}}"
     class="onekit-picker {{onekitClass}}"
     style="{{onekitStyle}}"
     id="{{onekitId}}"
@@ -41,16 +41,15 @@
     value="{{value}}"
     start="{{start}}"
     end="{{end}}"
-    fields="{{fields}}"
-    title="{{headerText}}"
+    headerText="{{headerText}}"
 
-    bindcancel="picker_cancel"
-    bindchange="picker_change"
+    bindCancel="picker_cancel"
+    bindChange="picker_change"
 >
 <slot/>
 </date-picker>
 
-<multiselector-picker s-if="{{mode == 'multiSelector'}}"
+<multiselector-picker s-elif="{{mode == 'multiSelector'}}"
     class="onekit-picker {{onekitClass}}"
     style="{{onekitStyle}}"
     id="{{onekitId}}"
@@ -59,16 +58,16 @@
     range="{{range}}"
     range-key="{{rangeKey}}"
     value="{{value}}"
-    title="{{headerText}}"
+    headerText="{{headerText}}"
 
-    bindcancel="picker_cancel"
-    bindcolumnchange="picker_columnchange"
-    bindchange="picker_change"
+    bindCancel="picker_cancel"
+    bindColumnchange="picker_columnchange"
+    bindChange="picker_change"
 >
 <slot/>
 </multiselector-picker>
 
-<ragion-picker s-if="{{mode == 'region'}}"
+<ragion-picker s-elif="{{mode == 'region'}}"
     class="onekit-picker {{onekitClass}}"
     style="{{onekitStyle}}"
     id="{{onekitId}}"
@@ -76,10 +75,10 @@
     disabled="{{disabled}}"
     value="{{value}}"
     custom-item="{{customItem}}"
-    title="{{headerText}}"
+    headerText="{{headerText}}"
 
-    bindcancel="picker_cancel"
-    bindchange="picker_change"
+    bindCancel="picker_cancel"
+    bindChange="picker_change"
 >
 <slot/>
 </ragion-picker>

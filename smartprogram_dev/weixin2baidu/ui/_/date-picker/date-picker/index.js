@@ -85,133 +85,9 @@ module.exports =
 /******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/******/ ({
 
-"use strict";
-
-
-exports.__esModule = true;
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
-exports.default = {
-  methods: {
-    selectComponent: function selectComponent(selector) {},
-    selectAllComponents: function selectAllComponents(selctor) {},
-    setStyle: function setStyle(styleDict) {
-      var onekit_styles = '';
-      for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-        var _ref;
-
-        if (_isArray) {
-          if (_i >= _iterator.length) break;
-          _ref = _iterator[_i++];
-        } else {
-          _i = _iterator.next();
-          if (_i.done) break;
-          _ref = _i.value;
-        }
-
-        var cssName = _ref;
-
-        onekit_styles += cssName + ':' + styleDict[cssName] + ';';
-      }
-      this.setData({ onekit_styles: onekit_styles });
-    },
-    addClass: function addClass(className) {},
-    removeClass: function removeClass(className) {},
-    hasClass: function hasClass(className) {},
-    getDataset: function getDataset() {},
-    callMethod: function callMethod(funcName, args) {},
-    requestAnimationFrame: function requestAnimationFrame(callback) {},
-    getState: function getState() {},
-    getComputedStyle: function getComputedStyle(cssNames) {}
-  }
-};
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = {
-  properties: {
-    onekitClass: '',
-    onekitStyle: '',
-    onekitId: ''
-  }
-};
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
-module.exports = Behavior({
-
-  properties: {
-    animation: { type: Object }
-  },
-  methods: {
-    ui_tap: function ui_tap() {
-      this.triggerEvent('Tap');
-    },
-    ui_touchstart: function ui_touchstart() {
-      this.triggerEvent('Touchstart');
-    },
-    ui_touchmove: function ui_touchmove() {
-      this.triggerEvent('Touchmove');
-    },
-    ui_touchcancel: function ui_touchcancel() {
-      this.triggerEvent('Touchcancel');
-    },
-    ui_touchend: function ui_touchend() {
-      this.triggerEvent('Touchend');
-    },
-    ui_longpress: function ui_longpress() {
-      this.triggerEvent('Longpress');
-    },
-    ui_longtap: function ui_longtap() {
-      this.triggerEvent('Longtap');
-    },
-    ui_transitionend: function ui_transitionend() {
-      this.triggerEvent('Transitionend');
-    },
-    ui_animationstart: function ui_animationstart() {
-      this.triggerEvent('Animationstart');
-    },
-    ui_animationiteration: function ui_animationiteration() {
-      this.triggerEvent('Animationiteration');
-    },
-    ui_animationend: function ui_animationend() {
-      this.triggerEvent('Animationend');
-    },
-    ui_touchforcechange: function ui_touchforcechange() {
-      this.triggerEvent('Touchforcechange');
-    }
-  }
-});
-
-/***/ }),
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */
+/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -221,25 +97,13 @@ var _DATE = __webpack_require__(14);
 
 var _DATE2 = _interopRequireDefault(_DATE);
 
-var _onekit_behavior = __webpack_require__(1);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _wxs_behavior = __webpack_require__(0);
-
-var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
-
-var _weixin_behavior = __webpack_require__(2);
-
-var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var YEAR_START = 1900; /* eslint-disable no-console */
 /* eslint-disable camelcase */
-var YEAR_START = 1900;
+
 var YEAR_END = 2100;
 Component({
-  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
   options: {
     addGlobalClass: true
   },
@@ -285,6 +149,7 @@ Component({
 
   methods: {
     updateDays: function updateDays() {
+      console.log('data-picker updateDays');
       var value = (this.data.value || this.properties.value).split('-');
       var days = [];
       var dayCount = _DATE2.default.monthDays(value[0], value[1]);
@@ -295,6 +160,7 @@ Component({
       this.setData({ days: days });
     },
     date_show: function date_show() {
+      console.log('data-picker date_show');
       if (this.properties.disabled) {
         return;
       }
@@ -304,14 +170,17 @@ Component({
       this.updateDays();
     },
     date_cancle: function date_cancle(e) {
+      console.log('data-picker date_show');
       this.setData({ show: false });
       this.triggerEvent('Cancle', e.detail);
     },
     date_confirm: function date_confirm(e) {
+      console.log('data-picker date_confirm');
       this.setData({ show: false });
       this.triggerEvent('Change', e.detail);
     },
     date_change: function date_change(e) {
+      console.log('data-picker date_change');
       var current = e.detail.value;
       var y = current[0] + YEAR_START;
       var m = current[1] + 1;m = m >= 10 ? m : '0' + m;
@@ -340,10 +209,12 @@ Component({
 });
 
 /***/ }),
-/* 14 */
+
+/***/ 14:
 /***/ (function(module, exports) {
 
 module.exports = require("oneutil/DATE");
 
 /***/ })
-/******/ ]);
+
+/******/ });

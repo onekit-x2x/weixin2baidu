@@ -6,7 +6,7 @@
   <slot>
   </slot>
   </view>
-  <bottom-view s-if="{{show}}" bindcancle="selector_cancle" bindconfirm="selector_confirm">
+  <bottom-view s-if="{{show}}" bindCancle="selector_cancle" bindConfirm="selector_confirm">
     <view style="display:flex;">
     <block s-for="{{range}}" s-for-item="col" s-for-key="col">
     <picker-view data-index="{{index}}" style="flex-grow:1;" bindchange="selector_change" value="{{select[index]}}">
