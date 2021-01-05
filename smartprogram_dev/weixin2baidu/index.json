@@ -14,7 +14,6 @@
     "map":"./ui/map/map/index",
     "match-media":"./ui/match-media/match-media/index",
     "navigation-bar":"./ui/navigation-bar/navigation-bar/index",
-    "navigator":"./ui/navigator/navigator/index",
     "official-account":"./ui/official-account/official-account/index",
     "open-data":"./ui/open-data/open-data/index",
     "page-meta":"./ui/page-meta/page-meta/index",

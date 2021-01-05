@@ -20,13 +20,15 @@
   hover-stay-time="{{hoverStayTime}}"
   disabled="{{disabled}}"
   loading="{{loading}}"
-  contact="{{contact}}"
 
   bindgetphonenumber="button_getphonenumber"
   bindgetuserinfo="button_getuserinfo"
+  contact="button_contact"
   bindopensetting="button_opensetting"
   bindcontact="button_contact"
   bindlogin="button_login"
+
+  bindtap="ui_tap"
   >
  <slot/>
 </button> 

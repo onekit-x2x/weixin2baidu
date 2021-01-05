@@ -421,12 +421,28 @@ global = {};
 // })
 
 //slider
-var pageData = {}
-for(var i = 1;i < 5;++i){
-    (function(index){
-        pageData[`slider${index}change`] = function(e){
-        console.log(`slider${index}发生change事件，携带值为`,e.detail.value)
-    }
-    })(i);
-}
-OnekitPage(pageData)
+// var pageData = {}
+// for(var i = 1;i < 5;++i){
+//     (function(index){
+//         pageData[`slider${index}change`] = function(e){
+//         console.log(`slider${index}发生change事件，携带值为`,e.detail.value)
+//     }
+//     })(i);
+// }
+// OnekitPage(pageData)
+
+//camera
+// OnekitPage({
+//     takePhoto:function(){
+//         const ctx = wx.createCameraContext()
+//         ctx.takePhoto({
+//         quality:'high',
+//         success:(res)=>{this.setData({
+//             src:res.tempImagePath
+//         })}
+//     })
+//     },
+//     error:function(e){
+//         console.log(e.detail)
+//     }
+// })

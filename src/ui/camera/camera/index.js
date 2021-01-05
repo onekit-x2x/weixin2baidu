@@ -10,6 +10,15 @@ Component({
     addGlobalClass: true,
   },
   properties: {
+    mode: {
+      type: String,
+      value: 'normal'
+    },
+    // 做不了
+    resolution: {
+      type: String,
+      value: 'medium'
+    },
     devicePosition: {
       type: String,
       value: 'back',
@@ -18,8 +27,26 @@ Component({
       type: String,
       value: 'auto',
     },
+    // 做不了
+    frameSize: {
+      type: String,
+      value: 'medium'
+    },
   },
-
+  attached() {
+    const mode = this.properties.mode
+    if (mode === 'scanCode') {
+      swan.scanCode({
+        success: res => {
+          console.log('scanCode success', res)
+          this.trigger_scancode()
+        },
+        fail: err => {
+          console.log('scanCode fail', err)
+        }
+      })
+    }
+  },
 
   methods: {
     camera_stop() {
@@ -28,5 +55,12 @@ Component({
     camera_error() {
       this.triggerEvent('error')
     },
+    // 做不了
+    trigger_initdone(e) {
+      this.triggerEvent('Initdone', e.detail)
+    },
+    trigger_scancode() {
+      this.triggerEvent('Scancode')
+    }
   }
 })

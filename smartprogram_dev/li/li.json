@@ -10,6 +10,7 @@
         "onekit-input":"../weixin2baidu/ui/input/input/index",
         "onekit-picker":"../weixin2baidu/ui/picker/picker/index",
         "onekit-picker-view":"../weixin2baidu/ui/picker-view/picker-view/index",
-        "onekit-slider":"../weixin2baidu/ui/slider/slider/index"
+        "onekit-slider":"../weixin2baidu/ui/slider/slider/index",
+        "onekit-camera":"../weixin2baidu/ui/camera/camera/index"
     }
 }
