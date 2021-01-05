@@ -1,84 +1,26 @@
-<selector-picker s-if="{{mode == 'selector'}}"
+<picker
     class="onekit-picker {{onekitClass}}"
     style="{{onekitStyle}}"
     id="{{onekitId}}"
 
+    mode="{{mode}}"
     disabled="{{disabled}}"
+    bindcancel="picker_cancel"
+
     range="{{range}}"
     range-key="{{rangeKey}}"
-    value="{{value}}"
-    headerText="{{headerText}}"
+    value="{{value}}"   
+    bindchange="picker_change"
+    title="{{headerText}}"
 
-    bindCancel="picker_cancel"
-    bindChange="picker_change"
->
-<slot/>
-</selector-picker>
-
-<time-picker s-elif="{{mode == 'time'}}"
-    class="onekit-picker {{onekitClass}}"
-    style="{{onekitStyle}}"
-    id="{{onekitId}}"
-
-    disabled="{{disabled}}"
-    value="{{value}}"
     start="{{start}}"
     end="{{end}}"
-    headerText="{{headerText}}"
+    
+    fields="{{fields}}"
 
-    bindCancel="picker_cancel"
-    bindChange="picker_change"
->
-<slot/>
-</time-picker>
+    bindcolumnchange="picker_columnchange"
 
-<date-picker s-elif="{{mode == 'date'}}"
-    class="onekit-picker {{onekitClass}}"
-    style="{{onekitStyle}}"
-    id="{{onekitId}}"
-
-    disabled="{{disabled}}"
-    value="{{value}}"
-    start="{{start}}"
-    end="{{end}}"
-    headerText="{{headerText}}"
-
-    bindCancel="picker_cancel"
-    bindChange="picker_change"
->
-<slot/>
-</date-picker>
-
-<multiselector-picker s-elif="{{mode == 'multiSelector'}}"
-    class="onekit-picker {{onekitClass}}"
-    style="{{onekitStyle}}"
-    id="{{onekitId}}"
-
-    disabled="{{disabled}}"
-    range="{{range}}"
-    range-key="{{rangeKey}}"
-    value="{{value}}"
-    headerText="{{headerText}}"
-
-    bindCancel="picker_cancel"
-    bindColumnchange="picker_columnchange"
-    bindChange="picker_change"
->
-<slot/>
-</multiselector-picker>
-
-<ragion-picker s-elif="{{mode == 'region'}}"
-    class="onekit-picker {{onekitClass}}"
-    style="{{onekitStyle}}"
-    id="{{onekitId}}"
-
-    disabled="{{disabled}}"
-    value="{{value}}"
     custom-item="{{customItem}}"
-    headerText="{{headerText}}"
-
-    bindCancel="picker_cancel"
-    bindChange="picker_change"
 >
 <slot/>
-</ragion-picker>
+</picker>

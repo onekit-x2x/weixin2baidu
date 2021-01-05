@@ -10,27 +10,42 @@ Component({
     addGlobalClass: true,
   },
   properties: {
-    // propName: { // 属性名
-    //   type: String, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
-    //   value: 'val', // 属性初始值（必填）
-    //   observer(newVal, oldVal) {
-    //     // 属性被改变时执行的函数（可选）
-    //   }
-    // }
+    value: {
+      type: Array,
+      value: []
+    },
+    indicatorStyle: {
+      type: String,
+      value: ''
+    },
+    indicatorClass: {
+      type: String,
+      value: ''
+    },
+    maskStyle: {
+      type: String,
+      value: ''
+    },
+    maskClass: {
+      type: String,
+      value: ''
+    }
   },
 
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
+  data: {},
   attached() {},
 
   detached() {},
 
   methods: {
-    onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      })
-    }
+    pickView_change(e) {
+      this.triggerEvent('Change', e.detail)
+    },
+    trigger_start(e) {
+      this.triggerEvent('Start', e.detail)
+    },
+    trigger_end(e) {
+      this.triggerEvent('End', e.detail)
+    },
   }
 })

@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 40);
+/******/ 	return __webpack_require__(__webpack_require__.s = 29);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 40:
+/***/ 29:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -272,7 +272,19 @@ Component({
       value: ''
     }
   },
-  detached: function detached() {},
+  detached: function detached() {
+    if (this.properties.mode === 'selector') {
+      this.properties.value = 0;
+    } else if (this.properties.mode === 'multiSelector') {
+      this.properties.value = [];
+    } else if (this.properties.mode === 'time') {
+      this.properties.value = '';
+    } else if (this.properties.mode === 'date') {
+      this.properties.value = '当天';
+    } else if (this.properties.mode === 'region') {
+      this.properties.value = [];
+    }
+  },
 
 
   methods: {

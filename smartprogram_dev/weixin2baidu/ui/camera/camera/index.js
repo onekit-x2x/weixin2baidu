@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 26);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -150,6 +150,55 @@ exports.default = {
 
 /***/ }),
 
+/***/ 15:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _onekit_behavior = __webpack_require__(1);
+
+var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
+
+var _wxs_behavior = __webpack_require__(0);
+
+var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
+
+var _weixin_behavior = __webpack_require__(2);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+Component({
+  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
+  options: {
+    addGlobalClass: true
+  },
+  properties: {
+    devicePosition: {
+      type: String,
+      value: 'back'
+    },
+    flash: {
+      type: String,
+      value: 'auto'
+    }
+  },
+
+  methods: {
+    camera_stop: function camera_stop() {
+      this.triggerEvent('stop');
+    },
+    camera_error: function camera_error() {
+      this.triggerEvent('error');
+    }
+  }
+}); /* eslint-disable no-console */
+/* eslint-disable camelcase */
+
+/***/ }),
+
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -202,55 +251,6 @@ module.exports = Behavior({
     }
   }
 });
-
-/***/ }),
-
-/***/ 26:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _onekit_behavior = __webpack_require__(1);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _wxs_behavior = __webpack_require__(0);
-
-var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
-
-var _weixin_behavior = __webpack_require__(2);
-
-var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-Component({
-  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
-  options: {
-    addGlobalClass: true
-  },
-  properties: {
-    devicePosition: {
-      type: String,
-      value: 'back'
-    },
-    flash: {
-      type: String,
-      value: 'auto'
-    }
-  },
-
-  methods: {
-    camera_stop: function camera_stop() {
-      this.triggerEvent('stop');
-    },
-    camera_error: function camera_error() {
-      this.triggerEvent('error');
-    }
-  }
-}); /* eslint-disable no-console */
-/* eslint-disable camelcase */
 
 /***/ })
 

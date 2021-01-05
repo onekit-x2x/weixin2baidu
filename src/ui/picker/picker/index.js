@@ -51,7 +51,19 @@ Component({
       value: ''
     },
   },
-  detached() {},
+  detached() {
+    if (this.properties.mode === 'selector') {
+      this.properties.value = 0
+    } else if (this.properties.mode === 'multiSelector') {
+      this.properties.value = []
+    } else if (this.properties.mode === 'time') {
+      this.properties.value = ''
+    } else if (this.properties.mode === 'date') {
+      this.properties.value = '当天'
+    } else if (this.properties.mode === 'region') {
+      this.properties.value = []
+    }
+  },
 
   methods: {
     picker_cancel(e) {
