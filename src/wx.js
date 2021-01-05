@@ -509,8 +509,27 @@ export default class wx {
     return swan.stopCompass(object)
   }
 
-  static startCompass(object) {
-    return swan.startCompass(object)
+  static startCompass(wx_object) {
+    const wx_success = wx_object.success
+    const wx_fail = wx_object.fail
+    const wx_complete = wx_object.complete
+    wx_object = null
+    PROMISE((SUCCESS, FAIL) => {
+      swan.startCompass({
+        success: res => {
+          swan.onCompassChange((res) => {
+            console.log(res)
+            if (getApp().onekit_CompassChange) {
+              getApp().onekit_CompassChange(res)
+            }
+          })
+          SUCCESS(res)
+        },
+        fail: err => {
+          FAIL(err)
+        }
+      })
+    }, wx_success, wx_fail, wx_complete)
   }
 
   static addPhoneContact(object) {
@@ -543,12 +562,6 @@ export default class wx {
   }
 
   static stopDeviceMotionListening(object) {
-    /* swan.onDeviceMotionChange((res) => {
-  if (getApp().onekit_DeviceMotionChange) {
-    getApp().onekit_DeviceMotionChange(res)
-  }
-})
- */
     return swan.stopDeviceMotionListening(object)
   }
 
@@ -1558,9 +1571,3 @@ export default class wx {
     return swan.createIntersectionObserver(object)
   }
 }
-
-swan.onCompassChange((res) => {
-  if (getApp().onekit_CompassChange) {
-    getApp().onekit_CompassChange(res)
-  }
-})
