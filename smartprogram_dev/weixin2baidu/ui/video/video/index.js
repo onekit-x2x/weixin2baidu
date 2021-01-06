@@ -315,10 +315,23 @@ Component({
       type: String,
       value: ''
     },
-    //
     playBtnPosition: {
       type: String,
-      value: 'bottom'
+      value: 'bottom',
+      observer: function observer(newVal) {
+        if (newVal === 'center') {
+          this.properties.showPlayBtn = false;
+          this.properties.showCenterPlayBtn = true;
+        }
+        if (newVal === 'bottom') {
+          this.properties.showPlayBtn = true;
+          this.properties.showCenterPlayBtn = false;
+        }
+        this.setData({
+          showPlayBtn: this.properties.showPlayBtn,
+          showCenterPlayBtn: this.properties.showCenterPlayBtn
+        });
+      }
     },
     enablePlayGesture: {
       type: Boolean,
@@ -342,22 +355,47 @@ Component({
       type: Boolean,
       value: true
     },
-    //
-    adUnitId: {},
-    posterForCrawler: {},
-    showCastingButton: {},
-    pictureInPictureMode: {},
-    pictureInPictureShowProgress: {},
-    enableAutoRotation: {},
-    showScreenLockButton: {},
-    showSnapshotButton: {}
+    // 广告做不了
+    adUnitId: {
+      type: String,
+      value: ''
+    },
+    posterForCrawler: {
+      type: String,
+      value: ''
+    },
+    showCastingButton: {
+      type: Boolean,
+      value: false
+    },
+    pictureInPictureMode: {
+      type: String || Array,
+      value: null
+    },
+    pictureInPictureShowProgress: {
+      type: Boolean,
+      value: false
+    },
+    // 百度这边自动实现
+    enableAutoRotation: {
+      type: Boolean,
+      value: false
+    },
+    showScreenLockButton: {
+      type: Boolean,
+      value: false
+    },
+    showSnapshotButton: {
+      type: Boolean,
+      value: false
+    }
   },
   attached: function attached() {
-    var playBtnPosition = this.properties.playBtnPosition;
-    if (playBtnPosition === 'bottom') {
-      this.properties.showPlayBtn = true;
-    } else if (playBtnPosition === 'center') {
-      this.properties.showCenterPlayBtn = true;
+    //
+    var controls = this.properties.controls;
+    var show = void 0;
+    if (!controls) {
+      this.trigger_controlstoggle({ show: show });
     }
   },
 
@@ -371,11 +409,11 @@ Component({
     video_ended: function video_ended() {
       this.triggerEvent('ended');
     },
-    video_timeupdate: function video_timeupdate() {
-      this.triggerEvent('timeupdate');
+    video_timeupdate: function video_timeupdate(e) {
+      this.triggerEvent('timeupdate', e.detail);
     },
-    video_fullscreenchang: function video_fullscreenchang() {
-      this.triggerEvent('fullscreenchang');
+    video_fullscreenchang: function video_fullscreenchang(e) {
+      this.triggerEvent('fullscreenchang', e.detail);
     },
     video_waiting: function video_waiting() {
       this.triggerEvent('waiting');
@@ -388,14 +426,14 @@ Component({
     trigger_progress: function trigger_progress(e) {
       this.triggerEvent('Progress', e.detail);
     },
-    video_loadedmetadata: function video_loadedmetadata() {
-      this.triggerEvent('loadedmetadata');
+    video_loadedmetadata: function video_loadedmetadata(e) {
+      this.triggerEvent('loadedmetadata', e.detail);
     },
-
-    //
     trigger_controlstoggle: function trigger_controlstoggle(e) {
       this.triggerEvent('Controlstoggle', e.detail);
     },
+
+    //
     trigger_enterpictureinpicture: function trigger_enterpictureinpicture(e) {
       this.triggerEvent('Enterpictureinpicture', e.detail);
     },

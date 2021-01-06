@@ -432,17 +432,101 @@ global = {};
 // OnekitPage(pageData)
 
 //camera
+OnekitPage({
+    takePhoto:function(){
+        const ctx = wx.createCameraContext()
+        ctx.takePhoto({
+        quality:'high',
+        success:(res)=>{this.setData({
+            src:res.tempImagePath
+        })}
+    })
+    console.log(src)
+    },
+    error:function(e){
+        console.log(e.detail)
+    }
+})
+
+//video
+// function getRandomColor(){
+//     const rgb = [
+//     ]
+//     for(var i = 0;i < 3;++i){
+//         var color = Math.floor(Math.random() * 256).toString(16);
+//         color = color.length === 1?'0' + color:color;
+//         rgb.push(color);
+//     }
+//     return '#' + rgb.join('')
+// }
 // OnekitPage({
-//     takePhoto:function(){
-//         const ctx = wx.createCameraContext()
-//         ctx.takePhoto({
-//         quality:'high',
-//         success:(res)=>{this.setData({
-//             src:res.tempImagePath
-//         })}
+//     onShareAppMessage:function(){
+//         return {
+//         title:'video',
+//         path:'page/component/pages/video/video'
+//     }
+//     },
+//     onReady:function(){
+//         this.videoContext = wx.createVideoContext('myVideo')
+//     },
+//     onHide:function(){
+//     },
+//     inputValue:'',
+//     data:{
+//         src:'',
+//         danmuList:[
+//             {
+//                 text:'第 1s 出现的弹幕',
+//                 color:'#ff0000',
+//                 time:1
+//             },
+//             {
+//                 text:'第 3s 出现的弹幕',
+//                 color:'#ff00ff',
+//                 time:3
+//             }
+//         ]
+//     },
+//     bindInputBlur:function(e){
+//         this.inputValue = e.detail.value
+//     },
+//     bindButtonTap:function(){
+//         const that = this
+//         wx.chooseVideo({
+//         sourceType:[
+//             'album',
+//             'camera'
+//         ],
+//         maxDuration:60,
+//         camera:[
+//             'front',
+//             'back'
+//         ],
+//         success:function(res){
+//             that.setData({
+//             src:res.tempFilePath
+//         })
+//         }
 //     })
 //     },
-//     error:function(e){
-//         console.log(e.detail)
+//     bindVideoEnterPictureInPicture:function(){
+//         console.log('进入小窗模式')
+//     },
+//     bindVideoLeavePictureInPicture:function(){
+//         console.log('退出小窗模式')
+//     },
+//     bindPlayVideo:function(){
+//         console.log('1')
+//         this.videoContext.play()
+//     },
+//     bindSendDanmu:function(){
+//         this.videoContext.sendDanmu({
+//         text:this.inputValue,
+//         color:getRandomColor()
+//     })
+//     },
+//     videoErrorCallback:function(e){
+//         console.log('视频错误信息:')
+//         console.log(e.detail.errMsg)
 //     }
 // })
