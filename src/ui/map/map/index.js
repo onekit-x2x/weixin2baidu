@@ -202,13 +202,13 @@ Component({
       // console.warn('暂不支持!')
       this.triggerEvent('Anchorpointtap', e.detail)
     },
-    _getMarker() {
-      const markers = this.properties.markers
-      const marker = {
-        markerId: markers[0].id,
-        latitude: markers[0].latitude,
-        longitude: markers[0].longitude,
-      }
-    }
+    // _getMarker() {
+    //   const markers = this.properties.markers
+    //   const marker = {
+    //     markerId: markers[0].id,
+    //     latitude: markers[0].latitude,
+    //     longitude: markers[0].longitude,
+    //   }
+    // }
   },
 })
