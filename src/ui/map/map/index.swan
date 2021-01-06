@@ -28,4 +28,5 @@
   bindupdated="map_updated"
   bindpoitap="map_poitap"
 >
+  <slot/>
 </map>

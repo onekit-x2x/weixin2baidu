@@ -139,18 +139,22 @@ Component({
       type: String,
       value: ''
     },
+    //
     posterForCrawler: {
       type: String,
       value: ''
     },
+    //
     showCastingButton: {
       type: Boolean,
       value: false,
     },
+    //
     pictureInPictureMode: {
       type: String || Array,
       value: null
     },
+    //
     pictureInPictureShowProgress: {
       type: Boolean,
       value: false,
@@ -172,7 +176,6 @@ Component({
     },
   },
   attached() {
-    //
     const controls = this.properties.controls
     let show
     if (!controls) {
@@ -205,6 +208,7 @@ Component({
     trigger_progress(e) {
       this.triggerEvent('Progress', e.detail)
     },
+    //
     video_loadedmetadata(e) {
       this.triggerEvent('loadedmetadata', e.detail)
     },

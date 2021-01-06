@@ -12,6 +12,7 @@
         "onekit-picker-view":"../weixin2baidu/ui/picker-view/picker-view/index",
         "onekit-slider":"../weixin2baidu/ui/slider/slider/index",
         "onekit-camera":"../weixin2baidu/ui/camera/camera/index",
-        "onekit-video":"../weixin2baidu/ui/video/video/index"
+        "onekit-video":"../weixin2baidu/ui/video/video/index",
+        "onekit-map":"../weixin2baidu/ui/map/map/index"
     }
 }

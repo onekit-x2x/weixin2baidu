@@ -10,9 +10,6 @@ Component({
   options: {
     addGlobalClass: true,
   },
-  data: {
-
-  },
   properties: {
     longitude: {
       type: Number,
@@ -26,12 +23,10 @@ Component({
       type: Number,
       value: 16
     },
-    //
     minScale: {
       type: Number,
       value: 3
     },
-    //
     maxScale: {
       type: Number,
       value: 20
@@ -52,7 +47,6 @@ Component({
       type: Array,
       value: []
     },
-    // 即将废弃，建议使用 cover-view 代替
     controls: {
       type: Array,
       value: []
@@ -97,6 +91,7 @@ Component({
       type: Boolean,
       value: false
     },
+    //
     showScale: {
       type: Boolean,
       value: false
@@ -167,8 +162,14 @@ Component({
   // onReady() {
   //   this.mapCtx = swan.createMapContext('eMap')
   // },
-  didUpdate() { },
-  didUnmount() { },
+  attached() {
+    const minScale = 3
+    const maxScale = 20
+    const scale = this.properties.scale
+    this.properties.minScale = Math.min(minScale, scale)
+    this.properties.maxScale = Math.max(scale, maxScale)
+    //
+  },
   methods: {
     map_tap(e) {
       this.triggerEvent('Tap', e.detail)
@@ -201,5 +202,13 @@ Component({
       // console.warn('暂不支持!')
       this.triggerEvent('Anchorpointtap', e.detail)
     },
+    _getMarker() {
+      const markers = this.properties.markers
+      const marker = {
+        markerId: markers[0].id,
+        latitude: markers[0].latitude,
+        longitude: markers[0].longitude,
+      }
+    }
   },
 })
