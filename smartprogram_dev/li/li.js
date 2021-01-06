@@ -441,7 +441,6 @@ OnekitPage({
             src:res.tempImagePath
         })}
     })
-    console.log(src)
     },
     error:function(e){
         console.log(e.detail)
