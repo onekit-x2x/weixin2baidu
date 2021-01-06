@@ -498,11 +498,11 @@ export default class wx {
   }
 
   static onCompassChange(callback) {
-    this._CompassChange = callback
+    getApp().onekit_CompassChange = callback
   }
 
   static offCompassChange() {
-    this._CompassChange = null
+    getApp().onekit_CompassChange = null
   }
 
   static stopCompass(object) {
@@ -540,16 +540,20 @@ export default class wx {
     return console.warn('checkIsOpenAccessibility is not support')
   }
 
-  static onGyroscopeChange(callback) {
-    return swan.onGyroscopeChange(callback)
+  static onGyroscopeChange() {
+    return console.warn('onGyroscopeChange is not support')
   }
 
-  static stopGyroscope(object) {
-    return swan.stopGyroscope(object)
+  static offGyroscopeChange() {
+    return console.warn('offGyroscopeChange is not support')
   }
 
-  static startGyroscope(object) {
-    return swan.startGyroscope(object)
+  static stopGyroscope() {
+    return console.warn('stopGyroscope is not support')
+  }
+
+  static startGyroscope() {
+    return console.warn('startGyroscope is not support')
   }
 
   //
@@ -619,8 +623,17 @@ export default class wx {
   }
 
   //
-  static onMemoryWarning(object) {
-    return swan.onMemoryWarning(object)
+  static onMemoryWarning(callback) {
+    swan.onMemoryWarning((res) => {
+      if (getApp().onekit_MemoryWarning) {
+        getApp().onekit_MemoryWarning(res)
+      }
+    })
+    getApp().onekit_MemoryWarning = callback
+  }
+
+  static offMemoryWarning() {
+    getApp().onekit_MemoryWarning = null
   }
 
   //
@@ -776,8 +789,8 @@ export default class wx {
   }
 
   // ///////////////// Ext //////////////
-  static getExtConfigSync(object) {
-    return swan.getExtConfigSync(object)
+  static getExtConfigSync() {
+    return swan.getExtConfigSync()
   }
 
   static getExtConfig(object) {
@@ -1563,11 +1576,41 @@ export default class wx {
   }
 
   // //////////// WXML ///////////////
-  static createSelectorQuery(object) {
-    return swan.createSelectorQuery(object)
+  static createSelectorQuery() {
+    return swan.createSelectorQuery()
   }
 
-  static createIntersectionObserver(object) {
-    return swan.createIntersectionObserver(object)
+  static createIntersectionObserver(wx_object) {
+    const wx_thresholds = wx_object.thresholds || [0]
+    const wx_initialRatio = wx_object.initialRatio || 0
+    const wx_observeAll = wx_object.observeAll || false
+    wx_object = null
+    const swan_object = {
+      thresholds: wx_thresholds,
+      initialRatio: wx_initialRatio,
+      selectAll: wx_observeAll
+    }
+    return swan.createIntersectionObserver(swan_object)
+  }
+
+  // //////////// ad ///////////////
+  static createRewardedVideoAd(wx_object) {
+    const wx_adUnitId = wx_object.adUnitId
+    wx_object = null
+    const swan_object = {
+      adUnitId: wx_adUnitId,
+      appSid: ''
+    }
+    return swan.createIntersectionObserver(swan_object)
+  }
+
+  static createInterstitialAd(wx_object) {
+    const wx_adUnitId = wx_object.adUnitId
+    wx_object = null
+    const swan_object = {
+      adUnitId: wx_adUnitId,
+      appSid: ''
+    }
+    return swan.createIntersectionObserver(swan_object)
   }
 }
