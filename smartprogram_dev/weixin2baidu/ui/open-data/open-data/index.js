@@ -759,8 +759,27 @@ var wx = function () {
     return swan.stopCompass(object);
   };
 
-  wx.startCompass = function startCompass(object) {
-    return swan.startCompass(object);
+  wx.startCompass = function startCompass(wx_object) {
+    var wx_success = wx_object.success;
+    var wx_fail = wx_object.fail;
+    var wx_complete = wx_object.complete;
+    wx_object = null;
+    (0, _PROMISE2.default)(function (SUCCESS, FAIL) {
+      swan.startCompass({
+        success: function success(res) {
+          swan.onCompassChange(function (res) {
+            console.log(res);
+            if (getApp().onekit_CompassChange) {
+              getApp().onekit_CompassChange(res);
+            }
+          });
+          SUCCESS(res);
+        },
+        fail: function fail(err) {
+          FAIL(err);
+        }
+      });
+    }, wx_success, wx_fail, wx_complete);
   };
 
   wx.addPhoneContact = function addPhoneContact(object) {
@@ -795,12 +814,6 @@ var wx = function () {
   };
 
   wx.stopDeviceMotionListening = function stopDeviceMotionListening(object) {
-    /* swan.onDeviceMotionChange((res) => {
-    if (getApp().onekit_DeviceMotionChange) {
-    getApp().onekit_DeviceMotionChange(res)
-    }
-    })
-    */
     return swan.stopDeviceMotionListening(object);
   };
 
@@ -1857,13 +1870,6 @@ var wx = function () {
 }();
 
 exports.default = wx;
-
-
-swan.onCompassChange(function (res) {
-  if (getApp().onekit_CompassChange) {
-    getApp().onekit_CompassChange(res);
-  }
-});
 
 /***/ }),
 /* 4 */
