@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 38);
+/******/ 	return __webpack_require__(__webpack_require__.s = 41);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 38:
+/***/ 41:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -360,18 +360,22 @@ Component({
       type: String,
       value: ''
     },
+    //
     posterForCrawler: {
       type: String,
       value: ''
     },
+    //
     showCastingButton: {
       type: Boolean,
       value: false
     },
+    //
     pictureInPictureMode: {
       type: String || Array,
       value: null
     },
+    //
     pictureInPictureShowProgress: {
       type: Boolean,
       value: false
@@ -381,17 +385,18 @@ Component({
       type: Boolean,
       value: false
     },
+    //
     showScreenLockButton: {
       type: Boolean,
       value: false
     },
+    //
     showSnapshotButton: {
       type: Boolean,
       value: false
     }
   },
   attached: function attached() {
-    //
     var controls = this.properties.controls;
     var show = void 0;
     if (!controls) {
@@ -426,6 +431,8 @@ Component({
     trigger_progress: function trigger_progress(e) {
       this.triggerEvent('Progress', e.detail);
     },
+
+    //
     video_loadedmetadata: function video_loadedmetadata(e) {
       this.triggerEvent('loadedmetadata', e.detail);
     },

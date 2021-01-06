@@ -9,7 +9,7 @@ import CameraContext from './api/CameraContext'
 import InnerAudioContext from './api/InnerAudioContext'
 import LivePlayerContext from './api/LivePlayerContext'
 import WORKER from './api/WORKER'
-import PROMISE from '../node_modules/oneutil/PROMISE'
+// import PROMISE from '../node_modules/oneutil/PROMISE'
 
 import Logmanager from './api/Logmanager'
 import RealtimeLogManager from './api/RealtimeLogManager'
@@ -514,6 +514,11 @@ export default class wx {
   }
 
   static onCompassChange(callback) {
+    swan.onCompassChange((res) => {
+      if (getApp().onekit_CompassChange) {
+        getApp().onekit_CompassChange(res)
+      }
+    })
     getApp().onekit_CompassChange = callback
   }
 
@@ -525,27 +530,8 @@ export default class wx {
     return swan.stopCompass(object)
   }
 
-  static startCompass(wx_object) {
-    const wx_success = wx_object.success
-    const wx_fail = wx_object.fail
-    const wx_complete = wx_object.complete
-    wx_object = null
-    PROMISE((SUCCESS, FAIL) => {
-      swan.startCompass({
-        success: res => {
-          swan.onCompassChange((res) => {
-            console.log(res)
-            if (getApp().onekit_CompassChange) {
-              getApp().onekit_CompassChange(res)
-            }
-          })
-          SUCCESS(res)
-        },
-        fail: err => {
-          FAIL(err)
-        }
-      })
-    }, wx_success, wx_fail, wx_complete)
+  static startCompass(object) {
+    return swan.startCompass(object)
   }
 
   static addPhoneContact(object) {
@@ -574,6 +560,11 @@ export default class wx {
 
   //
   static onDeviceMotionChange(callback) {
+    swan.onDeviceMotionChange((res) => {
+      if (getApp().onekit_DeviceMotionChange) {
+        getApp().onekit_DeviceMotionChange(res)
+      }
+    })
     getApp().onekit_DeviceMotionChange = callback
   }
 
@@ -585,26 +576,8 @@ export default class wx {
     return swan.stopDeviceMotionListening(object)
   }
 
-  static startDeviceMotionListening(wx_object) {
-    const wx_success = wx_object.success
-    const wx_fail = wx_object.fail
-    const wx_complete = wx_object.complete
-    wx_object = null
-    PROMISE((SUCCESS, FAIL) => {
-      swan.startDeviceMotionListening({
-        success: res => {
-          swan.onDeviceMotionChange((res) => {
-            if (getApp().onekit_DeviceMotionChange) {
-              getApp().onekit_DeviceMotionChange(res)
-            }
-          })
-          SUCCESS(res)
-        },
-        fail: err => {
-          FAIL(err)
-        }
-      })
-    }, wx_success, wx_fail, wx_complete)
+  static startDeviceMotionListening(object) {
+    return swan.startDeviceMotionListening(object)
   }
 
   //
@@ -613,11 +586,16 @@ export default class wx {
   }
 
   static offNetworkStatusChange() {
-    return console.log('offNetworkStatusChange is not support')
+    this._NetworkStatusChange = null
   }
 
   static onNetworkStatusChange(callback) {
-    return swan.onNetworkStatusChange(callback)
+    swan.onNetworkStatusChange((res) => {
+      if (getApp().onekit_NetworkStatusChange) {
+        getApp().onekit_NetworkStatusChange(res)
+      }
+    })
+    this._NetworkStatusChange = callback
   }
 
   //
@@ -793,11 +771,16 @@ export default class wx {
   }
 
   static onUserCaptureScreen(callback) {
-    return swan.onUserCaptureScreen(callback)
+    swan.onUserCaptureScreen((res) => {
+      if (getApp().onekit_UserCaptureScreen) {
+        getApp().onekit_UserCaptureScreen(res)
+      }
+    })
+    getApp().onekit_UserCaptureScreen = callback
   }
 
   static offUserCaptureScreen() {
-    return console.warn('offUserCaptureScreen is not support')
+    getApp().onekit_UserCaptureScreen = null
   }
 
   static getScreenBrightness(object) {

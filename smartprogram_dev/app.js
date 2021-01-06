@@ -1,5 +1,5 @@
 import {OnekitApp} from './weixin2baidu/index';
-import {wx} from './weixin2baidu/index';
+import {tt} from './weixin2baidu/index';
 OnekitApp({
     onLaunch:function(){
         console.log('App Launch');

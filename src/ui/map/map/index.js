@@ -33,11 +33,13 @@ Component({
     },
     markers: {
       type: Array,
-      value: []
+      value: [],
+      observer(markers) {
+        this._getMarker(markers)
+      }
     },
     covers: {
-      type: Array,
-      value: []
+      type: Array
     },
     polyline: {
       type: Array,
@@ -49,7 +51,10 @@ Component({
     },
     controls: {
       type: Array,
-      value: []
+      value: [],
+      observer(controls) {
+        this._getControl(controls)
+      }
     },
     includePoints: {
       type: Array,
@@ -138,30 +143,8 @@ Component({
       value: false
     },
   },
-  // observers: {
-  //   enableSatellite() {
-  //     console.warn('[onekit-map]暂不支持enable-satellite')
-  //   },
-  //   enableTraffic() {
-  //     console.warn('[onekit-map]暂不支持enable-traffic')
-  //   },
-  //   subkey() {
-  //     console.warn('[onekit-map]暂不支持subkey')
-  //   },
-  //   skew() {
-  //     console.warn('[onekit-map]暂不支持skew')
-  //   },
-  //   layerStyle() {
-  //     console.warn('[onekit-map]暂不支持layerStyle')
-  //   },
-  //   showScale() {
-  //     console.warn('[onekit-map]暂不支持showScale')
-  //   },
-
-  // },
-  // onReady() {
-  //   this.mapCtx = swan.createMapContext('eMap')
-  // },
+  observers: {
+  },
   attached() {
     const minScale = 3
     const maxScale = 20
@@ -169,6 +152,8 @@ Component({
     this.properties.minScale = Math.min(minScale, scale)
     this.properties.maxScale = Math.max(scale, maxScale)
     //
+    this._getMarker(this.properties.markers)
+    this._getMarker(this.properties.markers)
   },
   methods: {
     map_tap(e) {
@@ -202,13 +187,23 @@ Component({
       // console.warn('暂不支持!')
       this.triggerEvent('Anchorpointtap', e.detail)
     },
-    _getMarker() {
-      const markers = this.properties.markers
-      const marker = {
-        markerId: markers[0].id,
-        latitude: markers[0].latitude,
-        longitude: markers[0].longitude,
-      }
+    _getMarker(markers) {
+      this.setData({
+        markers: markers.map(marker => {
+          marker.markerId = marker.id
+          delete Object.marker.id
+          return marker
+        })
+      })
+    },
+    _getControl(controls) {
+      this.setData({
+        controls: controls.map(control => {
+          control.controlId = control.id
+          delete Object.control.id
+          return control
+        })
+      })
     }
   },
 })

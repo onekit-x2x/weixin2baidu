@@ -26,4 +26,10 @@ export default class MapContext {
   getScale(object) {
     return this.wxMapContext.getScale(object)
   }
+
+  // // eslint-disable-next-line class-methods-use-this
+  // on() {
+  //   // eslint-disable-next-line no-console
+  //   return console.warn('swan is not support')
+  // }
 }
