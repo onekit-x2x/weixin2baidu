@@ -20,7 +20,7 @@ export default class VideoContext {
   }
 
   sendDanmu(data) {
-    return this.swanVideoContext.playbackRate(data)
+    return this.swanVideoContext.sendDanmu(data)
   }
 
   playbackRate(rate) {
