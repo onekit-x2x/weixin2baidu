@@ -10,6 +10,8 @@ import InnerAudioContext from './api/InnerAudioContext'
 import LivePlayerContext from './api/LivePlayerContext'
 import WORKER from './api/WORKER'
 import PROMISE from '../node_modules/oneutil/PROMISE'
+
+import Logmanager from './api/Logmanager'
 // import wx_cloud from './wx.cloud'
 
 export default class wx {
@@ -40,6 +42,10 @@ export default class wx {
 
   static getSystemInfoSync() {
     return swan.getSystemInfoSync()
+  }
+
+  static getSystemInfoAsync() {
+    return console.log('getSystemInfoAsync is not support')
   }
 
   static getUpdateManager() {
@@ -97,7 +103,7 @@ export default class wx {
   }
 
   static onUnhandledRejection() {
-    console.warn('BaiDu is not support !')
+    return console.warn('onUnhandledRejection is not support !')
   }
 
   static onThemeChange() {
@@ -107,20 +113,20 @@ export default class wx {
     return res
   }
 
-  static onPageNotFound() {
-    return swan.onPageNotFound()
+  static onPageNotFound(callback) {
+    return swan.onPageNotFound(callback)
   }
 
-  static onError() {
-    return swan.onError()
+  static onError(callback) {
+    return swan.onError(callback)
   }
 
-  static offError(object) {
-    return swan.offError(object)
+  static offError(callback) {
+    return swan.offError(callback)
   }
 
-  static offPageNotFound(object) {
-    return swan.offPageNotFound(object)
+  static offPageNotFound(callback) {
+    return swan.offPageNotFound(callback)
   }
 
   static onAudioInterruptionBegin() {
@@ -131,32 +137,24 @@ export default class wx {
     return console.warn('onAudioInterruptionEnd is not support')
   }
 
-  static offAppShow(object) {
-    return swan.offAppShow(object)
+  static offAppShow(callback) {
+    return swan.offAppShow(callback)
   }
 
-  static onAppShow(object) {
-    return swan.onAppShow(object)
+  static onAppShow(callback) {
+    return swan.onAppShow(callback)
   }
 
-  static offAppHide(object) {
-    return swan.offAppHide(object)
+  static offAppHide(callback) {
+    return swan.offAppHide(callback)
   }
 
-  static onAppHide(object) {
-    return swan.onAppHide(object)
+  static onAppHide(callback) {
+    return swan.onAppHide(callback)
   }
 
   static setEnableDebug(object) {
     return swan.setEnableDebug(object)
-  }
-
-  static getRealtimeLogManager() {
-    return console.warn('getRealtimeLogManager is not support')
-  }
-
-  static getLogManager() {
-    return console.warn('getLogManager is not support')
   }
 
   static offUnhandledRejection() {
@@ -175,6 +173,22 @@ export default class wx {
     return console.warn('offAudioInterruptionEnd is not support')
   }
 
+
+  static getRealtimeLogManager() {
+    return console.warn('getRealtimeLogManager is not support')
+  }
+
+  static getLogManager() {
+    return new Logmanager()
+  }
+
+  // ///////// 环境变量 ///////
+  static env() {
+    const res = {
+      USER_DATA_PATH: 'https://usr'
+    }
+    return res
+  }
 
   // ///////////////// Canvas ///////////////////
   // static drawCanvas(object) {
@@ -1454,6 +1468,8 @@ export default class wx {
     return console.warn('disableAlertBeforeUnload is not support')
   }
 
+  // //////////// NavigationBar ////////////////
+
   static setNavigationBarColor(object) {
     return swan.setNavigationBarColor(object)
   }
@@ -1474,6 +1490,8 @@ export default class wx {
     return console.warn('hideHomeButton is not support')
   }
 
+  // //////////// Background ////////////////
+
   static setBackgroundTextStyle(object) {
     return swan.setBackgroundTextStyle(object)
   }
@@ -1481,6 +1499,8 @@ export default class wx {
   static setBackgroundColor(object) {
     return swan.setBackgroundColor(object)
   }
+
+  // //////////// Tab Bar ////////////////
 
   static setTabBarItem(object) {
     return swan.setTabBarItem(object)
@@ -1514,9 +1534,13 @@ export default class wx {
     return swan.setTabBarBadge(object)
   }
 
+  // //////////// Font ////////////////
+
   static loadFontFace() {
-    return console.warn('hideHomeButton is not support')
+    return console.warn('loadFontFace is not support')
   }
+
+  // //////////// Refresh ////////////////
 
   static stopPullDownRefresh(object) {
     return swan.stopPullDownRefresh(object)
@@ -1526,10 +1550,13 @@ export default class wx {
     return swan.startPullDownRefresh(object)
   }
 
+  // //////////// Scroll ////////////////
+
   static pageScrollTo(object) {
     return swan.pageScrollTo(object)
   }
 
+  // //////////// TopBar ////////////////
   static setTopBarText() {
     return console.warn('setTopBarText is not support')
   }
@@ -1538,9 +1565,13 @@ export default class wx {
     return swan.nextTick(callback)
   }
 
+  // //////////// Menu ////////////////
+
   static getMenuButtonBoundingClientRect(object) {
     return swan.getMenuButtonBoundingClientRect(object)
   }
+
+  // //////////// windows ////////////////
 
   static setWindowSize() {
     return console.warn('setWindowSize is not support')
@@ -1553,6 +1584,8 @@ export default class wx {
   static offWindowResize() {
     return console.warn('offWindowResize is not support')
   }
+
+  // //////////// Keyboard ////////////////
 
   static onKeyboardHeightChange(callback) {
     return swan.onKeyboardHeightChange(callback)

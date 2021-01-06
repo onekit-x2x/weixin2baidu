@@ -1,4 +1,4 @@
-export default class VideoContext {
+export default class CameraContext {
   constructor(swanCameraContext) {
     this.swanCameraContext = swanCameraContext
   }
