@@ -12,6 +12,8 @@ import WORKER from './api/WORKER'
 import PROMISE from '../node_modules/oneutil/PROMISE'
 
 import Logmanager from './api/Logmanager'
+import RealtimeLogManager from './api/RealtimeLogManager'
+import MapContext from './api/MapContext'
 // import wx_cloud from './wx.cloud'
 
 export default class wx {
@@ -175,7 +177,7 @@ export default class wx {
 
 
   static getRealtimeLogManager() {
-    return console.warn('getRealtimeLogManager is not support')
+    return new RealtimeLogManager()
   }
 
   static getLogManager() {
@@ -878,8 +880,8 @@ export default class wx {
   }
 
   // //////// Media ////////////////////
-  static createMapContext(object) {
-    return swan.createMapContext(object)
+  static createMapContext(mapId) {
+    return new MapContext(swan.createMapContext(mapId))
   }
 
   static compressImage(object) {
