@@ -364,12 +364,14 @@ export default class wx {
 
   // //////////// Keyboard ////////////////
 
-  static onKeyboardHeightChange(callback) {
-    return swan.onKeyboardHeightChange(callback)
+  static onKeyboardHeightChange() {
+    // return swan.onKeyboardHeightChange(callback)
+    return console.warn('onKeyboardHeightChange is not support')
   }
 
-  static offKeyboardHeightChange(callback) {
-    return swan.offKeyboardHeightChange(callback)
+  static offKeyboardHeightChange() {
+    // return swan.offKeyboardHeightChange(callback)
+    return console.warn('offKeyboardHeightChange is not support')
   }
 
   static hideKeyboard() {
