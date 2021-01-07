@@ -8,7 +8,7 @@ import VideoContext from './api/VideoContext'
 import CameraContext from './api/CameraContext'
 import InnerAudioContext from './api/InnerAudioContext'
 import LivePlayerContext from './api/LivePlayerContext'
-import WORKER from './api/WORKER'
+// import WORKER from './api/WORKER'
 // import PROMISE from '../node_modules/oneutil/PROMISE'
 
 import Logmanager from './api/Logmanager'
@@ -373,7 +373,6 @@ export default class wx {
     return console.warn('getBackgroundFetchData is not support')
   }
 
-  // static createContext() { return new CanvasContext(); }
   static createCanvasContext(canvasId) {
     return new CanvasContext(swan.createCanvasContext(canvasId))
   }
@@ -481,11 +480,16 @@ export default class wx {
 
   //
   static onAccelerometerChange(callback) {
-    return swan.onAccelerometerChange(callback)
+    swan.onAccelerometerChange(res => {
+      if (getApp().onekit_AccelerometerChange) {
+        getApp().onekit_AccelerometerChange(res)
+      }
+    })
+    getApp().onekit_AccelerometerChange = callback
   }
 
   static offAccelerometerChange() {
-    return console.warn('offAccelerometerChange is not support')
+    getApp().onekit_AccelerometerChange = null
   }
 
   static stopAccelerometer(object) {
@@ -1423,8 +1427,6 @@ export default class wx {
     return swan.showActionSheet(object)
   }
 
-  // static redirectTo(object) { return swan.redirectTo(object) }
-  // static redirectTo(object) { return swan.redirectTo(object) }
   static hideLoading(object) {
     return swan.hideLoading(object)
   }
@@ -1589,8 +1591,8 @@ export default class wx {
   }
 
   // //////////// Worker ///////////////
-  static createWorker(path) {
-    return new WORKER(path)
+  static createWorker() {
+    return console.warn('createWorker is not support')
   }
 
   // //////////// WXML ///////////////
