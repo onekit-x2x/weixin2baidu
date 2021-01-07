@@ -5,7 +5,7 @@
 // import onekit from 'oneutil'
 import CanvasContext from './api/CanvasContext'
 import VideoContext from './api/VideoContext'
-import CameraContext from './api/CameraContext'
+// import CameraContext from './api/CameraContext'
 import InnerAudioContext from './api/InnerAudioContext'
 import LivePlayerContext from './api/LivePlayerContext'
 // import WORKER from './api/WORKER'
@@ -216,11 +216,19 @@ export default class wx {
   }
 
   static enableAlertBeforeUnload() {
-    return console.warn('enableAlertBeforeUnload is not support')
+    // return console.warn('enableAlertBeforeUnload is not support')
+    const wx_res = {
+      errMsg: 'enableAlertBeforeUnload:ok'
+    }
+    return wx_res
   }
 
   static disableAlertBeforeUnload() {
-    return console.warn('disableAlertBeforeUnload is not support')
+    // return console.warn('disableAlertBeforeUnload is not support')
+    const wx_res = {
+      errMsg: 'disableAlertBeforeUnload:ok'
+    }
+    return wx_res
   }
 
   // //////////// NavigationBar ////////////////
@@ -242,7 +250,11 @@ export default class wx {
   }
 
   static hideHomeButton() {
-    return console.warn('hideHomeButton is not support')
+    // return console.warn('hideHomeButton is not support')
+    const wx_res = {
+      errMsg: 'hideHomeButton:ok'
+    }
+    return wx_res
   }
 
   // //////////// Background ////////////////
@@ -292,7 +304,12 @@ export default class wx {
   // //////////// Font ////////////////
 
   static loadFontFace() {
-    return console.warn('loadFontFace is not support')
+    // return console.warn('loadFontFace is not support')
+    const wx_res = {
+      errMsg: 'loadFontFace:ok',
+      status: 'loaded'
+    }
+    return wx_res
   }
 
   // //////////// Refresh ////////////////
@@ -782,7 +799,7 @@ export default class wx {
   }
 
   static createCameraContext() {
-    return new CameraContext(swan.createCameraContext())
+    return swan.createCameraContext()
   }
 
   // ////////// Location ///////////////
