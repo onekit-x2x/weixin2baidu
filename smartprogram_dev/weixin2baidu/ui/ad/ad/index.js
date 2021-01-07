@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 15);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -150,7 +150,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 15:
+/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -175,23 +175,46 @@ Component({
   options: {
     addGlobalClass: true
   },
+  data: {
+    appid: ''
+  },
   properties: {
-    unitId: { type: String, value: '' },
-    adIntervals: { type: String, value: '' },
+    unitId: {
+      type: String,
+      value: ''
+    },
+    adIntervals: {
+      type: String,
+      value: ''
+    },
     adType: {
       type: String,
       value: 'banner'
+    },
+    adTheme: {
+      type: String,
+      value: 'white'
     }
   },
 
-  data: {}, // 私有数据，可用于模版渲染
-
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached: function attached() {},
+  attached: function attached() {
+    // this.data.appid
+  },
   detached: function detached() {},
 
 
-  methods: {}
+  methods: {
+    ad_load: function ad_load() {
+      this.triggerEvent('Load');
+    },
+    ad_error: function ad_error(e) {
+      this.triggerEvent('Error', e.detail);
+    },
+    ad_close: function ad_close() {
+      this.triggerEvent('Close');
+    }
+  }
 }); /* eslint-disable no-console */
 /* eslint-disable camelcase */
 

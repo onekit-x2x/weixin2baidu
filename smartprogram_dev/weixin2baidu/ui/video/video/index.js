@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 41);
+/******/ 	return __webpack_require__(__webpack_require__.s = 39);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 41:
+/***/ 39:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -406,25 +406,25 @@ Component({
 
   methods: {
     video_play: function video_play() {
-      this.triggerEvent('play');
+      this.triggerEvent('Play');
     },
     video_pause: function video_pause() {
-      this.triggerEvent('pause');
+      this.triggerEvent('Pause');
     },
     video_ended: function video_ended() {
-      this.triggerEvent('ended');
+      this.triggerEvent('Ended');
     },
     video_timeupdate: function video_timeupdate(e) {
-      this.triggerEvent('timeupdate', e.detail);
+      this.triggerEvent('Timeupdate', e.detail);
     },
     video_fullscreenchang: function video_fullscreenchang(e) {
-      this.triggerEvent('fullscreenchang', e.detail);
+      this.triggerEvent('Fullscreenchang', e.detail);
     },
     video_waiting: function video_waiting() {
-      this.triggerEvent('waiting');
+      this.triggerEvent('Waiting');
     },
     video_error: function video_error() {
-      this.triggerEvent('error');
+      this.triggerEvent('Error');
     },
 
     //
@@ -434,7 +434,7 @@ Component({
 
     //
     video_loadedmetadata: function video_loadedmetadata(e) {
-      this.triggerEvent('loadedmetadata', e.detail);
+      this.triggerEvent('Loadedmetadata', e.detail);
     },
     trigger_controlstoggle: function trigger_controlstoggle(e) {
       this.triggerEvent('Controlstoggle', e.detail);

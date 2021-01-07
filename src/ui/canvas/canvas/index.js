@@ -13,8 +13,11 @@ Component({
 
   },
   properties: {
-
-    canvasonekitId: {
+    type: {
+      type: String,
+      value: '2d'
+    },
+    canvasId: {
       type: String,
       value: '',
     },
@@ -24,29 +27,23 @@ Component({
     },
   },
   methods: {
-    canvas_start(e) {
-      console.log('canvas_start', e)
-      this.triggerEvent('touchstart', e.details)
+    canvas_touchstart() {
+      this.triggerEvent('Touchstart')
     },
-    canvas_move(e) {
-      console.log('canvas_move', e)
-      this.triggerEvent('touchmove', e.details)
+    canvas_touchmove() {
+      this.triggerEvent('Touchmove')
     },
-    canvas_end(e) {
-      console.log('canvas_end', e)
-      this.triggerEvent('touchend', e.details)
+    canvas_touchend() {
+      this.triggerEvent('Touchend')
     },
-    canvas_cancel(e) {
-      console.log('canvas_cancel', e)
-      this.triggerEvent('touchcancel', e.details)
+    canvas_touchcancel() {
+      this.triggerEvent('Touchcancel')
     },
-    canvas_tap(e) {
-      console.log('canvas_tap', e)
-      this.triggerEvent('longtap', e.details)
+    canvas_longtap() {
+      this.triggerEvent('Longtap')
     },
     canvas_error(e) {
-      console.log('canvas_error', e)
-      this.triggerEvent('error', e.details)
+      this.triggerEvent('Error', e.detail)
     },
   }
 })

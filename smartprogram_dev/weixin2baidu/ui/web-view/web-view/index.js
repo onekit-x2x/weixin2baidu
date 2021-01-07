@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 43);
+/******/ 	return __webpack_require__(__webpack_require__.s = 41);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 43:
+/***/ 41:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -231,24 +231,28 @@ Component({
     addGlobalClass: true
   },
   properties: {
-    onekitClass: { type: String, value: '' },
-    onekitStyle: { type: String, value: '' },
-    onekitId: { type: String, value: '' }
-
+    src: {
+      type: String,
+      value: ''
+    }
   },
-
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   attached: function attached() {},
   detached: function detached() {},
 
 
   methods: {
-    onTap: function onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      });
+    webView_message: function webView_message(e) {
+      this.triggerEvent('Message', e.detail);
+    },
+
+    // 做不了
+    trigger_load: function trigger_load(e) {
+      this.triggerEvent('Load', e.detail);
+    },
+
+    // 做不了
+    trigger_error: function trigger_error(e) {
+      this.triggerEvent('Error', e.detail);
     }
   }
 }); /* eslint-disable no-console */

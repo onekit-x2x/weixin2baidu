@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 29);
+/******/ 	return __webpack_require__(__webpack_require__.s = 27);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -217,35 +217,27 @@ var _VideoContext = __webpack_require__(5);
 
 var _VideoContext2 = _interopRequireDefault(_VideoContext);
 
-var _CameraContext = __webpack_require__(6);
-
-var _CameraContext2 = _interopRequireDefault(_CameraContext);
-
-var _InnerAudioContext = __webpack_require__(7);
+var _InnerAudioContext = __webpack_require__(6);
 
 var _InnerAudioContext2 = _interopRequireDefault(_InnerAudioContext);
 
-var _LivePlayerContext = __webpack_require__(8);
+var _LivePlayerContext = __webpack_require__(7);
 
 var _LivePlayerContext2 = _interopRequireDefault(_LivePlayerContext);
 
-var _WORKER = __webpack_require__(9);
-
-var _WORKER2 = _interopRequireDefault(_WORKER);
-
-var _PROMISE = __webpack_require__(10);
+var _PROMISE = __webpack_require__(8);
 
 var _PROMISE2 = _interopRequireDefault(_PROMISE);
 
-var _Logmanager = __webpack_require__(11);
+var _Logmanager = __webpack_require__(9);
 
 var _Logmanager2 = _interopRequireDefault(_Logmanager);
 
-var _RealtimeLogManager = __webpack_require__(12);
+var _RealtimeLogManager = __webpack_require__(10);
 
 var _RealtimeLogManager2 = _interopRequireDefault(_RealtimeLogManager);
 
-var _MapContext = __webpack_require__(13);
+var _MapContext = __webpack_require__(11);
 
 var _MapContext2 = _interopRequireDefault(_MapContext);
 
@@ -256,6 +248,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 // import onekit from 'oneutil'
 
+// import CameraContext from './api/CameraContext'
+
+// import WORKER from './api/WORKER'
+
 
 // import wx_cloud from './wx.cloud'
 
@@ -264,14 +260,7 @@ var wx = function () {
     _classCallCheck(this, wx);
   }
 
-  // ///////////////// animation //////////////////////////
-  wx.createAnimation = function createAnimation(object) {
-    return swan.createAnimation(object);
-  };
-
   // /////////////// basic ////////////////////////////////
-
-
   wx.canIUse = function canIUse(schema) {
     return swan.canIUse(schema);
   };
@@ -296,7 +285,7 @@ var wx = function () {
   };
 
   wx.getSystemInfoAsync = function getSystemInfoAsync() {
-    return console.log('getSystemInfoAsync is not support');
+    return swan.getSystemInfoSync();
   };
 
   wx.getUpdateManager = function getUpdateManager() {
@@ -307,39 +296,24 @@ var wx = function () {
     var wx_success = wx_object.success;
     var wx_fail = wx_object.fail;
     var wx_complete = wx_object.complete;
-    // onekit.PROMISE((SUCCESS) => {
-    //   const errMsg = 'private_openUrl:ok'
-    //   SUCCESS(errMsg)
-    // }, wx_success, wx_complete, wx_fail)
-    // return true
-
-    try {
-      var errMsg = 'private_openUrl:ok';
-      if (wx_success) {
-        wx_success(errMsg);
-      }
-      if (wx_complete) {
-        wx_complete(errMsg);
-      }
-    } catch (e) {
-      if (wx_fail) {
-        wx_fail(e);
-      }
-      if (wx_complete) {
-        wx_complete();
-      }
-    }
+    wx_object = null;
+    (0, _PROMISE2.default)(function (SUCCESS) {
+      var wx_res = {
+        errMsg: 'private_openUrl:ok'
+      };
+      SUCCESS(wx_res);
+    }, wx_success, wx_fail, wx_complete);
   };
 
   wx.getLaunchOptionsSync = function getLaunchOptionsSync() {
-    var res = {
+    var wx_res = {
       path: 'index/index',
       query: {},
       referrerInfo: {},
       scence: 1001,
       shareTicket: ''
     };
-    return res;
+    return wx_res;
   };
 
   wx.getEnterOptionsSync = function getEnterOptionsSync() {
@@ -354,14 +328,11 @@ var wx = function () {
   };
 
   wx.onUnhandledRejection = function onUnhandledRejection() {
-    return console.warn('onUnhandledRejection is not support !');
+    return console.warn('onUnhandledRejection is not support');
   };
 
   wx.onThemeChange = function onThemeChange() {
-    var res = {
-      theme: 'light' || false
-    };
-    return res;
+    return console.warn('onThemeChange is not support');
   };
 
   wx.onPageNotFound = function onPageNotFound(callback) {
@@ -436,132 +407,360 @@ var wx = function () {
 
 
   wx.env = function env() {
-    var res = {
+    var wx_res = {
       USER_DATA_PATH: 'https://usr'
     };
-    return res;
+    return wx_res;
   };
 
-  // ///////////////// Canvas ///////////////////
-  // static drawCanvas(object) {
-  //   const canvasId = object.canvasId
-  //   const actions = object.actions
-  //   const canvasContext = swan.createCanvasContext(canvasId)
-  //   for (const action of actions) {
-  //     const data = action.data
-  //     switch (action.method) {
-  //       case 'save':
-  //         canvasContext.save()
-  //         break
-  //       case 'restore':
-  //         canvasContext.restore()
-  //         break
-  //       case 'setFillStyle':
-  //         canvasContext.setFillStyle(onekit.color.array2str(data[1]))
-  //         break
-  //       case 'setStrokeStyle':
-  //         canvasContext.setStrokeStyle(onekit.color.array2str(data[1]))
-  //         break
-  //       case 'setFontSize':
-  //         canvasContext.setFontSize(data[0])
-  //         break
-  //       case 'setGlobalAlpha':
-  //         canvasContext.setGlobalAlpha(data[0])
-  //         break
-  //       case 'setShadow':
-  //         canvasContext.setShadow(data[0], data[1], data[2], onekit.color.array2str(data[3]))
-  //         break
-  //       case 'drawImage':
-  //         // eslint-disable-next-line prefer-spread
-  //         canvasContext.drawImage.apply(canvasContext, data)
-  //         break
-  //       case 'fillText':
-  //         // eslint-disable-next-line prefer-spread
-  //         canvasContext.fillText.apply(canvasContext, data)
-  //         break
-  //       case 'setLineCap':
-  //         canvasContext.setLineCap(data[0])
-  //         break
-  //       case 'setLineJoin':
-  //         canvasContext.setLineJoin(data[0])
-  //         break
-  //       case 'setLineWidth':
-  //         canvasContext.setLineWidth(data[0])
-  //         break
-  //       case 'setMiterLimit':
-  //         canvasContext.setMiterLimit(data[0])
-  //         break
-  //       case 'rotate':
-  //         canvasContext.rotate(data[0])
-  //         break
-  //       case 'scale':
-  //         canvasContext.scale(data[0], data[1])
-  //         break
-  //       case 'translate':
-  //         canvasContext.translate(data[0], data[1])
-  //         break
-  //       case 'strokePath':
-  //         canvasContext.beginPath()
-  //         for (const dat of data) {
-  //           const dt = dat.data
-  //           switch (dat.method) {
-  //             case 'rect':
-  //               canvasContext.strokeRect(dt[0], dt[1], dt[2], dt[3])
-  //               break
-  //             case 'moveTo':
-  //               canvasContext.moveTo(dt[0], dt[1])
-  //               break
-  //             case 'lineTo':
-  //               canvasContext.lineTo(dt[0], dt[1])
-  //               break
-  //             case 'closePath':
-  //               canvasContext.closePath()
-  //               break
-  //               // eslint-disable-next-line prefer-spread
-  //             case 'arc':
-  //               // canvasContext.arc.apply(canvasContext, dt)
-  //               break
-  //             case 'quadraticCurveTo':
-  //               // canvasContext.quadraticCurveTo.apply(canvasContext, dt)
-  //               break
-  //             case 'bezierCurveTo':
-  //               // canvasContext.bezierCurveTo.apply(canvasContext, dt)
-  //               break
+  // //////// Router //////////////
 
-  //             default:
-  //               console.warn('[drawCanvas-strokePath]', dat.method)
-  //               break
-  //           }
-  //         }
-  //         canvasContext.stroke()
-  //         break
-  //       case 'fillPath':
-  //         for (const dat of data) {
-  //           const dt = dat.data
-  //           switch (dat.method) {
-  //             case 'rect':
-  //               canvasContext.fillRect(dt[0], dt[1], dt[2], dt[3])
-  //               break
-  //             case 'arc':
-  //               // canvasContext.arc.apply(canvasContext, dt)
-  //               break
-  //             default:
-  //               console.warn('[drawCanvas-fillPath]', dat.method)
-  //               break
-  //           }
-  //         }
-  //         canvasContext.fill()
-  //         break
-  //       case 'clearRect':
-  //         canvasContext.clearRect(data[0], data[1], data[2], data[3])
-  //         break
-  //       default:
-  //         console.warn('[drawCanvas]', action.method)
-  //         break
-  //     }
-  //   }
-  //   canvasContext.draw()
-  // }
+
+  wx.navigateBack = function navigateBack(object) {
+    return swan.navigateBack(object);
+  };
+
+  wx.switchTab = function switchTab(object) {
+    return swan.switchTab(object);
+  };
+
+  wx.navigateTo = function navigateTo(object) {
+    return swan.navigateTo(object);
+  };
+
+  wx.reLaunch = function reLaunch(object) {
+    return swan.reLaunch(object);
+  };
+
+  wx.redirectTo = function redirectTo(object) {
+    return swan.redirectTo(object);
+  };
+
+  // //////////// UI ////////////////
+
+
+  wx.showActionSheet = function showActionSheet(object) {
+    return swan.showActionSheet(object);
+  };
+
+  wx.hideLoading = function hideLoading(object) {
+    return swan.hideLoading(object);
+  };
+
+  wx.showLoading = function showLoading(object) {
+    return swan.showLoading(object);
+  };
+
+  wx.hideToast = function hideToast(object) {
+    return swan.hideToast(object);
+  };
+
+  wx.showToast = function showToast(object) {
+    return swan.showToast(object);
+  };
+
+  wx.showModal = function showModal(object) {
+    return swan.showModal(object);
+  };
+
+  wx.enableAlertBeforeUnload = function enableAlertBeforeUnload() {
+    // return console.warn('enableAlertBeforeUnload is not support')
+    var wx_res = {
+      errMsg: 'enableAlertBeforeUnload:ok'
+    };
+    return wx_res;
+  };
+
+  wx.disableAlertBeforeUnload = function disableAlertBeforeUnload() {
+    // return console.warn('disableAlertBeforeUnload is not support')
+    var wx_res = {
+      errMsg: 'disableAlertBeforeUnload:ok'
+    };
+    return wx_res;
+  };
+
+  // //////////// NavigationBar ////////////////
+
+  wx.setNavigationBarColor = function setNavigationBarColor(object) {
+    return swan.setNavigationBarColor(object);
+  };
+
+  wx.hideNavigationBarLoading = function hideNavigationBarLoading(object) {
+    return swan.hideNavigationBarLoading(object);
+  };
+
+  wx.showNavigationBarLoading = function showNavigationBarLoading(object) {
+    return swan.showNavigationBarLoading(object);
+  };
+
+  wx.setNavigationBarTitle = function setNavigationBarTitle(object) {
+    return swan.setNavigationBarTitle(object);
+  };
+
+  wx.hideHomeButton = function hideHomeButton() {
+    // return console.warn('hideHomeButton is not support')
+    var wx_res = {
+      errMsg: 'hideHomeButton:ok'
+    };
+    return wx_res;
+  };
+
+  // //////////// Background ////////////////
+
+  wx.setBackgroundTextStyle = function setBackgroundTextStyle(object) {
+    return swan.setBackgroundTextStyle(object);
+  };
+
+  wx.setBackgroundColor = function setBackgroundColor(object) {
+    return swan.setBackgroundColor(object);
+  };
+
+  // //////////// Tab Bar ////////////////
+
+  wx.setTabBarItem = function setTabBarItem(object) {
+    return swan.setTabBarItem(object);
+  };
+
+  wx.setTabBarStyle = function setTabBarStyle(object) {
+    return swan.setTabBarStyle(object);
+  };
+
+  wx.hideTabBar = function hideTabBar(object) {
+    return swan.hideTabBar(object);
+  };
+
+  wx.showTabBar = function showTabBar(object) {
+    return swan.showTabBar(object);
+  };
+
+  wx.hideTabBarRedDot = function hideTabBarRedDot(object) {
+    return swan.hideTabBarRedDot(object);
+  };
+
+  wx.showTabBarRedDot = function showTabBarRedDot(object) {
+    return swan.showTabBarRedDot(object);
+  };
+
+  wx.removeTabBarBadge = function removeTabBarBadge(object) {
+    return swan.removeTabBarBadge(object);
+  };
+
+  wx.setTabBarBadge = function setTabBarBadge(object) {
+    return swan.setTabBarBadge(object);
+  };
+
+  // //////////// Font ////////////////
+
+  wx.loadFontFace = function loadFontFace() {
+    // return console.warn('loadFontFace is not support')
+    var wx_res = {
+      errMsg: 'loadFontFace:ok',
+      status: 'loaded'
+    };
+    return wx_res;
+  };
+
+  // //////////// Refresh ////////////////
+
+  wx.stopPullDownRefresh = function stopPullDownRefresh(object) {
+    return swan.stopPullDownRefresh(object);
+  };
+
+  wx.startPullDownRefresh = function startPullDownRefresh(object) {
+    return swan.startPullDownRefresh(object);
+  };
+
+  // //////////// Scroll ////////////////
+
+  wx.pageScrollTo = function pageScrollTo(object) {
+    return swan.pageScrollTo(object);
+  };
+
+  // ///////////////// animation //////////////////////////
+
+
+  wx.createAnimation = function createAnimation(object) {
+    return swan.createAnimation(object);
+  };
+
+  // //////////// TopBar ////////////////
+
+
+  wx.setTopBarText = function setTopBarText() {
+    return console.warn('setTopBarText is not support');
+  };
+
+  wx.nextTick = function nextTick(callback) {
+    return swan.nextTick(callback);
+  };
+
+  // //////////// Menu ////////////////
+
+  wx.getMenuButtonBoundingClientRect = function getMenuButtonBoundingClientRect(object) {
+    return swan.getMenuButtonBoundingClientRect(object);
+  };
+
+  // //////////// windows ////////////////
+
+  wx.setWindowSize = function setWindowSize() {
+    return console.warn('setWindowSize is not support');
+  };
+
+  wx.onWindowResize = function onWindowResize() {
+    return console.warn('onWindowResize is not support');
+  };
+
+  wx.offWindowResize = function offWindowResize() {
+    return console.warn('offWindowResize is not support');
+  };
+
+  // //////////// Keyboard ////////////////
+
+  wx.onKeyboardHeightChange = function onKeyboardHeightChange(callback) {
+    return swan.onKeyboardHeightChange(callback);
+  };
+
+  wx.offKeyboardHeightChange = function offKeyboardHeightChange(callback) {
+    return swan.offKeyboardHeightChange(callback);
+  };
+
+  wx.hideKeyboard = function hideKeyboard() {
+    return console.warn('hideKeyboard is not support');
+  };
+
+  wx.getSelectedTextRange = function getSelectedTextRange() {
+    return console.warn('getSelectedTextRange is not support');
+  };
+
+  // ////////////// Network ///////////////
+
+
+  wx.request = function request(object) {
+    return swan.request(object);
+  };
+
+  wx.downloadFile = function downloadFile(object) {
+    return swan.downloadFile(object);
+  };
+
+  wx.uploadFile = function uploadFile(object) {
+    return swan.uploadFile(object);
+  };
+
+  wx.connectSocket = function connectSocket(object) {
+    return swan.connectSocket(object);
+  };
+
+  wx.onSocketError = function onSocketError(callback) {
+    return swan.onSocketError(callback);
+  };
+
+  wx.onSocketMessage = function onSocketMessage(callback) {
+    return swan.onSocketMessage(callback);
+  };
+
+  wx.onSocketClose = function onSocketClose(callback) {
+    return swan.onSocketClose(callback);
+  };
+
+  wx.onSocketOpen = function onSocketOpen(object) {
+    return swan.connectSocket(object);
+  };
+
+  wx.sendSocketMessage = function sendSocketMessage(object) {
+    return swan.sendSocketMessage(object);
+  };
+
+  wx.closeSocket = function closeSocket(object) {
+    return swan.closeSocket(object);
+  };
+
+  wx.offLocalServiceResolveFail = function offLocalServiceResolveFail() {
+    return console.warn('offLocalServiceResolveFail is not support');
+  };
+
+  wx.onLocalServiceResolveFail = function onLocalServiceResolveFail() {
+    return console.warn('onLocalServiceResolveFail is not support');
+  };
+
+  wx.offLocalServiceDiscoveryStop = function offLocalServiceDiscoveryStop() {
+    return console.warn('offLocalServiceDiscoveryStop is not support');
+  };
+
+  wx.onLocalServiceDiscoveryStop = function onLocalServiceDiscoveryStop() {
+    return console.warn('onLocalServiceDiscoveryStop is not support');
+  };
+
+  wx.offLocalServiceLost = function offLocalServiceLost() {
+    return console.warn('offLocalServiceLost is not support');
+  };
+
+  wx.onLocalServiceLost = function onLocalServiceLost() {
+    return console.warn('onLocalServiceLost is not support');
+  };
+
+  wx.offLocalServiceFound = function offLocalServiceFound() {
+    return console.warn('offLocalServiceFound is not support');
+  };
+
+  wx.onLocalServiceFound = function onLocalServiceFound() {
+    return console.warn('onLocalServiceFound is not support');
+  };
+
+  wx.stopLocalServiceDiscovery = function stopLocalServiceDiscovery() {
+    return console.warn('stopLocalServiceDiscovery is not support');
+  };
+
+  wx.startLocalServiceDiscovery = function startLocalServiceDiscovery() {
+    return console.warn('startLocalServiceDiscovery is not support');
+  };
+
+  wx.createUDPSocket = function createUDPSocket() {
+    return console.warn('createUDPSocket is not support');
+  };
+
+  // ///////////// Storage //////////////
+
+
+  wx.getStorageInfoSync = function getStorageInfoSync(object) {
+    return swan.getStorageInfoSync(object);
+  };
+
+  wx.getStorageInfo = function getStorageInfo(object) {
+    return swan.getStorageInfo(object);
+  };
+
+  wx.clearStorageSync = function clearStorageSync() {
+    return swan.clearStorageSync();
+  };
+
+  wx.clearStorage = function clearStorage(object) {
+    return swan.clearStorage(object);
+  };
+
+  wx.removeStorageSync = function removeStorageSync(object) {
+    return swan.removeStorageSync(object);
+  };
+
+  wx.removeStorage = function removeStorage(object) {
+    return swan.removeStorage(object);
+  };
+
+  wx.setStorageSync = function setStorageSync(key, value) {
+    return swan.setStorageSync(key, value);
+  };
+
+  wx.setStorage = function setStorage(object) {
+    return swan.setStorage(object);
+  };
+
+  wx.getStorageSync = function getStorageSync(key) {
+    return swan.getStorageSync(key);
+  };
+
+  wx.getStorage = function getStorage(object) {
+    return swan.getStorage(object);
+  };
 
   // ///////////////////////////////////////////
 
@@ -623,544 +822,6 @@ var wx = function () {
 
   wx.getBackgroundFetchData = function getBackgroundFetchData() {
     return console.warn('getBackgroundFetchData is not support');
-  };
-
-  // static createContext() { return new CanvasContext(); }
-
-
-  wx.createCanvasContext = function createCanvasContext(canvasId) {
-    return new _CanvasContext2.default(swan.createCanvasContext(canvasId));
-  };
-
-  wx.createVideoContext = function createVideoContext(videoId) {
-    return new _VideoContext2.default(swan.createVideoContext(videoId));
-  };
-
-  wx.createInnerAudioContext = function createInnerAudioContext(audioId) {
-    return new _InnerAudioContext2.default(swan.createInnerAudioContext(audioId));
-  };
-
-  wx.createLivePlayerContext = function createLivePlayerContext(livePlayerId) {
-    return new _LivePlayerContext2.default(swan.createLivePlayerContext(livePlayerId));
-  };
-
-  wx.createCameraContext = function createCameraContext() {
-    return new _CameraContext2.default(swan.createCameraContext());
-  };
-
-  wx.createOffscreenCanvas = function createOffscreenCanvas() {
-    return console.warn('createOffscreenCanvas is not support');
-  };
-
-  wx.canvasToTempFilePath = function canvasToTempFilePath(object) {
-    return swan.canvasToTempFilePath(object);
-  };
-
-  wx.canvasPutImageData = function canvasPutImageData(object) {
-    return swan.canvasPutImageData(object);
-  };
-
-  wx.canvasGetImageData = function canvasGetImageData(object) {
-    return swan.canvasGetImageData(object);
-  };
-
-  // //////////// Device //////////////////
-
-
-  wx.onBeaconServiceChange = function onBeaconServiceChange() {
-    return console.warn('onBeaconServiceChange is not support');
-  };
-
-  wx.onBeaconUpdate = function onBeaconUpdate() {
-    return console.warn('onBeaconUpdate is not support');
-  };
-
-  wx.getBeacons = function getBeacons() {
-    return console.warn('getBeacons is not support');
-  };
-
-  wx.stopBeaconDiscovery = function stopBeaconDiscovery() {
-    return console.warn('stopBeaconDiscovery is not support');
-  };
-
-  wx.startBeaconDiscovery = function startBeaconDiscovery() {
-    return console.warn('startBeaconDiscovery is not support');
-  };
-
-  wx.offBeaconUpdate = function offBeaconUpdate() {
-    return console.warn('offBeaconUpdate is not support');
-  };
-
-  wx.offBeaconServiceChange = function offBeaconServiceChange() {
-    return console.warn('offBeaconServiceChange is not support');
-  };
-
-  wx.stopWifi = function stopWifi() {
-    return console.warn('stopWifi is not support');
-  };
-
-  wx.startWifi = function startWifi() {
-    return console.warn('startWifi is not support');
-  };
-
-  wx.setWifiList = function setWifiList() {
-    return console.warn('setWifiList is not support');
-  };
-
-  wx.onWifiConnected = function onWifiConnected() {
-    return console.warn('onWifiConnected is not support');
-  };
-
-  wx.onGetWifiList = function onGetWifiList() {
-    return console.warn('onGetWifiList is not support');
-  };
-
-  wx.offWifiConnected = function offWifiConnected() {
-    return console.warn('offWifiConnected is not support');
-  };
-
-  wx.offGetWifiList = function offGetWifiList() {
-    return console.warn('offGetWifiList is not support');
-  };
-
-  wx.getWifiList = function getWifiList() {
-    return console.warn('getWifiList is not support');
-  };
-
-  wx.getConnectedWifi = function getConnectedWifi() {
-    return console.warn('getConnectedWifi is not support');
-  };
-
-  wx.connectWifi = function connectWifi() {
-    return console.warn('connectWifi is not support');
-  };
-
-  //
-
-
-  wx.onAccelerometerChange = function onAccelerometerChange(callback) {
-    return swan.onAccelerometerChange(callback);
-  };
-
-  wx.offAccelerometerChange = function offAccelerometerChange() {
-    return console.warn('offAccelerometerChange is not support');
-  };
-
-  wx.stopAccelerometer = function stopAccelerometer(object) {
-    return swan.stopAccelerometer(object);
-  };
-
-  wx.startAccelerometer = function startAccelerometer(object) {
-    return swan.startAccelerometer(object);
-  };
-
-  wx.getBatteryInfoSync = function getBatteryInfoSync(object) {
-    return swan.getBatteryInfoSync(object);
-  };
-
-  wx.getBatteryInfo = function getBatteryInfo(object) {
-    return swan.getBatteryInfo(object);
-  };
-
-  //
-
-
-  wx.getClipboardData = function getClipboardData(object) {
-    return swan.getClipboardData(object);
-  };
-
-  wx.setClipboardData = function setClipboardData(object) {
-    return swan.setClipboardData(object);
-  };
-
-  wx.onCompassChange = function onCompassChange(callback) {
-    getApp().onekit_CompassChange = callback;
-  };
-
-  wx.offCompassChange = function offCompassChange() {
-    getApp().onekit_CompassChange = null;
-  };
-
-  wx.stopCompass = function stopCompass(object) {
-    return swan.stopCompass(object);
-  };
-
-  wx.startCompass = function startCompass(wx_object) {
-    var wx_success = wx_object.success;
-    var wx_fail = wx_object.fail;
-    var wx_complete = wx_object.complete;
-    wx_object = null;
-    (0, _PROMISE2.default)(function (SUCCESS, FAIL) {
-      swan.startCompass({
-        success: function success(res) {
-          swan.onCompassChange(function (res) {
-            console.log(res);
-            if (getApp().onekit_CompassChange) {
-              getApp().onekit_CompassChange(res);
-            }
-          });
-          SUCCESS(res);
-        },
-        fail: function fail(err) {
-          FAIL(err);
-        }
-      });
-    }, wx_success, wx_fail, wx_complete);
-  };
-
-  wx.addPhoneContact = function addPhoneContact(object) {
-    return swan.addPhoneContact(object);
-  };
-
-  wx.checkIsOpenAccessibility = function checkIsOpenAccessibility() {
-    return console.warn('checkIsOpenAccessibility is not support');
-  };
-
-  wx.onGyroscopeChange = function onGyroscopeChange() {
-    return console.warn('onGyroscopeChange is not support');
-  };
-
-  wx.offGyroscopeChange = function offGyroscopeChange() {
-    return console.warn('offGyroscopeChange is not support');
-  };
-
-  wx.stopGyroscope = function stopGyroscope() {
-    return console.warn('stopGyroscope is not support');
-  };
-
-  wx.startGyroscope = function startGyroscope() {
-    return console.warn('startGyroscope is not support');
-  };
-
-  //
-
-
-  wx.onDeviceMotionChange = function onDeviceMotionChange(callback) {
-    getApp().onekit_DeviceMotionChange = callback;
-  };
-
-  wx.offDeviceMotionChange = function offDeviceMotionChange() {
-    getApp().onekit_DeviceMotionChange = null;
-  };
-
-  wx.stopDeviceMotionListening = function stopDeviceMotionListening(object) {
-    return swan.stopDeviceMotionListening(object);
-  };
-
-  wx.startDeviceMotionListening = function startDeviceMotionListening(wx_object) {
-    var wx_success = wx_object.success;
-    var wx_fail = wx_object.fail;
-    var wx_complete = wx_object.complete;
-    wx_object = null;
-    (0, _PROMISE2.default)(function (SUCCESS, FAIL) {
-      swan.startDeviceMotionListening({
-        success: function success(res) {
-          swan.onDeviceMotionChange(function (res) {
-            if (getApp().onekit_DeviceMotionChange) {
-              getApp().onekit_DeviceMotionChange(res);
-            }
-          });
-          SUCCESS(res);
-        },
-        fail: function fail(err) {
-          FAIL(err);
-        }
-      });
-    }, wx_success, wx_fail, wx_complete);
-  };
-
-  //
-
-
-  wx.getNetworkType = function getNetworkType(object) {
-    return swan.getNetworkType(object);
-  };
-
-  wx.offNetworkStatusChange = function offNetworkStatusChange() {
-    return console.log('offNetworkStatusChange is not support');
-  };
-
-  wx.onNetworkStatusChange = function onNetworkStatusChange(callback) {
-    return swan.onNetworkStatusChange(callback);
-  };
-
-  //
-
-
-  wx.makePhoneCall = function makePhoneCall(object) {
-    return swan.makePhoneCall(object);
-  };
-
-  wx.scanCode = function scanCode(object) {
-    return swan.scanCode(object);
-  };
-
-  //
-
-
-  wx.vibrateLong = function vibrateLong(object) {
-    return swan.vibrateLong(object);
-  };
-
-  wx.vibrateShort = function vibrateShort(object) {
-    return swan.vibrateShort(object);
-  };
-
-  //
-
-
-  wx.onMemoryWarning = function onMemoryWarning(callback) {
-    swan.onMemoryWarning(function (res) {
-      if (getApp().onekit_MemoryWarning) {
-        getApp().onekit_MemoryWarning(res);
-      }
-    });
-    getApp().onekit_MemoryWarning = callback;
-  };
-
-  wx.offMemoryWarning = function offMemoryWarning() {
-    getApp().onekit_MemoryWarning = null;
-  };
-
-  //
-
-
-  wx.writeBLECharacteristicValue = function writeBLECharacteristicValue() {
-    return console.warn('writeBLECharacteristicValue is not support');
-  };
-
-  wx.setBLEMTU = function setBLEMTU() {
-    return console.warn('setBLEMTU is not support');
-  };
-
-  wx.readBLECharacteristicValue = function readBLECharacteristicValue() {
-    return console.warn('setBLEMTU is not support');
-  };
-
-  wx.onBLEConnectionStateChange = function onBLEConnectionStateChange() {
-    return console.warn('onBLEConnectionStateChange is not support');
-  };
-
-  wx.onBLECharacteristicValueChange = function onBLECharacteristicValueChange() {
-    return console.warn('onBLECharacteristicValueChange is not support');
-  };
-
-  wx.offBLEConnectionStateChange = function offBLEConnectionStateChange() {
-    return console.warn('offBLEConnectionStateChange is not support');
-  };
-
-  wx.offBLECharacteristicValueChange = function offBLECharacteristicValueChange() {
-    return console.warn('offBLECharacteristicValueChange is not support');
-  };
-
-  wx.notifyBLECharacteristicValueChange = function notifyBLECharacteristicValueChange() {
-    return console.warn('notifyBLECharacteristicValueChange is not support');
-  };
-
-  wx.makeBluetoothPair = function makeBluetoothPair() {
-    return console.warn('makeBluetoothPair is not support');
-  };
-
-  wx.getBLEDeviceServices = function getBLEDeviceServices() {
-    return console.warn('getBLEDeviceServices is not support');
-  };
-
-  wx.getBLEDeviceRSSI = function getBLEDeviceRSSI() {
-    return console.warn('getBLEDeviceRSSI is not support');
-  };
-
-  wx.getBLEDeviceCharacteristics = function getBLEDeviceCharacteristics() {
-    return console.warn('getBLEDeviceCharacteristics is not support');
-  };
-
-  wx.createBLEConnection = function createBLEConnection() {
-    return console.warn('createBLEConnection is not support');
-  };
-
-  wx.closeBLEConnection = function closeBLEConnection() {
-    return console.warn('closeBLEConnection is not support');
-  };
-
-  //
-
-
-  wx.stopBluetoothDevicesDiscovery = function stopBluetoothDevicesDiscovery() {
-    return console.warn('stopBluetoothDevicesDiscovery is not support');
-  };
-
-  wx.startBluetoothDevicesDiscovery = function startBluetoothDevicesDiscovery() {
-    return console.warn('startBluetoothDevicesDiscovery is not support');
-  };
-
-  wx.openBluetoothAdapter = function openBluetoothAdapter() {
-    return console.warn('openBluetoothAdapter is not support');
-  };
-
-  wx.onBluetoothDeviceFound = function onBluetoothDeviceFound() {
-    return console.warn('onBluetoothDeviceFound is not support');
-  };
-
-  wx.onBluetoothAdapterStateChange = function onBluetoothAdapterStateChange() {
-    return console.warn('onBluetoothAdapterStateChange is not support');
-  };
-
-  wx.offBluetoothDeviceFound = function offBluetoothDeviceFound() {
-    return console.warn('offBluetoothDeviceFound is not support');
-  };
-
-  wx.offBluetoothAdapterStateChange = function offBluetoothAdapterStateChange() {
-    return console.warn('offBluetoothAdapterStateChange is not support');
-  };
-
-  wx.getConnectedBluetoothDevices = function getConnectedBluetoothDevices() {
-    return console.warn('getConnectedBluetoothDevices is not support');
-  };
-
-  wx.getBluetoothDevices = function getBluetoothDevices() {
-    return console.warn('getBluetoothDevices is not support');
-  };
-
-  wx.getBluetoothAdapterState = function getBluetoothAdapterState() {
-    return console.warn('getBluetoothAdapterState is not support');
-  };
-
-  wx.closeBluetoothAdapter = function closeBluetoothAdapter() {
-    return console.warn('closeBluetoothAdapter is not support');
-  };
-
-  //
-
-
-  wx.stopHCE = function stopHCE() {
-    return console.warn('stopHCE is not support');
-  };
-
-  wx.startHCE = function startHCE() {
-    return console.warn('startHCE is not support');
-  };
-
-  wx.sendHCEMessage = function sendHCEMessage() {
-    return console.warn('sendHCEMessage is not support');
-  };
-
-  wx.onHCEMessage = function onHCEMessage() {
-    return console.warn('onHCEMessage is not support');
-  };
-
-  wx.offHCEMessage = function offHCEMessage() {
-    return console.warn('offHCEMessage is not support');
-  };
-
-  wx.getNFCAdapter = function getNFCAdapter() {
-    return console.warn('getNFCAdapter is not support');
-  };
-
-  wx.getHCEState = function getHCEState() {
-    return console.warn('getHCEState is not support');
-  };
-
-  //
-
-
-  wx.setScreenBrightness = function setScreenBrightness(object) {
-    return swan.setScreenBrightness(object);
-  };
-
-  wx.setKeepScreenOn = function setKeepScreenOn(object) {
-    return swan.setKeepScreenOn(object);
-  };
-
-  wx.onUserCaptureScreen = function onUserCaptureScreen(callback) {
-    return swan.onUserCaptureScreen(callback);
-  };
-
-  wx.offUserCaptureScreen = function offUserCaptureScreen() {
-    return console.warn('offUserCaptureScreen is not support');
-  };
-
-  wx.getScreenBrightness = function getScreenBrightness(object) {
-    return swan.getScreenBrightness(object);
-  };
-
-  // ///////////////// Ext //////////////
-
-
-  wx.getExtConfigSync = function getExtConfigSync() {
-    return swan.getExtConfigSync();
-  };
-
-  wx.getExtConfig = function getExtConfig(object) {
-    return swan.getExtConfig(object);
-  };
-
-  // ////////////////// File //////////
-
-
-  wx.saveFileToDisk = function saveFileToDisk() {
-    return console.warn('saveFileToDisk is not support');
-  };
-
-  wx.getFileSystemManager = function getFileSystemManager(object) {
-    return swan.getFileSystemManager(object);
-  };
-
-  wx.getFileInfo = function getFileInfo(object) {
-    return swan.getFileInfo(object);
-  };
-
-  wx.removeSavedFile = function removeSavedFile(object) {
-    return swan.removeSavedFile(object);
-  };
-
-  wx.getSavedFileInfo = function getSavedFileInfo(object) {
-    return swan.getSavedFileInfo(object);
-  };
-
-  wx.getSavedFileList = function getSavedFileList(object) {
-    return swan.getSavedFileList(object);
-  };
-
-  wx.openDocument = function openDocument(object) {
-    return swan.openDocument(object);
-  };
-
-  wx.saveFile = function saveFile(object) {
-    return swan.saveFile(object);
-  };
-
-  // ////////// Location ///////////////
-
-
-  wx.stopLocationUpdate = function stopLocationUpdate(object) {
-    return swan.stopLocationUpdate(object);
-  };
-
-  wx.startLocationUpdateBackground = function startLocationUpdateBackground() {
-    return console.warn('startLocationUpdateBackground is not support');
-  };
-
-  wx.startLocationUpdate = function startLocationUpdate(object) {
-    return swan.startLocationUpdate(object);
-  };
-
-  wx.openLocation = function openLocation(object) {
-    return swan.openLocation(object);
-  };
-
-  wx.onLocationChange = function onLocationChange(callback) {
-    return swan.onLocationChange(callback);
-  };
-
-  wx.offLocationChange = function offLocationChange(callback) {
-    return swan.offLocationChange(callback);
-  };
-
-  wx.getLocation = function getLocation(object) {
-    return swan.getLocation(object);
-  };
-
-  wx.chooseLocation = function chooseLocation(object) {
-    return swan.chooseLocation(object);
   };
 
   // //////// Media ////////////////////
@@ -1381,97 +1042,136 @@ var wx = function () {
     return console.warn('createVideoDecoder is not support');
   };
 
-  // ////////////// Network ///////////////
-
-
-  wx.request = function request(object) {
-    return swan.request(object);
+  wx.createCanvasContext = function createCanvasContext(canvasId) {
+    return new _CanvasContext2.default(swan.createCanvasContext(canvasId));
   };
 
-  wx.downloadFile = function downloadFile(object) {
-    return swan.downloadFile(object);
+  wx.createVideoContext = function createVideoContext(videoId) {
+    return new _VideoContext2.default(swan.createVideoContext(videoId));
   };
 
-  wx.uploadFile = function uploadFile(object) {
-    return swan.uploadFile(object);
+  wx.createInnerAudioContext = function createInnerAudioContext(audioId) {
+    return new _InnerAudioContext2.default(swan.createInnerAudioContext(audioId));
   };
 
-  //
-
-
-  wx.connectSocket = function connectSocket(object) {
-    return swan.connectSocket(object);
+  wx.createLivePlayerContext = function createLivePlayerContext(livePlayerId) {
+    return new _LivePlayerContext2.default(swan.createLivePlayerContext(livePlayerId));
   };
 
-  wx.onSocketError = function onSocketError(callback) {
-    return swan.onSocketError(callback);
+  wx.createCameraContext = function createCameraContext() {
+    return swan.createCameraContext();
   };
 
-  wx.onSocketMessage = function onSocketMessage(callback) {
-    return swan.onSocketMessage(callback);
+  // ////////// Location ///////////////
+
+
+  wx.stopLocationUpdate = function stopLocationUpdate(object) {
+    return swan.stopLocationUpdate(object);
   };
 
-  wx.onSocketClose = function onSocketClose(callback) {
-    return swan.onSocketClose(callback);
+  wx.startLocationUpdateBackground = function startLocationUpdateBackground() {
+    return console.warn('startLocationUpdateBackground is not support');
   };
 
-  wx.onSocketOpen = function onSocketOpen(object) {
-    return swan.connectSocket(object);
+  wx.startLocationUpdate = function startLocationUpdate(object) {
+    return swan.startLocationUpdate(object);
   };
 
-  wx.sendSocketMessage = function sendSocketMessage(object) {
-    return swan.sendSocketMessage(object);
+  wx.openLocation = function openLocation(object) {
+    return swan.openLocation(object);
   };
 
-  wx.closeSocket = function closeSocket(object) {
-    return swan.closeSocket(object);
+  wx.onLocationChange = function onLocationChange(callback) {
+    return swan.onLocationChange(callback);
   };
 
-  wx.offLocalServiceResolveFail = function offLocalServiceResolveFail() {
-    return console.warn('offLocalServiceResolveFail is not support');
+  wx.offLocationChange = function offLocationChange(callback) {
+    return swan.offLocationChange(callback);
   };
 
-  wx.onLocalServiceResolveFail = function onLocalServiceResolveFail() {
-    return console.warn('onLocalServiceResolveFail is not support');
+  wx.getLocation = function getLocation(object) {
+    return swan.getLocation(object);
   };
 
-  wx.offLocalServiceDiscoveryStop = function offLocalServiceDiscoveryStop() {
-    return console.warn('offLocalServiceDiscoveryStop is not support');
+  wx.chooseLocation = function chooseLocation(object) {
+    return swan.chooseLocation(object);
   };
 
-  wx.onLocalServiceDiscoveryStop = function onLocalServiceDiscoveryStop() {
-    return console.warn('onLocalServiceDiscoveryStop is not support');
+  // /////////// Share /////////////
+
+
+  wx.updateShareMenu = function updateShareMenu() {
+    return console.warn('updateShareMenu is not support');
   };
 
-  wx.offLocalServiceLost = function offLocalServiceLost() {
-    return console.warn('offLocalServiceLost is not support');
+  wx.showShareMenu = function showShareMenu() {
+    return console.warn('showShareMenu is not support');
   };
 
-  wx.onLocalServiceLost = function onLocalServiceLost() {
-    return console.warn('onLocalServiceLost is not support');
+  wx.hideShareMenu = function hideShareMenu() {
+    return console.warn('hideShareMenu is not support');
   };
 
-  wx.offLocalServiceFound = function offLocalServiceFound() {
-    return console.warn('offLocalServiceFound is not support');
+  wx.getShareInfo = function getShareInfo() {
+    return console.warn('getShareInfo is not support');
   };
 
-  wx.onLocalServiceFound = function onLocalServiceFound() {
-    return console.warn('onLocalServiceFound is not support');
+  wx.authPrivateMessage = function authPrivateMessage() {
+    return console.warn('authPrivateMessage is not support');
   };
 
-  wx.stopLocalServiceDiscovery = function stopLocalServiceDiscovery() {
-    return console.warn('stopLocalServiceDiscovery is not support');
+  // /////// Canvas /////////////
+
+  wx.createOffscreenCanvas = function createOffscreenCanvas() {
+    return console.warn('createOffscreenCanvas is not support');
   };
 
-  wx.startLocalServiceDiscovery = function startLocalServiceDiscovery() {
-    return console.warn('startLocalServiceDiscovery is not support');
+  wx.canvasToTempFilePath = function canvasToTempFilePath(object) {
+    return swan.canvasToTempFilePath(object);
   };
 
-  wx.createUDPSocket = function createUDPSocket() {
-    return console.warn('createUDPSocket is not support');
+  wx.canvasPutImageData = function canvasPutImageData(object) {
+    return swan.canvasPutImageData(object);
   };
 
-  //
+  wx.canvasGetImageData = function canvasGetImageData(object) {
+    return swan.canvasGetImageData(object);
+  };
+
+  // ////////////////// File //////////
+
+
+  wx.saveFileToDisk = function saveFileToDisk() {
+    return console.warn('saveFileToDisk is not support');
+  };
+
+  wx.getFileSystemManager = function getFileSystemManager(object) {
+    return swan.getFileSystemManager(object);
+  };
+
+  wx.getFileInfo = function getFileInfo(object) {
+    return swan.getFileInfo(object);
+  };
+
+  wx.removeSavedFile = function removeSavedFile(object) {
+    return swan.removeSavedFile(object);
+  };
+
+  wx.getSavedFileInfo = function getSavedFileInfo(object) {
+    return swan.getSavedFileInfo(object);
+  };
+
+  wx.getSavedFileList = function getSavedFileList(object) {
+    return swan.getSavedFileList(object);
+  };
+
+  wx.openDocument = function openDocument(object) {
+    return swan.openDocument(object);
+  };
+
+  wx.saveFile = function saveFile(object) {
+    return swan.saveFile(object);
+  };
 
   // /////// Open Interface //////////
 
@@ -1505,6 +1205,10 @@ var wx = function () {
         });
       }
     });
+  };
+
+  wx.reportMonitor = function reportMonitor() {
+    return console.warn('reportMonitor is not support');
   };
 
   wx.getOpenData = function getOpenData(object) {
@@ -1615,304 +1319,428 @@ var wx = function () {
     return console.warn('createBLEPeripheralServer is not support');
   };
 
-  wx.reportMonitor = function reportMonitor() {
-    /*
-      const js_code = getApp().onejit.jscode
-      swan.httpRequest({
-        url: 'http://192.168.0.106:8080/onekit-adapter/reportMonitor',
-        header: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        method: 'POST',
-        data: {
-          js_code,
-          name,
-          number: value
-        },
-        success: (res) => {
-          console.log('success')
-          console.log(res.data)
-        },
-        fail(res) {
-          console.log(res)
-        },
-        complete(res) {
-          console.log(res)
-        }
-      }) */
-    return console.warn('reportMonitor is not support');
+  // //////////// Device //////////////////
+
+
+  wx.onBeaconServiceChange = function onBeaconServiceChange() {
+    return console.warn('onBeaconServiceChange is not support');
   };
 
-  // //////// Router //////////////
-
-
-  wx.navigateBack = function navigateBack(object) {
-    return swan.navigateBack(object);
+  wx.onBeaconUpdate = function onBeaconUpdate() {
+    return console.warn('onBeaconUpdate is not support');
   };
 
-  wx.switchTab = function switchTab(object) {
-    return swan.switchTab(object);
+  wx.getBeacons = function getBeacons() {
+    return console.warn('getBeacons is not support');
   };
 
-  wx.navigateTo = function navigateTo(object) {
-    return swan.navigateTo(object);
+  wx.stopBeaconDiscovery = function stopBeaconDiscovery() {
+    return console.warn('stopBeaconDiscovery is not support');
   };
 
-  wx.reLaunch = function reLaunch(object) {
-    return swan.reLaunch(object);
+  wx.startBeaconDiscovery = function startBeaconDiscovery() {
+    return console.warn('startBeaconDiscovery is not support');
   };
 
-  wx.redirectTo = function redirectTo(object) {
-    return swan.redirectTo(object);
+  wx.offBeaconUpdate = function offBeaconUpdate() {
+    return console.warn('offBeaconUpdate is not support');
   };
 
-  // /////////// Share /////////////
-
-
-  wx.updateShareMenu = function updateShareMenu() {
-    return console.warn('updateShareMenu is not support');
+  wx.offBeaconServiceChange = function offBeaconServiceChange() {
+    return console.warn('offBeaconServiceChange is not support');
   };
 
-  wx.showShareMenu = function showShareMenu() {
-    return console.warn('showShareMenu is not support');
+  //
+
+
+  wx.stopHCE = function stopHCE() {
+    return console.warn('stopHCE is not support');
   };
 
-  wx.hideShareMenu = function hideShareMenu() {
-    return console.warn('hideShareMenu is not support');
+  wx.startHCE = function startHCE() {
+    return console.warn('startHCE is not support');
   };
 
-  wx.getShareInfo = function getShareInfo() {
-    return console.warn('getShareInfo is not support');
+  wx.sendHCEMessage = function sendHCEMessage() {
+    return console.warn('sendHCEMessage is not support');
   };
 
-  wx.authPrivateMessage = function authPrivateMessage() {
-    return console.warn('authPrivateMessage is not support');
+  wx.onHCEMessage = function onHCEMessage() {
+    return console.warn('onHCEMessage is not support');
   };
 
-  // ///////////// Storage //////////////
-
-
-  wx.getStorageInfoSync = function getStorageInfoSync(object) {
-    return swan.getStorageInfoSync(object);
+  wx.offHCEMessage = function offHCEMessage() {
+    return console.warn('offHCEMessage is not support');
   };
 
-  wx.getStorageInfo = function getStorageInfo(object) {
-    return swan.getStorageInfo(object);
+  wx.getNFCAdapter = function getNFCAdapter() {
+    return console.warn('getNFCAdapter is not support');
   };
 
-  wx.clearStorageSync = function clearStorageSync() {
-    return swan.clearStorageSync();
+  wx.getHCEState = function getHCEState() {
+    return console.warn('getHCEState is not support');
   };
 
-  wx.clearStorage = function clearStorage(object) {
-    return swan.clearStorage(object);
+  wx.stopWifi = function stopWifi() {
+    return console.warn('stopWifi is not support');
   };
 
-  wx.removeStorageSync = function removeStorageSync(object) {
-    return swan.removeStorageSync(object);
+  wx.startWifi = function startWifi() {
+    return console.warn('startWifi is not support');
   };
 
-  wx.removeStorage = function removeStorage(object) {
-    return swan.removeStorage(object);
+  wx.setWifiList = function setWifiList() {
+    return console.warn('setWifiList is not support');
   };
 
-  wx.setStorageSync = function setStorageSync(key, value) {
-    return swan.setStorageSync(key, value);
+  wx.onWifiConnected = function onWifiConnected() {
+    return console.warn('onWifiConnected is not support');
   };
 
-  wx.setStorage = function setStorage(object) {
-    return swan.setStorage(object);
+  wx.onGetWifiList = function onGetWifiList() {
+    return console.warn('onGetWifiList is not support');
   };
 
-  wx.getStorageSync = function getStorageSync(key) {
-    return swan.getStorageSync(key);
+  wx.offWifiConnected = function offWifiConnected() {
+    return console.warn('offWifiConnected is not support');
   };
 
-  wx.getStorage = function getStorage(object) {
-    return swan.getStorage(object);
+  wx.offGetWifiList = function offGetWifiList() {
+    return console.warn('offGetWifiList is not support');
   };
 
-  // //////////// UI ////////////////
-
-
-  wx.showActionSheet = function showActionSheet(object) {
-    return swan.showActionSheet(object);
+  wx.getWifiList = function getWifiList() {
+    return console.warn('getWifiList is not support');
   };
 
-  // static redirectTo(object) { return swan.redirectTo(object) }
-  // static redirectTo(object) { return swan.redirectTo(object) }
-
-
-  wx.hideLoading = function hideLoading(object) {
-    return swan.hideLoading(object);
+  wx.getConnectedWifi = function getConnectedWifi() {
+    return console.warn('getConnectedWifi is not support');
   };
 
-  wx.showLoading = function showLoading(object) {
-    return swan.showLoading(object);
+  wx.connectWifi = function connectWifi() {
+    return console.warn('connectWifi is not support');
   };
 
-  wx.hideToast = function hideToast(object) {
-    return swan.hideToast(object);
+  wx.addPhoneContact = function addPhoneContact(object) {
+    return swan.addPhoneContact(object);
   };
 
-  wx.showToast = function showToast(object) {
-    return swan.showToast(object);
+  wx.checkIsOpenAccessibility = function checkIsOpenAccessibility() {
+    return console.warn('checkIsOpenAccessibility is not support');
   };
 
-  wx.showModal = function showModal(object) {
-    return swan.showModal(object);
+  //
+
+
+  wx.writeBLECharacteristicValue = function writeBLECharacteristicValue() {
+    return console.warn('writeBLECharacteristicValue is not support');
   };
 
-  wx.enableAlertBeforeUnload = function enableAlertBeforeUnload() {
-    return console.warn('enableAlertBeforeUnload is not support');
+  wx.setBLEMTU = function setBLEMTU() {
+    return console.warn('setBLEMTU is not support');
   };
 
-  wx.disableAlertBeforeUnload = function disableAlertBeforeUnload() {
-    return console.warn('disableAlertBeforeUnload is not support');
+  wx.readBLECharacteristicValue = function readBLECharacteristicValue() {
+    return console.warn('setBLEMTU is not support');
   };
 
-  // //////////// NavigationBar ////////////////
-
-  wx.setNavigationBarColor = function setNavigationBarColor(object) {
-    return swan.setNavigationBarColor(object);
+  wx.onBLEConnectionStateChange = function onBLEConnectionStateChange() {
+    return console.warn('onBLEConnectionStateChange is not support');
   };
 
-  wx.hideNavigationBarLoading = function hideNavigationBarLoading(object) {
-    return swan.hideNavigationBarLoading(object);
+  wx.onBLECharacteristicValueChange = function onBLECharacteristicValueChange() {
+    return console.warn('onBLECharacteristicValueChange is not support');
   };
 
-  wx.showNavigationBarLoading = function showNavigationBarLoading(object) {
-    return swan.showNavigationBarLoading(object);
+  wx.offBLEConnectionStateChange = function offBLEConnectionStateChange() {
+    return console.warn('offBLEConnectionStateChange is not support');
   };
 
-  wx.setNavigationBarTitle = function setNavigationBarTitle(object) {
-    return swan.setNavigationBarTitle(object);
+  wx.offBLECharacteristicValueChange = function offBLECharacteristicValueChange() {
+    return console.warn('offBLECharacteristicValueChange is not support');
   };
 
-  wx.hideHomeButton = function hideHomeButton() {
-    return console.warn('hideHomeButton is not support');
+  wx.notifyBLECharacteristicValueChange = function notifyBLECharacteristicValueChange() {
+    return console.warn('notifyBLECharacteristicValueChange is not support');
   };
 
-  // //////////// Background ////////////////
-
-  wx.setBackgroundTextStyle = function setBackgroundTextStyle(object) {
-    return swan.setBackgroundTextStyle(object);
+  wx.makeBluetoothPair = function makeBluetoothPair() {
+    return console.warn('makeBluetoothPair is not support');
   };
 
-  wx.setBackgroundColor = function setBackgroundColor(object) {
-    return swan.setBackgroundColor(object);
+  wx.getBLEDeviceServices = function getBLEDeviceServices() {
+    return console.warn('getBLEDeviceServices is not support');
   };
 
-  // //////////// Tab Bar ////////////////
-
-  wx.setTabBarItem = function setTabBarItem(object) {
-    return swan.setTabBarItem(object);
+  wx.getBLEDeviceRSSI = function getBLEDeviceRSSI() {
+    return console.warn('getBLEDeviceRSSI is not support');
   };
 
-  wx.setTabBarStyle = function setTabBarStyle(object) {
-    return swan.setTabBarStyle(object);
+  wx.getBLEDeviceCharacteristics = function getBLEDeviceCharacteristics() {
+    return console.warn('getBLEDeviceCharacteristics is not support');
   };
 
-  wx.hideTabBar = function hideTabBar(object) {
-    return swan.hideTabBar(object);
+  wx.createBLEConnection = function createBLEConnection() {
+    return console.warn('createBLEConnection is not support');
   };
 
-  wx.showTabBar = function showTabBar(object) {
-    return swan.showTabBar(object);
+  wx.closeBLEConnection = function closeBLEConnection() {
+    return console.warn('closeBLEConnection is not support');
   };
 
-  wx.hideTabBarRedDot = function hideTabBarRedDot(object) {
-    return swan.hideTabBarRedDot(object);
+  //
+
+
+  wx.stopBluetoothDevicesDiscovery = function stopBluetoothDevicesDiscovery() {
+    return console.warn('stopBluetoothDevicesDiscovery is not support');
   };
 
-  wx.showTabBarRedDot = function showTabBarRedDot(object) {
-    return swan.showTabBarRedDot(object);
+  wx.startBluetoothDevicesDiscovery = function startBluetoothDevicesDiscovery() {
+    return console.warn('startBluetoothDevicesDiscovery is not support');
   };
 
-  wx.removeTabBarBadge = function removeTabBarBadge(object) {
-    return swan.removeTabBarBadge(object);
+  wx.openBluetoothAdapter = function openBluetoothAdapter() {
+    return console.warn('openBluetoothAdapter is not support');
   };
 
-  wx.setTabBarBadge = function setTabBarBadge(object) {
-    return swan.setTabBarBadge(object);
+  wx.onBluetoothDeviceFound = function onBluetoothDeviceFound() {
+    return console.warn('onBluetoothDeviceFound is not support');
   };
 
-  // //////////// Font ////////////////
-
-  wx.loadFontFace = function loadFontFace() {
-    return console.warn('loadFontFace is not support');
+  wx.onBluetoothAdapterStateChange = function onBluetoothAdapterStateChange() {
+    return console.warn('onBluetoothAdapterStateChange is not support');
   };
 
-  // //////////// Refresh ////////////////
-
-  wx.stopPullDownRefresh = function stopPullDownRefresh(object) {
-    return swan.stopPullDownRefresh(object);
+  wx.offBluetoothDeviceFound = function offBluetoothDeviceFound() {
+    return console.warn('offBluetoothDeviceFound is not support');
   };
 
-  wx.startPullDownRefresh = function startPullDownRefresh(object) {
-    return swan.startPullDownRefresh(object);
+  wx.offBluetoothAdapterStateChange = function offBluetoothAdapterStateChange() {
+    return console.warn('offBluetoothAdapterStateChange is not support');
   };
 
-  // //////////// Scroll ////////////////
-
-  wx.pageScrollTo = function pageScrollTo(object) {
-    return swan.pageScrollTo(object);
+  wx.getConnectedBluetoothDevices = function getConnectedBluetoothDevices() {
+    return console.warn('getConnectedBluetoothDevices is not support');
   };
 
-  // //////////// TopBar ////////////////
-
-
-  wx.setTopBarText = function setTopBarText() {
-    return console.warn('setTopBarText is not support');
+  wx.getBluetoothDevices = function getBluetoothDevices() {
+    return console.warn('getBluetoothDevices is not support');
   };
 
-  wx.nextTick = function nextTick(callback) {
-    return swan.nextTick(callback);
+  wx.getBluetoothAdapterState = function getBluetoothAdapterState() {
+    return console.warn('getBluetoothAdapterState is not support');
   };
 
-  // //////////// Menu ////////////////
-
-  wx.getMenuButtonBoundingClientRect = function getMenuButtonBoundingClientRect(object) {
-    return swan.getMenuButtonBoundingClientRect(object);
+  wx.closeBluetoothAdapter = function closeBluetoothAdapter() {
+    return console.warn('closeBluetoothAdapter is not support');
   };
 
-  // //////////// windows ////////////////
-
-  wx.setWindowSize = function setWindowSize() {
-    return console.warn('setWindowSize is not support');
+  wx.getBatteryInfoSync = function getBatteryInfoSync(object) {
+    return swan.getBatteryInfoSync(object);
   };
 
-  wx.onWindowResize = function onWindowResize() {
-    return console.warn('onWindowResize is not support');
+  wx.getBatteryInfo = function getBatteryInfo(object) {
+    return swan.getBatteryInfo(object);
   };
 
-  wx.offWindowResize = function offWindowResize() {
-    return console.warn('offWindowResize is not support');
+  //
+
+
+  wx.getNetworkType = function getNetworkType(object) {
+    return swan.getNetworkType(object);
   };
 
-  // //////////// Keyboard ////////////////
-
-  wx.onKeyboardHeightChange = function onKeyboardHeightChange(callback) {
-    return swan.onKeyboardHeightChange(callback);
+  wx.offNetworkStatusChange = function offNetworkStatusChange() {
+    this._NetworkStatusChange = null;
   };
 
-  wx.offKeyboardHeightChange = function offKeyboardHeightChange(callback) {
-    return swan.offKeyboardHeightChange(callback);
+  wx.onNetworkStatusChange = function onNetworkStatusChange(callback) {
+    swan.onNetworkStatusChange(function (res) {
+      if (getApp().onekit_NetworkStatusChange) {
+        getApp().onekit_NetworkStatusChange(res);
+      }
+    });
+    this._NetworkStatusChange = callback;
   };
 
-  wx.hideKeyboard = function hideKeyboard() {
-    return console.warn('hideKeyboard is not support');
+  //
+
+
+  wx.getClipboardData = function getClipboardData(object) {
+    return swan.getClipboardData(object);
   };
 
-  wx.getSelectedTextRange = function getSelectedTextRange() {
-    return console.warn('getSelectedTextRange is not support');
+  wx.setClipboardData = function setClipboardData(object) {
+    return swan.setClipboardData(object);
+  };
+
+  //
+
+
+  wx.setScreenBrightness = function setScreenBrightness(object) {
+    return swan.setScreenBrightness(object);
+  };
+
+  wx.setKeepScreenOn = function setKeepScreenOn(object) {
+    return swan.setKeepScreenOn(object);
+  };
+
+  wx.onUserCaptureScreen = function onUserCaptureScreen(callback) {
+    swan.onUserCaptureScreen(function (res) {
+      if (getApp().onekit_UserCaptureScreen) {
+        getApp().onekit_UserCaptureScreen(res);
+      }
+    });
+    getApp().onekit_UserCaptureScreen = callback;
+  };
+
+  wx.offUserCaptureScreen = function offUserCaptureScreen() {
+    getApp().onekit_UserCaptureScreen = null;
+  };
+
+  wx.getScreenBrightness = function getScreenBrightness(object) {
+    return swan.getScreenBrightness(object);
+  };
+
+  //
+
+
+  wx.makePhoneCall = function makePhoneCall(object) {
+    return swan.makePhoneCall(object);
+  };
+
+  //
+
+
+  wx.onAccelerometerChange = function onAccelerometerChange(callback) {
+    swan.onAccelerometerChange(function (res) {
+      if (getApp().onekit_AccelerometerChange) {
+        getApp().onekit_AccelerometerChange(res);
+      }
+    });
+    getApp().onekit_AccelerometerChange = callback;
+  };
+
+  wx.offAccelerometerChange = function offAccelerometerChange() {
+    getApp().onekit_AccelerometerChange = null;
+  };
+
+  wx.stopAccelerometer = function stopAccelerometer(object) {
+    return swan.stopAccelerometer(object);
+  };
+
+  wx.startAccelerometer = function startAccelerometer(object) {
+    return swan.startAccelerometer(object);
+  };
+
+  wx.onCompassChange = function onCompassChange(callback) {
+    swan.onCompassChange(function (res) {
+      if (getApp().onekit_CompassChange) {
+        getApp().onekit_CompassChange(res);
+      }
+    });
+    getApp().onekit_CompassChange = callback;
+  };
+
+  wx.offCompassChange = function offCompassChange() {
+    getApp().onekit_CompassChange = null;
+  };
+
+  wx.stopCompass = function stopCompass(object) {
+    return swan.stopCompass(object);
+  };
+
+  wx.startCompass = function startCompass(object) {
+    return swan.startCompass(object);
+  };
+
+  //
+
+
+  wx.onDeviceMotionChange = function onDeviceMotionChange(callback) {
+    swan.onDeviceMotionChange(function (res) {
+      if (getApp().onekit_DeviceMotionChange) {
+        getApp().onekit_DeviceMotionChange(res);
+      }
+    });
+    getApp().onekit_DeviceMotionChange = callback;
+  };
+
+  wx.offDeviceMotionChange = function offDeviceMotionChange() {
+    getApp().onekit_DeviceMotionChange = null;
+  };
+
+  wx.stopDeviceMotionListening = function stopDeviceMotionListening(object) {
+    return swan.stopDeviceMotionListening(object);
+  };
+
+  wx.startDeviceMotionListening = function startDeviceMotionListening(object) {
+    return swan.startDeviceMotionListening(object);
+  };
+
+  wx.onGyroscopeChange = function onGyroscopeChange() {
+    return console.warn('onGyroscopeChange is not support');
+  };
+
+  wx.offGyroscopeChange = function offGyroscopeChange() {
+    return console.warn('offGyroscopeChange is not support');
+  };
+
+  wx.stopGyroscope = function stopGyroscope() {
+    return console.warn('stopGyroscope is not support');
+  };
+
+  wx.startGyroscope = function startGyroscope() {
+    return console.warn('startGyroscope is not support');
+  };
+
+  //
+
+
+  wx.onMemoryWarning = function onMemoryWarning(callback) {
+    swan.onMemoryWarning(function (res) {
+      if (getApp().onekit_MemoryWarning) {
+        getApp().onekit_MemoryWarning(res);
+      }
+    });
+    getApp().onekit_MemoryWarning = callback;
+  };
+
+  wx.offMemoryWarning = function offMemoryWarning() {
+    getApp().onekit_MemoryWarning = null;
+  };
+
+  wx.scanCode = function scanCode(object) {
+    return swan.scanCode(object);
+  };
+
+  //
+
+
+  wx.vibrateLong = function vibrateLong(object) {
+    return swan.vibrateLong(object);
+  };
+
+  wx.vibrateShort = function vibrateShort(object) {
+    return swan.vibrateShort(object);
   };
 
   // //////////// Worker ///////////////
 
 
-  wx.createWorker = function createWorker(path) {
-    return new _WORKER2.default(path);
+  wx.createWorker = function createWorker() {
+    return console.warn('createWorker is not support');
+  };
+
+  // ///////////////// Ext //////////////
+
+
+  wx.getExtConfigSync = function getExtConfigSync() {
+    return swan.getExtConfigSync();
+  };
+
+  wx.getExtConfig = function getExtConfig(object) {
+    return swan.getExtConfig(object);
   };
 
   // //////////// WXML ///////////////
@@ -2190,45 +2018,6 @@ exports.__esModule = true;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var CameraContext = function () {
-  function CameraContext(swanCameraContext) {
-    _classCallCheck(this, CameraContext);
-
-    this.swanCameraContext = swanCameraContext;
-  }
-
-  CameraContext.prototype.takePhoto = function takePhoto() {
-    return this.swanCameraContext.takePhoto();
-  };
-
-  CameraContext.prototype.setZoom = function setZoom() {
-    return this.swanCameraContext.setZoom();
-  };
-
-  CameraContext.prototype.startRecord = function startRecord() {
-    return this.swanCameraContext.startRecord();
-  };
-
-  CameraContext.prototype.stopRecord = function stopRecord(position) {
-    return this.swanCameraContext.stopRecord(position);
-  };
-
-  return CameraContext;
-}();
-
-exports.default = CameraContext;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 var InnerAudioContext = function () {
   function InnerAudioContext(swanInnerAudioContext) {
     _classCallCheck(this, InnerAudioContext);
@@ -2338,7 +2127,7 @@ var InnerAudioContext = function () {
 exports.default = InnerAudioContext;
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2389,24 +2178,7 @@ var LivePlayerContext = function () {
 exports.default = LivePlayerContext;
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var WORKER = function WORKER() {
-  _classCallCheck(this, WORKER);
-};
-
-exports.default = WORKER;
-
-/***/ }),
-/* 10 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2445,7 +2217,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 11 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2504,7 +2276,7 @@ var LogManager = function () {
 exports.default = LogManager;
 
 /***/ }),
-/* 12 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2568,7 +2340,7 @@ var RealtimeLogManager = function () {
 exports.default = RealtimeLogManager;
 
 /***/ }),
-/* 13 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2609,12 +2381,21 @@ var MapContext = function () {
     return this.wxMapContext.getScale(object);
   };
 
+  // // eslint-disable-next-line class-methods-use-this
+  // on() {
+  //   // eslint-disable-next-line no-console
+  //   return console.warn('swan is not support')
+  // }
+
+
   return MapContext;
 }();
 
 exports.default = MapContext;
 
 /***/ }),
+/* 12 */,
+/* 13 */,
 /* 14 */,
 /* 15 */,
 /* 16 */,
@@ -2628,9 +2409,7 @@ exports.default = MapContext;
 /* 24 */,
 /* 25 */,
 /* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

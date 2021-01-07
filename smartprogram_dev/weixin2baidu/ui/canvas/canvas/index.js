@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 20);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -150,6 +150,71 @@ exports.default = {
 
 /***/ }),
 
+/***/ 18:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _onekit_behavior = __webpack_require__(1);
+
+var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
+
+var _wxs_behavior = __webpack_require__(0);
+
+var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
+
+var _weixin_behavior = __webpack_require__(2);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+Component({
+  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
+  options: {
+    addGlobalClass: true
+  },
+  data: {},
+  properties: {
+    type: {
+      type: String,
+      value: '2d'
+    },
+    canvasId: {
+      type: String,
+      value: ''
+    },
+    disableScroll: {
+      type: Boolean,
+      value: false
+    }
+  },
+  methods: {
+    canvas_touchstart: function canvas_touchstart() {
+      this.triggerEvent('Touchstart');
+    },
+    canvas_touchmove: function canvas_touchmove() {
+      this.triggerEvent('Touchmove');
+    },
+    canvas_touchend: function canvas_touchend() {
+      this.triggerEvent('Touchend');
+    },
+    canvas_touchcancel: function canvas_touchcancel() {
+      this.triggerEvent('Touchcancel');
+    },
+    canvas_longtap: function canvas_longtap() {
+      this.triggerEvent('Longtap');
+    },
+    canvas_error: function canvas_error(e) {
+      this.triggerEvent('Error', e.detail);
+    }
+  }
+}); /* eslint-disable no-console */
+/* eslint-disable camelcase */
+
+/***/ }),
+
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -202,74 +267,6 @@ module.exports = Behavior({
     }
   }
 });
-
-/***/ }),
-
-/***/ 20:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _onekit_behavior = __webpack_require__(1);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _wxs_behavior = __webpack_require__(0);
-
-var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
-
-var _weixin_behavior = __webpack_require__(2);
-
-var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-Component({
-  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
-  options: {
-    addGlobalClass: true
-  },
-  data: {},
-  properties: {
-
-    canvasonekitId: {
-      type: String,
-      value: ''
-    },
-    disableScroll: {
-      type: Boolean,
-      value: false
-    }
-  },
-  methods: {
-    canvas_start: function canvas_start(e) {
-      console.log('canvas_start', e);
-      this.triggerEvent('touchstart', e.details);
-    },
-    canvas_move: function canvas_move(e) {
-      console.log('canvas_move', e);
-      this.triggerEvent('touchmove', e.details);
-    },
-    canvas_end: function canvas_end(e) {
-      console.log('canvas_end', e);
-      this.triggerEvent('touchend', e.details);
-    },
-    canvas_cancel: function canvas_cancel(e) {
-      console.log('canvas_cancel', e);
-      this.triggerEvent('touchcancel', e.details);
-    },
-    canvas_tap: function canvas_tap(e) {
-      console.log('canvas_tap', e);
-      this.triggerEvent('longtap', e.details);
-    },
-    canvas_error: function canvas_error(e) {
-      console.log('canvas_error', e);
-      this.triggerEvent('error', e.details);
-    }
-  }
-}); /* eslint-disable no-console */
-/* eslint-disable camelcase */
 
 /***/ })
 

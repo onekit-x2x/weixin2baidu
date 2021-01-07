@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import onekit_behavior from '../../../behavior/onekit_behavior'
 import wxs_behavior from '../../../behavior/wxs_behavior'
@@ -35,11 +34,12 @@ Component({
       type: Array,
       value: [],
       observer(markers) {
-        this._getMarker(markers)
+        return this._getMarker(markers)
       }
     },
     covers: {
-      type: Array
+      type: Array,
+      value: null
     },
     polyline: {
       type: Array,
@@ -53,7 +53,7 @@ Component({
       type: Array,
       value: [],
       observer(controls) {
-        this._getControl(controls)
+        return this._getControl(controls)
       }
     },
     includePoints: {
@@ -153,7 +153,7 @@ Component({
     this.properties.maxScale = Math.max(scale, maxScale)
     //
     this._getMarker(this.properties.markers)
-    this._getMarker(this.properties.markers)
+    this._getControl(this.properties.controls)
   },
   methods: {
     map_tap(e) {
@@ -188,21 +188,31 @@ Component({
       this.triggerEvent('Anchorpointtap', e.detail)
     },
     _getMarker(markers) {
+      if (!Array.isArray(markers)) {
+        markers = Object.values(markers[0])
+      }
+      // markers.map(marker => {
+      //   marker.controlId = marker.id
+      //   delete Object.marker.id
+      //   return marker
+      // })
       this.setData({
-        markers: markers.map(marker => {
-          marker.markerId = marker.id
-          delete Object.marker.id
-          return marker
-        })
+        markers
       })
     },
     _getControl(controls) {
+      if (!Array.isArray(controls)) {
+        controls = Object.values(controls[0])
+      }
+      // this.setData({
+      //   controls: arr.map(control => {
+      //     control.controlId = control.id
+      //     delete Object.control.id
+      //     return control
+      //   })
+      // })
       this.setData({
-        controls: controls.map(control => {
-          control.controlId = control.id
-          delete Object.control.id
-          return control
-        })
+        controls
       })
     }
   },

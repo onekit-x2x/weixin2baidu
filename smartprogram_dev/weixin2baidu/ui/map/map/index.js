@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 25);
+/******/ 	return __webpack_require__(__webpack_require__.s = 23);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 25:
+/***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -255,11 +255,12 @@ Component({
       type: Array,
       value: [],
       observer: function observer(markers) {
-        this._getMarker(markers);
+        return this._getMarker(markers);
       }
     },
     covers: {
-      type: Array
+      type: Array,
+      value: null
     },
     polyline: {
       type: Array,
@@ -273,7 +274,7 @@ Component({
       type: Array,
       value: [],
       observer: function observer(controls) {
-        this._getControl(controls);
+        return this._getControl(controls);
       }
     },
     includePoints: {
@@ -372,7 +373,7 @@ Component({
     this.properties.maxScale = Math.max(scale, maxScale);
     //
     this._getMarker(this.properties.markers);
-    this._getMarker(this.properties.markers);
+    this._getControl(this.properties.controls);
   },
 
   methods: {
@@ -410,26 +411,35 @@ Component({
       this.triggerEvent('Anchorpointtap', e.detail);
     },
     _getMarker: function _getMarker(markers) {
+      if (!Array.isArray(markers)) {
+        markers = Object.values(markers[0]);
+      }
+      // markers.map(marker => {
+      //   marker.controlId = marker.id
+      //   delete Object.marker.id
+      //   return marker
+      // })
       this.setData({
-        markers: markers.map(function (marker) {
-          marker.markerId = marker.id;
-          delete Object.marker.id;
-          return marker;
-        })
+        markers: markers
       });
     },
     _getControl: function _getControl(controls) {
+      if (!Array.isArray(controls)) {
+        controls = Object.values(controls[0]);
+      }
+      // this.setData({
+      //   controls: arr.map(control => {
+      //     control.controlId = control.id
+      //     delete Object.control.id
+      //     return control
+      //   })
+      // })
       this.setData({
-        controls: controls.map(function (control) {
-          control.controlId = control.id;
-          delete Object.control.id;
-          return control;
-        })
+        controls: controls
       });
     }
   }
 }); /* eslint-disable no-console */
-/* eslint-disable no-console */
 /* eslint-disable camelcase */
 
 /***/ })

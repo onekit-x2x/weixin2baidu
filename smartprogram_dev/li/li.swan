@@ -471,3 +471,9 @@
     </view>
   </view>
 </view>
+
+<!-- <canvas> -->
+<!-- <onekit-canvas type="2d" onekit-id="canvas" onekit-style="width: 300px; height: 300px;"></onekit-canvas> -->
+
+<!-- <web-view> -->
+<!-- <web-view src="https://www.baidu.com/"></web-view> -->

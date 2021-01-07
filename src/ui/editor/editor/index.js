@@ -1,5 +1,3 @@
-/* eslint-disable guard-for-in */
-/* eslint-disable no-console */
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
 import onekit_behavior from '../../../behavior/onekit_behavior'
@@ -13,19 +11,36 @@ Component({
   },
   data: {},
   properties: {
-    readOnly: false,
-    placeholder: '',
-    showImgSize: false,
-    showImgToolbar: false,
-    showImgResize: false,
+    readOnly: {
+      type: Boolean,
+      value: false
+    },
+    placeholder: {
+      type: String,
+      value: ''
+    },
+    showImgSize: {
+      type: Boolean,
+      value: false
+    },
+    showImgToolbar: {
+      type: Boolean,
+      value: false
+    },
+    showImgResize: {
+      type: Boolean,
+      value: false
+    },
   },
   attached() {
     const guid = getApp().onejit.context.guid
     const properties = {}
     for (const name in this.properties) {
-      const value = this.properties[name]
-      if (value != null) {
-        properties[name] = value
+      if ({}.hasOwnProperty.call(this.properties, name)) {
+        const value = this.properties[name]
+        if (value != null) {
+          properties[name] = value
+        }
       }
     }
     // console.log(properties);
@@ -49,19 +64,19 @@ Component({
         case 'event':
           switch (data.name) {
             case 'ready':
-              this.triggerEvent('bindready', {})
+              this.triggerEvent('Ready')
               break
             case 'focus':
-              this.triggerEvent.onFocus('')
+              this.triggerEvent('Focus', {})
               break
             case 'blur':
-              this.triggerEvent.onBlur()
+              this.triggerEvent('Blur')
               break
             case 'input':
-              this.triggerEvent.onInput()
+              this.triggerEvent('input')
               break
             case 'statuschange':
-              this.triggerEvent.onStatuschange()
+              this.triggerEvent('Statuschange')
               break
             default: break
           }

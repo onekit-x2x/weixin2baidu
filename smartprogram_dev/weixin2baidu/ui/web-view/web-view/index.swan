@@ -1,6 +1,10 @@
-<view class="onekit-web-view {{onekitClass}}"
-style="{{onekitStyle}}"
-id="{{onekitId}}"
+<web-view 
+    class="onekit-web-view {{onekitClass}}"
+    style="{{onekitStyle}}"
+    id="{{onekitId}}"
+
+    src="{{src}}"
+
+    bindmessage="webView_message"
 >
-    <!--to do-->
-</view>
+</web-view>

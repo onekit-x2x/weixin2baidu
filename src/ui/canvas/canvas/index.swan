@@ -1,18 +1,16 @@
-<canvas 
-id="{{onekitId}}"
-class="onekit-canvas {{onekitClass}}"
-style="{{onekitStyle}}"
-style="width:100%;height:100%;"
-type="{{type}}"
-canvas-id="{{canvasId}}"
-disable-scroll="{{disableScroll}}"
+<canvas
+    class="onekit-canvas {{onekitClass}}"
+    style="width:100%;height:100%;{{onekitStyle}}"
+    id="{{onekitId}}"
 
-bindtouchstart="canvas_start"
-bindtouchmove="canvas_move"   
-bindtouchend="canvas_end"
-bindtouchcancel="canvas_cancel"
-bindlongtap="canvas_tap"
-binderror="canvas_error"
+    canvas-id="{{canvasId}}"
+    disable-scroll="{{disableScroll}}"
 
+    bindtouchstart="canvas_touchstart"
+    bindtouchmove="canvas_touchmove"   
+    bindtouchend="canvas_touchend"
+    bindtouchcancel="canvas_touchcancel"
+    bindlongtap="canvas_longtap"
+    binderror="canvas_error"
 >
 </canvas>

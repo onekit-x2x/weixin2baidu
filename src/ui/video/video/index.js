@@ -184,25 +184,25 @@ Component({
   },
   methods: {
     video_play() {
-      this.triggerEvent('play')
+      this.triggerEvent('Play')
     },
     video_pause() {
-      this.triggerEvent('pause')
+      this.triggerEvent('Pause')
     },
     video_ended() {
-      this.triggerEvent('ended')
+      this.triggerEvent('Ended')
     },
     video_timeupdate(e) {
-      this.triggerEvent('timeupdate', e.detail)
+      this.triggerEvent('Timeupdate', e.detail)
     },
     video_fullscreenchang(e) {
-      this.triggerEvent('fullscreenchang', e.detail)
+      this.triggerEvent('Fullscreenchang', e.detail)
     },
     video_waiting() {
-      this.triggerEvent('waiting')
+      this.triggerEvent('Waiting')
     },
     video_error() {
-      this.triggerEvent('error')
+      this.triggerEvent('Error')
     },
     //
     trigger_progress(e) {
@@ -210,7 +210,7 @@ Component({
     },
     //
     video_loadedmetadata(e) {
-      this.triggerEvent('loadedmetadata', e.detail)
+      this.triggerEvent('Loadedmetadata', e.detail)
     },
     trigger_controlstoggle(e) {
       this.triggerEvent('Controlstoggle', e.detail)
