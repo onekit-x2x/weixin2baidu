@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 26);
+/******/ 	return __webpack_require__(__webpack_require__.s = 29);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -237,6 +237,18 @@ var _PROMISE = __webpack_require__(10);
 
 var _PROMISE2 = _interopRequireDefault(_PROMISE);
 
+var _Logmanager = __webpack_require__(11);
+
+var _Logmanager2 = _interopRequireDefault(_Logmanager);
+
+var _RealtimeLogManager = __webpack_require__(12);
+
+var _RealtimeLogManager2 = _interopRequireDefault(_RealtimeLogManager);
+
+var _MapContext = __webpack_require__(13);
+
+var _MapContext2 = _interopRequireDefault(_MapContext);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } /* eslint-disable no-console */
@@ -281,6 +293,10 @@ var wx = function () {
 
   wx.getSystemInfoSync = function getSystemInfoSync() {
     return swan.getSystemInfoSync();
+  };
+
+  wx.getSystemInfoAsync = function getSystemInfoAsync() {
+    return console.log('getSystemInfoAsync is not support');
   };
 
   wx.getUpdateManager = function getUpdateManager() {
@@ -338,7 +354,7 @@ var wx = function () {
   };
 
   wx.onUnhandledRejection = function onUnhandledRejection() {
-    console.warn('BaiDu is not support !');
+    return console.warn('onUnhandledRejection is not support !');
   };
 
   wx.onThemeChange = function onThemeChange() {
@@ -348,20 +364,20 @@ var wx = function () {
     return res;
   };
 
-  wx.onPageNotFound = function onPageNotFound() {
-    return swan.onPageNotFound();
+  wx.onPageNotFound = function onPageNotFound(callback) {
+    return swan.onPageNotFound(callback);
   };
 
-  wx.onError = function onError() {
-    return swan.onError();
+  wx.onError = function onError(callback) {
+    return swan.onError(callback);
   };
 
-  wx.offError = function offError(object) {
-    return swan.offError(object);
+  wx.offError = function offError(callback) {
+    return swan.offError(callback);
   };
 
-  wx.offPageNotFound = function offPageNotFound(object) {
-    return swan.offPageNotFound(object);
+  wx.offPageNotFound = function offPageNotFound(callback) {
+    return swan.offPageNotFound(callback);
   };
 
   wx.onAudioInterruptionBegin = function onAudioInterruptionBegin() {
@@ -372,32 +388,24 @@ var wx = function () {
     return console.warn('onAudioInterruptionEnd is not support');
   };
 
-  wx.offAppShow = function offAppShow(object) {
-    return swan.offAppShow(object);
+  wx.offAppShow = function offAppShow(callback) {
+    return swan.offAppShow(callback);
   };
 
-  wx.onAppShow = function onAppShow(object) {
-    return swan.onAppShow(object);
+  wx.onAppShow = function onAppShow(callback) {
+    return swan.onAppShow(callback);
   };
 
-  wx.offAppHide = function offAppHide(object) {
-    return swan.offAppHide(object);
+  wx.offAppHide = function offAppHide(callback) {
+    return swan.offAppHide(callback);
   };
 
-  wx.onAppHide = function onAppHide(object) {
-    return swan.onAppHide(object);
+  wx.onAppHide = function onAppHide(callback) {
+    return swan.onAppHide(callback);
   };
 
   wx.setEnableDebug = function setEnableDebug(object) {
     return swan.setEnableDebug(object);
-  };
-
-  wx.getRealtimeLogManager = function getRealtimeLogManager() {
-    return console.warn('getRealtimeLogManager is not support');
-  };
-
-  wx.getLogManager = function getLogManager() {
-    return console.warn('getLogManager is not support');
   };
 
   wx.offUnhandledRejection = function offUnhandledRejection() {
@@ -414,6 +422,24 @@ var wx = function () {
 
   wx.offAudioInterruptionEnd = function offAudioInterruptionEnd() {
     return console.warn('offAudioInterruptionEnd is not support');
+  };
+
+  wx.getRealtimeLogManager = function getRealtimeLogManager() {
+    return new _RealtimeLogManager2.default();
+  };
+
+  wx.getLogManager = function getLogManager() {
+    return new _Logmanager2.default();
+  };
+
+  // ///////// 环境变量 ///////
+
+
+  wx.env = function env() {
+    var res = {
+      USER_DATA_PATH: 'https://usr'
+    };
+    return res;
   };
 
   // ///////////////// Canvas ///////////////////
@@ -748,11 +774,11 @@ var wx = function () {
   };
 
   wx.onCompassChange = function onCompassChange(callback) {
-    this._CompassChange = callback;
+    getApp().onekit_CompassChange = callback;
   };
 
   wx.offCompassChange = function offCompassChange() {
-    this._CompassChange = null;
+    getApp().onekit_CompassChange = null;
   };
 
   wx.stopCompass = function stopCompass(object) {
@@ -790,16 +816,20 @@ var wx = function () {
     return console.warn('checkIsOpenAccessibility is not support');
   };
 
-  wx.onGyroscopeChange = function onGyroscopeChange(callback) {
-    return swan.onGyroscopeChange(callback);
+  wx.onGyroscopeChange = function onGyroscopeChange() {
+    return console.warn('onGyroscopeChange is not support');
   };
 
-  wx.stopGyroscope = function stopGyroscope(object) {
-    return swan.stopGyroscope(object);
+  wx.offGyroscopeChange = function offGyroscopeChange() {
+    return console.warn('offGyroscopeChange is not support');
   };
 
-  wx.startGyroscope = function startGyroscope(object) {
-    return swan.startGyroscope(object);
+  wx.stopGyroscope = function stopGyroscope() {
+    return console.warn('stopGyroscope is not support');
+  };
+
+  wx.startGyroscope = function startGyroscope() {
+    return console.warn('startGyroscope is not support');
   };
 
   //
@@ -879,8 +909,17 @@ var wx = function () {
   //
 
 
-  wx.onMemoryWarning = function onMemoryWarning(object) {
-    return swan.onMemoryWarning(object);
+  wx.onMemoryWarning = function onMemoryWarning(callback) {
+    swan.onMemoryWarning(function (res) {
+      if (getApp().onekit_MemoryWarning) {
+        getApp().onekit_MemoryWarning(res);
+      }
+    });
+    getApp().onekit_MemoryWarning = callback;
+  };
+
+  wx.offMemoryWarning = function offMemoryWarning() {
+    getApp().onekit_MemoryWarning = null;
   };
 
   //
@@ -1046,8 +1085,8 @@ var wx = function () {
   // ///////////////// Ext //////////////
 
 
-  wx.getExtConfigSync = function getExtConfigSync(object) {
-    return swan.getExtConfigSync(object);
+  wx.getExtConfigSync = function getExtConfigSync() {
+    return swan.getExtConfigSync();
   };
 
   wx.getExtConfig = function getExtConfig(object) {
@@ -1127,8 +1166,8 @@ var wx = function () {
   // //////// Media ////////////////////
 
 
-  wx.createMapContext = function createMapContext(object) {
-    return swan.createMapContext(object);
+  wx.createMapContext = function createMapContext(mapId) {
+    return new _MapContext2.default(swan.createMapContext(mapId));
   };
 
   wx.compressImage = function compressImage(object) {
@@ -1732,6 +1771,8 @@ var wx = function () {
     return console.warn('disableAlertBeforeUnload is not support');
   };
 
+  // //////////// NavigationBar ////////////////
+
   wx.setNavigationBarColor = function setNavigationBarColor(object) {
     return swan.setNavigationBarColor(object);
   };
@@ -1752,6 +1793,8 @@ var wx = function () {
     return console.warn('hideHomeButton is not support');
   };
 
+  // //////////// Background ////////////////
+
   wx.setBackgroundTextStyle = function setBackgroundTextStyle(object) {
     return swan.setBackgroundTextStyle(object);
   };
@@ -1759,6 +1802,8 @@ var wx = function () {
   wx.setBackgroundColor = function setBackgroundColor(object) {
     return swan.setBackgroundColor(object);
   };
+
+  // //////////// Tab Bar ////////////////
 
   wx.setTabBarItem = function setTabBarItem(object) {
     return swan.setTabBarItem(object);
@@ -1792,9 +1837,13 @@ var wx = function () {
     return swan.setTabBarBadge(object);
   };
 
+  // //////////// Font ////////////////
+
   wx.loadFontFace = function loadFontFace() {
-    return console.warn('hideHomeButton is not support');
+    return console.warn('loadFontFace is not support');
   };
+
+  // //////////// Refresh ////////////////
 
   wx.stopPullDownRefresh = function stopPullDownRefresh(object) {
     return swan.stopPullDownRefresh(object);
@@ -1804,9 +1853,14 @@ var wx = function () {
     return swan.startPullDownRefresh(object);
   };
 
+  // //////////// Scroll ////////////////
+
   wx.pageScrollTo = function pageScrollTo(object) {
     return swan.pageScrollTo(object);
   };
+
+  // //////////// TopBar ////////////////
+
 
   wx.setTopBarText = function setTopBarText() {
     return console.warn('setTopBarText is not support');
@@ -1816,9 +1870,13 @@ var wx = function () {
     return swan.nextTick(callback);
   };
 
+  // //////////// Menu ////////////////
+
   wx.getMenuButtonBoundingClientRect = function getMenuButtonBoundingClientRect(object) {
     return swan.getMenuButtonBoundingClientRect(object);
   };
+
+  // //////////// windows ////////////////
 
   wx.setWindowSize = function setWindowSize() {
     return console.warn('setWindowSize is not support');
@@ -1831,6 +1889,8 @@ var wx = function () {
   wx.offWindowResize = function offWindowResize() {
     return console.warn('offWindowResize is not support');
   };
+
+  // //////////// Keyboard ////////////////
 
   wx.onKeyboardHeightChange = function onKeyboardHeightChange(callback) {
     return swan.onKeyboardHeightChange(callback);
@@ -1858,12 +1918,44 @@ var wx = function () {
   // //////////// WXML ///////////////
 
 
-  wx.createSelectorQuery = function createSelectorQuery(object) {
-    return swan.createSelectorQuery(object);
+  wx.createSelectorQuery = function createSelectorQuery() {
+    return swan.createSelectorQuery();
   };
 
-  wx.createIntersectionObserver = function createIntersectionObserver(object) {
-    return swan.createIntersectionObserver(object);
+  wx.createIntersectionObserver = function createIntersectionObserver(wx_object) {
+    var wx_thresholds = wx_object.thresholds || [0];
+    var wx_initialRatio = wx_object.initialRatio || 0;
+    var wx_observeAll = wx_object.observeAll || false;
+    wx_object = null;
+    var swan_object = {
+      thresholds: wx_thresholds,
+      initialRatio: wx_initialRatio,
+      selectAll: wx_observeAll
+    };
+    return swan.createIntersectionObserver(swan_object);
+  };
+
+  // //////////// ad ///////////////
+
+
+  wx.createRewardedVideoAd = function createRewardedVideoAd(wx_object) {
+    var wx_adUnitId = wx_object.adUnitId;
+    wx_object = null;
+    var swan_object = {
+      adUnitId: wx_adUnitId,
+      appSid: ''
+    };
+    return swan.createIntersectionObserver(swan_object);
+  };
+
+  wx.createInterstitialAd = function createInterstitialAd(wx_object) {
+    var wx_adUnitId = wx_object.adUnitId;
+    wx_object = null;
+    var swan_object = {
+      adUnitId: wx_adUnitId,
+      appSid: ''
+    };
+    return swan.createIntersectionObserver(swan_object);
   };
 
   return wx;
@@ -2059,7 +2151,7 @@ var VideoContext = function () {
   };
 
   VideoContext.prototype.sendDanmu = function sendDanmu(data) {
-    return this.swanVideoContext.playbackRate(data);
+    return this.swanVideoContext.sendDanmu(data);
   };
 
   VideoContext.prototype.playbackRate = function playbackRate(rate) {
@@ -2098,33 +2190,33 @@ exports.__esModule = true;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var VideoContext = function () {
-  function VideoContext(swanCameraContext) {
-    _classCallCheck(this, VideoContext);
+var CameraContext = function () {
+  function CameraContext(swanCameraContext) {
+    _classCallCheck(this, CameraContext);
 
     this.swanCameraContext = swanCameraContext;
   }
 
-  VideoContext.prototype.takePhoto = function takePhoto() {
+  CameraContext.prototype.takePhoto = function takePhoto() {
     return this.swanCameraContext.takePhoto();
   };
 
-  VideoContext.prototype.setZoom = function setZoom() {
+  CameraContext.prototype.setZoom = function setZoom() {
     return this.swanCameraContext.setZoom();
   };
 
-  VideoContext.prototype.startRecord = function startRecord() {
+  CameraContext.prototype.startRecord = function startRecord() {
     return this.swanCameraContext.startRecord();
   };
 
-  VideoContext.prototype.stopRecord = function stopRecord(position) {
+  CameraContext.prototype.stopRecord = function stopRecord(position) {
     return this.swanCameraContext.stopRecord(position);
   };
 
-  return VideoContext;
+  return CameraContext;
 }();
 
-exports.default = VideoContext;
+exports.default = CameraContext;
 
 /***/ }),
 /* 7 */
@@ -2353,9 +2445,176 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 11 */,
-/* 12 */,
-/* 13 */,
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var LogManager = function () {
+  function LogManager() {
+    _classCallCheck(this, LogManager);
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  LogManager.prototype.debug = function debug() {
+    var _console;
+
+    // eslint-disable-next-line no-console
+    return (_console = console).debug.apply(_console, arguments);
+  };
+
+  // eslint-disable-next-line class-methods-use-this
+
+
+  LogManager.prototype.info = function info() {
+    var _console2;
+
+    // eslint-disable-next-line no-console
+    return (_console2 = console).info.apply(_console2, arguments);
+  };
+
+  // eslint-disable-next-line class-methods-use-this
+
+
+  LogManager.prototype.log = function log() {
+    var _console3;
+
+    // eslint-disable-next-line no-console
+    return (_console3 = console).log.apply(_console3, arguments);
+  };
+
+  // eslint-disable-next-line class-methods-use-this
+
+
+  LogManager.prototype.warn = function warn() {
+    var _console4;
+
+    // eslint-disable-next-line no-console
+    return (_console4 = console).warn.apply(_console4, arguments);
+  };
+
+  return LogManager;
+}();
+
+exports.default = LogManager;
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var RealtimeLogManager = function () {
+  function RealtimeLogManager() {
+    _classCallCheck(this, RealtimeLogManager);
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  RealtimeLogManager.prototype.info = function info() {
+    var _console;
+
+    // eslint-disable-next-line no-console
+    return (_console = console).info.apply(_console, arguments);
+  };
+
+  // eslint-disable-next-line class-methods-use-this
+
+
+  RealtimeLogManager.prototype.warn = function warn() {
+    var _console2;
+
+    // eslint-disable-next-line no-console
+    return (_console2 = console).warn.apply(_console2, arguments);
+  };
+
+  // eslint-disable-next-line class-methods-use-this
+
+
+  RealtimeLogManager.prototype.error = function error() {
+    var _console3;
+
+    // eslint-disable-next-line no-console
+    return (_console3 = console).error.apply(_console3, arguments);
+  };
+
+  // eslint-disable-next-line class-methods-use-this
+
+
+  RealtimeLogManager.prototype.addFilterMsg = function addFilterMsg() {};
+
+  // eslint-disable-next-line class-methods-use-this
+
+
+  RealtimeLogManager.prototype.setFilterMsg = function setFilterMsg() {};
+
+  // eslint-disable-next-line class-methods-use-this
+
+
+  RealtimeLogManager.prototype.in = function _in() {};
+
+  return RealtimeLogManager;
+}();
+
+exports.default = RealtimeLogManager;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var MapContext = function () {
+  function MapContext(wxMapContext) {
+    _classCallCheck(this, MapContext);
+
+    this.wxMapContext = wxMapContext;
+  }
+
+  MapContext.prototype.includePoints = function includePoints(object) {
+    return this.wxMapContext.includePoints(object);
+  };
+
+  MapContext.prototype.getCenterLocation = function getCenterLocation(object) {
+    return this.wxMapContext.getCenterLocation(object);
+  };
+
+  MapContext.prototype.translateMarker = function translateMarker(object) {
+    return this.wxMapContext.translateMarker(object);
+  };
+
+  MapContext.prototype.moveToLocation = function moveToLocation(object) {
+    return this.wxMapContext.moveToLocation(object);
+  };
+
+  MapContext.prototype.getRegion = function getRegion(object) {
+    return this.wxMapContext.getRegion(object);
+  };
+
+  MapContext.prototype.getScale = function getScale(object) {
+    return this.wxMapContext.getScale(object);
+  };
+
+  return MapContext;
+}();
+
+exports.default = MapContext;
+
+/***/ }),
 /* 14 */,
 /* 15 */,
 /* 16 */,
@@ -2368,7 +2627,10 @@ __webpack_require__.r(__webpack_exports__);
 /* 23 */,
 /* 24 */,
 /* 25 */,
-/* 26 */
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

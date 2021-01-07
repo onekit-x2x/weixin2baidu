@@ -531,122 +531,109 @@ global = {};
 // })
 
 //map
-const app = getApp()
-const img = './image/location.png'
 OnekitPage({
+    onShareAppMessage:function(){
+        return {
+        title:'map',
+        path:'page/component/pages/map/map'
+    }
+    },
     data:{
         latitude:23.099994,
-        longitude:113.32452
-    },
-    onLoad:function(){
-        this.mapCtx = wx.createMapContext('mapId')
-        this.mapCtx.on('markerClusterClick',(res)=>{console.log('markerClusterClick',res)})
-        this.bindEvent()
-    },
-    bindEvent:function(){
-        this.mapCtx.initMarkerCluster({
-        enableDefaultStyle:false,
-        zoomOnClick:true,
-        gridSize:60,
-        complete:function(res){
-            console.log('initMarkerCluster',res)
-        }
-    })
-        this.mapCtx.on('markerClusterCreate',(res)=>{
-        console.log('clusterCreate',res)
-        const clusters = res.clusters
-        const markers = clusters.map((cluster)=>{
-            const {center,clusterId,markerIds} = cluster
-            return {
-                ...center,
-                width:0,
-                height:0,
-                clusterId:clusterId,
-                label:{
-                    content:markerIds.length + '',
-                    fontSize:20,
-                    width:60,
-                    height:60,
-                    bgColor:'#00ff00',
-                    borderRadius:30,
-                    textAlign:'center',
-                    anchorX:0,
-                    anchorY:-30
-                }
-            }
-        })
-        this.mapCtx.addMarkers({
-            markers:markers,
-            clear:false,
-            complete:function(res){
-                console.log('clusterCreate addMarkers',res)
-            }
-        })
-    })
-    },
-    addMarkers:function(){
-        const marker = {
-        id:1,
-        iconPath:img,
-        width:50,
-        height:50,
-        joinCluster:true,
-        label:{
-            width:50,
-            height:30,
-            borderWidth:1,
-            borderRadius:10,
-            bgColor:'#ffffff'
-        }
-    }
-        const positions = [
-        {
-            latitude:23.099994,
-            longitude:113.32452
-        },
-        {
-            latitude:23.099994,
-            longitude:113.32252
-        },
-        {
-            latitude:23.099994,
-            longitude:113.32652
-        },
-        {
-            latitude:23.096994,
-            longitude:113.32952
-        }
-    ]
-        const markers = [
-    ]
-        positions.forEach((p,i)=>{
-        const newMarker = Object.assign(marker,p)
-        newMarker.id = i + 1
-        newMarker.label.content = `label ${i + 1}`
-        markers.push(newMarker)
-        this.mapCtx.addMarkers({
-            markers:markers,
-            clear:false,
-            complete:function(res){
-                console.log('addMarkers',res)
-            }
-        })
-    })
-    },
-    removeMarkers:function(){
-        this.mapCtx.addMarkers({
-        clear:true,
+        longitude:113.32452,
         markers:[
-        ]
+            {
+                latitude:23.099994,
+                longitude:113.32452,
+                name:'T.I.T 创意园'
+            }
+        ],
+        covers:[
+            {
+                latitude:23.099994,
+                longitude:113.34452,
+                iconPath:'/image/location.png'
+            },
+            {
+                latitude:23.099994,
+                longitude:113.30452,
+                iconPath:'/image/location.png'
+            }
+        ],
+        polygons:[
+            {
+                points:[
+                    {
+                        latitude:23.099994,
+                        longitude:113.32452
+                    },
+                    {
+                        latitude:23.098994,
+                        longitude:113.32352
+                    },
+                    {
+                        latitude:23.098994,
+                        longitude:113.32552
+                    }
+                ],
+                strokeWidth:3,
+                strokeColor:'#FFFFFFAA'
+            }
+        ],
+        subKey:'B5QBZ-7JTLU-DSSVA-2BRJ3-TNXLF-2TBR7',
+        enable3d:false,
+        showCompass:false,
+        enableOverlooking:false,
+        enableZoom:true,
+        enableScroll:true,
+        enableRotate:false,
+        drawPolygon:false,
+        enableSatellite:false,
+        enableTraffic:false
+    },
+    toggle3d:function(){
+        this.setData({
+        enable3d:!this.data.enable3d
     })
     },
-    onMarkerTap:function(e){
-        console.log('@@ markertap',e)
+    toggleShowCompass:function(){
+        this.setData({
+        showCompass:!this.data.showCompass
+    })
     },
-    onCalloutTap:function(e){
-        console.log('@@ onCalloutTap',e)
+    toggleOverlooking:function(){
+        this.setData({
+        enableOverlooking:!this.data.enableOverlooking
+    })
     },
-    onLabelTap:function(e){
-        console.log('@@ labletap',e)
+    toggleZoom:function(){
+        this.setData({
+        enableZoom:!this.data.enableZoom
+    })
+    },
+    toggleScroll:function(){
+        this.setData({
+        enableScroll:!this.data.enableScroll
+    })
+    },
+    toggleRotate:function(){
+        this.setData({
+        enableRotate:!this.data.enableRotate
+    })
+    },
+    togglePolygon:function(){
+        this.setData({
+        drawPolygon:!this.data.drawPolygon
+    })
+    },
+    toggleSatellite:function(){
+        this.setData({
+        enableSatellite:!this.data.enableSatellite
+    })
+    },
+    toggleTraffic:function(){
+        this.setData({
+        enableTraffic:!this.data.enableTraffic
+    })
     }
 })
