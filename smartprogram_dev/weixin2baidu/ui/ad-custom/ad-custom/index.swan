@@ -1,8 +1,12 @@
 <ad 
-id="{{onekitId}}"
-class="onekit-ad-custom {{onekitClass}}"
-style="{{onekitStyle}}"
-apid="{{unitId}}"
-type="{{adType}}"
-updatetime="{{adIntervals}}"
+    class="onekit-ad-custom {{onekitClass}}"
+    style="{{onekitStyle}}"
+    id="{{onekitId}}"
+    
+    appid="{{appid}}"
+    apid="{{unitId}}"
+    updatetime="{{adIntervals}}"
+
+    binderror="adCustom_error"
+    bindload="adCustom_load"
 ></ad>
