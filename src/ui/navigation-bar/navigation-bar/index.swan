@@ -1,5 +1,4 @@
-<!-- onekit/ui/navigation-bar/navigation-bar.ttml -->
-<navigation-bar
+<!-- <navigation-bar
 id="{{onekitId}}"
     title="{{title}}"
     loading="{{loading}}"
@@ -7,4 +6,9 @@ id="{{onekitId}}"
     background-color="{{background-color}}"
     color-animation-duration="2000"
     color-animation-timing-func="easeIn"
-  />
+  /> -->
+<view
+    class="onekit-navigation-bar {{onekitClass}}"
+    style="{{onekitStyle}}"
+    id="{{onekitId}}">
+</view>
