@@ -623,7 +623,7 @@ export default class wx {
           success: swan_res => {
             const ali_tempFiles = swan_res.tempFiles.map(file => ({
               path: file.path,
-              siza: file.size,
+              size: file.size,
               name: '.png',
               type: 'image',
               time: new Date().getTime()
@@ -671,8 +671,50 @@ export default class wx {
     return swan.chooseVideo(object)
   }
 
-  static chooseMedia() {
-    return console.warn('chooseMedia is not support')
+  static chooseMedia(wx_object) {
+    const wx_mediaType = wx_object.mediaType || ['image', 'video']
+    const wx_success = wx_object.success
+    const wx_fail = wx_object.fail
+    const wx_complete = wx_object.complete
+    wx_object = null
+    PROMISE((SUCCESS) => {
+      if (wx_mediaType.indexOf('image') > -1 && wx_mediaType.indexOf('video') > -1) {
+        console.warn('mediaType only one support')
+      } else if (wx_mediaType.indexOf('video') > -1) {
+        swan.chooseVideo({
+          success: swan_res => {
+            const ali_tempFiles = {
+              tempFilePath: swan_res.tempFilePath,
+              size: swan_res.size,
+              duration: swan_res.duration,
+              height: swan_res.height,
+              width: swan_res.width
+            }
+            const wx_res = {
+              errMsg: 'chooseMedia: ok',
+              type: 'video',
+              tempFiles: ali_tempFiles
+            }
+            SUCCESS(wx_res)
+          }
+        })
+      } else if (wx_mediaType.indexOf('image') > -1) {
+        swan.chooseImage({
+          success: swan_res => {
+            const ali_tempFiles = swan_res.tempFiles.map(file => ({
+              tempFilePath: file.path,
+              size: file.size
+            }))
+            const wx_res = {
+              errMsg: 'chooseMedia: ok',
+              type: 'image',
+              tempFiles: ali_tempFiles
+            }
+            SUCCESS(wx_res)
+          }
+        })
+      }
+    }, wx_success, wx_fail, wx_complete)
   }
 
   static openVideoEditor() {
