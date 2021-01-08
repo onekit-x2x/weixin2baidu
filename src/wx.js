@@ -519,9 +519,7 @@ export default class wx {
     PROMISE((SUCCESS) => {
       swan.setStorage({
         key: 'wx_token',
-        data: {
-          wx_token
-        },
+        data: wx_token,
         success: () => {
           const wx_res = {
             errMsg: 'setBackgroundFetchToken:ok'
@@ -542,7 +540,7 @@ export default class wx {
         key: 'wx_token',
         success: (swan_res) => {
           const wx_res = {
-            errMsg: 'setBackgroundFetchToken:ok',
+            errMsg: 'getBackgroundFetchToken:ok',
             token: swan_res.data
           }
           SUCCESS(wx_res)
@@ -551,12 +549,39 @@ export default class wx {
     }, wx_success, wx_fail, wx_complete)
   }
 
-  static onBackgroundFetchData() {
-    return console.warn('onBackgroundFetchData is not support')
+  static onBackgroundFetchData(callback) {
+    swan.getStorage({
+      key: 'wx_token',
+      success: (swan_res) => {
+        if (swan_res) {
+          const res = {
+            fetchType: 'periodic',
+            fetchedData: swan_res.data,
+            timeStamp: new Date().getTime()
+          }
+          callback(res)
+        }
+      }
+    })
   }
 
-  static getBackgroundFetchData() {
-    return console.warn('getBackgroundFetchData is not support')
+  static getBackgroundFetchData(wx_object) {
+    const wx_success = wx_object.success
+    const wx_fail = wx_object.fail
+    const wx_complete = wx_object.complete
+    wx_object = null
+    PROMISE((SUCCESS) => {
+      swan.getStorage({
+        key: 'wx_token',
+        success: (swan_res) => {
+          const wx_res = {
+            errMsg: 'getBackgroundFetchData:ok',
+            token: swan_res.data
+          }
+          SUCCESS(wx_res)
+        }
+      })
+    }, wx_success, wx_fail, wx_complete)
   }
 
   // //////// Media ////////////////////
