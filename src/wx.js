@@ -509,55 +509,46 @@ export default class wx {
   }
 
   // ///////////////////////////////////////////
-  static setBackgroundFetchToken(swan_object) {
-    const wx_token = swan_object.token
-    const wx_success = swan_object.success
-    // const wx_fail = swan_object.fail
-    const wx_complete = swan_object.complete
+  static setBackgroundFetchToken(wx_object) {
+    const wx_token = wx_object.token
+    const wx_success = wx_object.success
+    const wx_fail = wx_object.fail
+    const wx_complete = wx_object.complete
+    wx_object = null
     // ///////////////
-    swan.setStorage({
-      key: 'wx_token',
-      data: {
-        wx_token,
-      },
-    })
-    swan_object.success = function () {
-      const wx_res = {
-        errMsg: 'setBackgroundFetchToken:ok'
-      }
-      if (wx_success) {
-        wx_success(wx_res)
-      }
-      if (wx_success) {
-        wx_complete(wx_res)
-      }
-    }
+    PROMISE((SUCCESS) => {
+      swan.setStorage({
+        key: 'wx_token',
+        data: {
+          wx_token
+        },
+        success: () => {
+          const wx_res = {
+            errMsg: 'setBackgroundFetchToken:ok'
+          }
+          SUCCESS(wx_res)
+        }
+      })
+    }, wx_success, wx_fail, wx_complete)
   }
 
-  static getBackgroundFetchToken(swan_object) {
-    const wx_success = swan_object.success
-    // const wx_fail = swan_object.fail
-    const wx_complete = swan_object.complete
-    console.log(wx_success)
-    swan.getStorage({
-      key: 'wx_token',
-      success(res) {
-        console.log(res.data)
-      }
-    })
-    swan_object.success = function () {
-      const wx_res = {
-        errMsg: 'getBackgroundFetchToken:ok'
-      }
-      console.log('', wx_res)
-
-      if (wx_success) {
-        wx_success(wx_res)
-      }
-      if (wx_success) {
-        wx_complete(wx_res)
-      }
-    }
+  static getBackgroundFetchToken(wx_object) {
+    const wx_success = wx_object.success
+    const wx_fail = wx_object.fail
+    const wx_complete = wx_object.complete
+    wx_object = null
+    PROMISE((SUCCESS) => {
+      swan.getStorage({
+        key: 'wx_token',
+        success: (swan_res) => {
+          const wx_res = {
+            errMsg: 'setBackgroundFetchToken:ok',
+            token: swan_res.data
+          }
+          SUCCESS(wx_res)
+        }
+      })
+    }, wx_success, wx_fail, wx_complete)
   }
 
   static onBackgroundFetchData() {
