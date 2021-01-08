@@ -730,15 +730,21 @@ export default class wx {
   }
 
   static stopVoice() {
-    return console.warn('stopVoice is not support')
+    const InnerAudioContext = swan.createInnerAudioContext()
+    return InnerAudioContext.stop()
   }
 
   static pauseVoice() {
-    return console.warn('pauseVoice is not support')
+    const InnerAudioContext = swan.createInnerAudioContext()
+    return InnerAudioContext.pause()
   }
 
-  static playVoice() {
-    return console.warn('playVoice is not support')
+  static playVoice(wx_object) {
+    const wx_filePath = wx_object.filePath
+    const InnerAudioContext = swan.createInnerAudioContext()
+    InnerAudioContext.src = wx_filePath
+    InnerAudioContext.autoplay = false
+    return InnerAudioContext.play()
   }
 
   static setInnerAudioOption(object) {
@@ -757,32 +763,42 @@ export default class wx {
     return console.warn('createAudioContext is not support')
   }
 
-  static onBackgroundAudioStop() {
-    return console.warn('onBackgroundAudioStop is not support')
+  static onBackgroundAudioStop(callback) {
+    const BackgroundAudioManager = swan.getBackgroundAudioManager()
+    return BackgroundAudioManager.onStop(callback)
   }
 
-  static onBackgroundAudioPause() {
-    return console.warn('onBackgroundAudioPause is not support')
+  static onBackgroundAudioPause(callback) {
+    const BackgroundAudioManager = swan.getBackgroundAudioManager()
+    return BackgroundAudioManager.onPause(callback)
   }
 
-  static onBackgroundAudioPlay() {
-    return console.warn('onBackgroundAudioPlay is not support')
+  static onBackgroundAudioPlay(callback) {
+    const BackgroundAudioManager = swan.getBackgroundAudioManager()
+    return BackgroundAudioManager.onPlay(callback)
   }
 
   static stopBackgroundAudio() {
-    return console.warn('stopBackgroundAudio is not support')
+    const BackgroundAudioManager = swan.getBackgroundAudioManager()
+    return BackgroundAudioManager.stop()
   }
 
-  static seekBackgroundAudio() {
-    return console.warn('seekBackgroundAudio is not support')
+  static seekBackgroundAudio(wx_object) {
+    const wx_position = wx_object.position
+    const BackgroundAudioManager = swan.getBackgroundAudioManager()
+    return BackgroundAudioManager.seek(wx_position)
   }
 
   static pauseBackgroundAudio() {
-    return console.warn('pauseBackgroundAudio is not support')
+    const BackgroundAudioManager = swan.getBackgroundAudioManager()
+    return BackgroundAudioManager.pause()
   }
 
-  static playBackgroundAudio() {
-    return console.warn('playBackgroundAudio is not support')
+  static playBackgroundAudio(wx_object) {
+    const wx_dataUrl = wx_object.dataUrl
+    const BackgroundAudioManager = swan.getBackgroundAudioManager()
+    BackgroundAudioManager.src = wx_dataUrl
+    return BackgroundAudioManager.play()
   }
 
   static getBackgroundAudioPlayerState() {
@@ -799,8 +815,7 @@ export default class wx {
 
   static startRecord(object) {
     const recorderManager = swan.getRecorderManager(object)
-    recorderManager.onStart(() => {
-      const res = 'stopRecord才会返回tempFilePath!!'
+    recorderManager.onStart((res) => {
       if (object.success) {
         object.success(res)
       }
@@ -808,8 +823,7 @@ export default class wx {
         object.complete(res)
       }
     })
-    const result = recorderManager.start()
-    return result
+    return recorderManager.start()
   }
 
   static stopRecord(object) {
@@ -822,8 +836,7 @@ export default class wx {
         object.complete(res)
       }
     })
-    const result = recorderManager.stop()
-    return result
+    return recorderManager.stop()
   }
 
   static getRecorderManager(object) {
