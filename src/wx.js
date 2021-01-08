@@ -609,12 +609,56 @@ export default class wx {
     return swan.chooseImage(object)
   }
 
-  static chooseMessageFile() {
-    return console.warn('chooseMessageFile is not support')
+  static chooseMessageFile(wx_object) {
+    const wx_count = wx_object.count
+    const wx_type = wx_object.type || 'image'
+    const wx_success = wx_object.success
+    const wx_fail = wx_object.fail
+    const wx_complete = wx_object.complete
+    wx_object = null
+    PROMISE((SUCCESS) => {
+      if (wx_type === 'image') {
+        swan.chooseImage({
+          wx_count,
+          success: swan_res => {
+            const ali_tempFiles = swan_res.tempFiles.map(file => ({
+              path: file.path,
+              siza: file.size,
+              name: '.png',
+              type: 'image',
+              time: new Date().getTime()
+            }))
+            const wx_res = {
+              errMsg: 'chooseMessageFile: ok',
+              tempFiles: ali_tempFiles
+            }
+            SUCCESS(wx_res)
+          }
+        })
+      } else {
+        console.warn('only support image')
+      }
+    }, wx_success, wx_fail, wx_complete)
   }
 
-  static previewMedia() {
-    return console.warn('previewMedia is not support')
+  static previewMedia(wx_object) {
+    const wx_sources = wx_object.sources
+    const wx_success = wx_object.success
+    const wx_fail = wx_object.fail
+    const wx_complete = wx_object.complete
+    wx_object = null
+    const swan_urls = wx_sources.map(res => res.url)
+    PROMISE((SUCCESS) => {
+      swan.previewImage({
+        urls: swan_urls,
+        success: () => {
+          const wx_res = {
+            errMsg: 'previewMedia:  ok'
+          }
+          SUCCESS(wx_res)
+        }
+      })
+    }, wx_success, wx_fail, wx_complete)
   }
 
   // //////////////////////////////////////////////////////////////
