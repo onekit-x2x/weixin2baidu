@@ -96,38 +96,38 @@ exports.__esModule = true;
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 exports.default = {
-  methods: {
-    selectComponent: function selectComponent(selector) {},
-    selectAllComponents: function selectAllComponents(selctor) {},
-    setStyle: function setStyle(styleDict) {
-      var onekit_styles = '';
-      for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-        var _ref;
+    methods: {
+        selectComponent: function selectComponent(selector) {},
+        selectAllComponents: function selectAllComponents(selctor) {},
+        setStyle: function setStyle(styleDict) {
+            var onekit_styles = '';
+            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+                var _ref;
 
-        if (_isArray) {
-          if (_i >= _iterator.length) break;
-          _ref = _iterator[_i++];
-        } else {
-          _i = _iterator.next();
-          if (_i.done) break;
-          _ref = _i.value;
-        }
+                if (_isArray) {
+                    if (_i >= _iterator.length) break;
+                    _ref = _iterator[_i++];
+                } else {
+                    _i = _iterator.next();
+                    if (_i.done) break;
+                    _ref = _i.value;
+                }
 
-        var cssName = _ref;
+                var cssName = _ref;
 
-        onekit_styles += cssName + ':' + styleDict[cssName] + ';';
-      }
-      this.setData({ onekit_styles: onekit_styles });
-    },
-    addClass: function addClass(className) {},
-    removeClass: function removeClass(className) {},
-    hasClass: function hasClass(className) {},
-    getDataset: function getDataset() {},
-    callMethod: function callMethod(funcName, args) {},
-    requestAnimationFrame: function requestAnimationFrame(callback) {},
-    getState: function getState() {},
-    getComputedStyle: function getComputedStyle(cssNames) {}
-  }
+                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
+            }
+            this.setData({ onekit_styles: onekit_styles });
+        },
+        addClass: function addClass(className) {},
+        removeClass: function removeClass(className) {},
+        hasClass: function hasClass(className) {},
+        getDataset: function getDataset() {},
+        callMethod: function callMethod(funcName, args) {},
+        requestAnimationFrame: function requestAnimationFrame(callback) {},
+        getState: function getState() {},
+        getComputedStyle: function getComputedStyle(cssNames) {}
+    }
 };
 
 /***/ }),
@@ -767,63 +767,79 @@ var wx = function () {
   // ///////////////////////////////////////////
 
 
-  wx.setBackgroundFetchToken = function setBackgroundFetchToken(swan_object) {
-    var wx_token = swan_object.token;
-    var wx_success = swan_object.success;
-    // const wx_fail = swan_object.fail
-    var wx_complete = swan_object.complete;
+  wx.setBackgroundFetchToken = function setBackgroundFetchToken(wx_object) {
+    var wx_token = wx_object.token;
+    var wx_success = wx_object.success;
+    var wx_fail = wx_object.fail;
+    var wx_complete = wx_object.complete;
+    wx_object = null;
     // ///////////////
-    swan.setStorage({
-      key: 'wx_token',
-      data: {
-        wx_token: wx_token
-      }
-    });
-    swan_object.success = function () {
-      var wx_res = {
-        errMsg: 'setBackgroundFetchToken:ok'
-      };
-      if (wx_success) {
-        wx_success(wx_res);
-      }
-      if (wx_success) {
-        wx_complete(wx_res);
-      }
-    };
+    (0, _PROMISE2.default)(function (SUCCESS) {
+      swan.setStorage({
+        key: 'wx_token',
+        data: wx_token,
+        success: function success() {
+          var wx_res = {
+            errMsg: 'setBackgroundFetchToken:ok'
+          };
+          SUCCESS(wx_res);
+        }
+      });
+    }, wx_success, wx_fail, wx_complete);
   };
 
-  wx.getBackgroundFetchToken = function getBackgroundFetchToken(swan_object) {
-    var wx_success = swan_object.success;
-    // const wx_fail = swan_object.fail
-    var wx_complete = swan_object.complete;
-    console.log(wx_success);
+  wx.getBackgroundFetchToken = function getBackgroundFetchToken(wx_object) {
+    var wx_success = wx_object.success;
+    var wx_fail = wx_object.fail;
+    var wx_complete = wx_object.complete;
+    wx_object = null;
+    (0, _PROMISE2.default)(function (SUCCESS) {
+      swan.getStorage({
+        key: 'wx_token',
+        success: function success(swan_res) {
+          var wx_res = {
+            errMsg: 'getBackgroundFetchToken:ok',
+            token: swan_res.data
+          };
+          SUCCESS(wx_res);
+        }
+      });
+    }, wx_success, wx_fail, wx_complete);
+  };
+
+  wx.onBackgroundFetchData = function onBackgroundFetchData(callback) {
     swan.getStorage({
       key: 'wx_token',
-      success: function success(res) {
-        console.log(res.data);
+      success: function success(swan_res) {
+        if (swan_res) {
+          var res = {
+            fetchType: 'periodic',
+            fetchedData: swan_res.data,
+            timeStamp: new Date().getTime()
+          };
+          callback(res);
+        }
       }
     });
-    swan_object.success = function () {
-      var wx_res = {
-        errMsg: 'getBackgroundFetchToken:ok'
-      };
-      console.log('', wx_res);
-
-      if (wx_success) {
-        wx_success(wx_res);
-      }
-      if (wx_success) {
-        wx_complete(wx_res);
-      }
-    };
   };
 
-  wx.onBackgroundFetchData = function onBackgroundFetchData() {
-    return console.warn('onBackgroundFetchData is not support');
-  };
-
-  wx.getBackgroundFetchData = function getBackgroundFetchData() {
-    return console.warn('getBackgroundFetchData is not support');
+  wx.getBackgroundFetchData = function getBackgroundFetchData(wx_object) {
+    var wx_success = wx_object.success;
+    var wx_fail = wx_object.fail;
+    var wx_complete = wx_object.complete;
+    wx_object = null;
+    (0, _PROMISE2.default)(function (SUCCESS) {
+      swan.getStorage({
+        key: 'wx_token',
+        success: function success(swan_res) {
+          var wx_res = {
+            errMsg: 'getBackgroundFetchData:ok',
+            token: swan_res.data
+          };
+          SUCCESS(wx_res);
+        }
+      });
+    }, wx_success, wx_fail, wx_complete);
   };
 
   // //////// Media ////////////////////
@@ -853,12 +869,60 @@ var wx = function () {
     return swan.chooseImage(object);
   };
 
-  wx.chooseMessageFile = function chooseMessageFile() {
-    return console.warn('chooseMessageFile is not support');
+  wx.chooseMessageFile = function chooseMessageFile(wx_object) {
+    var wx_count = wx_object.count;
+    var wx_type = wx_object.type || 'image';
+    var wx_success = wx_object.success;
+    var wx_fail = wx_object.fail;
+    var wx_complete = wx_object.complete;
+    wx_object = null;
+    (0, _PROMISE2.default)(function (SUCCESS) {
+      if (wx_type === 'image') {
+        swan.chooseImage({
+          wx_count: wx_count,
+          success: function success(swan_res) {
+            var ali_tempFiles = swan_res.tempFiles.map(function (file) {
+              return {
+                path: file.path,
+                size: file.size,
+                name: '.png',
+                type: 'image',
+                time: new Date().getTime()
+              };
+            });
+            var wx_res = {
+              errMsg: 'chooseMessageFile: ok',
+              tempFiles: ali_tempFiles
+            };
+            SUCCESS(wx_res);
+          }
+        });
+      } else {
+        console.warn('only support image');
+      }
+    }, wx_success, wx_fail, wx_complete);
   };
 
-  wx.previewMedia = function previewMedia() {
-    return console.warn('previewMedia is not support');
+  wx.previewMedia = function previewMedia(wx_object) {
+    var wx_sources = wx_object.sources;
+    var wx_success = wx_object.success;
+    var wx_fail = wx_object.fail;
+    var wx_complete = wx_object.complete;
+    wx_object = null;
+    var swan_urls = wx_sources.map(function (res) {
+      return res.url;
+    });
+    (0, _PROMISE2.default)(function (SUCCESS) {
+      swan.previewImage({
+        urls: swan_urls,
+        success: function success() {
+          var wx_res = {
+            errMsg: 'previewMedia:  ok'
+          };
+          SUCCESS(wx_res);
+        }
+      });
+    }, wx_success, wx_fail, wx_complete);
   };
 
   // //////////////////////////////////////////////////////////////
@@ -871,8 +935,52 @@ var wx = function () {
     return swan.chooseVideo(object);
   };
 
-  wx.chooseMedia = function chooseMedia() {
-    return console.warn('chooseMedia is not support');
+  wx.chooseMedia = function chooseMedia(wx_object) {
+    var wx_mediaType = wx_object.mediaType || ['image', 'video'];
+    var wx_success = wx_object.success;
+    var wx_fail = wx_object.fail;
+    var wx_complete = wx_object.complete;
+    wx_object = null;
+    (0, _PROMISE2.default)(function (SUCCESS) {
+      if (wx_mediaType.indexOf('image') > -1 && wx_mediaType.indexOf('video') > -1) {
+        console.warn('mediaType only one support');
+      } else if (wx_mediaType.indexOf('video') > -1) {
+        swan.chooseVideo({
+          success: function success(swan_res) {
+            var ali_tempFiles = {
+              tempFilePath: swan_res.tempFilePath,
+              size: swan_res.size,
+              duration: swan_res.duration,
+              height: swan_res.height,
+              width: swan_res.width
+            };
+            var wx_res = {
+              errMsg: 'chooseMedia: ok',
+              type: 'video',
+              tempFiles: ali_tempFiles
+            };
+            SUCCESS(wx_res);
+          }
+        });
+      } else if (wx_mediaType.indexOf('image') > -1) {
+        swan.chooseImage({
+          success: function success(swan_res) {
+            var ali_tempFiles = swan_res.tempFiles.map(function (file) {
+              return {
+                tempFilePath: file.path,
+                size: file.size
+              };
+            });
+            var wx_res = {
+              errMsg: 'chooseMedia: ok',
+              type: 'image',
+              tempFiles: ali_tempFiles
+            };
+            SUCCESS(wx_res);
+          }
+        });
+      }
+    }, wx_success, wx_fail, wx_complete);
   };
 
   wx.openVideoEditor = function openVideoEditor() {

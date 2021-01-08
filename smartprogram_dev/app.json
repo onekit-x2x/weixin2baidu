@@ -1,8 +1,9 @@
 {
     "pages": [
+        "zeng/zeng",
         "li/li",
-        "wang/wang",
-        "zeng/zeng"
+        "wang/wang"
+
     ],
     "window": {
         "backgroundColor": "#f8f8f8",
