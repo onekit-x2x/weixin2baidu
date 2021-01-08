@@ -616,12 +616,14 @@ var wx = function () {
 
   // //////////// Keyboard ////////////////
 
-  wx.onKeyboardHeightChange = function onKeyboardHeightChange(callback) {
-    return swan.onKeyboardHeightChange(callback);
+  wx.onKeyboardHeightChange = function onKeyboardHeightChange() {
+    // return swan.onKeyboardHeightChange(callback)
+    return console.warn('onKeyboardHeightChange is not support');
   };
 
-  wx.offKeyboardHeightChange = function offKeyboardHeightChange(callback) {
-    return swan.offKeyboardHeightChange(callback);
+  wx.offKeyboardHeightChange = function offKeyboardHeightChange() {
+    // return swan.offKeyboardHeightChange(callback)
+    return console.warn('offKeyboardHeightChange is not support');
   };
 
   wx.hideKeyboard = function hideKeyboard() {

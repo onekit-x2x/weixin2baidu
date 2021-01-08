@@ -175,23 +175,32 @@ Component({
   options: {
     addGlobalClass: true
   },
+  data: {
+    appid: ''
+  },
   properties: {
-    unitId: { type: String, value: '' },
-    adIntervals: { type: String, value: '' },
-    adType: {
+    unitId: {
       type: String,
-      value: 'banner'
+      value: ''
+    },
+    adIntervals: {
+      type: String,
+      value: ''
     }
   },
-
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached: function attached() {},
-  detached: function detached() {},
+  attached: function attached() {
+    // this.data.appid
+  },
 
 
-  methods: {}
+  methods: {
+    adCustom_load: function adCustom_load() {
+      this.triggerEvent('Load');
+    },
+    adCustom_error: function adCustom_error(e) {
+      this.triggerEvent('Error', e.detail);
+    }
+  }
 }); /* eslint-disable no-console */
 /* eslint-disable camelcase */
 

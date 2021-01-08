@@ -171,91 +171,106 @@ var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 Component({
-    behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
-    options: {
-        addGlobalClass: true
+  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
+  options: {
+    addGlobalClass: true
+  },
+  data: {},
+  properties: {
+    readOnly: {
+      type: Boolean,
+      value: false
     },
-    data: {},
-    properties: {
-        readOnly: false,
-        placeholder: '',
-        showImgSize: false,
-        showImgToolbar: false,
-        showImgResize: false
+    placeholder: {
+      type: String,
+      value: ''
     },
-    attached: function attached() {
-        var guid = getApp().onejit.context.guid;
-        var properties = {};
-        for (var name in this.properties) {
-            var value = this.properties[name];
-            if (value != null) {
-                properties[name] = value;
-            }
-        }
-        // console.log(properties);
-        // console.log(encodeURIComponent(JSON.stringify(properties)));
-        var propertiesString = encodeURIComponent(JSON.stringify(properties));
-        var url = 'http://localhost:8082/index.html?guid=' + guid + '&properties=' + propertiesString;
-        console.log(url);
-        this.setData({
-            url: url
-        });
-
-        this.webView = swan.createWebViewContext('webView');
-        // this.triggerEvent.onReady();
+    showImgSize: {
+      type: Boolean,
+      value: false
     },
-
-
-    methods: {
-        webView_message: function webView_message(e) {
-            var data = e.detail.data;
-            console.log('ssssss', data);
-            switch (data.type) {
-                case 'event':
-                    switch (data.name) {
-                        case 'ready':
-                            this.triggerEvent('bindready', {});
-                            break;
-                        case 'focus':
-                            this.triggerEvent.onFocus('');
-                            break;
-                        case 'blur':
-                            this.triggerEvent.onBlur();
-                            break;
-                        case 'input':
-                            this.triggerEvent.onInput();
-                            break;
-                        case 'statuschange':
-                            this.triggerEvent.onStatuschange();
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                default:
-                    break;
-            }
-        },
-        format: function format() {},
-        insertDivider: function insertDivider() {},
-        insertImage: function insertImage(object) {
-            this.webView.postMessage({ insertImage: object.text });
-        },
-        insertText: function insertText(object) {
-            this.webView.postMessage({ insertText: object.text });
-        },
-        setContents: function setContents() {},
-        getContents: function getContents() {},
-        clear: function clear() {},
-        removeFormat: function removeFormat() {},
-        undo: function undo() {},
-        redo: function redo() {},
-        blur: function blur() {},
-        scrollIntoView: function scrollIntoView() {}
+    showImgToolbar: {
+      type: Boolean,
+      value: false
+    },
+    showImgResize: {
+      type: Boolean,
+      value: false
     }
-}); /* eslint-disable guard-for-in */
-/* eslint-disable no-console */
-/* eslint-disable no-console */
+  },
+  attached: function attached() {
+    var guid = getApp().onejit.context.guid;
+    var properties = {};
+    for (var name in this.properties) {
+      if ({}.hasOwnProperty.call(this.properties, name)) {
+        var value = this.properties[name];
+        if (value != null) {
+          properties[name] = value;
+        }
+      }
+    }
+    // console.log(properties);
+    // console.log(encodeURIComponent(JSON.stringify(properties)));
+    var propertiesString = encodeURIComponent(JSON.stringify(properties));
+    var url = 'http://localhost:8082/index.html?guid=' + guid + '&properties=' + propertiesString;
+    console.log(url);
+    this.setData({
+      url: url
+    });
+
+    this.webView = swan.createWebViewContext('webView');
+    // this.triggerEvent.onReady();
+  },
+
+
+  methods: {
+    webView_message: function webView_message(e) {
+      var data = e.detail.data;
+      console.log('ssssss', data);
+      switch (data.type) {
+        case 'event':
+          switch (data.name) {
+            case 'ready':
+              this.triggerEvent('Ready');
+              break;
+            case 'focus':
+              this.triggerEvent('Focus', {});
+              break;
+            case 'blur':
+              this.triggerEvent('Blur');
+              break;
+            case 'input':
+              this.triggerEvent('input');
+              break;
+            case 'statuschange':
+              this.triggerEvent('Statuschange');
+              break;
+            default:
+              break;
+          }
+          break;
+        default:
+          break;
+      }
+    },
+    format: function format() {},
+    insertDivider: function insertDivider() {},
+    insertImage: function insertImage(object) {
+      this.webView.postMessage({ insertImage: object.text });
+    },
+    insertText: function insertText(object) {
+      this.webView.postMessage({ insertText: object.text });
+    },
+    setContents: function setContents() {},
+    getContents: function getContents() {},
+    clear: function clear() {},
+    removeFormat: function removeFormat() {},
+    undo: function undo() {},
+    redo: function redo() {},
+    blur: function blur() {},
+    scrollIntoView: function scrollIntoView() {}
+  }
+}); /* eslint-disable no-console */
 /* eslint-disable camelcase */
 
 /***/ }),

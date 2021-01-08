@@ -1,3 +1,9 @@
-<web-view id="{{onekitId}}"  src="{{url}}" bindmessage="webView_message">
+<web-view 
+    class="onekit-editor {{onekitClass}}"
+    style="{{onekitStyle}}"
+    id="{{onekitId}}"
+
+    src="{{url}}" 
+    bindmessage="webView_message">
 <!-- src="http://localhost:8082/index.html?readOnly={{readOnly}}&placeholder={{placeholder}}}&showImgSize={{showImgSize}}&showImgToolbar={{showImgToolbar}}&showImgResize={{showImgResize}}" -->
 </web-view>
