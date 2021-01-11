@@ -9,6 +9,9 @@ Component({
   options: {
     addGlobalClass: true,
   },
+  data: {
+    height: ''
+  },
   properties: {
     value: {
       type: String,
@@ -83,11 +86,21 @@ Component({
       type: Boolean,
       value: true
     },
-    // 做不了
+    // 基础库 3.260.6 开始支持
     holdKeyboard: {
       type: Boolean,
       value: false
     }
+  },
+  attached() {
+    // 基础库 3.260.6 开始支持
+    // if (this.properties.holdKeyboard && (this.properties.autoFocus || this.properties.focus)) {
+    //   swan.onKeyboardHeightChange(res => {
+    //     this.setdata({
+    //       height: res.height
+    //     })
+    //   })
+    // }
   },
   methods: {
     input_input(e) {
