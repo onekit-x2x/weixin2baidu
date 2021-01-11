@@ -1,3 +1,9 @@
-<view class="container">
-    <!--to do-->
-</view>
+<scroll-view
+    class="onekit-match-media {{onekitClass}}"
+    style="{{onekitStyle}}"
+    id="{{onekitId}}"
+
+    scroll-top="{{scrollTop}}"
+
+    bindscroll="matchMedia_scroll">
+</scroll-view>
