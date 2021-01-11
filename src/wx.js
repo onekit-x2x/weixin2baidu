@@ -14,6 +14,7 @@ import PROMISE from '../node_modules/oneutil/PROMISE'
 import Logmanager from './api/Logmanager'
 import RealtimeLogManager from './api/RealtimeLogManager'
 import MapContext from './api/MapContext'
+// import TASK from '../node_modules/oneutil/TASK'
 // import wx_cloud from './wx.cloud'
 
 export default class wx {
@@ -992,8 +993,24 @@ export default class wx {
   }
 
   // ////////////////// File //////////
-  static saveFileToDisk() {
-    return console.warn('saveFileToDisk is not support')
+  static saveFileToDisk(wx_object) {
+    const wx_filePath = wx_object.filePath
+    const wx_success = wx_object.success
+    const wx_fail = wx_object.fail
+    const wx_complete = wx_object.complete
+    wx_object = null
+    PROMISE((SUCCESS) => {
+      const tempFilePath = wx_filePath
+      swan.saveFile({
+        tempFilePath,
+        success: () => {
+          const wx_res = {
+            errMsg: 'saveFileToDisk: ok'
+          }
+          SUCCESS(wx_res)
+        }
+      })
+    }, wx_success, wx_fail, wx_complete)
   }
 
   static getFileSystemManager(object) {
@@ -1058,7 +1075,10 @@ export default class wx {
   }
 
   static reportMonitor() {
-    return console.warn('reportMonitor is not support')
+    const wx_res = {
+      errMsg: 'reportMonitor: ok'
+    }
+    return wx_res
   }
 
   static getOpenData(object) {
@@ -1078,7 +1098,19 @@ export default class wx {
   }
 
   static getAccountInfoSync() {
-    return console.warn('getAccountInfoSync is not support')
+    const wx_res = {
+      miniProgram: {
+        appid: 'wxecb5d25a4a5c222f',
+        envVersion: 'develop',
+        version: ''
+      },
+      plugin: {
+        appid: '',
+        version: ''
+      }
+    }
+    return wx_res
+    // return console.warn('geAccountInfoSync is not support')
   }
 
   static reportAnalytics(object, eventName) {
@@ -1146,6 +1178,30 @@ export default class wx {
   }
 
   static requestSubscribeMessage() {
+    // const wx_tmplIds = wx_object.tmplIds
+    // const wx_success = wx_object.success
+    // const wx_fail = wx_object.fail
+    // const wx_complete = wx_object.complete
+    // wx_object = null
+    // PROMISE((SUCCESS) => {
+    //   TASK(wx_tmplIds, (wx_tmplId, callback) => {
+    //     const swan_templateId = wx_tmplId
+    //     swan.subscribeService({
+    //       templateId: swan_templateId,
+    //       subscribeId: '',
+    //       success: (swan_res) => {
+    //         const TEMPLATE_ID = swan_res.form_id
+    //         callback(TEMPLATE_ID)
+    //       }
+    //     })
+    //   }, (TEMPLATE_IDS) => {
+    //     const wx_res = {
+    //       errMsg: 'subscribeService: ok',
+    //       TEMPLATE_ID: TEMPLATE_IDS
+    //     }
+    //     SUCCESS(wx_res)
+    //   })
+    // }, wx_success, wx_fail, wx_complete)
     return console.warn('requestSubscribeMessage is not support')
   }
 
