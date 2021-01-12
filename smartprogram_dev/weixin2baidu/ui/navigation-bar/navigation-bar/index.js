@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 25);
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -97,38 +97,38 @@ exports.__esModule = true;
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 exports.default = {
-    methods: {
-        selectComponent: function selectComponent(selector) {},
-        selectAllComponents: function selectAllComponents(selctor) {},
-        setStyle: function setStyle(styleDict) {
-            var onekit_styles = '';
-            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-                var _ref;
+  methods: {
+    selectComponent: function selectComponent(selector) {},
+    selectAllComponents: function selectAllComponents(selctor) {},
+    setStyle: function setStyle(styleDict) {
+      var onekit_styles = '';
+      for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+        var _ref;
 
-                if (_isArray) {
-                    if (_i >= _iterator.length) break;
-                    _ref = _iterator[_i++];
-                } else {
-                    _i = _iterator.next();
-                    if (_i.done) break;
-                    _ref = _i.value;
-                }
+        if (_isArray) {
+          if (_i >= _iterator.length) break;
+          _ref = _iterator[_i++];
+        } else {
+          _i = _iterator.next();
+          if (_i.done) break;
+          _ref = _i.value;
+        }
 
-                var cssName = _ref;
+        var cssName = _ref;
 
-                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
-            }
-            this.setData({ onekit_styles: onekit_styles });
-        },
-        addClass: function addClass(className) {},
-        removeClass: function removeClass(className) {},
-        hasClass: function hasClass(className) {},
-        getDataset: function getDataset() {},
-        callMethod: function callMethod(funcName, args) {},
-        requestAnimationFrame: function requestAnimationFrame(callback) {},
-        getState: function getState() {},
-        getComputedStyle: function getComputedStyle(cssNames) {}
-    }
+        onekit_styles += cssName + ':' + styleDict[cssName] + ';';
+      }
+      this.setData({ onekit_styles: onekit_styles });
+    },
+    addClass: function addClass(className) {},
+    removeClass: function removeClass(className) {},
+    hasClass: function hasClass(className) {},
+    getDataset: function getDataset() {},
+    callMethod: function callMethod(funcName, args) {},
+    requestAnimationFrame: function requestAnimationFrame(callback) {},
+    getState: function getState() {},
+    getComputedStyle: function getComputedStyle(cssNames) {}
+  }
 };
 
 /***/ }),
@@ -147,6 +147,62 @@ exports.default = {
     onekitId: ''
   }
 };
+
+/***/ }),
+
+/***/ 17:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _onekit_behavior = __webpack_require__(1);
+
+var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
+
+var _wxs_behavior = __webpack_require__(0);
+
+var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
+
+var _weixin_behavior = __webpack_require__(2);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+Component({
+  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
+  options: {
+    addGlobalClass: true
+  },
+  data: {},
+  properties: {
+    title: {
+      type: String
+    },
+    loading: {
+      type: Boolean,
+      value: false
+    },
+    frontColor: {
+      type: String
+    },
+    backgroundColor: {
+      type: String
+    },
+    colorAnimationDuration: {
+      type: Number,
+      value: 0
+    },
+    colorAnimationTimingFunc: {
+      type: Number,
+      value: 'linear'
+    }
+
+  },
+  methods: {}
+}); /* eslint-disable no-console */
+/* eslint-disable camelcase */
 
 /***/ }),
 
@@ -202,62 +258,6 @@ module.exports = Behavior({
     }
   }
 });
-
-/***/ }),
-
-/***/ 25:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _onekit_behavior = __webpack_require__(1);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _wxs_behavior = __webpack_require__(0);
-
-var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
-
-var _weixin_behavior = __webpack_require__(2);
-
-var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-Component({
-  behaviors: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
-  options: {
-    addGlobalClass: true
-  },
-  data: {},
-  properties: {
-    title: {
-      type: String
-    },
-    loading: {
-      type: Boolean,
-      value: false
-    },
-    frontColor: {
-      type: String
-    },
-    backgroundColor: {
-      type: String
-    },
-    colorAnimationDuration: {
-      type: Number,
-      value: 0
-    },
-    colorAnimationTimingFunc: {
-      type: Number,
-      value: 'linear'
-    }
-
-  },
-  methods: {}
-}); /* eslint-disable no-console */
-/* eslint-disable camelcase */
 
 /***/ })
 

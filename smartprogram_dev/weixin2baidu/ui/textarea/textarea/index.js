@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 38);
+/******/ 	return __webpack_require__(__webpack_require__.s = 28);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -97,38 +97,38 @@ exports.__esModule = true;
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 exports.default = {
-    methods: {
-        selectComponent: function selectComponent(selector) {},
-        selectAllComponents: function selectAllComponents(selctor) {},
-        setStyle: function setStyle(styleDict) {
-            var onekit_styles = '';
-            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-                var _ref;
+  methods: {
+    selectComponent: function selectComponent(selector) {},
+    selectAllComponents: function selectAllComponents(selctor) {},
+    setStyle: function setStyle(styleDict) {
+      var onekit_styles = '';
+      for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+        var _ref;
 
-                if (_isArray) {
-                    if (_i >= _iterator.length) break;
-                    _ref = _iterator[_i++];
-                } else {
-                    _i = _iterator.next();
-                    if (_i.done) break;
-                    _ref = _i.value;
-                }
+        if (_isArray) {
+          if (_i >= _iterator.length) break;
+          _ref = _iterator[_i++];
+        } else {
+          _i = _iterator.next();
+          if (_i.done) break;
+          _ref = _i.value;
+        }
 
-                var cssName = _ref;
+        var cssName = _ref;
 
-                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
-            }
-            this.setData({ onekit_styles: onekit_styles });
-        },
-        addClass: function addClass(className) {},
-        removeClass: function removeClass(className) {},
-        hasClass: function hasClass(className) {},
-        getDataset: function getDataset() {},
-        callMethod: function callMethod(funcName, args) {},
-        requestAnimationFrame: function requestAnimationFrame(callback) {},
-        getState: function getState() {},
-        getComputedStyle: function getComputedStyle(cssNames) {}
-    }
+        onekit_styles += cssName + ':' + styleDict[cssName] + ';';
+      }
+      this.setData({ onekit_styles: onekit_styles });
+    },
+    addClass: function addClass(className) {},
+    removeClass: function removeClass(className) {},
+    hasClass: function hasClass(className) {},
+    getDataset: function getDataset() {},
+    callMethod: function callMethod(funcName, args) {},
+    requestAnimationFrame: function requestAnimationFrame(callback) {},
+    getState: function getState() {},
+    getComputedStyle: function getComputedStyle(cssNames) {}
+  }
 };
 
 /***/ }),
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 38:
+/***/ 28:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -230,28 +230,127 @@ Component({
   options: {
     addGlobalClass: true
   },
+  data: {
+    height: ''
+  },
   properties: {
-    // propName: { // 属性名
-    //   type: String, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
-    //   value: 'val', // 属性初始值（必填）
-    //   observer(newVal, oldVal) {
-    //     // 属性被改变时执行的函数（可选）
-    //   }
+    value: {
+      type: String,
+      value: ''
+    },
+    placeholder: {
+      type: String,
+      value: ''
+    },
+    placeholderStyle: {
+      type: String,
+      value: ''
+    },
+    placeholderClass: {
+      type: String,
+      value: 'input-placeholder'
+    },
+    disabled: {
+      type: Boolean,
+      value: false
+    },
+    maxlength: {
+      type: Number,
+      value: 140
+    },
+    autoFocus: {
+      type: Boolean,
+      value: null
+    },
+    focus: {
+      type: Boolean,
+      value: false
+    },
+    autoHeight: {
+      type: Boolean,
+      value: false
+    },
+    fixed: {
+      type: Boolean,
+      value: false
+    },
+    cursorSpacing: {
+      type: Number,
+      value: 0
+    },
+    cursor: {
+      type: Number,
+      value: -1
+    },
+    showConfirmBar: {
+      type: Boolean,
+      value: true
+    },
+    selectionStart: {
+      type: Number,
+      value: -1
+    },
+    selectionEnd: {
+      type: Number,
+      value: -1
+    },
+    adjustPosition: {
+      type: Boolean,
+      value: true
+    },
+    // 基础库 3.260.6 开始支持
+    holdKeyboard: {
+      type: Boolean,
+      value: false
+    },
+    //
+    disableDefaultPadding: {
+      type: Boolean,
+      value: false
+    },
+    confirmType: {
+      type: String,
+      value: 'done'
+    }
+  },
+  attached: function attached() {
+    // 基础库 3.260.6 开始支持
+    // if (this.properties.holdKeyboard && (this.properties.autoFocus || this.properties.focus)) {
+    //   swan.onKeyboardHeightChange(res => {
+    //     this.setData({
+    //       height: res.height
+    //     })
+    //   })
     // }
+
+    //
+    if (this.properties.disableDefaultPadding) {
+      this.setData({
+        padding: 0
+      });
+    }
   },
 
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached: function attached() {},
-  detached: function detached() {},
-
-
   methods: {
-    onTap: function onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      });
+    textarea_focus: function textarea_focus(e) {
+      this.triggerEvent('Focus', e.detail);
+    },
+    textarea_blur: function textarea_blur(e) {
+      this.triggerEvent('Blur', e.detail);
+    },
+    textarea_linechange: function textarea_linechange(e) {
+      this.triggerEvent('Linechange', e.detail);
+    },
+    textarea_input: function textarea_input(e) {
+      this.triggerEvent('Input', e.detail);
+    },
+    textarea_confirm: function textarea_confirm(e) {
+      this.triggerEvent('Confirm', e.detail);
+    },
+
+    // 做不了
+    trigger_keyboardheightchange: function trigger_keyboardheightchange(e) {
+      this.triggerEvent('Keyboardheightchange', e.detail);
     }
   }
 }); /* eslint-disable no-console */

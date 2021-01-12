@@ -39,7 +39,6 @@ Component({
       type: String,
       value: ''
     },
-    //
     scrollDuration: {
       type: String,
       value: ''
@@ -65,32 +64,26 @@ Component({
       value: ''
     }
   },
-  attached() {
+  onPullDownRefresh() {
     if (this.properties.backgroundTextStyle) {
       swan.startPullDownRefresh({
-        success: res => {
-          console.log('startPullDownRefresh success', res)
+        success: () => {
           const textStyle = this.data.textStyle
           swan.setBackgroundTextStyle({
             textStyle,
             success: () => {
-              console.log('setBackgroundTextStyle success')
               if (textStyle === 'dark') {
                 this.setData('textStyle', 'light')
               } else {
                 this.setData('textStyle', 'dark')
               }
-            },
-            fail: err => {
-              console.log('setBackgroundTextStyle fail', err)
             }
           })
-        },
-        fail: err => {
-          console.log('startPullDownRefresh fail', err)
         }
       })
     }
+  },
+  attached() {
     //
     if (this.properties.backgroundColor && this.properties.backgroundColortop && this.properties.backgroundColorBottom) {
       swan.setBackgroundColor({
@@ -99,16 +92,36 @@ Component({
         backgroundColorBottom: this.properties.backgroundColorBottom
       })
     }
+    //
+    if (this.properties.scrollTop && this.properties.scrollDuration) {
+      swan.pageScrollTo({
+        scrollTop: this.properties.scrollTop,
+        duration: this.properties.scrollDuration
+      })
+    }
+    //
+    let windowWidth
+    let windowHeight
+    swan.getSystemInfo({
+      success(res) {
+        windowWidth = res.windowWidth
+        windowHeight = res.windowHeight
+      }
+    })
+    this.trigger_resize({windowWidth, windowHeight})
   },
 
   detached() {},
 
   methods: {
+    trigger_resize(e) {
+      this.triggerEvent('Resize', e.detail)
+    },
     matchMedia_scroll(e) {
       this.triggerEvent('Scroll', e.detail.scrollTop)
     },
     trigger_scrolldone() {
       this.triggerEvent('Scrolldone')
-    }
+    },
   }
 })

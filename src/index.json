@@ -23,7 +23,6 @@
     "scroll-view":"./ui/scroll-view/scroll-view/index",
     "slider":"./ui//slider/slider/index",
     "swiper":"./ui//swiper/swiper/index",
-    "swiper-item":"./ui//swiper-item/swiper-item/index",
     "text":"./ui/text/text/index",
     "textarea":"./ui/textarea/textarea/index",
     "video":"./ui/video/video/index",

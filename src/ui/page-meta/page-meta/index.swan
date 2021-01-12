@@ -1,5 +1,5 @@
 <scroll-view
-    class="onekit-match-media {{onekitClass}}"
+    class="onekit-page-meta {{onekitClass}}"
     style="{{onekitStyle}}"
     id="{{onekitId}}"
 

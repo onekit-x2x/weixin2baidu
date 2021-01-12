@@ -2,28 +2,28 @@
   <slot name="refresher"></slot>
 </view>
 <scroll-view 
-id="{{onekitId}}"
-class="onekit-scroll-view {{onekitClass}}"
-style="{{onekitStyle}}"
+  id="{{onekitId}}"
+  class="onekit-scroll-view {{onekitClass}}"
+  style="{{onekitStyle}}"
 
-scroll-x="{{scrollX}}"
-scroll-y="{{scrollY}}"
-upper-threshold="{{upperThreshold}}"
-lower-threshold="{{lowerThreshold}}"
-scroll-top="{{scrollTop}}"
-scroll-left="{{scrollLeft}}"
-scroll-into-view="{{scrollIntoView}}"
-scroll-with-animation="{{scrollWithAnimation}}"
-enable-back-to-top ="{{enableBackToTop}}"
+  scroll-x="{{scrollX}}"
+  scroll-y="{{scrollY}}"
+  upper-threshold="{{upperThreshold}}"
+  lower-threshold="{{lowerThreshold}}"
+  scroll-top="{{scrollTop}}"
+  scroll-left="{{scrollLeft}}"
+  scroll-into-view="{{scrollIntoView}}"
+  scroll-with-animation="{{scrollWithAnimation}}"
+  enable-back-to-top ="{{enableBackToTop}}"
 
-bindscrolltoupper="scroll_scrolltoupper"
-bindscrolltolower="scroll_scrolltolower"
-bindscroll="scroll_scroll"
+  bindscrolltoupper="scroll_scrolltoupper"
+  bindscrolltolower="scroll_scrolltolower"
+  bindscroll="scroll_scroll"
 
-bindtouchend="on_Touchend"
-bindtouchmove="on_Touchmove"
-bindtouchstart="on_Touchstart"
-bindtouchcancel="on_Touchcancel"
+  bindtouchend="on_Touchend"
+  bindtouchmove="on_Touchmove"
+  bindtouchstart="on_Touchstart"
+  bindtouchcancel="on_Touchcancel"
 >
 <slot>
 </slot>

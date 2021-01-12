@@ -9,28 +9,125 @@ Component({
   options: {
     addGlobalClass: true,
   },
-  properties: {
-    // propName: { // 属性名
-    //   type: String, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
-    //   value: 'val', // 属性初始值（必填）
-    //   observer(newVal, oldVal) {
-    //     // 属性被改变时执行的函数（可选）
-    //   }
-    // }
+  data: {
+    height: ''
   },
+  properties: {
+    value: {
+      type: String,
+      value: '',
+    },
+    placeholder: {
+      type: String,
+      value: ''
+    },
+    placeholderStyle: {
+      type: String,
+      value: ''
+    },
+    placeholderClass: {
+      type: String,
+      value: 'input-placeholder',
+    },
+    disabled: {
+      type: Boolean,
+      value: false
+    },
+    maxlength: {
+      type: Number,
+      value: 140,
+    },
+    autoFocus: {
+      type: Boolean,
+      value: null,
+    },
+    focus: {
+      type: Boolean,
+      value: false,
+    },
+    autoHeight: {
+      type: Boolean,
+      value: false,
+    },
+    fixed: {
+      type: Boolean,
+      value: false,
+    },
+    cursorSpacing: {
+      type: Number,
+      value: 0,
+    },
+    cursor: {
+      type: Number,
+      value: -1,
+    },
+    showConfirmBar: {
+      type: Boolean,
+      value: true,
+    },
+    selectionStart: {
+      type: Number,
+      value: -1,
+    },
+    selectionEnd: {
+      type: Number,
+      value: -1,
+    },
+    adjustPosition: {
+      type: Boolean,
+      value: true
+    },
+    // 基础库 3.260.6 开始支持
+    holdKeyboard: {
+      type: Boolean,
+      value: false
+    },
+    //
+    disableDefaultPadding: {
+      type: Boolean,
+      value: false,
+    },
+    confirmType: {
+      type: String,
+      value: 'done',
+    },
+  },
+  attached() {
+    // 基础库 3.260.6 开始支持
+    // if (this.properties.holdKeyboard && (this.properties.autoFocus || this.properties.focus)) {
+    //   swan.onKeyboardHeightChange(res => {
+    //     this.setData({
+    //       height: res.height
+    //     })
+    //   })
+    // }
 
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached() {},
-
-  detached() {},
-
-  methods: {
-    onTap() {
+    //
+    if (this.properties.disableDefaultPadding) {
       this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
+        padding: 0
       })
     }
+  },
+  methods: {
+    textarea_focus(e) {
+      this.triggerEvent('Focus', e.detail)
+    },
+    textarea_blur(e) {
+      this.triggerEvent('Blur', e.detail)
+    },
+    textarea_linechange(e) {
+      this.triggerEvent('Linechange', e.detail)
+    },
+    textarea_input(e) {
+      this.triggerEvent('Input', e.detail)
+    },
+    textarea_confirm(e) {
+      this.triggerEvent('Confirm', e.detail)
+    },
+    // 做不了
+    trigger_keyboardheightchange(e) {
+      this.triggerEvent('Keyboardheightchange', e.detail)
+    },
   }
 })

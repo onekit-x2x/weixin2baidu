@@ -1,3 +1,29 @@
-<view class="container">
-    <!--to do-->
-</view>
+<textarea     
+    class="onekit-textarea {{onekitClass}}"
+    style="padding:{{padding}};{{onekitStyle}}"
+    id="{{onekitId}}"
+
+    value="{{value}}"
+    disabled="{{disabled}}"
+    maxlength="{{maxlength}}"
+    placeholder="{{placeholder}}"
+    placeholder-style="{{placeholderStyle}}"
+    placeholder-class="{{placeholderClass}}"
+    auto-height="{{autoHeight}}"
+    cursor="{{cursor}}"
+    auto-focus="{{autoFocus}}"
+    confirm-type="{{confirmType}}"
+    confirm-hold="{{confirmHold}}"
+    focus="{{focus}}"
+    fixed="{{fixed}}"
+    cursor-spacing="{{cursorSpacing}}"
+    show-confirm-bar="{{showConfirmBar}}"
+    selection-start="{{selectionStart}}"
+    selection-end="{{selectionEnd}}"
+    adjust-position="{{adjustPosition}}"
+
+    bindfocus="textarea_focus"
+    bindblur="textarea_blur"
+    bindlinechange="textarea_linechange"
+    bindinput="textarea_input"
+    bindconfirm="textarea_confirm"/>
