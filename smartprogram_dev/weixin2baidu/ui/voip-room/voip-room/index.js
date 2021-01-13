@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 40);
+/******/ 	return __webpack_require__(__webpack_require__.s = 30);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -97,38 +97,38 @@ exports.__esModule = true;
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 exports.default = {
-    methods: {
-        selectComponent: function selectComponent(selector) {},
-        selectAllComponents: function selectAllComponents(selctor) {},
-        setStyle: function setStyle(styleDict) {
-            var onekit_styles = '';
-            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-                var _ref;
+  methods: {
+    selectComponent: function selectComponent(selector) {},
+    selectAllComponents: function selectAllComponents(selctor) {},
+    setStyle: function setStyle(styleDict) {
+      var onekit_styles = '';
+      for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+        var _ref;
 
-                if (_isArray) {
-                    if (_i >= _iterator.length) break;
-                    _ref = _iterator[_i++];
-                } else {
-                    _i = _iterator.next();
-                    if (_i.done) break;
-                    _ref = _i.value;
-                }
+        if (_isArray) {
+          if (_i >= _iterator.length) break;
+          _ref = _iterator[_i++];
+        } else {
+          _i = _iterator.next();
+          if (_i.done) break;
+          _ref = _i.value;
+        }
 
-                var cssName = _ref;
+        var cssName = _ref;
 
-                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
-            }
-            this.setData({ onekit_styles: onekit_styles });
-        },
-        addClass: function addClass(className) {},
-        removeClass: function removeClass(className) {},
-        hasClass: function hasClass(className) {},
-        getDataset: function getDataset() {},
-        callMethod: function callMethod(funcName, args) {},
-        requestAnimationFrame: function requestAnimationFrame(callback) {},
-        getState: function getState() {},
-        getComputedStyle: function getComputedStyle(cssNames) {}
-    }
+        onekit_styles += cssName + ':' + styleDict[cssName] + ';';
+      }
+      this.setData({ onekit_styles: onekit_styles });
+    },
+    addClass: function addClass(className) {},
+    removeClass: function removeClass(className) {},
+    hasClass: function hasClass(className) {},
+    getDataset: function getDataset() {},
+    callMethod: function callMethod(funcName, args) {},
+    requestAnimationFrame: function requestAnimationFrame(callback) {},
+    getState: function getState() {},
+    getComputedStyle: function getComputedStyle(cssNames) {}
+  }
 };
 
 /***/ }),
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 40:
+/***/ 30:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -230,20 +230,27 @@ Component({
   options: {
     addGlobalClass: true
   },
-  properties: {},
-
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
+  properties: {
+    openid: {
+      type: String,
+      value: ''
+    },
+    // 做不了
+    mode: {
+      type: String,
+      value: ''
+    },
+    devicePosition: {
+      type: String,
+      value: 'front'
+    }
+  },
   attached: function attached() {},
-  detached: function detached() {},
 
 
   methods: {
-    onTap: function onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      });
+    voipRoom_error: function voipRoom_error() {
+      this.triggerEvent('Error');
     }
   }
 }); /* eslint-disable no-console */

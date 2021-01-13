@@ -1,9 +1,0 @@
-<rich-text 
-  class="onekit-rich-text {{onekitClass}}" 
-  style="{{onekitStyle}}"
-  id="{{onekitId}}" 
-  nodes="{{nodes}}"
->
-  rich-text 不翻译
-  <slot></slot>
-</rich-text>

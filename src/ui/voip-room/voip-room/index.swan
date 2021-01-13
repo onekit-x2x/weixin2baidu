@@ -1,10 +1,13 @@
-<voip-room
-id="{{onekitId}}"
-class="onekit-voip-room {{onekitClass}}"
-style="{{onekitStyle}}"
-openid="{{openid}}"
-mode="{{mode}}"
-device-position="{{devicePosition}}"
->
+<rtc-room
+    id="{{onekitId}}"
+    class="onekit-voip-room {{onekitClass}}"
+    style="{{onekitStyle}}"
 
-</voip-room>
+    id="{{openid}}"
+    device-position="{{devicePosition}}"
+
+    binderror="voipRoom_error"
+>
+    <rtc-room-item
+        user-id="{{openid}}"></rtc-room-item>
+</rtc-room>

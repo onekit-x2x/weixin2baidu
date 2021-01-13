@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 28);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -97,38 +97,38 @@ exports.__esModule = true;
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 exports.default = {
-    methods: {
-        selectComponent: function selectComponent(selector) {},
-        selectAllComponents: function selectAllComponents(selctor) {},
-        setStyle: function setStyle(styleDict) {
-            var onekit_styles = '';
-            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-                var _ref;
+  methods: {
+    selectComponent: function selectComponent(selector) {},
+    selectAllComponents: function selectAllComponents(selctor) {},
+    setStyle: function setStyle(styleDict) {
+      var onekit_styles = '';
+      for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+        var _ref;
 
-                if (_isArray) {
-                    if (_i >= _iterator.length) break;
-                    _ref = _iterator[_i++];
-                } else {
-                    _i = _iterator.next();
-                    if (_i.done) break;
-                    _ref = _i.value;
-                }
+        if (_isArray) {
+          if (_i >= _iterator.length) break;
+          _ref = _iterator[_i++];
+        } else {
+          _i = _iterator.next();
+          if (_i.done) break;
+          _ref = _i.value;
+        }
 
-                var cssName = _ref;
+        var cssName = _ref;
 
-                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
-            }
-            this.setData({ onekit_styles: onekit_styles });
-        },
-        addClass: function addClass(className) {},
-        removeClass: function removeClass(className) {},
-        hasClass: function hasClass(className) {},
-        getDataset: function getDataset() {},
-        callMethod: function callMethod(funcName, args) {},
-        requestAnimationFrame: function requestAnimationFrame(callback) {},
-        getState: function getState() {},
-        getComputedStyle: function getComputedStyle(cssNames) {}
-    }
+        onekit_styles += cssName + ':' + styleDict[cssName] + ';';
+      }
+      this.setData({ onekit_styles: onekit_styles });
+    },
+    addClass: function addClass(className) {},
+    removeClass: function removeClass(className) {},
+    hasClass: function hasClass(className) {},
+    getDataset: function getDataset() {},
+    callMethod: function callMethod(funcName, args) {},
+    requestAnimationFrame: function requestAnimationFrame(callback) {},
+    getState: function getState() {},
+    getComputedStyle: function getComputedStyle(cssNames) {}
+  }
 };
 
 /***/ }),
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 28:
+/***/ 20:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -230,31 +230,124 @@ Component({
   options: {
     addGlobalClass: true
   },
-  properties: {
-    // propName: { // 属性名
-    //   type: String, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
-    //   value: 'val', // 属性初始值（必填）
-    //   observer(newVal, oldVal) {
-    //     // 属性被改变时执行的函数（可选）
-    //   }
-    // }
+  data: {
+    textStyle: 'dark'
   },
+  properties: {
+    backgroundTextStyle: {
+      type: String,
+      value: ''
+    },
+    backgroundColor: {
+      type: String,
+      value: ''
+    },
+    backgroundColortop: {
+      type: String,
+      value: ''
+    },
+    backgroundColorBottom: {
+      type: String,
+      value: ''
+    },
+    // 做不了
+    rootBackgroundColor: {
+      type: String,
+      value: ''
+    },
+    scrollTop: {
+      type: String,
+      value: ''
+    },
+    scrollDuration: {
+      type: String,
+      value: ''
+    },
+    // 做不了
+    pageStyle: {
+      type: String,
+      value: ''
+    },
+    // 做不了
+    bodyFontSize: {
+      type: String,
+      value: ''
+    },
+    // 做不了
+    rootFontSize: {
+      type: String,
+      value: ''
+    },
+    // 做不了
+    pageOrientation: {
+      type: String,
+      value: ''
+    }
+  },
+  onPullDownRefresh: function onPullDownRefresh() {
+    var _this = this;
 
-  data: {}, // 私有数据，可用于模版渲染
-
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached: function attached() {},
+    if (this.properties.backgroundTextStyle) {
+      swan.startPullDownRefresh({
+        success: function success() {
+          var textStyle = _this.data.textStyle;
+          swan.setBackgroundTextStyle({
+            textStyle: textStyle,
+            success: function success() {
+              if (textStyle === 'dark') {
+                _this.setData('textStyle', 'light');
+              } else {
+                _this.setData('textStyle', 'dark');
+              }
+            }
+          });
+        }
+      });
+    }
+  },
+  attached: function attached() {
+    //
+    if (this.properties.backgroundColor && this.properties.backgroundColortop && this.properties.backgroundColorBottom) {
+      swan.setBackgroundColor({
+        backgroundColor: this.properties.backgroundColor,
+        backgroundColorTop: this.properties.backgroundColortop,
+        backgroundColorBottom: this.properties.backgroundColorBottom
+      });
+    }
+    //
+    if (this.properties.scrollTop && this.properties.scrollDuration) {
+      swan.pageScrollTo({
+        scrollTop: this.properties.scrollTop,
+        duration: this.properties.scrollDuration
+      });
+    }
+    //
+    var windowWidth = void 0;
+    var windowHeight = void 0;
+    swan.getSystemInfo({
+      success: function success(res) {
+        windowWidth = res.windowWidth;
+        windowHeight = res.windowHeight;
+      }
+    });
+    this.trigger_resize({ windowWidth: windowWidth, windowHeight: windowHeight });
+  },
   detached: function detached() {},
 
 
   methods: {
-    onTap: function onTap() {
-      this.setData({
-        // 更新属性和数据的方法与更新页面数据的方法类似
-      });
+    trigger_resize: function trigger_resize(e) {
+      this.triggerEvent('Resize', e.detail);
+    },
+    matchMedia_scroll: function matchMedia_scroll(e) {
+      this.triggerEvent('Scroll', e.detail.scrollTop);
+    },
+    trigger_scrolldone: function trigger_scrolldone() {
+      this.triggerEvent('Scrolldone');
     }
   }
-}); /* eslint-disable no-console */
+}); /* eslint-disable max-len */
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
 
 /***/ })

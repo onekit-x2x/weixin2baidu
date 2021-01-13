@@ -54,21 +54,42 @@ Component({
       type: String,
       value: '0px',
     },
-    //
+    // 做不了
     snapToEdge: {
       type: Boolean,
       value: false,
     },
-    multipleItems: {
+    displayMultipleItems: {
       type: Number,
       value: 1,
     },
-
-    //
     easingFunction: {
       type: String,
-      value: 'default',
+      value: '',
     },
+  },
+  attached() {
+    if (this.properties.easingFunction) {
+      switch (this.properties.easingFunction) {
+        case 'default':
+          this.setData({easingFunction: 'ease'})
+          break
+        case 'linear':
+          this.setData({easingFunction: 'linear'})
+          break
+        case 'easeInCubic':
+          this.setData({easingFunction: 'ease-in'})
+          break
+        case 'easeOutCubic':
+          this.setData({easingFunction: 'ease-out'})
+          break
+        case 'easeInOutCubic':
+          this.setData({easingFunction: 'ease-in-out'})
+          break
+        default:
+          break
+      }
+    }
   },
   methods: {
     swiper_Change(e) {

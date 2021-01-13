@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 35);
+/******/ 	return __webpack_require__(__webpack_require__.s = 26);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -97,38 +97,38 @@ exports.__esModule = true;
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 exports.default = {
-    methods: {
-        selectComponent: function selectComponent(selector) {},
-        selectAllComponents: function selectAllComponents(selctor) {},
-        setStyle: function setStyle(styleDict) {
-            var onekit_styles = '';
-            for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-                var _ref;
+  methods: {
+    selectComponent: function selectComponent(selector) {},
+    selectAllComponents: function selectAllComponents(selctor) {},
+    setStyle: function setStyle(styleDict) {
+      var onekit_styles = '';
+      for (var _iterator = Object.keys(styleDict), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+        var _ref;
 
-                if (_isArray) {
-                    if (_i >= _iterator.length) break;
-                    _ref = _iterator[_i++];
-                } else {
-                    _i = _iterator.next();
-                    if (_i.done) break;
-                    _ref = _i.value;
-                }
+        if (_isArray) {
+          if (_i >= _iterator.length) break;
+          _ref = _iterator[_i++];
+        } else {
+          _i = _iterator.next();
+          if (_i.done) break;
+          _ref = _i.value;
+        }
 
-                var cssName = _ref;
+        var cssName = _ref;
 
-                onekit_styles += cssName + ':' + styleDict[cssName] + ';';
-            }
-            this.setData({ onekit_styles: onekit_styles });
-        },
-        addClass: function addClass(className) {},
-        removeClass: function removeClass(className) {},
-        hasClass: function hasClass(className) {},
-        getDataset: function getDataset() {},
-        callMethod: function callMethod(funcName, args) {},
-        requestAnimationFrame: function requestAnimationFrame(callback) {},
-        getState: function getState() {},
-        getComputedStyle: function getComputedStyle(cssNames) {}
-    }
+        onekit_styles += cssName + ':' + styleDict[cssName] + ';';
+      }
+      this.setData({ onekit_styles: onekit_styles });
+    },
+    addClass: function addClass(className) {},
+    removeClass: function removeClass(className) {},
+    hasClass: function hasClass(className) {},
+    getDataset: function getDataset() {},
+    callMethod: function callMethod(funcName, args) {},
+    requestAnimationFrame: function requestAnimationFrame(callback) {},
+    getState: function getState() {},
+    getComputedStyle: function getComputedStyle(cssNames) {}
+  }
 };
 
 /***/ }),
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 35:
+/***/ 26:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -275,22 +275,44 @@ Component({
       type: String,
       value: '0px'
     },
-    //
+    // 做不了
     snapToEdge: {
       type: Boolean,
       value: false
     },
-    multipleItems: {
+    displayMultipleItems: {
       type: Number,
       value: 1
     },
-
-    //
     easingFunction: {
       type: String,
-      value: 'default'
+      value: ''
     }
   },
+  attached: function attached() {
+    if (this.properties.easingFunction) {
+      switch (this.properties.easingFunction) {
+        case 'default':
+          this.setData({ easingFunction: 'ease' });
+          break;
+        case 'linear':
+          this.setData({ easingFunction: 'linear' });
+          break;
+        case 'easeInCubic':
+          this.setData({ easingFunction: 'ease-in' });
+          break;
+        case 'easeOutCubic':
+          this.setData({ easingFunction: 'ease-out' });
+          break;
+        case 'easeInOutCubic':
+          this.setData({ easingFunction: 'ease-in-out' });
+          break;
+        default:
+          break;
+      }
+    }
+  },
+
   methods: {
     swiper_Change: function swiper_Change(e) {
       this.triggerEvent('Change', e.detail);

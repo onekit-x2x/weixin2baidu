@@ -51,7 +51,7 @@ Component({
       value: ''
     },
   },
-  detached() {
+  attached() {
     if (this.properties.mode === 'selector') {
       this.properties.value = 0
     } else if (this.properties.mode === 'multiSelector') {
