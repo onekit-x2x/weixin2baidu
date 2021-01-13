@@ -1447,7 +1447,7 @@ export default class wx {
   }
 
   static offNetworkStatusChange() {
-    this._NetworkStatusChange = null
+    getApp().onekit_NetworkStatusChange = null
   }
 
   static onNetworkStatusChange(callback) {
@@ -1456,7 +1456,7 @@ export default class wx {
         getApp().onekit_NetworkStatusChange(res)
       }
     })
-    this._NetworkStatusChange = callback
+    getApp().onekit_NetworkStatusChange = callback
   }
 
   //
