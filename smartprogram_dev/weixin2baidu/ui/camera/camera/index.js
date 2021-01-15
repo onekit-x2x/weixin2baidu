@@ -264,7 +264,7 @@ Component({
       swan.scanCode({
         success: function success(res) {
           console.log('scanCode success', res);
-          _this.trigger_scancode();
+          _this._trigger_scancode();
         },
         fail: function fail(err) {
           console.log('scanCode fail', err);
@@ -283,10 +283,10 @@ Component({
     },
 
     // 做不了
-    trigger_initdone: function trigger_initdone(e) {
+    _trigger_initdone: function _trigger_initdone(e) {
       this.triggerEvent('Initdone', e.detail);
     },
-    trigger_scancode: function trigger_scancode() {
+    _trigger_scancode: function _trigger_scancode() {
       this.triggerEvent('Scancode');
     }
   }

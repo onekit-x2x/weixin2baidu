@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 28);
+/******/ 	return __webpack_require__(__webpack_require__.s = 27);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 28:
+/***/ 27:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -349,7 +349,7 @@ Component({
     },
 
     // 做不了
-    trigger_keyboardheightchange: function trigger_keyboardheightchange(e) {
+    _trigger_keyboardheightchange: function _trigger_keyboardheightchange(e) {
       this.triggerEvent('Keyboardheightchange', e.detail);
     }
   }

@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 26);
+/******/ 	return __webpack_require__(__webpack_require__.s = 25);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 26:
+/***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -293,19 +293,29 @@ Component({
     if (this.properties.easingFunction) {
       switch (this.properties.easingFunction) {
         case 'default':
-          this.setData({ easingFunction: 'ease' });
+          this.setData({
+            easingFunction: 'ease'
+          });
           break;
         case 'linear':
-          this.setData({ easingFunction: 'linear' });
+          this.setData({
+            easingFunction: 'linear'
+          });
           break;
         case 'easeInCubic':
-          this.setData({ easingFunction: 'ease-in' });
+          this.setData({
+            easingFunction: 'ease-in'
+          });
           break;
         case 'easeOutCubic':
-          this.setData({ easingFunction: 'ease-out' });
+          this.setData({
+            easingFunction: 'ease-out'
+          });
           break;
         case 'easeInOutCubic':
-          this.setData({ easingFunction: 'ease-in-out' });
+          this.setData({
+            easingFunction: 'ease-in-out'
+          });
           break;
         default:
           break;
@@ -320,7 +330,7 @@ Component({
     swiper_AnimationEnd: function swiper_AnimationEnd(e) {
       this.triggerEvent('AnimationEnd', e.detail);
     },
-    trigger_Transition: function trigger_Transition(e) {
+    _trigger_Transition: function _trigger_Transition(e) {
       this.triggerEvent('Transition', e.detail);
     }
   }

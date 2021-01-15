@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 29);
+/******/ 	return __webpack_require__(__webpack_require__.s = 28);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 29:
+/***/ 28:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -400,7 +400,9 @@ Component({
     var controls = this.properties.controls;
     var show = void 0;
     if (!controls) {
-      this.trigger_controlstoggle({ show: show });
+      this._trigger_controlstoggle({
+        show: show
+      });
     }
   },
 
@@ -428,7 +430,7 @@ Component({
     },
 
     //
-    trigger_progress: function trigger_progress(e) {
+    _trigger_progress: function _trigger_progress(e) {
       this.triggerEvent('Progress', e.detail);
     },
 
@@ -436,18 +438,18 @@ Component({
     video_loadedmetadata: function video_loadedmetadata(e) {
       this.triggerEvent('Loadedmetadata', e.detail);
     },
-    trigger_controlstoggle: function trigger_controlstoggle(e) {
+    _trigger_controlstoggle: function _trigger_controlstoggle(e) {
       this.triggerEvent('Controlstoggle', e.detail);
     },
 
     //
-    trigger_enterpictureinpicture: function trigger_enterpictureinpicture(e) {
+    _trigger_enterpictureinpicture: function _trigger_enterpictureinpicture(e) {
       this.triggerEvent('Enterpictureinpicture', e.detail);
     },
-    trigger_leavepictureinpicture: function trigger_leavepictureinpicture(e) {
+    _trigger_leavepictureinpicture: function _trigger_leavepictureinpicture(e) {
       this.triggerEvent('Leavepictureinpicture', e.detail);
     },
-    trigger_seekcomplete: function trigger_seekcomplete(e) {
+    _trigger_seekcomplete: function _trigger_seekcomplete(e) {
       this.triggerEvent('Seekcomplete', e.detail);
     }
   }

@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 23);
+/******/ 	return __webpack_require__(__webpack_require__.s = 22);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,7 +205,7 @@ module.exports = Behavior({
 
 /***/ }),
 
-/***/ 23:
+/***/ 22:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -293,15 +293,19 @@ Component({
 
     if (this.properties.active) {
       setTimeout(function () {
-        _this.trigger_Activeend(parseInt(curPercent, 10));
+        _this._trigger_Activeend(parseInt(curPercent, 10));
       }, timestamp);
     }
-    this.setData({ activeColor: activeColor });
+    this.setData({
+      activeColor: activeColor
+    });
   },
 
   methods: {
-    trigger_Activeend: function trigger_Activeend(curPercent) {
-      this.triggerEvent('activeend', { curPercent: curPercent });
+    _trigger_Activeend: function _trigger_Activeend(curPercent) {
+      this.triggerEvent('activeend', {
+        curPercent: curPercent
+      });
     }
   }
 }); /* eslint-disable no-console */

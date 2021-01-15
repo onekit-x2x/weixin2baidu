@@ -17,7 +17,6 @@
     "open-data":"./ui/open-data/open-data/index",
     "page-meta":"./ui/page-meta/page-meta/index",
     "picker":"./ui/picker/picker/index",
-    "picker-view":"./ui/picker-view/picker-view/index",
     "progress":"./ui/progress/progress/index",
     "rich-text":"./ui/rich-text/rich-text/index",
     "scroll-view":"./ui/scroll-view/scroll-view/index",

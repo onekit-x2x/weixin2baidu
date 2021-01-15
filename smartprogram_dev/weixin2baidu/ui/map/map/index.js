@@ -330,7 +330,7 @@ Component({
     },
 
     //
-    trigger_labeltap: function trigger_labeltap(e) {
+    _trigger_labeltap: function _trigger_labeltap(e) {
       // console.warn('暂不支持!')
       this.triggerEvent('Labeltap', e.detail);
     },
@@ -351,7 +351,7 @@ Component({
     },
 
     //
-    trigger_anchorpointtap: function trigger_anchorpointtap(e) {
+    _trigger_anchorpointtap: function _trigger_anchorpointtap(e) {
       // console.warn('暂不支持!')
       this.triggerEvent('Anchorpointtap', e.detail);
     },

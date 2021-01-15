@@ -330,19 +330,22 @@ Component({
         windowHeight = res.windowHeight;
       }
     });
-    this.trigger_resize({ windowWidth: windowWidth, windowHeight: windowHeight });
+    this._trigger_resize({
+      windowWidth: windowWidth,
+      windowHeight: windowHeight
+    });
   },
   detached: function detached() {},
 
 
   methods: {
-    trigger_resize: function trigger_resize(e) {
+    _trigger_resize: function _trigger_resize(e) {
       this.triggerEvent('Resize', e.detail);
     },
     matchMedia_scroll: function matchMedia_scroll(e) {
       this.triggerEvent('Scroll', e.detail.scrollTop);
     },
-    trigger_scrolldone: function trigger_scrolldone() {
+    _trigger_scrolldone: function _trigger_scrolldone() {
       this.triggerEvent('Scrolldone');
     }
   }

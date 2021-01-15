@@ -234,7 +234,7 @@ Component({
   didUnmount: function didUnmount() {},
 
   methods: {
-    trigger_error: function trigger_error(e) {
+    _trigger_error: function _trigger_error(e) {
       console.warn('暂不支持!');
       this.triggerEvent('Error', e.detail);
     }
