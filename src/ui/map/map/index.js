@@ -143,8 +143,7 @@ Component({
       value: false
     },
   },
-  observers: {
-  },
+  observers: {},
   attached() {
     const minScale = 3
     const maxScale = 20
@@ -163,7 +162,7 @@ Component({
       this.triggerEvent('Tap', e.detail)
     },
     //
-    trigger_labeltap(e) {
+    _trigger_labeltap(e) {
       // console.warn('暂不支持!')
       this.triggerEvent('Labeltap', e.detail)
     },
@@ -183,7 +182,7 @@ Component({
       this.triggerEvent('Poitap', e.detail)
     },
     //
-    trigger_anchorpointtap(e) {
+    _trigger_anchorpointtap(e) {
       // console.warn('暂不支持!')
       this.triggerEvent('Anchorpointtap', e.detail)
     },

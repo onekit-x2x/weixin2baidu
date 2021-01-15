@@ -116,7 +116,7 @@ Component({
       this.triggerEvent('Confirm', e.detail)
     },
     // 做不了
-    trigger_keyboardheightchange(e) {
+    _trigger_keyboardheightchange(e) {
       this.triggerEvent('Keyboardheightchange', e.detail)
     },
   }

@@ -91,13 +91,13 @@ Component({
     button_getphonenumber(e) {
       this.triggerEvent('Getphonenumber', e.detail)
     },
-    trigger_error(e) { // 做不了
+    _trigger_error(e) { // 做不了
       this.triggerEvent('Error', e.detail)
     },
     button_opensetting(e) {
       this.triggerEvent('Opensetting', e.detail)
     },
-    trigger_launchapp(e) {
+    _trigger_launchapp(e) {
       this.triggerEvent('Launchapp', e.detail)
     }
   }

@@ -108,19 +108,22 @@ Component({
         windowHeight = res.windowHeight
       }
     })
-    this.trigger_resize({windowWidth, windowHeight})
+    this._trigger_resize({
+      windowWidth,
+      windowHeight
+    })
   },
 
   detached() {},
 
   methods: {
-    trigger_resize(e) {
+    _trigger_resize(e) {
       this.triggerEvent('Resize', e.detail)
     },
     matchMedia_scroll(e) {
       this.triggerEvent('Scroll', e.detail.scrollTop)
     },
-    trigger_scrolldone() {
+    _trigger_scrolldone() {
       this.triggerEvent('Scrolldone')
     },
   }

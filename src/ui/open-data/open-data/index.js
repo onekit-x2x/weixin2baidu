@@ -66,10 +66,10 @@ Component({
     //   }
     // })
   },
-  didUpdate() { },
-  didUnmount() { },
+  didUpdate() {},
+  didUnmount() {},
   methods: {
-    trigger_error(e) {
+    _trigger_error(e) {
       console.warn('暂不支持!')
       this.triggerEvent('Error', e.detail)
     },

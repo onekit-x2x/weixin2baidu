@@ -70,14 +70,18 @@ Component({
 
     if (this.properties.active) {
       setTimeout(() => {
-        this.trigger_Activeend(parseInt(curPercent, 10))
+        this._trigger_Activeend(parseInt(curPercent, 10))
       }, timestamp)
     }
-    this.setData({activeColor})
+    this.setData({
+      activeColor
+    })
   },
   methods: {
-    trigger_Activeend(curPercent) {
-      this.triggerEvent('activeend', {curPercent})
+    _trigger_Activeend(curPercent) {
+      this.triggerEvent('activeend', {
+        curPercent
+      })
     }
   }
 })

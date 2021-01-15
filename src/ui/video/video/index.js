@@ -179,7 +179,9 @@ Component({
     const controls = this.properties.controls
     let show
     if (!controls) {
-      this.trigger_controlstoggle({show})
+      this._trigger_controlstoggle({
+        show
+      })
     }
   },
   methods: {
@@ -205,24 +207,24 @@ Component({
       this.triggerEvent('Error')
     },
     //
-    trigger_progress(e) {
+    _trigger_progress(e) {
       this.triggerEvent('Progress', e.detail)
     },
     //
     video_loadedmetadata(e) {
       this.triggerEvent('Loadedmetadata', e.detail)
     },
-    trigger_controlstoggle(e) {
+    _trigger_controlstoggle(e) {
       this.triggerEvent('Controlstoggle', e.detail)
     },
     //
-    trigger_enterpictureinpicture(e) {
+    _trigger_enterpictureinpicture(e) {
       this.triggerEvent('Enterpictureinpicture', e.detail)
     },
-    trigger_leavepictureinpicture(e) {
+    _trigger_leavepictureinpicture(e) {
       this.triggerEvent('Leavepictureinpicture', e.detail)
     },
-    trigger_seekcomplete(e) {
+    _trigger_seekcomplete(e) {
       this.triggerEvent('Seekcomplete', e.detail)
     },
   }

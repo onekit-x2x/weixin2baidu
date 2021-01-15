@@ -39,7 +39,7 @@ Component({
       swan.scanCode({
         success: res => {
           console.log('scanCode success', res)
-          this.trigger_scancode()
+          this._trigger_scancode()
         },
         fail: err => {
           console.log('scanCode fail', err)
@@ -56,10 +56,10 @@ Component({
       this.triggerEvent('error')
     },
     // 做不了
-    trigger_initdone(e) {
+    _trigger_initdone(e) {
       this.triggerEvent('Initdone', e.detail)
     },
-    trigger_scancode() {
+    _trigger_scancode() {
       this.triggerEvent('Scancode')
     }
   }
